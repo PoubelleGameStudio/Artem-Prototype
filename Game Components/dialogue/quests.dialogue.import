@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://ucu6200agt57"
+path="res://.godot/imported/quests.dialogue-cdd6495a14ff37569731f9d14c205983.tres"
+
+[deps]
+
+source_file="res://Game Components/dialogue/quests.dialogue"
+dest_files=["res://.godot/imported/quests.dialogue-cdd6495a14ff37569731f9d14c205983.tres"]
+
+[params]
+

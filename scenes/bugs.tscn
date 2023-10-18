@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://irduxcfs1dd7"]
+
+[ext_resource type="Texture2D" uid="uid://dcuunnkft6r1s" path="res://Sprites/bugs_night01_spritesheet.png" id="1_jnvmi"]
+
+[sub_resource type="GDScript" id="GDScript_yiaxr"]
+script/source = "extends CharacterBody2D
+
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
+
+func _ready():
+	$AnimatedSprite2D.play(\"flies\")
+
+
+func _physics_process(delta):
+	_ready()
+
+
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubsnc"]
+atlas = ExtResource("1_jnvmi")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w1e4"]
+atlas = ExtResource("1_jnvmi")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rqqv"]
+atlas = ExtResource("1_jnvmi")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_455ro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubsnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w1e4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rqqv")
+}],
+"loop": true,
+"name": &"flies",
+"speed": 5.0
+}]
+
+[node name="groundAnim" type="CharacterBody2D"]
+script = SubResource("GDScript_yiaxr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, 294)
+sprite_frames = SubResource("SpriteFrames_455ro")
+animation = &"flies"
+frame_progress = 0.694938
+offset = Vector2(8, -294)

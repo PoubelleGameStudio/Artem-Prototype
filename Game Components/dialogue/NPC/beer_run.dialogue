@@ -1,0 +1,55 @@
+
+
+~ start
+if welcomed ==0
+	=> welcome
+else 
+	=> beer_run
+
+
+
+~ welcome
+[wave amp=25 freq=5]Hedo[/wave]: Everyone writes. Never had the talent though. Maybe I need a muse.
+Artem: I'm not really current with the art world.
+[wave amp=25 freq=5]Hedo[/wave]: I had a full flask. and now the damn thing's gone dry. Creature of Habit.
+Artem: Are you able to recognize this book?
+[wave amp=25 freq=5]Hedo[/wave]: *Vomits* I'd never touch that. Mass Market's for NPCs. I'm strictly hardback.
+- Apologize
+	Artem: Terribly sorry. I prefer a first printing myself, though not quite as passionately.
+	[wave amp=25 freq=5]Hedo[/wave]: Welcome to Grim's Briar
+	set welcomed = 1
+	set State.talking = 0
+- Move along
+	Artem: Well, glad we've set expecations.
+	set welcomed = 1
+	set State.talking = 0
+=> END
+
+	
+~ beer_run
+if quest_db["beer_run"]["Status"] == 0
+	[wave amp=25 freq=5]Hedo[/wave]: fill my flask would you? never know how a deed shines. could be of some value.
+	- Accept
+		Artem: I'll see what I can do.
+		set State.talking = 0
+		do update_quest_status("beer_run",1)
+		=>  END
+	- Decline
+		Artem: Piss off...
+		set State.talking = 0
+		=>  END
+elif quest_db["beer_run"]["Status"] == 1
+	if quest_complete("beer_run") == false
+		[wave amp=25 freq=5]Hedo[/wave]: *The drunken pile of clothes stares off into the void*
+		set State.talking = 0
+	=> END
+	elif quest_complete("beer_run") == true:
+		set gold += 10
+		do update_quest_status("beer_run",2)
+		[wave amp=25 freq=5]Hedo[/wave]: filled my flask you did. The creative juices flow. The gold is all yours. *You receive 10 Gold*
+		set State.talking = 0
+	=> END
+elif quest_db["beer_run"]["Status"] == 2
+	[wave amp=25 freq=5]Hedo[/wave]: leave me to my methods and head east now, muse
+	set State.talking = 0
+=> END

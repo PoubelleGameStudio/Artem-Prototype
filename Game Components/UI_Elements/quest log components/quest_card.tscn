@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cedk2s7on1gg5"]
+
+[ext_resource type="Texture2D" uid="uid://gp2mtifsphtl" path="res://Game Components/UI_Elements/inv_components/inv_background.png" id="1_gh22h"]
+[ext_resource type="Script" path="res://Game Components/UI_Elements/quest log components/quest_card.gd" id="1_hfsoy"]
+[ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="3_2qm0l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyxv6"]
+
+[node name="quest_card" type="Panel"]
+light_mask = 0
+offset_right = 248.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gyxv6")
+script = ExtResource("1_hfsoy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(7.62939e-06, 1.90735e-06)
+scale = Vector2(7.75, 2)
+texture = ExtResource("1_gh22h")
+centered = false
+
+[node name="quest_name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 28.0
+label_settings = ExtResource("3_2qm0l")
+
+[node name="quest_status" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 40.0
+offset_right = 60.0
+offset_bottom = 61.0
+label_settings = ExtResource("3_2qm0l")
+
+[node name="quest_desc" type="Label" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_right = 248.0
+offset_bottom = 40.0
+label_settings = ExtResource("3_2qm0l")
+autowrap_mode = 3

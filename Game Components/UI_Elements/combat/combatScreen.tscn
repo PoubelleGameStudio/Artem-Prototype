@@ -1,0 +1,233 @@
+[gd_scene load_steps=13 format=3 uid="uid://dc6twae4gpv87"]
+
+[ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
+[ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
+[ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="3_6j6h7"]
+[ext_resource type="Theme" uid="uid://c1pntnyw8t772" path="res://themes/hp_bar.tres" id="4_2r65i"]
+[ext_resource type="Texture2D" uid="uid://dv7hntw3bi4xl" path="res://Sprites/Artem/artem_v1_back_walking.png" id="4_43trn"]
+[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="6_p1cl7"]
+[ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="7_6qudd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
+atlas = ExtResource("4_43trn")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v5k2"]
+atlas = ExtResource("4_43trn")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htvib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ife6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v5k2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_bm1tl"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1r4qu"]
+gradient = SubResource("Gradient_bm1tl")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.876068, 0.149573)
+
+[node name="combatScreen" type="Node2D"]
+script = ExtResource("1_mxv4w")
+
+[node name="Node2D" parent="." instance=ExtResource("2_cjm7y")]
+position = Vector2(886, 470)
+scale = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 542)
+
+[node name="player" type="AnimatedSprite2D" parent="."]
+position = Vector2(504, 536)
+scale = Vector2(11.4375, 11.4375)
+sprite_frames = SubResource("SpriteFrames_htvib")
+animation = &"idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(507, 522)
+scale = Vector2(18.5156, 17.5078)
+texture = SubResource("GradientTexture2D_1r4qu")
+
+[node name="combatUI" type="Control" parent="."]
+light_mask = 0
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="combatUI"]
+light_mask = 0
+layout_mode = 0
+offset_left = 1.0
+offset_top = 713.0
+offset_right = 1917.0
+offset_bottom = 1080.0
+color = Color(0.596078, 0, 0.596078, 1)
+
+[node name="Flee" type="Button" parent="combatUI"]
+layout_mode = 0
+offset_left = 1309.0
+offset_top = 803.0
+offset_right = 1564.0
+offset_bottom = 871.0
+text = "flee"
+
+[node name="Inventory" type="Button" parent="combatUI"]
+layout_mode = 0
+offset_left = 817.0
+offset_top = 948.0
+offset_right = 1072.0
+offset_bottom = 1016.0
+text = "inventory"
+
+[node name="return" type="Button" parent="combatUI"]
+visible = false
+layout_mode = 0
+offset_left = 944.702
+offset_top = 949.193
+offset_right = 1199.7
+offset_bottom = 1017.19
+text = "exit"
+
+[node name="combat" type="Node2D" parent="combatUI"]
+
+[node name="Combat" type="Button" parent="combatUI/combat"]
+offset_left = 411.0
+offset_top = 788.0
+offset_right = 666.0
+offset_bottom = 856.0
+text = "combat"
+
+[node name="cast" type="Button" parent="combatUI/combat"]
+visible = false
+offset_left = 409.0
+offset_top = 790.0
+offset_right = 664.0
+offset_bottom = 858.0
+text = "cast a spell
+"
+
+[node name="guard" type="Button" parent="combatUI/combat"]
+visible = false
+offset_left = 413.0
+offset_top = 912.0
+offset_right = 668.0
+offset_bottom = 980.0
+text = "drop the shoulder"
+
+[node name="spell" type="Button" parent="combatUI/combat"]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="enemyHealth" type="ProgressBar" parent="combatUI"]
+layout_mode = 0
+offset_left = 1348.0
+offset_top = 83.0
+offset_right = 1828.0
+offset_bottom = 134.0
+theme = ExtResource("4_2r65i")
+
+[node name="Label" type="Label" parent="combatUI/enemyHealth"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -62.0
+offset_right = 116.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("6_p1cl7")
+theme_override_font_sizes/font_size = 76
+text = "HP"
+
+[node name="playerHealth" type="ProgressBar" parent="combatUI"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 641.0
+offset_right = 572.0
+offset_bottom = 682.0
+theme = ExtResource("4_2r65i")
+theme_override_fonts/font = ExtResource("6_p1cl7")
+theme_override_font_sizes/font_size = 48
+
+[node name="Label" type="Label" parent="combatUI/playerHealth"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -66.0
+offset_right = 124.0
+offset_bottom = -1.0
+theme_override_fonts/font = ExtResource("6_p1cl7")
+theme_override_font_sizes/font_size = 76
+text = "HP"
+
+[node name="spellSelect" type="Node2D" parent="combatUI"]
+
+[node name="spell1" type="OptionButton" parent="combatUI/spellSelect"]
+visible = false
+offset_left = 745.0
+offset_top = 793.0
+offset_right = 829.0
+offset_bottom = 856.0
+
+[node name="spell2" type="OptionButton" parent="combatUI/spellSelect"]
+visible = false
+offset_left = 746.0
+offset_top = 865.0
+offset_right = 830.0
+offset_bottom = 928.0
+
+[node name="spell3" type="OptionButton" parent="combatUI/spellSelect"]
+visible = false
+offset_left = 748.0
+offset_top = 942.0
+offset_right = 832.0
+offset_bottom = 1005.0
+
+[node name="EnemyName" type="Label" parent="combatUI"]
+layout_mode = 0
+offset_left = 1002.0
+offset_top = 81.0
+offset_right = 1314.0
+offset_bottom = 151.0
+theme_override_fonts/font = ExtResource("6_p1cl7")
+theme_override_font_sizes/font_size = 60
+text = "Executioner"
+horizontal_alignment = 2
+
+[node name="enemyCombat" parent="." instance=ExtResource("3_6j6h7")]
+position = Vector2(1551, 285)
+scale = Vector2(5, 5)
+emitter = 1
+
+[node name="inventory_ui" parent="." instance=ExtResource("7_6qudd")]
+visible = false
+offset_left = 702.0
+offset_top = 731.0
+offset_right = 954.0
+offset_bottom = 831.0
+scale = Vector2(2, 2)
+
+[connection signal="pressed" from="combatUI/Flee" to="." method="_on_flee_pressed"]
+[connection signal="pressed" from="combatUI/Inventory" to="." method="_on_inventory_pressed"]
+[connection signal="pressed" from="combatUI/return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="combatUI/combat/Combat" to="." method="_on_combat_pressed"]
+[connection signal="pressed" from="combatUI/combat/cast" to="." method="_on_onepunch_pressed"]
+[connection signal="pressed" from="combatUI/combat/guard" to="." method="_on_combat_pressed"]
+[connection signal="pressed" from="combatUI/combat/spell" to="." method="_on_spell_pressed"]
+[connection signal="item_selected" from="combatUI/spellSelect/spell1" to="." method="_on_spell_1_item_selected"]
+[connection signal="item_selected" from="combatUI/spellSelect/spell2" to="." method="_on_spell_1_item_selected"]
+[connection signal="item_selected" from="combatUI/spellSelect/spell2" to="." method="_on_spell_2_item_selected"]
+[connection signal="item_selected" from="combatUI/spellSelect/spell3" to="." method="_on_spell_1_item_selected"]
+[connection signal="item_selected" from="combatUI/spellSelect/spell3" to="." method="_on_spell_3_item_selected"]
+[connection signal="dead" from="enemyCombat" to="." method="_on_enemy_combat_dead"]
+[connection signal="item_used" from="inventory_ui" to="." method="_on_inventory_ui_item_used"]

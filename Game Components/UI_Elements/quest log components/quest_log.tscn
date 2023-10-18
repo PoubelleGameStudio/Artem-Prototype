@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://5v2qsot5igdu"]
+
+[ext_resource type="PackedScene" uid="uid://cedk2s7on1gg5" path="res://Game Components/UI_Elements/quest log components/quest_card.tscn" id="1_3n006"]
+[ext_resource type="Script" path="res://Game Components/UI_Elements/quest log components/quest_log.gd" id="1_quhll"]
+
+[node name="quest_log" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1756.0
+offset_bottom = -820.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_quhll")
+
+[node name="quests" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 405.0
+theme_override_constants/v_separation = 70
+
+[node name="Panel" parent="quests" instance=ExtResource("1_3n006")]
+visible = false
+layout_mode = 2
+
+[node name="Panel2" parent="quests" instance=ExtResource("1_3n006")]
+visible = false
+layout_mode = 2
+
+[node name="Panel3" parent="quests" instance=ExtResource("1_3n006")]
+visible = false
+layout_mode = 2
+
+[node name="Panel4" parent="quests" instance=ExtResource("1_3n006")]
+visible = false
+layout_mode = 2
+
+[node name="Panel5" parent="quests" instance=ExtResource("1_3n006")]
+visible = false
+layout_mode = 2
+
+[node name="Panel6" parent="quests" instance=ExtResource("1_3n006")]
+visible = false
+layout_mode = 2
+
+[node name="Panel7" parent="quests" instance=ExtResource("1_3n006")]
+visible = false
+layout_mode = 2
+
+[node name="Panel8" parent="quests" instance=ExtResource("1_3n006")]
+visible = false
+layout_mode = 2
+
+[node name="Panel9" parent="quests" instance=ExtResource("1_3n006")]
+visible = false
+layout_mode = 2
+
+[node name="Panel10" parent="quests" instance=ExtResource("1_3n006")]
+visible = false
+layout_mode = 2

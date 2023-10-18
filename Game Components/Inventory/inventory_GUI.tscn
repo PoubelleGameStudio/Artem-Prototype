@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://2of3o36sd6rq"]
+
+[ext_resource type="Script" path="res://Game Components/Inventory/inventory_GUI.gd" id="1_8i475"]
+[ext_resource type="PackedScene" uid="uid://bggg174d0g1dl" path="res://Game Components/Inventory/slot_gui.tscn" id="2_p73rp"]
+[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="3_k1v68"]
+[ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="4_tn881"]
+
+[node name="inventory" type="Control"]
+light_mask = 0
+layout_mode = 3
+anchors_preset = 0
+offset_right = 252.0
+offset_bottom = 100.0
+script = ExtResource("1_8i475")
+
+[node name="grid" type="GridContainer" parent="."]
+layout_mode = 1
+offset_right = 248.0
+offset_bottom = 104.0
+columns = 7
+
+[node name="Slot1" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot2" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot3" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot4" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot5" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot6" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot7" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot8" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot9" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot10" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot11" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot12" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot13" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot14" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot15" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot16" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot17" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot18" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot19" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot20" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Slot21" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 112.0
+offset_right = 104.0
+offset_bottom = 164.0
+theme_override_fonts/font = ExtResource("3_k1v68")
+theme_override_font_sizes/font_size = 19
+text = "E: Drop Item
+Q: Use Item"
+label_settings = ExtResource("4_tn881")
+
+[connection signal="item_used" from="grid/Slot1" to="." method="_on_slot_1_item_used"]
+[connection signal="item_used" from="grid/Slot2" to="." method="_on_slot_2_item_used"]
+[connection signal="item_used" from="grid/Slot3" to="." method="_on_slot_3_item_used"]
+[connection signal="item_used" from="grid/Slot4" to="." method="_on_slot_4_item_used"]
+[connection signal="item_used" from="grid/Slot5" to="." method="_on_slot_5_item_used"]
+[connection signal="item_used" from="grid/Slot6" to="." method="_on_slot_6_item_used"]
+[connection signal="item_used" from="grid/Slot7" to="." method="_on_slot_7_item_used"]
+[connection signal="item_used" from="grid/Slot8" to="." method="_on_slot_8_item_used"]
+[connection signal="item_used" from="grid/Slot9" to="." method="_on_slot_9_item_used"]
+[connection signal="item_used" from="grid/Slot10" to="." method="_on_slot_10_item_used"]
+[connection signal="item_used" from="grid/Slot11" to="." method="_on_slot_11_item_used"]
+[connection signal="item_used" from="grid/Slot12" to="." method="_on_slot_12_item_used"]
+[connection signal="item_used" from="grid/Slot13" to="." method="_on_slot_13_item_used"]
+[connection signal="item_used" from="grid/Slot14" to="." method="_on_slot_14_item_used"]
+[connection signal="item_used" from="grid/Slot15" to="." method="_on_slot_15_item_used"]
+[connection signal="item_used" from="grid/Slot16" to="." method="_on_slot_16_item_used"]
+[connection signal="item_used" from="grid/Slot17" to="." method="_on_slot_17_item_used"]
+[connection signal="item_used" from="grid/Slot18" to="." method="_on_slot_18_item_used"]
+[connection signal="item_used" from="grid/Slot19" to="." method="_on_slot_19_item_used"]
+[connection signal="item_used" from="grid/Slot20" to="." method="_on_slot_20_item_used"]
+[connection signal="item_used" from="grid/Slot21" to="." method="_on_slot_21_item_used"]

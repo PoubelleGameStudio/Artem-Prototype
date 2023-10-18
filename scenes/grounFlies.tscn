@@ -1,0 +1,905 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1qsdu4h1skul"]
+
+[ext_resource type="PackedScene" uid="uid://irduxcfs1dd7" path="res://scenes/bugs.tscn" id="1_5g7ot"]
+
+[node name="groundFlies" type="Node"]
+
+[node name="b_row1" type="Node" parent="."]
+
+[node name="groundAnim" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(-128, 104)
+
+[node name="groundAnim11" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(-80, 104)
+
+[node name="groundAnim12" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(-32, 104)
+
+[node name="groundAnim13" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(16, 104)
+
+[node name="groundAnim14" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(64, 104)
+
+[node name="groundAnim15" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(112, 104)
+
+[node name="groundAnim16" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(160, 104)
+
+[node name="groundAnim17" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(208, 104)
+
+[node name="groundAnim18" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(256, 104)
+
+[node name="groundAnim19" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(392, 104)
+
+[node name="groundAnim20" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(352, 104)
+
+[node name="groundAnim21" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(304, 104)
+
+[node name="groundAnim2" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(-368, 104)
+
+[node name="groundAnim3" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(-320, 104)
+
+[node name="groundAnim4" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(-272, 104)
+
+[node name="groundAnim5" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(-224, 104)
+
+[node name="groundAnim6" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(-176, 104)
+
+[node name="groundAnim7" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(536, 104)
+
+[node name="groundAnim8" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(488, 104)
+
+[node name="groundAnim9" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(440, 104)
+
+[node name="groundAnim10" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(-416, 104)
+
+[node name="groundAnim22" parent="b_row1" instance=ExtResource("1_5g7ot")]
+position = Vector2(-464, 104)
+
+[node name="b_row2" type="Node" parent="."]
+
+[node name="groundAnim" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(-128, 152)
+
+[node name="groundAnim11" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(-80, 152)
+
+[node name="groundAnim12" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(-32, 152)
+
+[node name="groundAnim13" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(16, 152)
+
+[node name="groundAnim14" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(64, 152)
+
+[node name="groundAnim15" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(112, 152)
+
+[node name="groundAnim16" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(160, 152)
+
+[node name="groundAnim17" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(208, 152)
+
+[node name="groundAnim18" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(256, 152)
+
+[node name="groundAnim19" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(392, 152)
+
+[node name="groundAnim20" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(352, 152)
+
+[node name="groundAnim21" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(304, 152)
+
+[node name="groundAnim2" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(-368, 152)
+
+[node name="groundAnim3" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(-320, 152)
+
+[node name="groundAnim4" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(-272, 152)
+
+[node name="groundAnim5" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(-224, 152)
+
+[node name="groundAnim6" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(-176, 152)
+
+[node name="groundAnim7" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(536, 152)
+
+[node name="groundAnim8" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(488, 152)
+
+[node name="groundAnim9" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(440, 152)
+
+[node name="groundAnim10" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(-416, 152)
+
+[node name="groundAnim22" parent="b_row2" instance=ExtResource("1_5g7ot")]
+position = Vector2(-464, 152)
+
+[node name="b_row3" type="Node" parent="."]
+
+[node name="groundAnim" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(-128, 200)
+
+[node name="groundAnim11" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(-80, 200)
+
+[node name="groundAnim12" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(-32, 200)
+
+[node name="groundAnim13" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(16, 200)
+
+[node name="groundAnim14" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(64, 200)
+
+[node name="groundAnim15" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(112, 200)
+
+[node name="groundAnim16" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(160, 200)
+
+[node name="groundAnim17" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(208, 200)
+
+[node name="groundAnim18" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(256, 200)
+
+[node name="groundAnim19" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(392, 200)
+
+[node name="groundAnim20" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(352, 200)
+
+[node name="groundAnim21" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(304, 200)
+
+[node name="groundAnim2" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(-368, 200)
+
+[node name="groundAnim3" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(-320, 200)
+
+[node name="groundAnim4" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(-272, 200)
+
+[node name="groundAnim5" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(-224, 200)
+
+[node name="groundAnim6" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(-176, 200)
+
+[node name="groundAnim7" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(536, 200)
+
+[node name="groundAnim8" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(488, 200)
+
+[node name="groundAnim9" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(440, 200)
+
+[node name="groundAnim10" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(-416, 200)
+
+[node name="groundAnim22" parent="b_row3" instance=ExtResource("1_5g7ot")]
+position = Vector2(-464, 200)
+
+[node name="b_row4" type="Node" parent="."]
+
+[node name="groundAnim" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(-128, 248)
+
+[node name="groundAnim22" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(-464, 248)
+
+[node name="groundAnim10" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(-416, 248)
+
+[node name="groundAnim9" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(440, 248)
+
+[node name="groundAnim8" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(488, 248)
+
+[node name="groundAnim7" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(536, 248)
+
+[node name="groundAnim6" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(-176, 248)
+
+[node name="groundAnim5" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(-224, 248)
+
+[node name="groundAnim4" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(-272, 248)
+
+[node name="groundAnim3" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(-320, 248)
+
+[node name="groundAnim2" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(-368, 248)
+
+[node name="groundAnim21" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(304, 248)
+
+[node name="groundAnim20" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(352, 248)
+
+[node name="groundAnim19" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(392, 248)
+
+[node name="groundAnim18" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(256, 248)
+
+[node name="groundAnim17" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(208, 248)
+
+[node name="groundAnim16" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(160, 248)
+
+[node name="groundAnim15" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(112, 248)
+
+[node name="groundAnim14" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(64, 248)
+
+[node name="groundAnim13" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(16, 248)
+
+[node name="groundAnim12" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(-32, 248)
+
+[node name="groundAnim11" parent="b_row4" instance=ExtResource("1_5g7ot")]
+position = Vector2(-80, 248)
+
+[node name="t_row1" type="Node" parent="."]
+
+[node name="groundAnim" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(-128, 56)
+
+[node name="groundAnim11" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-80, 56)
+
+[node name="groundAnim12" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-32, 56)
+
+[node name="groundAnim13" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(16, 56)
+
+[node name="groundAnim14" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(64, 56)
+
+[node name="groundAnim15" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(112, 56)
+
+[node name="groundAnim16" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(160, 56)
+
+[node name="groundAnim17" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(208, 56)
+
+[node name="groundAnim18" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(256, 56)
+
+[node name="groundAnim19" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(392, 56)
+
+[node name="groundAnim20" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(352, 56)
+
+[node name="groundAnim21" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(304, 56)
+
+[node name="groundAnim2" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-368, 56)
+
+[node name="groundAnim3" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-320, 56)
+
+[node name="groundAnim4" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-272, 56)
+
+[node name="groundAnim5" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-224, 56)
+
+[node name="groundAnim6" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-176, 56)
+
+[node name="groundAnim7" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(536, 56)
+
+[node name="groundAnim8" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(488, 56)
+
+[node name="groundAnim9" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(440, 56)
+
+[node name="groundAnim10" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-416, 56)
+
+[node name="groundAnim22" parent="t_row1" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-464, 56)
+
+[node name="groundAnim" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(336, -192)
+
+[node name="groundAnim11" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(384, -192)
+
+[node name="groundAnim12" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(432, -192)
+
+[node name="groundAnim13" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(480, -192)
+
+[node name="groundAnim14" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(528, -192)
+
+[node name="groundAnim15" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(576, -192)
+
+[node name="groundAnim16" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(624, -192)
+
+[node name="groundAnim17" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(672, -192)
+
+[node name="groundAnim18" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(720, -192)
+
+[node name="groundAnim19" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(856, -192)
+
+[node name="groundAnim20" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(816, -192)
+
+[node name="groundAnim21" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(768, -192)
+
+[node name="groundAnim2" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(96, -192)
+
+[node name="groundAnim3" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(144, -192)
+
+[node name="groundAnim4" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(192, -192)
+
+[node name="groundAnim5" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(240, -192)
+
+[node name="groundAnim6" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(288, -192)
+
+[node name="groundAnim7" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(1000, -192)
+
+[node name="groundAnim8" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(952, -192)
+
+[node name="groundAnim9" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(904, -192)
+
+[node name="groundAnim10" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(48, -192)
+
+[node name="groundAnim22" parent="t_row1/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(0, -192)
+
+[node name="groundAnim" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(336, -48)
+
+[node name="groundAnim11" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(384, -48)
+
+[node name="groundAnim12" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(432, -48)
+
+[node name="groundAnim13" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(480, -48)
+
+[node name="groundAnim14" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(528, -48)
+
+[node name="groundAnim15" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(576, -48)
+
+[node name="groundAnim16" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(624, -48)
+
+[node name="groundAnim17" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(672, -48)
+
+[node name="groundAnim18" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(720, -48)
+
+[node name="groundAnim19" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(856, -48)
+
+[node name="groundAnim20" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(816, -48)
+
+[node name="groundAnim21" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(768, -48)
+
+[node name="groundAnim2" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(96, -48)
+
+[node name="groundAnim3" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(144, -48)
+
+[node name="groundAnim4" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(192, -48)
+
+[node name="groundAnim5" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(240, -48)
+
+[node name="groundAnim6" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(288, -48)
+
+[node name="groundAnim7" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(1000, -48)
+
+[node name="groundAnim8" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(952, -48)
+
+[node name="groundAnim9" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(904, -48)
+
+[node name="groundAnim10" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(48, -48)
+
+[node name="groundAnim22" parent="t_row1/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(0, -48)
+
+[node name="groundAnim" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(336, -48)
+
+[node name="groundAnim11" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(384, -48)
+
+[node name="groundAnim12" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(432, -48)
+
+[node name="groundAnim13" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(480, -48)
+
+[node name="groundAnim14" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(528, -48)
+
+[node name="groundAnim15" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(576, -48)
+
+[node name="groundAnim16" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(624, -48)
+
+[node name="groundAnim17" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(672, -48)
+
+[node name="groundAnim18" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(720, -48)
+
+[node name="groundAnim19" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(856, -48)
+
+[node name="groundAnim20" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(816, -48)
+
+[node name="groundAnim21" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(768, -48)
+
+[node name="groundAnim2" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(96, -48)
+
+[node name="groundAnim3" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(144, -48)
+
+[node name="groundAnim4" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(192, -48)
+
+[node name="groundAnim5" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(240, -48)
+
+[node name="groundAnim6" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(288, -48)
+
+[node name="groundAnim7" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(1000, -48)
+
+[node name="groundAnim8" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(952, -48)
+
+[node name="groundAnim9" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(904, -48)
+
+[node name="groundAnim10" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(48, -48)
+
+[node name="groundAnim22" parent="t_row1/groundAnim22/groundAnim22/groundAnim22" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(0, -48)
+
+[node name="t_row2" type="Node" parent="."]
+
+[node name="groundAnim" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-128, 8)
+
+[node name="groundAnim11" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-80, 8)
+
+[node name="groundAnim12" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-32, 8)
+
+[node name="groundAnim13" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(16, 8)
+
+[node name="groundAnim14" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(64, 8)
+
+[node name="groundAnim15" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(112, 8)
+
+[node name="groundAnim16" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(160, 8)
+
+[node name="groundAnim17" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(208, 8)
+
+[node name="groundAnim18" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(256, 8)
+
+[node name="groundAnim19" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(392, 8)
+
+[node name="groundAnim20" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(352, 8)
+
+[node name="groundAnim21" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(304, 8)
+
+[node name="groundAnim2" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-368, 8)
+
+[node name="groundAnim3" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-320, 8)
+
+[node name="groundAnim4" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-272, 8)
+
+[node name="groundAnim5" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-224, 8)
+
+[node name="groundAnim6" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-176, 8)
+
+[node name="groundAnim7" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(536, 8)
+
+[node name="groundAnim8" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(488, 8)
+
+[node name="groundAnim9" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(440, 8)
+
+[node name="groundAnim10" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-416, 8)
+
+[node name="groundAnim22" parent="t_row2" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-464, 8)
+
+[node name="t_row3" type="Node" parent="."]
+
+[node name="groundAnim" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-128, -40)
+
+[node name="groundAnim11" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-80, -40)
+
+[node name="groundAnim12" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-32, -40)
+
+[node name="groundAnim13" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(16, -40)
+
+[node name="groundAnim14" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(64, -40)
+
+[node name="groundAnim15" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(112, -40)
+
+[node name="groundAnim16" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(160, -40)
+
+[node name="groundAnim17" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(208, -40)
+
+[node name="groundAnim18" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(256, -40)
+
+[node name="groundAnim19" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(392, -40)
+
+[node name="groundAnim20" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(352, -40)
+
+[node name="groundAnim21" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(304, -40)
+
+[node name="groundAnim2" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-368, -40)
+
+[node name="groundAnim3" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-320, -40)
+
+[node name="groundAnim4" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-272, -40)
+
+[node name="groundAnim5" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-224, -40)
+
+[node name="groundAnim6" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-176, -40)
+
+[node name="groundAnim7" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(536, -40)
+
+[node name="groundAnim8" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(488, -40)
+
+[node name="groundAnim9" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(440, -40)
+
+[node name="groundAnim10" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-416, -40)
+
+[node name="groundAnim22" parent="t_row3" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-464, -40)
+
+[node name="t_row4" type="Node" parent="."]
+
+[node name="groundAnim" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-128, -88)
+
+[node name="groundAnim11" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-80, -88)
+
+[node name="groundAnim12" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-32, -88)
+
+[node name="groundAnim13" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(16, -88)
+
+[node name="groundAnim14" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(64, -88)
+
+[node name="groundAnim15" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(112, -88)
+
+[node name="groundAnim16" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(160, -88)
+
+[node name="groundAnim17" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(208, -88)
+
+[node name="groundAnim18" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(256, -88)
+
+[node name="groundAnim19" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(392, -88)
+
+[node name="groundAnim20" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(352, -88)
+
+[node name="groundAnim21" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(304, -88)
+
+[node name="groundAnim2" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-368, -88)
+
+[node name="groundAnim3" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-320, -88)
+
+[node name="groundAnim4" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-272, -88)
+
+[node name="groundAnim5" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-224, -88)
+
+[node name="groundAnim6" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-176, -88)
+
+[node name="groundAnim7" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(536, -88)
+
+[node name="groundAnim8" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(488, -88)
+
+[node name="groundAnim9" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(440, -88)
+
+[node name="groundAnim10" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-416, -88)
+
+[node name="groundAnim22" parent="t_row4" instance=ExtResource("1_5g7ot")]
+z_index = -1
+position = Vector2(-464, -88)

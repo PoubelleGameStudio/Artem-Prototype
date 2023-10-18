@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://1rgsd8o7wly4"
+path="res://.godot/imported/beer_run.dialogue-155ff93af6a1c4fd4fdb360e4a82c44b.tres"
+
+[deps]
+
+source_file="res://Game Components/dialogue/NPC/beer_run.dialogue"
+dest_files=["res://.godot/imported/beer_run.dialogue-155ff93af6a1c4fd4fdb360e4a82c44b.tres"]
+
+[params]
+

@@ -1,0 +1,253 @@
+[gd_scene load_steps=21 format=3 uid="uid://kwj5oy4mtbpt"]
+
+[ext_resource type="Texture2D" uid="uid://cbooikvj3j2m8" path="res://Art/object sheets/Dungeon.png" id="1_cfn18"]
+[ext_resource type="Texture2D" uid="uid://cuvsjlbkrxrkj" path="res://Art/ground/backgrounds/Purple_Nebula_04-1024x1024.png" id="1_hk5p3"]
+[ext_resource type="Script" path="res://scripts/level_load.gd" id="1_l6o2q"]
+[ext_resource type="PackedScene" uid="uid://cxwgljlj2pfk1" path="res://scenes/beggar.tscn" id="2_4xq2b"]
+[ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="3_3le5n"]
+[ext_resource type="Texture2D" uid="uid://bpf8etnnh887b" path="res://Art/walls/cobblestone_wall_vines001.png" id="3_qh5q8"]
+[ext_resource type="Texture2D" uid="uid://cajwxlip58ygf" path="res://Art/walls/ironFence_night02.png" id="4_c5pnr"]
+[ext_resource type="Texture2D" uid="uid://dm05foi04h1xs" path="res://Art/doors/door_001.png" id="4_hpjab"]
+[ext_resource type="PackedScene" uid="uid://b5vowrw45hndi" path="res://scenes/player.tscn" id="5_lcr0j"]
+[ext_resource type="Texture2D" uid="uid://5afinr73yrjd" path="res://Art/ground/cobblestone_dirty_night01.png" id="5_o6wft"]
+[ext_resource type="Texture2D" uid="uid://chr2qe76qou5" path="res://Art/ground/cobblestone_night01.png" id="6_0ib7d"]
+[ext_resource type="AudioStream" uid="uid://x732p2bj2245" path="res://sounds/levelMusic/warehouse lounge.wav" id="11_17j8u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mr0j"]
+texture = ExtResource("1_cfn18")
+0:7/0 = 0
+0:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:7/0/physics_layer_0/angular_velocity = 0.0
+1:7/size_in_atlas = Vector2i(6, 1)
+1:7/0 = 0
+1:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:7/0/physics_layer_0/angular_velocity = 0.0
+7:7/0 = 0
+7:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:7/0/physics_layer_0/angular_velocity = 0.0
+0:1/size_in_atlas = Vector2i(8, 6)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:44/size_in_atlas = Vector2i(4, 2)
+1:44/0 = 0
+1:44/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:44/0/physics_layer_0/angular_velocity = 0.0
+1:44/0/physics_layer_0/polygon_0/points = PackedVector2Array(-62, 2, 64.5, 2, 63.5, 31, -63.5, 30.5)
+0:15/size_in_atlas = Vector2i(2, 1)
+0:15/0 = 0
+0:15/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:15/0/physics_layer_0/angular_velocity = 0.0
+0:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.5, -8, 16.5, -8.5, 16.5, 9, -17, 9)
+0:17/size_in_atlas = Vector2i(8, 4)
+0:17/0 = 0
+0:17/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:17/0/physics_layer_0/angular_velocity = 0.0
+0:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-62, 2, 64.5, 2, 63.5, 31, -63.5, 30.5)
+0:28/size_in_atlas = Vector2i(4, 4)
+0:28/0 = 0
+0:28/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:28/0/physics_layer_0/angular_velocity = 0.0
+6:38/size_in_atlas = Vector2i(2, 2)
+6:38/0 = 0
+6:38/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:38/0/physics_layer_0/angular_velocity = 0.0
+4:49/size_in_atlas = Vector2i(2, 3)
+4:49/0 = 0
+4:49/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:49/0/physics_layer_0/angular_velocity = 0.0
+4:49/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.5, -12, 13.5, -11.5, 11.5, 16, -2.5, 16.5, -13, 16.5)
+0:38/size_in_atlas = Vector2i(2, 2)
+0:38/0 = 0
+0:38/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:38/0/physics_layer_0/angular_velocity = 0.0
+2:38/size_in_atlas = Vector2i(2, 2)
+2:38/0 = 0
+2:38/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:38/0/physics_layer_0/angular_velocity = 0.0
+4:38/size_in_atlas = Vector2i(2, 2)
+4:38/0 = 0
+4:38/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:38/0/physics_layer_0/angular_velocity = 0.0
+4:40/size_in_atlas = Vector2i(4, 2)
+4:40/0 = 0
+4:40/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:40/0/physics_layer_0/angular_velocity = 0.0
+0:51/size_in_atlas = Vector2i(2, 2)
+0:51/0 = 0
+0:51/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:51/0/physics_layer_0/angular_velocity = 0.0
+6:44/size_in_atlas = Vector2i(2, 4)
+6:44/0 = 0
+6:44/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:44/0/physics_layer_0/angular_velocity = 0.0
+0:48/size_in_atlas = Vector2i(4, 2)
+0:48/0 = 0
+0:48/0/y_sort_origin = -50
+0:48/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:48/0/physics_layer_0/angular_velocity = 0.0
+0:48/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20.5, -14, 20, -13.5, 18, 13, -19.5, 13.5)
+0:36/size_in_atlas = Vector2i(2, 2)
+0:36/0 = 0
+0:36/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:36/0/physics_layer_0/angular_velocity = 0.0
+0:12/size_in_atlas = Vector2i(2, 3)
+0:12/0 = 0
+0:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:12/0/physics_layer_0/angular_velocity = 0.0
+2:12/size_in_atlas = Vector2i(2, 4)
+2:12/0 = 0
+2:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:12/0/physics_layer_0/angular_velocity = 0.0
+6:24/size_in_atlas = Vector2i(1, 2)
+6:24/0 = 0
+6:24/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:24/0/physics_layer_0/angular_velocity = 0.0
+7:22/size_in_atlas = Vector2i(1, 2)
+7:22/0 = 0
+7:22/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:22/0/physics_layer_0/angular_velocity = 0.0
+0:23/size_in_atlas = Vector2i(1, 4)
+0:23/0 = 0
+0:23/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:23/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_egsyl"]
+texture = ExtResource("3_qh5q8")
+0:6/size_in_atlas = Vector2i(12, 6)
+0:6/0 = 0
+0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:6/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g7vr6"]
+texture = ExtResource("4_c5pnr")
+0:0/size_in_atlas = Vector2i(3, 3)
+0:0/0 = 0
+0:0/0/y_sort_origin = -16
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-23, -17.5, 24, -16, 22, 26, -4, 26, -26, 27)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pwb62"]
+texture = ExtResource("5_o6wft")
+0:0/size_in_atlas = Vector2i(3, 3)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wia4n"]
+texture = ExtResource("6_0ib7d")
+0:0/size_in_atlas = Vector2i(3, 3)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_eec33"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_6mr0j")
+sources/1 = SubResource("TileSetAtlasSource_egsyl")
+sources/2 = SubResource("TileSetAtlasSource_g7vr6")
+sources/3 = SubResource("TileSetAtlasSource_pwb62")
+sources/4 = SubResource("TileSetAtlasSource_wia4n")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18bxi"]
+atlas = ExtResource("4_hpjab")
+region = Rect2(0, 0, 46, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rn5yi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18bxi")
+}],
+"loop": true,
+"name": &"door",
+"speed": 5.0
+}]
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_l6o2q")
+level_name = "GB_inn"
+
+[node name="backgrounds" type="Node2D" parent="."]
+
+[node name="space" type="Sprite2D" parent="backgrounds"]
+z_index = -1
+position = Vector2(-584, 24)
+texture = ExtResource("1_hk5p3")
+
+[node name="space2" type="Sprite2D" parent="backgrounds"]
+z_index = -1
+position = Vector2(440, 24)
+texture = ExtResource("1_hk5p3")
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_eec33")
+format = 2
+layer_0/name = "floor"
+layer_0/y_sort_enabled = true
+layer_0/z_index = -1
+layer_0/tile_data = PackedInt32Array(-196604, 0, 36, -262140, 0, 36, 524281, 4, 0, 524284, 4, 0, 524287, 4, 0, 458754, 4, 0, 458757, 4, 0, 458760, 4, 0, 458763, 4, 0, 458766, 4, 0, 262158, 4, 0, 65550, 4, 0, -65522, 4, 0, -65525, 4, 0, 131083, 4, 0, 262155, 4, 0, 262152, 4, 0, 65544, 4, 0, -65528, 4, 0, -65531, 4, 0, 131077, 4, 0, 196613, 4, 0, 327685, 4, 0, 327682, 4, 0, 196610, 4, 0, 65538, 4, 0, -131070, 4, 0, -1, 4, 0, 131071, 4, 0, 327679, 4, 0, 327676, 4, 0, 327673, 4, 0, 131065, 4, 0, 131068, 4, 0, -65540, 4, 0, -7, 4, 0)
+layer_1/name = "backwall"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(-196613, 0, 17, -196610, 262144, 49, -131074, 262144, 49, -262142, 0, 17, -196603, 0, 28, -196601, 0, 36, -262135, 0, 17, -262133, 0, 17, 262135, 458752, 22, 131063, 458752, 22, -9, 458752, 22, -131081, 458752, 22, -196617, 458752, 22, 393207, 458752, 22, 524279, 458752, 22, 589815, 458752, 22, -262129, 0, 23)
+layer_2/name = "furniture"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = true
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(196607, 0, 48)
+layer_3/name = "bottom_barrier"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = true
+layer_3/y_sort_origin = 0
+layer_3/z_index = 1
+layer_3/tile_data = PackedInt32Array(589838, 0, 15, 589837, 0, 15, 589836, 0, 15, 589835, 0, 15, 589834, 0, 15, 589833, 0, 15, 589832, 0, 15, 589831, 0, 15, 589830, 0, 15, 589829, 0, 15, 589828, 0, 15, 589827, 0, 15, 589826, 0, 15, 589825, 0, 15, 589824, 0, 15, 655359, 0, 15, 655358, 0, 15, 655357, 0, 15, 655356, 0, 15, 655355, 0, 15, 655354, 0, 15, 655353, 0, 15, 589839, 0, 15, 655352, 0, 15)
+
+[node name="quest givers" type="Node2D" parent="."]
+
+[node name="front_desk" parent="quest givers" instance=ExtResource("2_4xq2b")]
+z_index = -1
+position = Vector2(-8, 16)
+sprite = "front_desk"
+
+[node name="quest_interaction" parent="quest givers/front_desk" instance=ExtResource("3_3le5n")]
+position = Vector2(0.000131607, 13.1291)
+scale = Vector2(0.547013, 0.547013)
+monitoring = true
+interact_label = "front_desk"
+interact_type = "quest_giver"
+interact_value = "no"
+
+[node name="Gateways" type="Node2D" parent="."]
+
+[node name="Door" type="AnimatedSprite2D" parent="Gateways"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(72, 128)
+sprite_frames = SubResource("SpriteFrames_rn5yi")
+animation = &"door"
+
+[node name="InteractArea" parent="Gateways/Door" instance=ExtResource("3_3le5n")]
+z_index = 1
+position = Vector2(-8, 6)
+interact_label = "grimsBriar.tscn"
+interact_type = "gateway"
+interact_value = "out"
+
+[node name="player" parent="." instance=ExtResource("5_lcr0j")]
+position = Vector2(64, 104)
+
+[node name="mapBorders" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_17j8u")
+volume_db = -13.371
+autoplay = true

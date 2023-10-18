@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b8gkxf5wk0pdu"]
+
+[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="1_cllav"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_cllav")
+font_size = 19
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0

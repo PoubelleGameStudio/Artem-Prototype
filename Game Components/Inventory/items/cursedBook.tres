@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bobpx3as5osm4"]
+
+[ext_resource type="Texture2D" uid="uid://s50a1v82wb2l" path="res://Art/inv_Art/cursed book.png" id="1_g0c0k"]
+[ext_resource type="Script" path="res://addons/inventory-system/core/inventory_item.gd" id="1_gxowb"]
+
+[resource]
+script = ExtResource("1_gxowb")
+id = 0
+max_stack = 1
+name = "Cursed Book"
+icon = ExtResource("1_g0c0k")
+weight = 1.0
+properties = {
+"questItem": true
+}
+categories = Array[Resource("res://addons/inventory-system/core/item_category.gd")]([])

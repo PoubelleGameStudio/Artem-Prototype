@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://bggg174d0g1dl"]
+
+[ext_resource type="Texture2D" uid="uid://gp2mtifsphtl" path="res://Game Components/UI_Elements/inv_components/inv_background.png" id="1_jtfpy"]
+[ext_resource type="Script" path="res://Game Components/Inventory/slot_gui.gd" id="1_s1lfe"]
+[ext_resource type="Texture2D" uid="uid://bsdp20j080nbf" path="res://Game Components/UI_Elements/inv_components/selected_indicator.png" id="2_bs481"]
+[ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="4_6nv2q"]
+[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="5_dnc0k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mpnt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cd28l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkxse"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htl22"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4bib"]
+
+[node name="Panel" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+light_mask = 0
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_s1lfe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 0
+texture = ExtResource("1_jtfpy")
+centered = false
+
+[node name="itemArt" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(14.1729, 15.1665)
+
+[node name="indicator" type="Sprite2D" parent="."]
+visible = false
+light_mask = 0
+texture = ExtResource("2_bs481")
+centered = false
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8mpnt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cd28l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jkxse")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_htl22")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c4bib")
+
+[node name="amount" type="Label" parent="."]
+light_mask = 0
+z_index = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 32.0
+offset_bottom = 44.0
+text = "
+"
+label_settings = ExtResource("4_6nv2q")
+horizontal_alignment = 2
+
+[node name="hoverName" type="Label" parent="."]
+visible = false
+light_mask = 0
+z_index = 2
+layout_mode = 0
+offset_left = 4.0
+offset_top = -8.0
+offset_right = 44.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("5_dnc0k")
+theme_override_font_sizes/font_size = 19
+label_settings = ExtResource("4_6nv2q")
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

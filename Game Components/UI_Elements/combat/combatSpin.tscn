@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bddacrrhtnk7g"]
+
+[ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatSpin.gd" id="1_1kutx"]
+[ext_resource type="Texture2D" uid="uid://dh6pxh707u63r" path="res://Sprites/combat/runes/triangle.png" id="2_mjb1j"]
+[ext_resource type="Texture2D" uid="uid://cm0n6q6f7k8jq" path="res://Sprites/combat/runes/Square.png" id="3_efkiv"]
+[ext_resource type="Texture2D" uid="uid://cb8gapn74it5e" path="res://Sprites/combat/runes/diamond.png" id="4_wg6n1"]
+
+[node name="combatSPin" type="Node2D"]
+script = ExtResource("1_1kutx")
+
+[node name="rune1" type="Sprite2D" parent="."]
+position = Vector2(0.545288, 1.4472)
+scale = Vector2(2.3125, 2.3125)
+texture = ExtResource("2_mjb1j")
+
+[node name="rune2" type="Sprite2D" parent="."]
+position = Vector2(0.545288, 1.4472)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("3_efkiv")
+
+[node name="rune3" type="Sprite2D" parent="."]
+position = Vector2(0.545288, 1.4472)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("4_wg6n1")
