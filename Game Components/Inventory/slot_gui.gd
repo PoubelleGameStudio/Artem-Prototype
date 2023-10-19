@@ -38,6 +38,15 @@ func _process(delta):
 		$hoverName.text = item_name
 	else:
 		pass
+	
+	if amount == 0:
+		inv.erase(item_name)
+		$hoverName.text = ""
+		item_name = ""
+		amount -= 1
+		amountLabel.text = ""
+		itemArt.set_texture(null)
+	
 
 	hover_check()
 
@@ -62,11 +71,13 @@ func hover_check():
 			amountLabel.text = ""
 			itemArt.set_texture(null)
 		if Input.is_action_just_released("use_inv_item"):
-			match State.items[item_name]["type"]:
-				"Potion":
-						State.health += State.items[item_name]["effect"]['HP']
-						inv[item_name]-=1
-						item_used.emit()
+			if State.items.has(item_name):
+				match State.items[item_name]["type"]:
+					"Potion":
+							State.health += State.items[item_name]["effect"]['HP']
+							inv[item_name]-=1
+							item_used.emit()
+					
 
 
 	

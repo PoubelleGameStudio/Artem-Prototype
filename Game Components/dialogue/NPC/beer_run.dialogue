@@ -46,6 +46,7 @@ elif quest_db["beer_run"]["Status"] == 1
 	elif quest_complete("beer_run") == true:
 		set gold += 10
 		do update_quest_status("beer_run",2)
+		set State.inventory["bottle"]-=1
 		[wave amp=25 freq=5]Hedo[/wave]: filled my flask you did. The creative juices flow. The gold is all yours. *You receive 10 Gold*
 		set State.talking = 0
 	=> END
