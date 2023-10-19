@@ -30,8 +30,8 @@ elif quest_db["barkeep_1"]["Status"] == 1:
 		set gold += 10
 		set cur_xp += 10
 		do level_up()
-		set quest_db["barkeep_1"]["Status"] = 2
-		set quest_db["barkeep_2"]["Status"] = 0
+		do update_quest_status("barkeep_1",2)
+		do update_quest_status("barkeep_2",0)
 		set talking = 0
 		=> END
 		
@@ -62,7 +62,7 @@ elif quest_db["barkeep_2"]["Status"] == 1:
 	else:
 		Mayor Barkeep: I knew you'd sort it all out! Had zero doubts about that since we last spoke. Highly confident.
 		Artem: With my challenged sobriety sorted. Let's get to work on the Tim situation.
-		set quest_db["barkeep_2"]["Status"] = 2
+		do update_quest_status("barkeep_2",2)
 		set talking = 0
 		=> END
 

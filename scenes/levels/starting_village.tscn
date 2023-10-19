@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://by3nad7yygddq"]
+
+[ext_resource type="Script" path="res://scripts/level_load.gd" id="1_po4cj"]
+[ext_resource type="PackedScene" uid="uid://b5vowrw45hndi" path="res://scenes/player.tscn" id="2_tfx8b"]
+
+[node name="StartingVillage" type="Node2D"]
+script = ExtResource("1_po4cj")
+level_name = "starting_village"
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="player" parent="." instance=ExtResource("2_tfx8b")]
+position = Vector2(324, 166)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

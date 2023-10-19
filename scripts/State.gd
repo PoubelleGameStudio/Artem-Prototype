@@ -238,8 +238,10 @@ func quest_complete(quest):
 
 func update_quest_status(quest,status):
 	quest_db[quest]["Status"]=status
-	print(quest_db[quest]["Status"])
+	var items = quest_db[quest]["Items"]
 	if status == 2:
+		for item in items:
+			inventory[item]-=int(quest_db[quest]["Items"][item])
 		cur_xp += 10
 		level_up()
 
@@ -260,6 +262,7 @@ var area_enemies = {
 	},
 	"GB_tavern":{},
 	"GB_inn":{},
+	"starting_village":{},
 	"GB_sewers":{
 		
 	}
