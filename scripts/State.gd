@@ -7,6 +7,7 @@ var prev_scene
 var engaging = []
 var talking = 0
 var p_locs = {}
+var combat = 0
 
 #weather vars
 var is_raining = 0
@@ -290,7 +291,7 @@ var enemies = {
 	},
 	# the highly volatile void squirrel. Best to kill it before it attacks
 	"Void Squirrel":{
-		"health":15,
+		"health":25,
 		"speed":5,
 		"defeated":0,
 		"armor":0,
@@ -299,7 +300,7 @@ var enemies = {
 			"void":100
 		},
 		"moves":{
-			"basic":20,
+			"basic":10,
 			"special":75
 		},
 		"drops":{

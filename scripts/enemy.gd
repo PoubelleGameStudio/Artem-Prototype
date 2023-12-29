@@ -1,8 +1,9 @@
 extends Node
 
-@export var health = 100
+@export var health:int
+@export var max_health:int
 @export var speed = 5
-@export var enemy_type = ""
+@export var enemy_type = ''
 @export var emitter = 0
 @export var defeated = 0
 @export var world = ""
@@ -12,16 +13,27 @@ extends Node
 @onready var animation = str(enemy_type)
 @onready var light = $PointLight2D
 @onready var zone_fights = State.area_enemies
+@onready var zone_enemies = State.enemies
+ 
+
+
+ 
 
 #signals
 signal dead
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for type in zone_enemies:
+			if type == enemy_type:
+				health = zone_enemies[type]["health"]
+				max_health = zone_enemies[type]["health"]
+	print("from enemy ", health)
 	enemySprite.play(str(enemy_type,"_idle"))
-	print(enemy_type,"_idle from enemy")
+	#health = State.enemies[enemy_type]["health"]
 	if emitter == 0:
 		light.hide()
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,6 +45,13 @@ func set_defeat(int):
 
 func enemyType(text):
 	enemy_type = text
+	
+func enemyHealth():
+	for type in zone_enemies:
+			if type == enemy_type:
+				health = zone_enemies[type]["health"]
+				max_health = zone_enemies[type]["health"]
+	pass
 	
 func updateHealth(damage):
 	health -= damage

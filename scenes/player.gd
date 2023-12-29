@@ -233,20 +233,19 @@ func camera_current():
 func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0,area)
 	
-	
-	
+
 	#sets up the combat vars and launching combatScene
 	var cur_interact = all_interactions[0]
-	if cur_interact.interact_type == "enemy" and State.area_enemies[world][cur_interact.interact_label] == 0:
+	if cur_interact.interact_type == "enemy" and State.combat == 0:
 		State.p_locs[get_parent().level_name] = get_node("../player").global_position
 		State.engaging.insert(0,cur_interact.interact_label)	
 		State.prev_scene = NodePath(get_tree().current_scene.scene_file_path)
 		State.engaging.insert(0,cur_interact.interact_label)
 		State.talking = 1
 		combat_entered.emit()
-		# this is a hack to let me test loading into fights and loading out.
-		
-		#get_tree().change_scene_to_file((str("res://Game Components/UI_Elements/combat/combatScreen.tscn")))
+		State.combat = 1
+
+
 	else:
 		pass
 		
@@ -258,6 +257,8 @@ func _on_interaction_area_area_entered(area):
 
 func _on_interaction_area_area_exited(area):
 	var cur_interact = all_interactions[0]
+	#if cur_interact.interact_type == "enemy":
+		#State.combat = 0
 	cur_interact.talk_end()
 	shop.hide()
 	State.talking = 0

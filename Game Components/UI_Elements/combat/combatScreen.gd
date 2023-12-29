@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var enemy = $enemyCombat
 @onready var player = $player
-@onready var flee = $combatUI/Flee
 @onready var combat = $combatUI/combat/Combat
 @onready var fight = $"combatUI/combat/cast"
 @onready var defend = $"combatUI/combat/guard"
@@ -26,6 +25,7 @@ extends Node2D
 signal combat_end
 signal death
 
+
 var rng = RandomNumberGenerator.new()
 
 # over time effect trackers
@@ -39,6 +39,9 @@ var frozen = 0 		# is enemy frozen
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.play("idle")
+	eHealth.max_value = enemy.max_health
+	print(enemy.health," enemy health")
+	
 	add_spells()
 	
 
@@ -46,13 +49,14 @@ func _ready():
 func _process(delta):
 	eHealth.value = enemy.health
 	pHealth.value = State.health
-	if enemy.health <= 0:
-		combat_end.emit()
+	
 		
 
 
 func camera_current():
 	cam.make_current()
+	print("combat made current")
+	print(enemy.health)
 	pass
 
 #set up on combat start
@@ -60,8 +64,10 @@ func combat_data():
 	enemy.world = world_level
 	enemy.enemyType(State.engaging[0])
 	eNameLabel.text = enemy.enemy_type
+	enemy.enemyHealth()
 	enemy.enemySprite.play(str(enemy.enemy_type,"_idle"))
 	eHealth.value = enemy.health
+	eHealth.max_value = enemy.max_health
 	inv_ui.populate_grid()
 	
 
@@ -72,7 +78,7 @@ func add_spells():
 	spell2.add_item(State.spell2)
 	spell3.add_item(State.spell3)
 	for opt in options:
-		print(opt)
+
 		if opt != State.spell1:
 			spell1.add_item(str(opt))
 		if opt != State.spell2:	 
@@ -210,60 +216,60 @@ func castSpell() -> int:
 
 ####################### what happens during enemy turns #######################
 func enemyTurn():
-	showOptions()
-	var damageTaken = 0
-	await get_tree().create_timer(0.5).timeout
+	if enemy.health >= 0:		
+		showOptions()
+		var damageTaken = 0
+		await get_tree().create_timer(0.5).timeout
 
-	# enemy attacks
-	enemy.enemySprite.play(str(enemy.enemy_type,"_attack"))
-	await get_tree().create_timer(2).timeout
-	if specialCounter < 5:
-		damageTaken = (enemyBook[enemy.enemy_type]["moves"]["basic"] * rng.randf_range(1,1.1))
-		print("basic attack")
-	else:
-		damageTaken = (enemyBook[enemy.enemy_type]["moves"]["special"] * rng.randf_range(1,1.15))
-		print("special attack")
-	enemy.enemySprite.play(str(enemy.enemy_type,"_idle"))
+		# enemy attacks
+		enemy.enemySprite.play(str(enemy.enemy_type,"_attack"))
+		await get_tree().create_timer(2).timeout
+		if specialCounter < 5:
+			damageTaken = (enemyBook[enemy.enemy_type]["moves"]["basic"] * rng.randf_range(1,1.1))
+			print("basic attack")
+		else:
+			damageTaken = (enemyBook[enemy.enemy_type]["moves"]["special"] * rng.randf_range(1,1.15))
+			print("special attack")
+		enemy.enemySprite.play(str(enemy.enemy_type,"_idle"))
 
-	#handle player resist
-	match enemyBook[enemy.enemy_type]["type"]:
-		"void":
-			var reduce = (100 - State.rVoid) * .01
-			damageTaken *= reduce
+		#handle player resist
+		match enemyBook[enemy.enemy_type]["type"]:
+			"void":
+				var reduce = (100 - State.rVoid) * .01
+				damageTaken *= reduce
 
-		"void":
-			var reduce = (100 - State.rFire) * .01
-			damageTaken *= reduce
+			"void":
+				var reduce = (100 - State.rFire) * .01
+				damageTaken *= reduce
 
-		"frost":
-			var reduce = (100 - State.rFrost) * .01
-			damageTaken *= reduce
+			"frost":
+				var reduce = (100 - State.rFrost) * .01
+				damageTaken *= reduce
 
-		"arcane":
-			var reduce = (100 - State.rArcane) * .01
-			damageTaken *= reduce
+			"arcane":
+				var reduce = (100 - State.rArcane) * .01
+				damageTaken *= reduce
 
-		"blood":
-			var reduce = (100 - State.rBlood) * .01
-			damageTaken *= reduce
+			"blood":
+				var reduce = (100 - State.rBlood) * .01
+				damageTaken *= reduce
 
-		"physical":
-			var reduce = (100 - State.armor) * .01
-			damageTaken *= reduce
+			"physical":
+				var reduce = (100 - State.armor) * .01
+				damageTaken *= reduce
 
-	if specialCounter == 5:
-		specialCounter = 0
-	else:
-		specialCounter += 1
-	State.health -= damageTaken
-	yourTurn = 1
-	print("player health: ",State.health)
+		if specialCounter == 5:
+			specialCounter = 0
+		else:
+			specialCounter += 1
+		State.health -= damageTaken
+		yourTurn = 1
+		print("player health: ",State.health)
 	
 
 
 # funcs to handle various UI elements and button presses
 func showAttacks():
-	flee.hide()
 	inv.hide()
 	combat.hide()
 	# show the buttons we do need
@@ -279,7 +285,6 @@ func showAttacks():
 
 	
 func showOptions():
-	flee.show()
 	inv.show()
 	combat.show()
 	# show the buttons we do need
@@ -304,16 +309,6 @@ func endgame():
 
 
 
-func _on_flee_pressed():
-	if yourTurn == 1:
-		# hard coded right now to the only overworld map
-		combat_end.emit()
-		_ready()
-		
-		#get_tree().change_scene_to_file((str("res://scenes/levels/grimsBriar.tscn")))
-	else:
-		pass
-
 
 
 func _on_combat_pressed():
@@ -326,14 +321,12 @@ func _on_combat_pressed():
 
 func _on_inventory_pressed():
 	if yourTurn == 1:
-		flee.hide()
 		inv.hide()
 		combat.hide()
 		inv_ui.show()
 		exit_inv.show()
 	
 func _on_return_pressed():
-	flee.show()
 	inv.show()
 	combat.show()
 	# show the buttons we do need
@@ -346,6 +339,8 @@ func _on_onepunch_pressed():
 		eHealth.value = enemy.health
 		print(enemy.health)
 		yourTurn=0
+		if enemy.health <= 0:
+			combat_end.emit()
 		enemyTurn()
 	else:
 		pass

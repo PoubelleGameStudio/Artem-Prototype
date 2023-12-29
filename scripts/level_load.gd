@@ -54,20 +54,21 @@ func stop_combat():
 
 
 func _on_combat_screen_combat_end():
+	print("combat ending")
 	enemy_list[State.engaging] = 1
 	var hide_node = NodePath(str("enemies/",State.engaging[0]))
 	stop_combat()
 	State.talking = 0
 	combat.endgame()
 	player.camera_current()
-
 	pass # Replace with function body.
 
 
 func _on_player_combat_entered():
-	setup_combat()
-	combat.combat_data()
-	combat.camera_current()
+	if State.combat == 0:
+		setup_combat()
+		combat.combat_data()
+		combat.camera_current()
 
 
 func _on_combat_screen_death():
