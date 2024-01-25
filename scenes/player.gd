@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-
-const speed = 150.0
 @onready var inv = $HUD/character_info/Inventory
 @onready var q_log = $HUD/character_info/quest_log
 @onready var itemLabel = $interactionComponents/interactionArea/itemLabel
@@ -13,24 +11,27 @@ const speed = 150.0
 @onready var shop = $HUD/shop
 @onready var pause = $HUD/PauseController
 @onready var rain = $Weather
+@onready var talents = $HUD/TalentTree
 @onready var qBook = State.quest_db.keys()
-
-var world = ""
-
-
-#signals
-signal combat_entered
-
-var current_dir = "none"
-
 @onready var all_interactions = []
 
+
+
+const speed = 150.0
+
+
+var current_dir = "none"
+var world = ''
+
+signal combat_entered
 
 func _ready():
 	$AnimatedSprite2D.play("idle")
 	update_HUD()
 	State.level_up()
 	character_screen.visible = false
+	q_log.hide()
+	
 
 
 func _physics_process(delta):
@@ -58,9 +59,13 @@ func _physics_process(delta):
 			character_screen.visible = true
 			inv.populate_grid()
 			q_log.populate_log()
+	if Input.is_action_just_pressed("Talents"):
+		if talents.visible == true:
+			talents.visible = false
+		else:
+			talents.visible = true
+		pass
 
-	
-	
 func player_movement(delta):
 	
 	if Input.is_action_pressed("MOVE_RIGHT"):
@@ -139,9 +144,15 @@ func update_HUD():
 		itemLabel.text = ""
 	
 
-################interactions########################################d
+		
+		
+
+
+func get_world():
+	return world
+
+############################interactions########################################
 func execute_interaction():
-	
 	if all_interactions:
 		var cur_interaction = all_interactions[0]
 		match cur_interaction.interact_type:
@@ -177,6 +188,7 @@ func execute_interaction():
 				elif cur_interaction.interact_value == "out":
 					get_tree().change_scene_to_file((str("res://scenes/levels/",
 															cur_interaction.interact_label)))
+			
 			#locked door
 			"locked_door":
 				if State.inventory.keys().has("Gate Key"):
@@ -239,6 +251,7 @@ func _on_interaction_area_area_entered(area):
 	if cur_interact.interact_type == "enemy" and State.combat == 0:
 		State.p_locs[get_parent().level_name] = get_node("../player").global_position
 		State.engaging.insert(0,cur_interact.interact_label)	
+		State.enemyID = cur_interact.get_parent().id
 		State.prev_scene = NodePath(get_tree().current_scene.scene_file_path)
 		State.engaging.insert(0,cur_interact.interact_label)
 		State.talking = 1
@@ -264,17 +277,6 @@ func _on_interaction_area_area_exited(area):
 	State.talking = 0
 	all_interactions.erase(area)
 	
-	
-	
-	
-
-	
-		
-		
-	
-
-
-
 
 func _on_buy_button_pressed():
 	$HUD/shop/ColorRect/buy/BuyButton/BuyIndicate.show()

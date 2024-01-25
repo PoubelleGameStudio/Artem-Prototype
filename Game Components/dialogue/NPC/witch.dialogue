@@ -1,0 +1,59 @@
+if quest_db["trash_1"]["Status"] == 2
+	~ trash_path
+	The Witch: Well you're a fresh face. Is there a reason I shouldn't add it to the wall?
+	Artem: A uniquely cognizant raccoon sent me your way.
+	The Witch: That furry little shit never takes a day off from ruining my focus.
+	Artem: Is he your familiar?
+	The Witch: No more than the shit I took this morning is.
+	Artem: ...
+	The Witch: If ever given the chance, do not partake in a relationship with a god. Even a lower one such as a god of rot.
+	Artem: Can't imagine I'll ever need to make that call.
+	The Witch: Should you falter in my wisdom then even moreso I implore you to not expect loyalty displayed via manogomy.
+	Artem: I should clarify I really have no allegiance to the raccoon.
+	The Witch: And should you falter once more then you're as much of a fool as I expect. Speaking of...why are you following the directions of a verbal woodland critter so as to find yourself at the stoop of a witch's home.
+	Artem: Admittedly your phrasing doesn't leave much merit for me to grasp, but I'm Artem. A watcher. I was previously very far from this valley and touched a book. Now I'm here and helping the mayor find the missing locals.
+	set State.witch_greeted = 1
+	=>main_path 
+
+
+~ no_trash
+The Witch: Well you're a fresh face. Is there a reason I shouldn't add it to the wall?
+Artem: 
+=>main_path
+
+~ main_path
+The Witch: Make a habit of touching strange books?
+Artem: Only the enticing ones.
+The Witch: Finally you utter something agreeable. Do you still have this tome of sorts?
+Artem: Indeed. *Artem hands the book over* Mayor said it was one of Tim's reader copies? Apparently everyone who held a copy has since gone missing. Only folks left are a couple workers and some drunk named Hedo.
+The Witch: Heh, of course. That misguided fool wouldn't touch anything short of first edition hardback. Helped him this time though.
+Artem: He did mention something of the sort.
+The Witch: *The witch tosses the book into a nearby cauldron*
+Artem: Is that a productive action?
+The Witch: Quickest way to confirm that it's an enchantment that I and Tim are very familiar with.
+Artem: So you know Tim?
+The Witch: Of course. I know everyone. He came to me some months ago about wanting to surprise some girl he claimed to be courting. Asked if I could help him with a simlpe transportation spell. Looks like it worked.
+Artem: Did you also help him with the cursed books?
+The Witch: Of course not. I like everyone in town. I spent enough centuries pilgraming through the endless void and much prefer the mindless chatter the locals provide. I also put very strong restrictions on this tome. It would only move someone to Grim's Briar once.
+Artem: You weren't concerned about any consequences the transported might suffer?
+The Witch: You haven't seen Tim, but a dead tree branch is sturdier than that would be artist. The mayor also runs a very tight ship for a village full of degenerates.
+Artem: Then how have all the degenerates gone missing?
+The Witch: I have a theory. However, I'd like you to do something for me that will benefit both of us.
+Artem: ...and what would that be?
+The Witch: As a watcher I'm sure you're aware of how painfully close we are to the Needle. That wasn't always the case, but unfortunately as time marches forward so do their perceived property lines.
+Artem: You want me to settle a land dispute?
+The Witch: No. I want you to find those walking circuit boards and kill them. Then you'll make sure their precious energy temples will never generate an ounce of power again.
+Artem: Stories spread as they will, but whatever you've heard has you mistaken that watchers kill for favor. Even if those living in the Needle.
+The Witch: Then don't kill them if you haven't the stomach, but until they're no longer a nuisance to my home and work you won't get find me lifting a finger for you.
+Artem: In regards to the energy temple you mentioned. Is this something new of theirs?
+The Witch: It would seem so. I found one of their lackey's poking around my garden and we had a truly delightful chat...
+Artem: And then you let him be on his way?
+The Witch: Whatever sets your heart right straight, dear. It would appear they've had a breakthrough communicating with their god and are receiving direction with unprecedented clarity. Among that direction are what they're calling temples. They route their power through them and at the center of their grand circuitry is a sinner.
+Artem: At the center?
+The Witch: Dead center, even. It would seem their god has stated that by placing these sinners into the electricity's path both purifies their vessel and strengthen's the energy that passes through them. Something about it challenging their sin.
+Artem: They're killing them? 
+The Witch: Not as fast as you'd think, but yes. They've managed to extend the body's tolerance but only in the sense of death. Part of their purification is to feel the agony. Feel themselves burning until their little light finally goes out.
+Artem: How many of these temples are there?
+The Witch: More than any of us would care for, but I've said enough for now. There are some items in the chest over there. If you're still unwilling to take their lives, you'll at least find some delightfully destructive potions to destroy their putrid temples.
+
+=> END

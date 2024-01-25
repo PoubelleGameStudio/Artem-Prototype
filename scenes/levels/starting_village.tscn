@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://by3nad7yygddq"]
+[gd_scene load_steps=12 format=3 uid="uid://by3nad7yygddq"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_po4cj"]
 [ext_resource type="Texture2D" uid="uid://crg1vkofq4a3l" path="res://Art/starting_village/Outside.png" id="2_lipdc"]
 [ext_resource type="PackedScene" uid="uid://b5vowrw45hndi" path="res://scenes/player.tscn" id="2_tfx8b"]
 [ext_resource type="Texture2D" uid="uid://8llkfpy3nyuj" path="res://Art/starting_village/A5.png" id="3_2oolp"]
 [ext_resource type="Texture2D" uid="uid://d0otu1pkltqkr" path="res://Art/starting_village/Buildings.png" id="4_861ea"]
+[ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="6_m7x26"]
 
 [sub_resource type="Environment" id="Environment_e5ehs"]
 background_mode = 3
@@ -175,6 +176,7 @@ sources/2 = SubResource("TileSetAtlasSource_0t7p3")
 
 [node name="StartingVillage" type="Node2D"]
 script = ExtResource("1_po4cj")
+is_raining = null
 level_name = "starting_village"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -182,6 +184,7 @@ environment = SubResource("Environment_e5ehs")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
+scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_p0wmk")
 cell_quadrant_size = 32
 format = 2
@@ -199,3 +202,8 @@ layer_1/tile_data = PackedInt32Array(262148, 2, 2)
 position = Vector2(345.998, 435.927)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="respawn" parent="." instance=ExtResource("6_m7x26")]
+position = Vector2(506, 871)
+interact_type = "respawn"
+interact_value = "1"

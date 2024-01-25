@@ -251,3 +251,8 @@ position = Vector2(64, 104)
 stream = ExtResource("11_17j8u")
 volume_db = -13.371
 autoplay = true
+
+[node name="respawn" parent="." instance=ExtResource("3_3le5n")]
+position = Vector2(88, 72)
+interact_type = "respawn"
+interact_value = "1"

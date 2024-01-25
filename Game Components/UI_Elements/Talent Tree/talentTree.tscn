@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8skkvcn0ci81"]
+
+[ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
+
+[node name="TalentTree" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 996.0
+offset_bottom = 568.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 584.0
+offset_bottom = 332.0
+
+[node name="Health" parent="." instance=ExtResource("1_np83o")]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 60.0
+offset_right = 116.0
+offset_bottom = 124.0
+talentName = "HP"
+description = "Increase your total health by 5% each rank."
+required_level = 1
+
+[node name="Knowledge" parent="Health" instance=ExtResource("1_np83o")]
+layout_mode = 0
+offset_left = 92.0
+offset_right = 156.0
+talentName = "knowledge1"
+description = "Increase your spell slots by 1."
+maxRank = 2
+required_level = 5
+
+[node name="TalentButton2" parent="." instance=ExtResource("1_np83o")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 192.0
+offset_right = 120.0
+offset_bottom = 256.0
+talentName = "Fire"
+description = "Increase fire damage by 5% each rank."
+
+[node name="TalentButton3" parent="." instance=ExtResource("1_np83o")]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 192.0
+offset_right = 208.0
+offset_bottom = 256.0

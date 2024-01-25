@@ -1,28 +1,29 @@
 extends Node
 
 # player vars
-var welcomed = 0
 var prev_player_position
 var prev_scene
 var engaging = []
 var talking = 0
 var p_locs = {}
 var combat = 0
+var enemyID:String
+
 
 #weather vars
 var is_raining = 0
 
 # spell slots
-var spell1: String = 'fireball'
+var spell1: String = ''
 var spell2: String = ''
 var spell3: String = ''
 
 # player gear slots
-var helm: String = ''
-var chest: String = ''
-var gloves: String = ''
-var pants: String = ''
-var boots: String = ''
+var helm: String = 'Watcher Cowl'
+var chest: String = 'Watcher Robe'
+var gloves: String = 'Watcher Gloves'
+var pants: String = 'Watcher Trousers'
+var boots: String = 'Watcher Treads'
 var weapon: String = 'dagger of belonging' 
 # the dagger can't be removed unless you take a life with it
 # dagger is exceptionally dull as it can't be sharpened
@@ -49,13 +50,14 @@ var rVoid = 0
 # resources
 var gold = 100
 
-
+# social trackers
+var welcomed = 0
+var witch_greeted = 0
 
 @onready var dm = get_parent().get_node("/root/DialogueManager")
 #@onready var voice = $root/player/voice
 
 func _ready():
-	#dm.spoke.connect(_on_speak)
 	pass
 
 
@@ -105,7 +107,7 @@ func _on_speak():
 		"description":"",
 		"cost":1,
 		"aoe":0,
-		"damage":10,
+		"damage":100,
 		"class": "attack",
 		"type": "fire",
 		"stat_mod":{
@@ -210,6 +212,15 @@ var quest_db ={
 			"Bone Dust":1
 		},
 		"description":"You're in bat country and the visuals are kicking in. Time to find the goods."
+	},
+	"Trash_1":{
+		"Giver":"TrashBoy",
+		"quest_name":"Trash for the Trash God",
+		"Status":1,
+		"Items":{
+			"Trash Food":4
+		},
+		"description":"Kindly bring Trash to the Trash God."
 	}
 }
 
@@ -257,9 +268,12 @@ func level_up():
 #control what enemies in what zone have been defeated
 var area_enemies = {
 	"grimsBriar":{
-		"executioner":0,
-		"Void Squirrel":0,
-		"ghost":0
+		"1":0,
+		"2":0,
+		"3":0,
+		"4":0,
+		"5":0,
+		"6":0,
 	},
 	"GB_tavern":{},
 	"GB_inn":{},
@@ -356,4 +370,11 @@ var gear = {
 		"Damage": 1,
 		"type": "dagger"
 	}
+}
+
+# talents
+var talents = {
+	"HP":0
+	,"knowledge1":0
+	,"knowledge2":0
 }

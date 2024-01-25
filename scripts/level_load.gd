@@ -7,18 +7,22 @@ extends Node2D
 @onready var combat = $combatScreen
 @onready var enemy_list = State.area_enemies[level_name]
 @onready var player = $player
+@onready var respawn_location = $respawn.global_position
 
+const save_dir = "user://saves/"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if State.p_locs.has(level_name):
-			get_node("player").global_position = State.p_locs[level_name]
+		get_node("player").global_position = State.p_locs[level_name]
 	State.is_raining = is_raining
-	#combat.hide()
 
 	if combat:
 		combat.process_mode = 4
 		player.world = level_name
+		
+	bury_the_dead()	
+	verify_save_directory(save_dir)
 	
 
 
@@ -27,13 +31,17 @@ func _ready():
 func _process(delta):
 	if music.playing == false:
 		music.playing = true
-	bury_the_dead()
+	
 		
+		
+########### checks that save directory exists###########
+func verify_save_directory(path:String):
+	DirAccess.make_dir_absolute(path)
 	
 func bury_the_dead():
 	var to_kill = get_tree().get_nodes_in_group("enemies")
 	for bad in to_kill:
-		if State.area_enemies[level_name][bad.enemy_type] == 1:
+		if State.area_enemies[level_name][bad.id] == 1:
 			bad.remove_from_group("enemies")
 			bad.hide()
 			bad.process_mode = 4
@@ -44,23 +52,26 @@ func bury_the_dead():
 func setup_combat():
 	combat.show()
 	combat.process_mode = 0
+	combat.start_turn()
 
 
 func stop_combat():
 	combat.hide()
 	combat.process_mode = 4
+	bury_the_dead()
 	
 	
 
 
 func _on_combat_screen_combat_end():
-	print("combat ending")
 	enemy_list[State.engaging] = 1
 	var hide_node = NodePath(str("enemies/",State.engaging[0]))
 	stop_combat()
 	State.talking = 0
 	combat.endgame()
 	player.camera_current()
+	State.combat = 0
+	State.level_up()
 	pass # Replace with function body.
 
 
@@ -72,4 +83,10 @@ func _on_player_combat_entered():
 
 
 func _on_combat_screen_death():
+	stop_combat()
+	_ready()
+	State.health = State.maxHealth
+	player.camera_current()
+	player.global_position = respawn_location
+	State.combat = 0
 	pass

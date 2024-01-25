@@ -1,0 +1,23 @@
+~ this_is_a_node_title
+if quest_db["barkeep_1"]["Status"] == 0:
+	Trash God: Hello brave traveller.
+	Artem: Oh right...I'm on drugs.
+	Trash God: I am not drugs nor of drugs. I do have a request to make; humble I am.
+	Artem: Uh...what's up little guy?
+	Trash God: Though my predicament has positioned me slovenly I do require your awareness that I prefer the titling of Trash God.
+	Artem: Absolutely.
+	Trash God: Resplendant. Now priorly mentioned as my request, I must ask you for delivery of non-arbitrary nutrition.
+	Artem: I think I saw some more berries around here...
+	Trash God: I'm glad you're in good enough spirits to break such humor. I once flailed a man for offering berries to the lord of trash.
+	Artem: ...
+	Trash God: I require Trash Food, of course. Routinely I would make such a voyage myself, however I've found each trip offering so little in return that I am now expending more energy than I gain.
+	Trash God: If you would make this trek for me then surely I would have the energy to not only gather my own next meal, but perhaps I shall also recover some memories you may appreciate.
+	- Accept
+		Artem: Yeah why not.
+		Trash God: Make haste valorous one!
+		do update_quest_status("trash_1",1)
+	- Refuse
+		Trash God: Pray you change your mind before my true wrath becomes known 
+		=> END
+res://Game Components/dialogue/NPC/beer_run.dialogue
+=> END

@@ -19,6 +19,7 @@ extends Node2D
 @onready var enemyBook = State.enemies
 @onready var eNameLabel = $combatUI/EnemyName
 @onready var cam = $Camera2D
+@onready var world_instance = get_tree().get_root().get_node('/root/root')
 @onready var world_level = get_tree().get_root().get_node('/root/root').level_name
 
 #signals
@@ -40,8 +41,7 @@ var frozen = 0 		# is enemy frozen
 func _ready():
 	player.play("idle")
 	eHealth.max_value = enemy.max_health
-	print(enemy.health," enemy health")
-	
+	yourTurn = 1
 	add_spells()
 	
 
@@ -52,15 +52,17 @@ func _process(delta):
 	
 		
 
+func start_turn():
+	yourTurn = 1
 
 func camera_current():
 	cam.make_current()
-	print("combat made current")
-	print(enemy.health)
+
 	pass
 
 #set up on combat start
 func combat_data():
+	enemy.enemyID(State.enemyID)
 	enemy.world = world_level
 	enemy.enemyType(State.engaging[0])
 	eNameLabel.text = enemy.enemy_type
@@ -78,13 +80,15 @@ func add_spells():
 	spell2.add_item(State.spell2)
 	spell3.add_item(State.spell3)
 	for opt in options:
-
-		if opt != State.spell1:
-			spell1.add_item(str(opt))
-		if opt != State.spell2:	 
-			spell2.add_item(str(opt))
-		if opt != State.spell3:
-			spell3.add_item(str(opt))
+		spell1.add_item(str(opt))
+		spell2.add_item(str(opt))
+		spell3.add_item(str(opt))
+#		if opt != State.spell1:
+#			spell1.add_item(str(opt))
+#		if opt != State.spell2:	 
+#			spell2.add_item(str(opt))
+#		if opt != State.spell3:
+#			spell3.add_item(str(opt))
 
 
 #handles all damage modification for casting combined spells
@@ -111,11 +115,10 @@ func castSpell() -> int:
 			damage += spells[State.spell3]["damage"]
 			types.insert(0,str(spells[State.spell3]["type"]))
 			attackCount += 1
-	# damage /= attackCount
 		
 	# check for empowerments
 	if attackCount > 1:
-		if spells[State.spell1]["name"] == spells[State.spell2]["name"]  and spells[State.spell2]["name"] == spells[State.spell3]["name"]:
+		if State.spell1 == State.spell2 and State.spell2 == State.spell3:
 			damage *= 1.5
 		elif spells[State.spell1] == spells[State.spell2]:
 			damage *= 1.25
@@ -123,12 +126,11 @@ func castSpell() -> int:
 			damage *= 1.25
 		elif spells[State.spell1] == spells[State.spell3]:
 			damage *= 1.25
-		print("empowered spell: ",damage)
+
 	
 	# check for support spells
 	if State.spell3 != '':
 		if spells[State.spell3]["class"]=="support":
-			print("found support spell")
 			var stats = spells[State.spell3]["stat_mod"].keys()
 			match stats[0]:
 				"crit_chance":
@@ -151,7 +153,6 @@ func castSpell() -> int:
 	# check for blood type and do enemy self damage
 	for type in types:
 		if type == "blood":
-			print("found blood")
 			if specialCounter == 4:
 				damage = enemyBook[enemy.enemy_type]["moves"]["special"]
 				specialCounter = 0
@@ -163,7 +164,6 @@ func castSpell() -> int:
 	var roll = rng.randf_range(0,100)
 	if roll <= crit_chance:
 		damage *= 2
-		print("spell crit for ",damage)
 		pass
 
 	#handle spell resist
@@ -210,7 +210,6 @@ func castSpell() -> int:
 		else:
 			State.health += (damage * life_drain)
 	
-	print("total damage :",damage)
 	return damage
 
 
@@ -226,10 +225,8 @@ func enemyTurn():
 		await get_tree().create_timer(2).timeout
 		if specialCounter < 5:
 			damageTaken = (enemyBook[enemy.enemy_type]["moves"]["basic"] * rng.randf_range(1,1.1))
-			print("basic attack")
 		else:
 			damageTaken = (enemyBook[enemy.enemy_type]["moves"]["special"] * rng.randf_range(1,1.15))
-			print("special attack")
 		enemy.enemySprite.play(str(enemy.enemy_type,"_idle"))
 
 		#handle player resist
@@ -264,7 +261,9 @@ func enemyTurn():
 			specialCounter += 1
 		State.health -= damageTaken
 		yourTurn = 1
-		print("player health: ",State.health)
+		if State.health < 1:
+			death.emit()
+
 	
 
 
@@ -276,9 +275,9 @@ func showAttacks():
 	fight.show()
 	#defend.show()
 	spell1.show()
-	if State.level >= 5:
+	if State.talents["knowledge1"] == 1:
 		spell2.show()
-	if State.level >= 15:
+	if State.talents["knowledge2"] == 1:
 		spell3.show()
 	
 
@@ -303,9 +302,9 @@ func endgame():
 		print(drop," added to inventory")
 	State.cur_xp += round(pow(State.level,1.5)+State.level*2.6)
 	var killed = get_node(NodePath(str('../enemies/',enemy.enemy_type)))
-	print(killed)
 	killed.set_defeat(1)
-	get_tree().change_scene_to_file((str(State.prev_scene)))
+	yourTurn = 1
+	#get_tree().change_scene_to_file((str(State.prev_scene)))
 
 
 
@@ -337,10 +336,7 @@ func _on_onepunch_pressed():
 	if yourTurn == 1:
 		enemy.updateHealth(castSpell())
 		eHealth.value = enemy.health
-		print(enemy.health)
 		yourTurn=0
-		if enemy.health <= 0:
-			combat_end.emit()
 		enemyTurn()
 	else:
 		pass
@@ -356,9 +352,11 @@ func _on_spell_1_item_selected(index):
 	State.spell1 = list[index]
 
 
+
 func _on_spell_2_item_selected(index):
 	var list = spells.keys()
 	State.spell2 = list[index]
+
 
 
 func _on_spell_3_item_selected(index):
@@ -366,9 +364,10 @@ func _on_spell_3_item_selected(index):
 	State.spell3 = list[index]
 
 
+
 func _on_enemy_combat_dead():
 	combat_end.emit()
-	death.emit()
+	#death.emit()
 
 
 

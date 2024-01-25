@@ -1,10 +1,11 @@
-[gd_scene load_steps=50 format=3 uid="uid://cxwgljlj2pfk1"]
+[gd_scene load_steps=51 format=3 uid="uid://cxwgljlj2pfk1"]
 
 [ext_resource type="Script" path="res://scripts/beggar.gd" id="1_tk6om"]
 [ext_resource type="Texture2D" uid="uid://jn0psaihgi7i" path="res://Sprites/beggar.png" id="1_ujaiu"]
 [ext_resource type="Texture2D" uid="uid://cxe3nogps8dc7" path="res://Sprites/vendor - GrimsBriar - sprite sheet.png" id="2_2ytqp"]
 [ext_resource type="Texture2D" uid="uid://cd7todjajlpev" path="res://Sprites/barmaid.png" id="2_f1ps1"]
 [ext_resource type="Texture2D" uid="uid://bi6nkg2muigkr" path="res://Sprites/barkeep.png" id="2_numk2"]
+[ext_resource type="Texture2D" uid="uid://bvt27gyk3i662" path="res://Sprites/quest givers/raccoon.png" id="3_sxpij"]
 [ext_resource type="Texture2D" uid="uid://xhooccfhxt6x" path="res://Game Components/UI_Elements/quest_turn_in_spriteSheet.png" id="4_1oeoe"]
 [ext_resource type="Texture2D" uid="uid://cq6fmjsjnmkbv" path="res://Game Components/UI_Elements/quest_available_spriteSheet.png" id="4_lw2lv"]
 [ext_resource type="Texture2D" uid="uid://cpn30fqtn1jjg" path="res://Sprites/elder.png" id="5_ug2ty"]
@@ -156,6 +157,14 @@ animations = [{
 "loop": true,
 "name": &"GB_vendor",
 "speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sxpij")
+}],
+"loop": true,
+"name": &"TrashBoy",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -326,7 +335,6 @@ script = ExtResource("1_tk6om")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f8675")
 animation = &"GB_vendor"
-frame_progress = 0.0511436
 speed_scale = 0.4
 
 [node name="dialogue_indicator" type="AnimatedSprite2D" parent="."]

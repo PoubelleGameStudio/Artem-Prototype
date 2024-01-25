@@ -1,7 +1,7 @@
 
 
 ~ start
-if welcomed ==0
+if State.welcomed ==0
 	=> welcome
 else 
 	=> beer_run
@@ -17,11 +17,11 @@ Artem: Are you able to recognize this book?
 - Apologize
 	Artem: Terribly sorry. I prefer a first printing myself, though not quite as passionately.
 	[wave amp=25 freq=5]Hedo[/wave]: Welcome to Grim's Briar
-	set welcomed = 1
+	set State.welcomed = 1
 	set State.talking = 0
 - Move along
 	Artem: Well, glad we've set expecations.
-	set welcomed = 1
+	set State.welcomed = 1
 	set State.talking = 0
 => END
 

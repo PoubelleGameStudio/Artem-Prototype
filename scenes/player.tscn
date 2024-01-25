@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=54 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="13_cjqps"]
 [ext_resource type="Theme" uid="uid://c1pntnyw8t772" path="res://themes/hp_bar.tres" id="13_i42rr"]
 [ext_resource type="PackedScene" uid="uid://5v2qsot5igdu" path="res://Game Components/UI_Elements/quest log components/quest_log.tscn" id="14_xc3j5"]
+[ext_resource type="PackedScene" uid="uid://c8skkvcn0ci81" path="res://Game Components/UI_Elements/Talent Tree/talentTree.tscn" id="16_unwu1"]
+[ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="18_jm848"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5msp"]
 atlas = ExtResource("2_he7ll")
@@ -281,13 +283,20 @@ script = ExtResource("4_wdihw")
 
 [node name="pause_text" type="Label" parent="HUD/PauseController"]
 offset_left = -284.0
-offset_top = -58.0
+offset_top = -116.0
 offset_right = 285.0
-offset_bottom = -7.0
+offset_bottom = -62.0
 label_settings = SubResource("LabelSettings_5kijb")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="MainMenu" parent="HUD/PauseController" instance=ExtResource("18_jm848")]
+visible = false
+offset_left = -44.0
+offset_top = -68.0
+offset_right = -44.0
+offset_bottom = -68.0
 
 [node name="character_info" type="Node2D" parent="HUD"]
 z_index = 2
@@ -421,14 +430,13 @@ text = "Inventory
 
 [node name="inv_indicate" type="Label" parent="HUD/character_info/show_inv"]
 layout_mode = 0
-offset_left = 4.00003
-offset_top = 6.00002
-offset_right = 44.0
-offset_bottom = 29.0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 28.0
+offset_bottom = 47.0
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 19
 text = "*"
-label_settings = ExtResource("6_68dct")
 
 [node name="show_q" type="Button" parent="HUD/character_info"]
 offset_left = -328.0
@@ -447,21 +455,20 @@ text = "Quest Log"
 [node name="q_indicate" type="Label" parent="HUD/character_info/show_q"]
 visible = false
 layout_mode = 0
-offset_left = 4.00003
+offset_left = 5.00003
 offset_top = 6.00002
-offset_right = 44.0
-offset_bottom = 29.0
+offset_right = 45.0
+offset_bottom = 30.0
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 19
 text = "*"
-label_settings = ExtResource("6_68dct")
 
 [node name="quest_log" parent="HUD/character_info" instance=ExtResource("14_xc3j5")]
 visible = false
 offset_left = -420.0
-offset_top = -112.0
+offset_top = -59.0
 offset_right = -420.0
-offset_bottom = -112.0
+offset_bottom = -59.0
 
 [node name="shop" type="Node2D" parent="HUD"]
 visible = false
@@ -551,6 +558,13 @@ layout_mode = 0
 offset_top = 24.0
 offset_right = 40.0
 offset_bottom = 32.0
+
+[node name="TalentTree" parent="HUD" instance=ExtResource("16_unwu1")]
+visible = false
+offset_left = -312.0
+offset_top = -156.0
+offset_right = -128.0
+offset_bottom = 0.0
 
 [node name="Weather" type="GPUParticles2D" parent="."]
 z_index = 1

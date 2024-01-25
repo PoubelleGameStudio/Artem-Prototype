@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqpiys7r5mu"]
+
+[ext_resource type="Texture2D" uid="uid://do6udy3h2fq6f" path="res://icon.svg" id="1_t7n7w"]
+[ext_resource type="Script" path="res://TalentButton.gd" id="2_dy3ox"]
+[ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="3_yab7r"]
+
+[node name="TextureButton" type="TextureButton"]
+offset_right = 64.0
+offset_bottom = 64.0
+toggle_mode = true
+texture_normal = ExtResource("1_t7n7w")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_dy3ox")
+maxRank = 3
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 96.0
+offset_bottom = 80.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+label_settings = ExtResource("3_yab7r")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = -44.0
+offset_right = 320.0
+offset_bottom = -4.0
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+z_index = -1
+width = 5.0
+default_color = Color(0.270588, 0.278431, 0.215686, 1)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
