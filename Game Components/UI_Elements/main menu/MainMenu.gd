@@ -87,14 +87,14 @@ func save_game(path : String):
 			"Vendor_wares":State.Vendor_wares,
 			"player_talents":State.talents,
 			"world":player.get_world(),
-			"player_position_x":player.get_global_position().x,
-			"player_position_y":player.get_global_position().y
+			"player_position_x":player.get_position().x,
+			"player_position_y":player.get_position().y
 		}
 	}
 	var json_string = JSON.stringify(data, "\t")
 	file.store_string(json_string)
 	file.close()
-	print(get_global_position().x," ",get_global_position().y)
+	print(float(player.get_global_position().x)," ",float(player.get_global_position().y))
 	
 func load_data(path:String):
 	if FileAccess.file_exists(path):
@@ -144,7 +144,9 @@ func load_data(path:String):
 		loader.level_name = data.player_data.world
 		get_tree().change_scene_to_file(str("res://scenes/levels/",loader.level_name,".tscn"))
 		loader._ready()
-		player.set_global_position(Vector2(data.player_data.player_position_x,data.player_data.player_position_y))
+		player.position.x = data.player_data.player_position_x
+		player.position.y = data.player_data.player_position_y
+		print(float(player.get_global_position().x)," ",float(player.get_global_position().y))
 		player.camera_current()
 		$"../".resume()
 		

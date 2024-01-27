@@ -216,7 +216,7 @@ var quest_db ={
 	"Trash_1":{
 		"Giver":"TrashBoy",
 		"quest_name":"Trash for the Trash God",
-		"Status":1,
+		"Status":2,
 		"Items":{
 			"Trash Food":4
 		},
