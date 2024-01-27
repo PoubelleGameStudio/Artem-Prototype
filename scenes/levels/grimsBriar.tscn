@@ -552,7 +552,7 @@ model = "Lamp Post - Spooky"
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-99.3296, -18.4802)
+position = Vector2(2927.45, 626.81)
 
 [node name="combatScreen" parent="." instance=ExtResource("36_v2jdf")]
 process_mode = 4
@@ -816,6 +816,20 @@ position = Vector2(-1.09403, 3.82909)
 scale = Vector2(0.547013, 0.547013)
 monitoring = true
 interact_label = "barkeep_2"
+interact_type = "quest_giver"
+
+[node name="Witch" parent="Quest_Givers" instance=ExtResource("19_w08lc")]
+z_index = 1
+position = Vector2(3083, 605)
+scale = Vector2(1, 1)
+has_quest = 1
+sprite = "witch"
+
+[node name="quest_interaction" parent="Quest_Givers/Witch" instance=ExtResource("18_a2bs0")]
+position = Vector2(-1.09403, 3.82909)
+scale = Vector2(0.547013, 0.547013)
+monitoring = true
+interact_label = "witch_1"
 interact_type = "quest_giver"
 
 [node name="Gateways" type="Node2D" parent="."]

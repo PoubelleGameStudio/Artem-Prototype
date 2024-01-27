@@ -221,7 +221,17 @@ var quest_db ={
 			"Trash Food":4
 		},
 		"description":"Kindly bring Trash to the Trash God."
+	},
+	"witch_1":{
+		"Giver":"witch",
+		"quest_name":"Witch's Crew",
+		"Status":0,
+		"Items":{
+			"Plans":1
+		},
+		"description":"The techies are giving The Witch some trouble."
 	}
+	
 }
 
 # various quest progress trackers

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cxwgljlj2pfk1"]
+[gd_scene load_steps=60 format=3 uid="uid://cxwgljlj2pfk1"]
 
 [ext_resource type="Script" path="res://scripts/beggar.gd" id="1_tk6om"]
 [ext_resource type="Texture2D" uid="uid://jn0psaihgi7i" path="res://Sprites/beggar.png" id="1_ujaiu"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cpn30fqtn1jjg" path="res://Sprites/elder.png" id="5_ug2ty"]
 [ext_resource type="Texture2D" uid="uid://c6vko46s6dstj" path="res://Game Components/UI_Elements/chat_bubble_spriteSheet.png" id="5_y0kg0"]
 [ext_resource type="Texture2D" uid="uid://cvatbeu3hl0yj" path="res://Game Components/UI_Elements/quest_incomplete_spriteSheet.png" id="7_ky7r1"]
+[ext_resource type="Texture2D" uid="uid://4cjp8pme00u1" path="res://Sprites/quest givers/Witch_idle - sprite sheet.png" id="8_bmj81"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8y7lh"]
 atlas = ExtResource("2_2ytqp")
@@ -123,6 +124,38 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ped24"]
 atlas = ExtResource("5_ug2ty")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ids83"]
+atlas = ExtResource("8_bmj81")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csclr"]
+atlas = ExtResource("8_bmj81")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unxfr"]
+atlas = ExtResource("8_bmj81")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq4sx"]
+atlas = ExtResource("8_bmj81")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1kwy"]
+atlas = ExtResource("8_bmj81")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckb70"]
+atlas = ExtResource("8_bmj81")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqmi3"]
+atlas = ExtResource("8_bmj81")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfulg"]
+atlas = ExtResource("8_bmj81")
+region = Rect2(224, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f8675"]
 animations = [{
@@ -242,6 +275,35 @@ animations = [{
 "loop": true,
 "name": &"front_desk",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ids83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csclr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unxfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq4sx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1kwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckb70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqmi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfulg")
+}],
+"loop": true,
+"name": &"witch",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d33be"]
@@ -334,7 +396,7 @@ script = ExtResource("1_tk6om")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f8675")
-animation = &"GB_vendor"
+animation = &"witch"
 speed_scale = 0.4
 
 [node name="dialogue_indicator" type="AnimatedSprite2D" parent="."]

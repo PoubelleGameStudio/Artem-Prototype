@@ -1,25 +1,34 @@
-if quest_db["trash_1"]["Status"] == 2
-	~ trash_path
-	The Witch: Well you're a fresh face. Is there a reason I shouldn't add it to the wall?
-	Artem: A uniquely cognizant raccoon sent me your way.
-	The Witch: That furry little shit never takes a day off from ruining my focus.
-	Artem: Is he your familiar?
-	The Witch: No more than the shit I took this morning is.
-	Artem: ...
-	The Witch: If ever given the chance, do not partake in a relationship with a god. Even a lower one such as a god of rot.
-	Artem: Can't imagine I'll ever need to make that call.
-	The Witch: Should you falter in my wisdom then even moreso I implore you to not expect loyalty displayed via manogomy.
-	Artem: I should clarify I really have no allegiance to the raccoon.
-	The Witch: And should you falter once more then you're as much of a fool as I expect. Speaking of...why are you following the directions of a verbal woodland critter so as to find yourself at the stoop of a witch's home.
-	Artem: Admittedly your phrasing doesn't leave much merit for me to grasp, but I'm Artem. A watcher. I was previously very far from this valley and touched a book. Now I'm here and helping the mayor find the missing locals.
-	set State.witch_greeted = 1
-	=>main_path 
+~ start
+if quest_db["Trash_1"]["Status"] == 2
+	=> trash_path
+else
+	=> no_trash
+	
+~ trash_path
+The Witch: Well you're a fresh face. Is there a reason I shouldn't add it to the wall?
+Artem: A uniquely cognizant raccoon sent me your way.
+The Witch: That furry little shit never takes a day off from ruining my focus.
+Artem: Is he your familiar?
+The Witch: No more than the shit I took this morning is.
+Artem: ...
+The Witch: If ever given the chance, do not partake in a relationship with a god. Even a lower one such as a god of rot.
+Artem: Can't imagine I'll ever need to make that call.
+The Witch: Should you falter in my wisdom then even moreso I implore you to not expect loyalty displayed via manogomy.
+Artem: I should clarify I really have no allegiance to the raccoon.
+The Witch: And should you falter once more then you're as much of a fool as I expect. Speaking of...why are you following the directions of a verbal woodland critter so as to find yourself at the stoop of a witch's home.
+Artem: Admittedly your phrasing doesn't leave much merit for me to grasp, but I'm Artem. A watcher. I was previously very far from this valley and touched a book. Now I'm here and helping the mayor find the missing locals.
+set State.witch_greeted = 1
 
+=> main_path 
 
 ~ no_trash
 The Witch: Well you're a fresh face. Is there a reason I shouldn't add it to the wall?
-Artem: 
-=>main_path
+Artem: I don't suppose you're a friend of the bartending mayor?
+The Witch: Friend is a bit personal, but he's never caused me trouble. Will I be able to say the same of you?
+Artem: Ideally, yes. I'm Artem, a watcher.
+The Witch: Bit of a mixed bag, my experience with you lot. What's brought you to my door?
+Artem: In a unique turn of events I've found myself in Grim's briar after touching this book that apparently belongs to a man who has given the locals such books that have inversely sent them away from Grim's Briar. I don't suppose you're familiar with a Tim that lives here?
+=> main_path
 
 ~ main_path
 The Witch: Make a habit of touching strange books?
@@ -43,17 +52,17 @@ Artem: ...and what would that be?
 The Witch: As a watcher I'm sure you're aware of how painfully close we are to the Needle. That wasn't always the case, but unfortunately as time marches forward so do their perceived property lines.
 Artem: You want me to settle a land dispute?
 The Witch: No. I want you to find those walking circuit boards and kill them. Then you'll make sure their precious energy temples will never generate an ounce of power again.
-Artem: Stories spread as they will, but whatever you've heard has you mistaken that watchers kill for favor. Even if those living in the Needle.
-The Witch: Then don't kill them if you haven't the stomach, but until they're no longer a nuisance to my home and work you won't get find me lifting a finger for you.
-Artem: In regards to the energy temple you mentioned. Is this something new of theirs?
+Artem: Whatever stories you've heard has you mistaken that watchers kill for favor. Even of those living in the Needle.
+The Witch: Then don't kill them if you haven't the stomach, but until they're no longer a nuisance to my home and my work you won't get find me lifting a finger for you.
+Artem: In regards to the temple you mentioned. Is this something new of theirs?
 The Witch: It would seem so. I found one of their lackey's poking around my garden and we had a truly delightful chat...
 Artem: And then you let him be on his way?
-The Witch: Whatever sets your heart right straight, dear. It would appear they've had a breakthrough communicating with their god and are receiving direction with unprecedented clarity. Among that direction are what they're calling temples. They route their power through them and at the center of their grand circuitry is a sinner.
+The Witch: Whatever sets your heart straight, dear. It would appear they've had a breakthrough communicating with their god and are receiving direction with unprecedented clarity. Among that direction is to construct these temples. They route their power through them and at the center of their grand circuitry is a sinner.
 Artem: At the center?
-The Witch: Dead center, even. It would seem their god has stated that by placing these sinners into the electricity's path both purifies their vessel and strengthen's the energy that passes through them. Something about it challenging their sin.
+The Witch: Dead center, even. It would seem their god has stated that by placing these sinners into the energy's path it both purifies their vessel and strengthens the energy that passes through. Something about it challenging their sin.
 Artem: They're killing them? 
-The Witch: Not as fast as you'd think, but yes. They've managed to extend the body's tolerance but only in the sense of death. Part of their purification is to feel the agony. Feel themselves burning until their little light finally goes out.
+The Witch: By the dozens if not hundreds at this point. They fry them until their little light finally goes out. Our little canary told me they treat them beforehand to reinforce the vessel but it does little for the pain.
 Artem: How many of these temples are there?
-The Witch: More than any of us would care for, but I've said enough for now. There are some items in the chest over there. If you're still unwilling to take their lives, you'll at least find some delightfully destructive potions to destroy their putrid temples.
+The Witch: More than any of us would care for, but I've said enough for now. There are some items in the chest over there. If you're still unwilling to take their lives, you'll at least find some delightful potions to destroy their putrid temples.
 
 => END
