@@ -182,7 +182,6 @@ func execute_interaction():
 				if cur_interaction.interact_value == "in":
 					print(get_parent().level_name)
 					State.p_locs[get_parent().level_name] = get_node("../player").global_position
-					#State.prev_player_position = get_node("../player").global_position
 					get_tree().change_scene_to_file((str("res://scenes/levels/",
 							cur_interaction.interact_label)))
 				elif cur_interaction.interact_value == "out":
@@ -195,7 +194,6 @@ func execute_interaction():
 					if cur_interaction.interact_value == "in":
 						print(get_parent().level_name)
 						State.p_locs[get_parent().level_name] = get_node("../player").global_position
-						#State.prev_player_position = get_node("../player").global_position
 						get_tree().change_scene_to_file((str("res://scenes/levels/",
 								cur_interaction.interact_label)))
 					elif cur_interaction.interact_value == "out":

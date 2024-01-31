@@ -61,8 +61,6 @@ func enemyHealth():
 func updateHealth(damage):
 	health -= damage
 	if health <= 0:
-		#print("enemy ID: ",id)
-		#print("state list: ",State.area_enemies[world][id])
 		State.area_enemies[world][id] = 1
 		enemySprite.play(str(enemy_type,"_death"))
 		dead.emit()

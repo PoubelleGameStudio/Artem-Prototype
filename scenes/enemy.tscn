@@ -285,11 +285,12 @@ frame_progress = 0.330389
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-13, 57)
+position = Vector2(1, 35)
 shape = SubResource("CapsuleShape2D_jxhvg")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-2, 26)
+visible = false
+position = Vector2(-1, 24)
 scale = Vector2(3.9375, 4.5)
 color = Color(1, 0.00784314, 0.341176, 1)
 energy = 2.83

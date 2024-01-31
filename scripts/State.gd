@@ -2,7 +2,7 @@ extends Node
 
 # player vars
 var prev_player_position
-var prev_scene
+var prev_scene: NodePath
 var engaging = []
 var talking = 0
 var p_locs = {}
@@ -51,10 +51,10 @@ var rVoid = 0
 var gold = 100
 
 # social trackers
-var welcomed = 0
-var witch_greeted = 0
+var welcomed: bool = 0
+var witch_greeted: bool = 0
 
-@onready var dm = get_parent().get_node("/root/DialogueManager")
+#@onready var dm = get_parent().get_node("/root/DialogueManager")
 #@onready var voice = $root/player/voice
 
 func _ready():

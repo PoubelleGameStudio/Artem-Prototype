@@ -1,7 +1,7 @@
 
 
 ~ start
-if State.welcomed ==0
+if State.welcomed == true
 	=> welcome
 else 
 	=> beer_run
@@ -17,15 +17,14 @@ Artem: Are you able to recognize this book?
 - Apologize
 	Artem: Terribly sorry. I prefer a first printing myself, though not quite as passionately.
 	[wave amp=25 freq=5]Hedo[/wave]: Welcome to Grim's Briar
-	set State.welcomed = 1
+	set State.welcomed = true
 	set State.talking = 0
 - Move along
 	Artem: Well, glad we've set expecations.
-	set State.welcomed = 1
+	set State.welcomed = true
 	set State.talking = 0
 => END
 
-	
 ~ beer_run
 if quest_db["beer_run"]["Status"] == 0
 	[wave amp=25 freq=5]Hedo[/wave]: fill my flask would you? never know how a deed shines. could be of some value.

@@ -9,8 +9,6 @@ extends Node2D
 @onready var player = $player
 @onready var respawn_location = $respawn.global_position
 
-const save_dir = "user://saves/"
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if State.p_locs.has(level_name):
@@ -22,7 +20,6 @@ func _ready():
 		player.world = level_name
 		
 	bury_the_dead()	
-	verify_save_directory(save_dir)
 	
 
 

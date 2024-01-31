@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://db5dnu4kmtfkk"]
+
+[ext_resource type="Script" path="res://Game Components/UI_Elements/main menu/playerData.gd" id="1_isoag"]
+
+[node name="PlayerData" type="Node2D"]
+script = ExtResource("1_isoag")

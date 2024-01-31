@@ -19,6 +19,7 @@ func _process(delta):
 	
 	
 func populate_grid():
+	print("populating inventory")
 	var inv = State.inventory
 	var slots = get_node("grid").get_children()
 	var current_inv = inv.keys()
