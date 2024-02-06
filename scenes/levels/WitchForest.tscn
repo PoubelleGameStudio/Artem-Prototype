@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://drfmrbkjx66t8"]
+[gd_scene load_steps=19 format=3 uid="uid://drfmrbkjx66t8"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_74c0b"]
 [ext_resource type="Texture2D" uid="uid://tt6q3w3spipg" path="res://Art/ground/basic - spooky.png" id="2_3h8wd"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bfph1pgewte0w" path="res://Art/buildings/Witch House.png" id="4_ykr2s"]
 [ext_resource type="Texture2D" uid="uid://ctdywkq0bc0f3" path="res://Art/foliage&trees/spooky_tree.png" id="5_8bspx"]
 [ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="6_d8wmu"]
+[ext_resource type="Texture2D" uid="uid://2fq022fqawh3" path="res://Art/foliage&trees/spooky_tree_02.png" id="6_orjx5"]
 [ext_resource type="AudioStream" uid="uid://ugqmeknu43n7" path="res://sounds/levelMusic/grimsBriar.wav" id="7_cbf7w"]
+[ext_resource type="Texture2D" uid="uid://cm8e5ypkdprm2" path="res://Sprites/world objects/foliage/berry bush - spooky.png" id="7_gqbmv"]
 [ext_resource type="PackedScene" uid="uid://dc6twae4gpv87" path="res://Game Components/UI_Elements/combat/combatScreen.tscn" id="8_ac38p"]
 [ext_resource type="PackedScene" uid="uid://cxwgljlj2pfk1" path="res://scenes/beggar.tscn" id="9_siaec"]
 
@@ -36,11 +38,30 @@ texture = ExtResource("5_8bspx")
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(10, 27, 15.5, 38, 15.5, 51, 23.5, 58.5, 38.5, 64, -42.5, 66, -26.5, 57, -15, 56, -11, 49, -11.5, 33.5, -15, 24.5)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rn3pp"]
+texture = ExtResource("6_orjx5")
+0:0/size_in_atlas = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/y_sort_origin = 20
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.5, 22.5, 10.5, 21, 13.5, 35, 15, 50, 23.5, 60, 37, 64.5, -39, 63, -10.5, 53.5, -11, 37)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_konmg"]
+texture = ExtResource("7_gqbmv")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.5, 4.5, 15, 4, 15, 16.5, -14, 16)
+
 [sub_resource type="TileSet" id="TileSet_gtc51"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yh8mh")
 sources/1 = SubResource("TileSetAtlasSource_t41vw")
 sources/2 = SubResource("TileSetAtlasSource_cxqs7")
+sources/3 = SubResource("TileSetAtlasSource_rn3pp")
+sources/4 = SubResource("TileSetAtlasSource_konmg")
 
 [node name="root" type="Node2D"]
 y_sort_enabled = true
@@ -64,10 +85,9 @@ layer_1/modulate = Color(0.843137, 0, 0.843137, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(458800, 1, 0, 458794, 2, 0, 786442, 2, 0)
+layer_1/tile_data = PackedInt32Array(458800, 1, 0, 458794, 2, 0, 786442, 2, 0, 27, 3, 0, 720959, 3, 0, 589833, 3, 0, 458764, 2, 0, 262154, 3, 0, 65554, 3, 0, -131033, 3, 0, 1048589, 3, 0, 1179668, 3, 0, 1376283, 3, 0, 1507361, 3, 0, 1572894, 2, 0, 1310743, 2, 0, 1245199, 2, 0, 65559, 2, 0, 131103, 2, 0, 65574, 2, 0, -65493, 2, 0, 262160, 4, 0, 327694, 4, 0, 393229, 4, 0, 262173, 4, 0, 327715, 4, 0, 655412, 4, 0)
 
 [node name="player" parent="." instance=ExtResource("3_x4lny")]
-z_index = 1
 y_sort_enabled = true
 position = Vector2(452.896, 136.826)
 
