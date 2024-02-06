@@ -182,6 +182,7 @@ texture = ExtResource("19_xgyv5")
 texture = ExtResource("19_503ej")
 4:6/size_in_atlas = Vector2i(12, 14)
 4:6/0 = 0
+4:6/0/y_sort_origin = -24
 4:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:6/0/physics_layer_0/angular_velocity = 0.0
 4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-96.5, 33, 97.5, 35, 95.5, 112, -94.5, 109)
@@ -816,20 +817,6 @@ position = Vector2(-1.09403, 3.82909)
 scale = Vector2(0.547013, 0.547013)
 monitoring = true
 interact_label = "barkeep_2"
-interact_type = "quest_giver"
-
-[node name="Witch" parent="Quest_Givers" instance=ExtResource("19_w08lc")]
-z_index = 1
-position = Vector2(3131, 605)
-scale = Vector2(1, 1)
-has_quest = 1
-sprite = "witch"
-
-[node name="quest_interaction" parent="Quest_Givers/Witch" instance=ExtResource("18_a2bs0")]
-position = Vector2(-1.09403, 3.82909)
-scale = Vector2(0.547013, 0.547013)
-monitoring = true
-interact_label = "witch_1"
 interact_type = "quest_giver"
 
 [node name="Gateways" type="Node2D" parent="."]

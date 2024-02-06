@@ -51,7 +51,6 @@ func _on_exit_pressed():
 	
 	
 # system state
-
 func save_player()-> void:
 	playerData.welcomed = State.welcomed
 	playerData.prev_scene = State.prev_scene

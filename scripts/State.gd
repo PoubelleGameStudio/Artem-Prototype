@@ -288,9 +288,8 @@ var area_enemies = {
 	"GB_tavern":{},
 	"GB_inn":{},
 	"starting_village":{},
-	"GB_sewers":{
-		
-	}
+	"GB_sewers":{},
+	"WitchForest":{}
 }
 
 # enemy DB
