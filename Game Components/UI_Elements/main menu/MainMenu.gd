@@ -82,7 +82,7 @@ func save_player()-> void:
 	playerData.area_enemies = State.area_enemies
 	playerData.Vendor_wares = State.Vendor_wares
 	playerData.talents = State.talents
-	playerData.world = player.get_world()
+	playerData.world = loader.level_name
 	playerData.pos = player.get_global_position()
 	
 func load_player() -> void:
@@ -116,8 +116,10 @@ func load_player() -> void:
 	State.area_enemies = playerData.area_enemies
 	State.Vendor_wares = playerData.Vendor_wares
 	State.talents = playerData.talents
+	get_tree().change_scene_to_file((str("res://scenes/levels/",playerData.world,".tscn")))
 	loader.level_name = playerData.world
-	player.set_global_position(playerData.pos)
+	player.set_global_position(Vector2(playerData.pos))
 	player.camera_current()
 	$"../".resume()
+	print("save loaded")
 

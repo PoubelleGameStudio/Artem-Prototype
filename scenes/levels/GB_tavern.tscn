@@ -252,7 +252,7 @@ interact_value = "out"
 
 [node name="player" parent="." instance=ExtResource("2_n50p3")]
 z_index = 1
-position = Vector2(56, 48)
+position = Vector2(66.1639, 106.138)
 
 [node name="map_bounds" type="Node2D" parent="."]
 
