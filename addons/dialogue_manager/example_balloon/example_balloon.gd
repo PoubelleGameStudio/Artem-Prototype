@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var dialogue_label := $Balloon/Margin/VBox/DialogueLabel
 @onready var responses_menu: VBoxContainer = $Balloon/Margin/VBox/Responses
 @onready var response_template: RichTextLabel = %ResponseTemplate
+@onready var talk = $AudioStreamPlayer2D
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -210,3 +211,8 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 func _on_margin_resized() -> void:
 	handle_resize()
+
+
+func _on_dialogue_label_spoke(letter, letter_index, speed):
+	talk.play()
+	print(letter)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=8 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" path="res://Game Components/dialogue/balloon.gd" id="1_4u26j"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="2_panfk"]
+[ext_resource type="AudioStream" uid="uid://wj3ul17xyl14" path="res://sounds/talk_sounds/Cymatics - Raptor Bass One Shot 12 - D#.wav" id="4_tfwi0"]
+[ext_resource type="AudioStream" uid="uid://5pbn7ukkm03q" path="res://sounds/talk_sounds/artem.wav" id="5_rhw78"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d24i"]
 content_margin_left = 40.0
@@ -92,5 +94,14 @@ shortcut_keys_enabled = false
 meta_underlined = false
 hint_underlined = false
 
+[node name="Talk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tfwi0")
+volume_db = -10.0
+
+[node name="artem_talk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rhw78")
+volume_db = -10.0
+
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="resized" from="Balloon/Margin" to="." method="_on_margin_resized"]
+[connection signal="spoke" from="Balloon/Margin/VBox/DialogueLabel" to="." method="_on_dialogue_label_spoke"]

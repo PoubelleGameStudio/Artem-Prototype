@@ -8,6 +8,8 @@ extends CanvasLayer
 @onready var dialogue_label := $Balloon/Margin/VBox/DialogueLabel
 @onready var responses_menu: VBoxContainer = $Balloon/Margin/VBox/Responses
 @onready var response_template: RichTextLabel = %ResponseTemplate
+@onready var talk: AudioStreamPlayer = $Talk
+@onready var artem_talk: AudioStreamPlayer = $artem_talk
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -221,3 +223,16 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 func _on_margin_resized() -> void:
 	handle_resize()
+
+
+func _on_dialogue_label_spoke(letter, letter_index, speed):
+	if character_label.text != "Artem":
+		if not letter in ["."," "]:
+			if  letter in ["a","e","i","o","u","y"]:
+				talk.pitch_scale = randf_range(0.2,0.3)
+				talk.play()
+	else:
+		if not letter in ["."," "]:
+			if  letter in ["a","e","i","o"]:
+				artem_talk.pitch_scale = randf_range(0.4,0.5)
+				artem_talk.play()
