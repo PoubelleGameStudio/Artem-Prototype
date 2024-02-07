@@ -226,14 +226,14 @@ func _on_margin_resized() -> void:
 
 
 func _on_dialogue_label_spoke(letter, letter_index, speed):
-	if letter_index%4 == 0:
+	if letter_index%3 == 0 || letter_index == 0:
 		if character_label.text != "Artem":
-			if not letter in ["."," "]:
-				if  letter in ["a","e","i","o","u"]:
+			if not letter in ["."," ","*"]:
+				if  letter in ["a","e","i","o","u","y"]:
 					talk.pitch_scale = randf_range(0.2,0.3)
 					talk.play()
 		else:
-			if not letter in ["."," "]:
-				if  letter in ["a","e","i","o"]:
+			if not letter in ["."," ","*"]:
+				if  letter in ["a","e","i","o","y"]:
 					artem_talk.pitch_scale = randf_range(0.4,0.5)
 					artem_talk.play()

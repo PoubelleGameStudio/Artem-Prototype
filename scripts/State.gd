@@ -179,7 +179,7 @@ var quest_db ={
 		"quest_name":"Meet The Crowd",
 		"Status":0,
 		"Items":{
-			beer=1,
+			"beer"=1,
 			"Grims Briar Room Key"=1
 			},
 		"description":"Grab some creature comforts."

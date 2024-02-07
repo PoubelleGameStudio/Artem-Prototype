@@ -96,11 +96,11 @@ hint_underlined = false
 
 [node name="Talk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tfwi0")
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="artem_talk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_rhw78")
-volume_db = -10.0
+volume_db = -15.0
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="resized" from="Balloon/Margin" to="." method="_on_margin_resized"]
