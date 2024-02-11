@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://drfmrbkjx66t8"]
+[gd_scene load_steps=45 format=3 uid="uid://drfmrbkjx66t8"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_74c0b"]
 [ext_resource type="Environment" uid="uid://bsxawlioltobo" path="res://themes/base_worldenv.tres" id="2_454ue"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dgv5apurlf6fb" path="res://Art/foliage&trees/forest_flowers.png" id="9_7vfuu"]
 [ext_resource type="PackedScene" uid="uid://cxwgljlj2pfk1" path="res://scenes/beggar.tscn" id="9_siaec"]
 [ext_resource type="AudioStream" uid="uid://dny2xui00wd45" path="res://sounds/levelMusic/the stars want you dead.wav" id="10_3ibxv"]
+[ext_resource type="Texture2D" uid="uid://0k4hs5h6wfpo" path="res://Art/ground/backgrounds/cliff_wall.png" id="10_7w8cm"]
 [ext_resource type="Texture2D" uid="uid://jf326go3qori" path="res://Art/ground/stepping_stone001.png" id="11_myklg"]
 [ext_resource type="Texture2D" uid="uid://dg3jrtxjiadqo" path="res://Art/ground/stepping_stone002.png" id="12_70p0s"]
 [ext_resource type="Texture2D" uid="uid://c2spr6p7nxjmc" path="res://Art/ground/stepping_stone003.png" id="13_bjjm2"]
@@ -93,6 +94,7 @@ texture = ExtResource("4_ykr2s")
 texture = ExtResource("7_5g4ea")
 0:0/size_in_atlas = Vector2i(12, 12)
 0:0/0 = 0
+0:0/0/y_sort_origin = 90
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(96.5, 95, 72.5, 34.5, -72, 37, -96.5, 97)
@@ -115,6 +117,14 @@ texture = ExtResource("9_7vfuu")
 2:2/0 = 0
 2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:2/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_df6lm"]
+texture = ExtResource("10_7w8cm")
+0:0/size_in_atlas = Vector2i(20, 20)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-163, 88, 160, 86, 161, 162, -165, 158)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cxqs7"]
 texture = ExtResource("5_8bspx")
@@ -193,6 +203,7 @@ sources/8 = SubResource("TileSetAtlasSource_eucdy")
 sources/9 = SubResource("TileSetAtlasSource_kqysq")
 sources/10 = SubResource("TileSetAtlasSource_wymiu")
 sources/11 = SubResource("TileSetAtlasSource_88kra")
+sources/12 = SubResource("TileSetAtlasSource_df6lm")
 
 [node name="root" type="Node2D"]
 y_sort_enabled = true
@@ -252,7 +263,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = -1
-layer_1/tile_data = PackedInt32Array(786480, 9, 0, 1048624, 9, 0, 1179700, 9, 0, -3342286, 10, 0, 1179712, 9, 0, 983114, 9, 0, 589913, 9, 0, -196510, 9, 0, -1900456, 9, 0, -2293685, 9, 0, -2490311, 9, 0, -2883534, 9, 0, -2752462, 9, 0, -2621390, 9, 0, -2555852, 9, 0, -2490314, 9, 0, -2359230, 9, 0, -1507230, 9, 0, 1114221, 8, 0, 1573004, 8, 0, 2556076, 8, 0, 3932352, 8, 0, 2687209, 8, 0, 524521, 8, 0, -1113865, 8, 0, 917772, 8, 0, 2359587, 8, 0, 1900828, 8, 0, 1573144, 8, 0, -3014610, 11, 0, -2949066, 131083, 0, -2818000, 131083, 2, -3014608, 11, 2, -3014611, 131083, 2, -3014609, 11, 2, -3014603, 11, 2, -3014601, 131083, 2, -3014602, 11, 2, -3014604, 131083, 0, 720945, 131083, 2, 655407, 131083, 0, 720942, 131083, 0, 655400, 131083, 0, 655404, 11, 0, 655413, 11, 0, 1114163, 11, 2, 1114178, 11, 2, 786503, 131083, 2, 589841, 11, 0, 458771, 11, 0, 458774, 11, 0, 589847, 11, 0, 720918, 11, 0, 720915, 11, 0, 655377, 11, 2, 524306, 11, 2, 458772, 11, 2, 524310, 11, 2, 655382, 11, 2, 720917, 11, 2, 917552, 8, 0, 1114162, 8, 0, 1179706, 8, 0, 1114181, 8, 0, 1048667, 8, 0)
+layer_1/tile_data = PackedInt32Array(786480, 9, 0, 1048624, 9, 0, 1179700, 9, 0, 1179712, 9, 0, 983114, 9, 0, 589913, 9, 0, -196510, 9, 0, -1900456, 9, 0, -2293685, 9, 0, -2490311, 9, 0, -2883534, 9, 0, -2752462, 9, 0, -2621390, 9, 0, -2555852, 9, 0, -2490314, 9, 0, -2359230, 9, 0, -1507230, 9, 0, 1114221, 8, 0, 1573004, 8, 0, 2556076, 8, 0, 3932352, 8, 0, 2687209, 8, 0, 524521, 8, 0, -1113865, 8, 0, 917772, 8, 0, 2359587, 8, 0, 1900828, 8, 0, 1573144, 8, 0, -3014610, 11, 0, -2949066, 131083, 0, -2818000, 131083, 2, -3014608, 11, 2, -3014611, 131083, 2, -3014609, 11, 2, -3014603, 11, 2, -3014601, 131083, 2, -3014602, 11, 2, -3014604, 131083, 0, 720945, 131083, 2, 655407, 131083, 0, 720942, 131083, 0, 655400, 131083, 0, 655404, 11, 0, 655413, 11, 0, 1114163, 11, 2, 1114178, 11, 2, 786503, 131083, 2, 589841, 11, 0, 458771, 11, 0, 458774, 11, 0, 589847, 11, 0, 720918, 11, 0, 720915, 11, 0, 655377, 11, 2, 524306, 11, 2, 458772, 11, 2, 524310, 11, 2, 655382, 11, 2, 720917, 11, 2, 917552, 8, 0, 1114162, 8, 0, 1179706, 8, 0, 1114181, 8, 0, 1048667, 8, 0, -3342286, 10, 0, -3604390, 12, 0, -3604370, 12, 0, -3604350, 12, 0, -3604330, 12, 0, -3604310, 12, 0, -3604290, 12, 0, -3604430, 12, 0, -3604410, 12, 0, -3604470, 12, 0, -3604450, 12, 0, -3538974, 12, 0, -3538954, 12, 0)
 layer_2/name = "buildings"
 layer_2/enabled = true
 layer_2/modulate = Color(0.843137, 0, 0.843137, 1)
@@ -263,7 +274,7 @@ layer_2/tile_data = PackedInt32Array(458800, 1, 0, 458794, 2, 0, 786442, 2, 0, 2
 
 [node name="player" parent="." instance=ExtResource("3_x4lny")]
 y_sort_enabled = true
-position = Vector2(325.681, 151.884)
+position = Vector2(659.406, -583.642)
 
 [node name="respawn" parent="." instance=ExtResource("6_d8wmu")]
 position = Vector2(326, 168)
