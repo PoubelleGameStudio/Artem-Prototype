@@ -18,4 +18,3 @@ fog_sun_scatter = 0.41
 fog_density = 0.9547
 adjustment_enabled = true
 adjustment_contrast = 1.33
-adjustment_saturation = 1.1

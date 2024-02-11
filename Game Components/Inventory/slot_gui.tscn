@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://bggg174d0g1dl"]
 
-[ext_resource type="Texture2D" uid="uid://gp2mtifsphtl" path="res://Game Components/UI_Elements/inv_components/inv_background.png" id="1_jtfpy"]
 [ext_resource type="Script" path="res://Game Components/Inventory/slot_gui.gd" id="1_s1lfe"]
+[ext_resource type="Texture2D" uid="uid://b1pc1ci3rp34x" path="res://Game Components/UI_Elements/inv_components/inv_marker.png" id="2_7fbfw"]
 [ext_resource type="Texture2D" uid="uid://bsdp20j080nbf" path="res://Game Components/UI_Elements/inv_components/selected_indicator.png" id="2_bs481"]
-[ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="4_6nv2q"]
+[ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="4_5223r"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="5_dnc0k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mpnt"]
@@ -26,12 +26,12 @@ script = ExtResource("1_s1lfe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 0
-texture = ExtResource("1_jtfpy")
+texture = ExtResource("2_7fbfw")
 centered = false
 
 [node name="itemArt" type="Sprite2D" parent="."]
 light_mask = 0
-position = Vector2(14.1729, 15.1665)
+position = Vector2(20, 12)
 
 [node name="indicator" type="Sprite2D" parent="."]
 visible = false
@@ -41,6 +41,7 @@ centered = false
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
+offset_left = 4.0
 offset_right = 32.0
 offset_bottom = 32.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8mpnt")
@@ -59,7 +60,7 @@ offset_right = 32.0
 offset_bottom = 44.0
 text = "
 "
-label_settings = ExtResource("4_6nv2q")
+label_settings = ExtResource("4_5223r")
 horizontal_alignment = 2
 
 [node name="hoverName" type="Label" parent="."]
@@ -67,13 +68,13 @@ visible = false
 light_mask = 0
 z_index = 2
 layout_mode = 0
-offset_left = 4.0
-offset_top = -8.0
-offset_right = 44.0
-offset_bottom = 16.0
+offset_left = 12.6919
+offset_top = 26.3541
+offset_right = 52.6919
+offset_bottom = 68.3541
 theme_override_fonts/font = ExtResource("5_dnc0k")
 theme_override_font_sizes/font_size = 19
-label_settings = ExtResource("4_6nv2q")
+label_settings = ExtResource("4_5223r")
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

@@ -1,7 +1,7 @@
 
 
 ~ start
-if State.welcomed == true
+if State.welcomed == false
 	=> welcome
 else 
 	=> beer_run

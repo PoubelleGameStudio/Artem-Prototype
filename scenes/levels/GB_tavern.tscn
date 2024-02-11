@@ -234,6 +234,10 @@ interact_label = "barkeep_1"
 interact_type = "quest_giver"
 interact_value = "no"
 
+[node name="player" parent="." instance=ExtResource("2_n50p3")]
+z_index = 1
+position = Vector2(66.1639, 106.138)
+
 [node name="Gateways" type="Node2D" parent="."]
 
 [node name="Door" type="AnimatedSprite2D" parent="Gateways"]
@@ -249,10 +253,6 @@ position = Vector2(-8, 6)
 interact_label = "grimsBriar.tscn"
 interact_type = "gateway"
 interact_value = "out"
-
-[node name="player" parent="." instance=ExtResource("2_n50p3")]
-z_index = 1
-position = Vector2(66.1639, 106.138)
 
 [node name="map_bounds" type="Node2D" parent="."]
 

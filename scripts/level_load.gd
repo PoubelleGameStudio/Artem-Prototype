@@ -11,8 +11,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	if State.p_locs.has(level_name):
-#		get_node("player").global_position = State.p_locs[level_name]
+	if State.p_locs.has(level_name):
+		get_node("player").global_position = State.p_locs[level_name]
 	State.is_raining = is_raining
 
 	if combat:

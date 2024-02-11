@@ -1,5 +1,5 @@
-~ this_is_a_node_title
-if quest_db["barkeep_1"]["Status"] == 0:
+~ start
+if quest_db["Trash_1"]["Status"] == 0:
 	Trash God: Hello brave traveller.
 	Artem: Oh right...I'm on drugs.
 	Trash God: I am not drugs nor of drugs. I do have a request to make; humble I am.

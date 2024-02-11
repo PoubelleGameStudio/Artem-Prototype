@@ -187,7 +187,7 @@ var quest_db ={
 	"barkeep_2":{
 		"giver":"barkeep",
 		"quest_name":"Harsh the buzz",
-		"Status":-1,
+		"Status":0,
 		"Items":{
 			"get me down potion":1
 			},
@@ -205,10 +205,10 @@ var quest_db ={
 	"homebrewed":{
 		"Giver":"front_desk",
 		"quest_name":"Homebrewed",
-		"Status":-1,
+		"Status":0,
 		"Items":{
 			"Void Goop":1,
-			"berry_bush":1,
+			"berry bushel":1,
 			"Bone Dust":1
 		},
 		"description":"You're in bat country and the visuals are kicking in. Time to find the goods."
@@ -216,7 +216,7 @@ var quest_db ={
 	"Trash_1":{
 		"Giver":"TrashBoy",
 		"quest_name":"Trash for the Trash God",
-		"Status":2,
+		"Status":0,
 		"Items":{
 			"Trash Food":4
 		},
@@ -237,7 +237,7 @@ var quest_db ={
 # various quest progress trackers
 var given_ingredients = 0 #barkeep_1 progress
 
-func quest_complete(quest):
+func quest_complete(quest) -> bool:
 	var items = quest_db[quest]["Items"]
 	var req_met: bool
 	if inventory:
@@ -249,8 +249,10 @@ func quest_complete(quest):
 				else:
 					req_met = false
 					
+					
 			else:
 				req_met =  false
+				
 				
 	else:
 		req_met =  false

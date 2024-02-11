@@ -9,15 +9,15 @@
 
 [node name="quest_card" type="Panel"]
 light_mask = 0
-offset_right = 248.0
-offset_bottom = 64.0
+offset_right = 152.0
+offset_bottom = 96.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gyxv6")
 script = ExtResource("1_hfsoy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 0
 position = Vector2(7.62939e-06, 1.90735e-06)
-scale = Vector2(7.75, 2)
+scale = Vector2(4.75, 3)
 texture = ExtResource("1_gh22h")
 centered = false
 
@@ -25,27 +25,26 @@ centered = false
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 192.0
-offset_bottom = 46.0
+offset_right = 148.0
+offset_bottom = 25.0
 label_settings = ExtResource("4_4ig8f")
 
 [node name="quest_status" type="Label" parent="."]
 layout_mode = 0
-offset_left = 172.0
-offset_top = 4.0
-offset_right = 244.0
-offset_bottom = 25.0
+offset_left = 4.0
+offset_top = 20.0
+offset_right = 152.0
+offset_bottom = 41.0
 theme_override_fonts/font = ExtResource("3_rljj1")
 theme_override_font_sizes/font_size = 19
 label_settings = ExtResource("4_4ig8f")
-horizontal_alignment = 2
 
 [node name="quest_desc" type="Label" parent="."]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 32.0
-offset_right = 244.0
-offset_bottom = 74.0
+offset_top = 44.0
+offset_right = 144.0
+offset_bottom = 96.0
 theme_override_constants/line_spacing = 10000
 label_settings = ExtResource("4_4ig8f")
 autowrap_mode = 3

@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var goldLabel = $HUD/character_info/gold
 @onready var character_screen = $HUD/character_info
 @onready var cur_level = $"HUD/character_info/current level"
-@onready var xp_bar = $HUD/character_info/cHUB/XPBar
-@onready var hp_bar = $HUD/character_info/cHUB/HPBar
+@onready var xp_label = $HUD/character_info/cHUB/XP
+@onready var hp_label = $HUD/character_info/cHUB/Health
 @onready var shop = $HUD/shop
 @onready var pause = $HUD/PauseController
 @onready var rain = $Weather
@@ -17,7 +17,7 @@ extends CharacterBody2D
 
 
 
-const speed = 150.0
+var speed = 150.0
 
 
 var current_dir = "none"
@@ -30,7 +30,6 @@ func _ready():
 	update_HUD()
 	State.level_up()
 	character_screen.visible = false
-	q_log.hide()
 	
 
 
@@ -57,8 +56,9 @@ func _physics_process(delta):
 			character_screen.visible = false
 		else:
 			character_screen.visible = true
-			inv.populate_grid()
-			q_log.populate_log()
+			update_HUD()
+#			inv.populate_grid()
+#			q_log.populate_log()
 	if Input.is_action_just_pressed("Talents"):
 		if talents.visible == true:
 			talents.visible = false
@@ -127,8 +127,8 @@ func play_anim(movement):
 			
 ######################UI Element Data#################################
 func update_HUD():
-	xp_bar.value = ((float(State.cur_xp)/State.xp_to_next)*100)
-	hp_bar.value = State.health
+	xp_label.text = str(State.xp_to_next - State.cur_xp," XP to next level (",((float(State.cur_xp)/State.xp_to_next)*100),"%)")
+	hp_label.text = str("HP: ",State.health,"/",State.maxHealth)
 	goldLabel.text = str(State.gold," g")
 	inv.populate_grid()
 	q_log.populate_log()

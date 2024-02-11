@@ -11,7 +11,7 @@ bg_color = Color(0.607843, 0, 0.239216, 1)
 [resource]
 default_font = ExtResource("1_ffiin")
 default_font_size = 19
-ProgressBar/colors/font_color = Color(1, 1, 1, 1)
+ProgressBar/colors/font_color = Color(1, 0, 1, 1)
 ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/colors/font_shadow_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 9

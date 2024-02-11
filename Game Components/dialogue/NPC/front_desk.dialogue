@@ -13,6 +13,7 @@ if quest_db["barkeep_1"]["Status"] == 1:
 	=> END
 
 if quest_db["barkeep_2"]["Status"] == 1 and given_ingredients == 0:
+	do update_quest_status("homebrewed",1)
 	Old Crusty Guy: Could be weeks. Could be seconds. My time is dwindling, so how will you waste it?
 	Artem: I'm trying to keep a pretty narrow scope right now. Can you give me the recipe for potion that makes the air not poison?
 	Crusy Guy: Your big book doesn't have it?
@@ -28,7 +29,7 @@ if quest_db["barkeep_2"]["Status"] == 1 and given_ingredients == 0:
 	set talking = 0
 	=> END
 	
-if quest_db["barkeep_2"]["Status"] == 1 and given_ingredients == 1:
+if quest_db["homebrewed"]["Status"] == 1:
 	if quest_complete("homebrewed") == true:
 		Old Crusty Guy: Well let's see what you've got here. Wrong, wrong, and so little dust you wouldn't notice it on a mantle. Anyway, I whipped one up while you were gone.
 		Artem: Are you always like this?
@@ -36,6 +37,7 @@ if quest_db["barkeep_2"]["Status"] == 1 and given_ingredients == 1:
 		Artem: Sir, I am [wave amp=25 freq=5]actively[/wave] being drugged.
 		Old Crusty Guy: Well go on and take your baby juice then...
 		do update_inventory("get me down potion",1)
+		do update_quest_status("homebrewed",2)
 		set talking = 0
 		=> END
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=55 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -10,12 +10,13 @@
 [ext_resource type="Script" path="res://Game Components/UI_Elements/character screen/character_info.gd" id="5_2ad3x"]
 [ext_resource type="Texture2D" uid="uid://b4dgg37yjp405" path="res://Sprites/Artem/artem_v1_side_walking-spritesheet.png" id="5_d4qgt"]
 [ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="6_68dct"]
-[ext_resource type="Theme" uid="uid://vo18d0emeivc" path="res://themes/progress_bar.tres" id="7_hot2h"]
 [ext_resource type="Texture2D" uid="uid://dv7hntw3bi4xl" path="res://Sprites/Artem/artem_v1_back_walking.png" id="7_wkoaj"]
 [ext_resource type="Texture2D" uid="uid://b0kmobajmfp4n" path="res://Sprites/textures/rainfall.png" id="8_v2vqm"]
+[ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="12_4q3lk"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="13_cjqps"]
 [ext_resource type="Theme" uid="uid://c1pntnyw8t772" path="res://themes/hp_bar.tres" id="13_i42rr"]
 [ext_resource type="PackedScene" uid="uid://5v2qsot5igdu" path="res://Game Components/UI_Elements/quest log components/quest_log.tscn" id="14_xc3j5"]
+[ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="15_oq2cw"]
 [ext_resource type="PackedScene" uid="uid://c8skkvcn0ci81" path="res://Game Components/UI_Elements/Talent Tree/talentTree.tscn" id="16_unwu1"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="18_jm848"]
 
@@ -172,7 +173,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_id3q7"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwn3v"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rj2y8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hda07"]
 
@@ -278,7 +279,7 @@ editor_draw_limits = true
 
 [node name="PauseController" type="Node2D" parent="HUD"]
 process_mode = 3
-z_index = 1
+z_index = 2
 script = ExtResource("4_wdihw")
 
 [node name="pause_text" type="Label" parent="HUD/PauseController"]
@@ -301,10 +302,11 @@ offset_bottom = -68.0
 [node name="character_info" type="Node2D" parent="HUD"]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(32, 16)
+position = Vector2(32, -28)
 script = ExtResource("5_2ad3x")
 
 [node name="ColorRect" type="ColorRect" parent="HUD/character_info"]
+visible = false
 light_mask = 0
 offset_left = -432.0
 offset_top = -232.0
@@ -312,6 +314,13 @@ offset_right = -152.0
 offset_bottom = 248.0
 color = Color(0.0352941, 0.145098, 0.501961, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/character_info"]
+light_mask = 0
+z_index = -1
+position = Vector2(-48, 0)
+scale = Vector2(0.64375, 0.64375)
+texture = ExtResource("12_4q3lk")
 
 [node name="gold" type="Label" parent="HUD/character_info"]
 offset_left = -256.0
@@ -334,64 +343,77 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="cHUB" type="Control" parent="HUD/character_info"]
+light_mask = 0
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
-[node name="XPBar" type="ProgressBar" parent="HUD/character_info/cHUB"]
-custom_minimum_size = Vector2(1, 1)
+[node name="Health" type="Label" parent="HUD/character_info/cHUB"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.125
-anchor_bottom = -0.125
-offset_left = -424.0
-offset_top = -184.0
-offset_right = -160.0
-offset_bottom = -142.0
-theme = ExtResource("7_hot2h")
-theme_override_constants/outline_size = 0
-step = 1.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="HUD/character_info/cHUB/XPBar"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = -16.0
-offset_right = 48.0
-offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("3_8eknr")
-theme_override_font_sizes/font_size = 38
-text = "XP"
-
-[node name="HPBar" type="ProgressBar" parent="HUD/character_info/cHUB"]
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.875
-anchor_bottom = 0.875
-offset_left = -424.0
-offset_top = -184.0
-offset_right = -160.0
-offset_bottom = -142.0
-theme = ExtResource("13_i42rr")
-step = 1.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="HUD/character_info/cHUB/HPBar"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = -16.0
-offset_right = 48.0
-offset_bottom = 29.0
+anchor_left = 2.1
+anchor_top = 0.655952
+anchor_right = 2.1
+anchor_bottom = 0.655952
+offset_left = -320.0
+offset_top = -146.238
+offset_right = -280.0
+offset_bottom = -101.238
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 38
 text = "HP
 "
+label_settings = ExtResource("15_oq2cw")
+metadata/_edit_use_anchors_ = true
+
+[node name="XP" type="Label" parent="HUD/character_info/cHUB"]
+layout_mode = 0
+offset_left = -236.0
+offset_top = -100.0
+offset_right = -196.0
+offset_bottom = -55.0
+theme_override_fonts/font = ExtResource("3_8eknr")
+theme_override_font_sizes/font_size = 38
+text = "XP"
+label_settings = ExtResource("15_oq2cw")
+
+[node name="XPBar" type="ProgressBar" parent="HUD/character_info/cHUB"]
+visible = false
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.6
+anchor_top = 1.325
+anchor_right = 7.6
+anchor_bottom = 1.325
+offset_left = -424.0
+offset_top = -184.0
+offset_right = -160.0
+offset_bottom = -142.0
+theme_override_constants/outline_size = 0
+step = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HPBar" type="ProgressBar" parent="HUD/character_info/cHUB"]
+visible = false
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.4
+anchor_top = 1.325
+anchor_right = 2.4
+anchor_bottom = 1.325
+offset_left = -424.0
+offset_top = -184.0
+offset_right = -160.0
+offset_bottom = -142.0
+step = 1.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Rest" type="Button" parent="HUD/character_info"]
+visible = false
 offset_left = -320.0
 offset_top = -224.0
 offset_right = -256.0
@@ -406,21 +428,27 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" parent="HUD/character_info" instance=ExtResource("13_cjqps")]
 z_index = 100
-offset_left = -420.0
+offset_left = -236.0
 offset_top = -60.0
-offset_right = -364.0
+offset_right = -180.0
 offset_bottom = -20.0
-metadata/_edit_use_anchors_ = true
+
+[node name="quest_log_label" type="Label" parent="HUD/character_info"]
+offset_left = -40.0
+offset_top = -120.0
+offset_bottom = -97.0
+text = "To Do: "
+label_settings = ExtResource("15_oq2cw")
 
 [node name="show_inv" type="Button" parent="HUD/character_info"]
-offset_left = -416.0
-offset_top = -92.0
-offset_right = -333.0
-offset_bottom = -61.0
+visible = false
+offset_left = -244.0
+offset_top = -80.0
+offset_right = -161.0
+offset_bottom = -49.0
 theme = ExtResource("13_i42rr")
-theme_override_fonts/font = ExtResource("3_8eknr")
-theme_override_font_sizes/font_size = 19
-theme_override_styles/normal = SubResource("StyleBoxEmpty_jwn3v")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rj2y8")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_hda07")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_yee7k")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_murlt")
@@ -429,20 +457,24 @@ text = "Inventory
 "
 
 [node name="inv_indicate" type="Label" parent="HUD/character_info/show_inv"]
+visible = false
 layout_mode = 0
-offset_left = 4.0
-offset_top = 5.0
-offset_right = 28.0
-offset_bottom = 47.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 32.0
+offset_bottom = 46.0
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 19
 text = "*"
+label_settings = ExtResource("15_oq2cw")
 
 [node name="show_q" type="Button" parent="HUD/character_info"]
-offset_left = -328.0
-offset_top = -92.0
-offset_right = -242.0
-offset_bottom = -61.0
+visible = false
+offset_left = -44.0
+offset_top = -80.0
+offset_right = 42.0
+offset_bottom = -49.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 19
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1ge5j")
@@ -462,13 +494,21 @@ offset_bottom = 30.0
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 19
 text = "*"
+label_settings = ExtResource("15_oq2cw")
 
 [node name="quest_log" parent="HUD/character_info" instance=ExtResource("14_xc3j5")]
-visible = false
-offset_left = -420.0
-offset_top = -59.0
-offset_right = -420.0
-offset_bottom = -59.0
+offset_left = -40.0
+offset_top = -100.0
+offset_right = -40.0
+offset_bottom = -100.0
+
+[node name="Inventory_label" type="Label" parent="HUD/character_info"]
+offset_left = -236.0
+offset_top = -84.0
+offset_right = -183.0
+offset_bottom = -61.0
+text = "Inventory"
+label_settings = ExtResource("15_oq2cw")
 
 [node name="shop" type="Node2D" parent="HUD"]
 visible = false

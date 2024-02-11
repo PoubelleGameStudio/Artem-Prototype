@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dny2xui00wd45"
+path="res://.godot/imported/the stars want you dead.wav-e4ad4b2000980962fc1459560d685c42.sample"
+
+[deps]
+
+source_file="res://sounds/levelMusic/the stars want you dead.wav"
+dest_files=["res://.godot/imported/the stars want you dead.wav-e4ad4b2000980962fc1459560d685c42.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
