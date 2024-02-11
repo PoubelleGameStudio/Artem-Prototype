@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=14 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
 [ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="3_6j6h7"]
 [ext_resource type="Theme" uid="uid://c1pntnyw8t772" path="res://themes/hp_bar.tres" id="4_2r65i"]
 [ext_resource type="Texture2D" uid="uid://dv7hntw3bi4xl" path="res://Sprites/Artem/artem_v1_back_walking.png" id="4_43trn"]
+[ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="4_uo8iy"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="6_p1cl7"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="7_6qudd"]
 
@@ -43,11 +44,12 @@ fill_to = Vector2(0.876068, 0.149573)
 script = ExtResource("1_mxv4w")
 
 [node name="Node2D" parent="." instance=ExtResource("2_cjm7y")]
-position = Vector2(886, 470)
-scale = Vector2(2, 2)
+z_index = -1
+position = Vector2(886, 511)
+scale = Vector2(2.25, 2.25)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(960, 542)
+position = Vector2(961, 539)
 
 [node name="player" type="AnimatedSprite2D" parent="."]
 position = Vector2(504, 536)
@@ -56,18 +58,20 @@ sprite_frames = SubResource("SpriteFrames_htvib")
 animation = &"idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(507, 522)
+position = Vector2(549, 569)
 scale = Vector2(18.5156, 17.5078)
 texture = SubResource("GradientTexture2D_1r4qu")
 
 [node name="combatUI" type="Control" parent="."]
 light_mask = 0
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="combatUI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 1.0
@@ -75,6 +79,12 @@ offset_top = 713.0
 offset_right = 1917.0
 offset_bottom = 1080.0
 color = Color(0.596078, 0, 0.596078, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="combatUI"]
+light_mask = 0
+position = Vector2(960, 1267)
+scale = Vector2(2.84609, 2.84609)
+texture = ExtResource("4_uo8iy")
 
 [node name="Flee" type="Button" parent="combatUI"]
 visible = false
@@ -87,10 +97,10 @@ text = "flee"
 
 [node name="Inventory" type="Button" parent="combatUI"]
 layout_mode = 0
-offset_left = 92.0
-offset_top = 868.0
-offset_right = 347.0
-offset_bottom = 936.0
+offset_left = 972.0
+offset_top = 751.0
+offset_right = 1227.0
+offset_bottom = 819.0
 text = "inventory"
 
 [node name="return" type="Button" parent="combatUI"]
@@ -105,18 +115,18 @@ text = "exit"
 [node name="combat" type="Node2D" parent="combatUI"]
 
 [node name="Combat" type="Button" parent="combatUI/combat"]
-offset_left = 92.0
-offset_top = 774.0
-offset_right = 347.0
-offset_bottom = 842.0
+offset_left = 128.0
+offset_top = 743.0
+offset_right = 383.0
+offset_bottom = 811.0
 text = "combat"
 
 [node name="cast" type="Button" parent="combatUI/combat"]
 visible = false
-offset_left = 409.0
-offset_top = 790.0
-offset_right = 664.0
-offset_bottom = 858.0
+offset_left = 129.0
+offset_top = 818.0
+offset_right = 384.0
+offset_bottom = 886.0
 text = "cast a spell
 "
 
@@ -153,10 +163,10 @@ text = "HP"
 
 [node name="playerHealth" type="ProgressBar" parent="combatUI"]
 layout_mode = 0
-offset_left = 92.0
-offset_top = 641.0
-offset_right = 572.0
-offset_bottom = 682.0
+offset_left = 52.0
+offset_top = 575.0
+offset_right = 532.0
+offset_bottom = 629.0
 theme = ExtResource("4_2r65i")
 theme_override_fonts/font = ExtResource("6_p1cl7")
 theme_override_font_sizes/font_size = 48
@@ -175,24 +185,24 @@ text = "HP"
 
 [node name="spell1" type="OptionButton" parent="combatUI/spellSelect"]
 visible = false
-offset_left = 745.0
-offset_top = 793.0
-offset_right = 829.0
-offset_bottom = 856.0
+offset_left = 493.0
+offset_top = 750.0
+offset_right = 577.0
+offset_bottom = 813.0
 
 [node name="spell2" type="OptionButton" parent="combatUI/spellSelect"]
 visible = false
-offset_left = 746.0
-offset_top = 865.0
-offset_right = 830.0
-offset_bottom = 928.0
+offset_left = 494.0
+offset_top = 840.0
+offset_right = 578.0
+offset_bottom = 903.0
 
 [node name="spell3" type="OptionButton" parent="combatUI/spellSelect"]
 visible = false
-offset_left = 748.0
-offset_top = 942.0
-offset_right = 832.0
-offset_bottom = 1005.0
+offset_left = 496.0
+offset_top = 923.0
+offset_right = 580.0
+offset_bottom = 986.0
 
 [node name="EnemyName" type="Label" parent="combatUI"]
 layout_mode = 0
@@ -212,10 +222,10 @@ emitter = 1
 
 [node name="inventory_ui" parent="." instance=ExtResource("7_6qudd")]
 visible = false
-offset_left = 702.0
-offset_top = 731.0
-offset_right = 954.0
-offset_bottom = 831.0
+offset_left = 1332.0
+offset_top = 716.0
+offset_right = 1584.0
+offset_bottom = 816.0
 scale = Vector2(2, 2)
 
 [connection signal="pressed" from="combatUI/Flee" to="." method="_on_flee_pressed"]
@@ -226,8 +236,8 @@ scale = Vector2(2, 2)
 [connection signal="pressed" from="combatUI/combat/guard" to="." method="_on_combat_pressed"]
 [connection signal="pressed" from="combatUI/combat/spell" to="." method="_on_spell_pressed"]
 [connection signal="item_selected" from="combatUI/spellSelect/spell1" to="." method="_on_spell_1_item_selected"]
-[connection signal="item_selected" from="combatUI/spellSelect/spell2" to="." method="_on_spell_1_item_selected"]
 [connection signal="item_selected" from="combatUI/spellSelect/spell2" to="." method="_on_spell_2_item_selected"]
+[connection signal="item_selected" from="combatUI/spellSelect/spell2" to="." method="_on_spell_1_item_selected"]
 [connection signal="item_selected" from="combatUI/spellSelect/spell3" to="." method="_on_spell_1_item_selected"]
 [connection signal="item_selected" from="combatUI/spellSelect/spell3" to="." method="_on_spell_3_item_selected"]
 [connection signal="dead" from="enemyCombat" to="." method="_on_enemy_combat_dead"]

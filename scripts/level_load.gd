@@ -53,6 +53,7 @@ func bury_the_dead():
 			
 func setup_combat():
 	combat.show()
+	combat.showOptions()
 	combat.process_mode = 0
 	combat.start_turn()
 

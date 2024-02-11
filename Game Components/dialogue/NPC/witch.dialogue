@@ -24,37 +24,37 @@ set State.witch_greeted = 1
 ~ no_trash
 The Witch: Well you're a fresh face. Is there a reason I shouldn't add it to the wall?
 Artem: I don't suppose you're a friend of the bartending mayor?
-The Witch: Friend is a bit personal, but he's never caused me trouble. Will I be able to say the same of you?
-Artem: Ideally, yes. I'm Artem, a watcher.
-The Witch: Bit of a mixed bag, my experience with you lot. What's brought you to my door?
-Artem: In a unique turn of events I've found myself in Grim's briar after touching this book that apparently belongs to a man who has given the locals such books that have inversely sent them away from Grim's Briar. I don't suppose you're familiar with a Tim that lives here?
+The Witch: He's never caused me trouble. Will I come to say the same of you?
+Artem: Ideally. I'm Artem, a watcher.
+The Witch: Bit of a mixed bag, you lot. What's brought you to my door?
+Artem: In a unique turn of events I've found myself in Grim's briar after touching this book, that apparently belongs to a man named Tim, who has given the locals such books that have inversely sent them away from Grim's Briar.
 => main_path
 
 ~ main_path
 The Witch: Make a habit of touching strange books?
 Artem: Only the enticing ones.
-The Witch: Finally you utter something agreeable. Do you still have this tome of sorts?
-Artem: Indeed. *Artem hands the book over* Mayor said it was one of Tim's reader copies? Apparently everyone who held a copy has since gone missing. Only folks left are a couple workers and some drunk named Hedo.
+The Witch: Finally you utter something agreeable. Do you still have it?
+Artem: *Artem hands the book over* Mayor said it was one of Tim's reader copies and everyone who held their copy has since gone missing. Only folks left are a couple workers and some drunk named Hedo.
 The Witch: Heh, of course. That misguided fool wouldn't touch anything short of first edition hardback. Helped him this time though.
 Artem: He did mention something of the sort.
 The Witch: *The witch tosses the book into a nearby cauldron*
 Artem: Is that a productive action?
 The Witch: Quickest way to confirm that it's an enchantment that I and Tim are very familiar with.
 Artem: So you know Tim?
-The Witch: Of course. I know everyone. He came to me some months ago about wanting to surprise some girl he claimed to be courting. Asked if I could help him with a simlpe transportation spell. Looks like it worked.
+The Witch: Of course. I know everyone. He came to me some months ago about wanting to surprise some girl he claimed to be in love with. Asked if I could help him with a simlpe transportation spell. Looks like it worked.
 Artem: Did you also help him with the cursed books?
-The Witch: Of course not. I like everyone in town. I spent enough centuries pilgraming through the endless void and much prefer the mindless chatter the locals provide. I also put very strong restrictions on this tome. It would only move someone to Grim's Briar once.
+The Witch: Of course not. I spent enough centuries pilgraming through the endless void and much prefer the mindless chatter the locals provide. I put explicit restrictions on that tome so it would only move someone to Grim's Briar once.
 Artem: You weren't concerned about any consequences the transported might suffer?
-The Witch: You haven't seen Tim, but a dead tree branch is sturdier than that would be artist. The mayor also runs a very tight ship for a village full of degenerates.
+The Witch: A dead tree branch is a graver threat than Tim on his worst days. The mayor runs a tight ship for a village full of degenerates.
 Artem: Then how have all the degenerates gone missing?
 The Witch: I have a theory. However, I'd like you to do something for me that will benefit both of us.
 Artem: ...and what would that be?
 The Witch: As a watcher I'm sure you're aware of how painfully close we are to the Needle. That wasn't always the case, but unfortunately as time marches forward so do their perceived property lines.
 Artem: You want me to settle a land dispute?
-The Witch: No. I want you to find those walking circuit boards and kill them. Then you'll make sure their precious energy temples will never generate an ounce of power again.
-Artem: Whatever stories you've heard has you mistaken that watchers kill for favor. Even of those living in the Needle.
-The Witch: Then don't kill them if you haven't the stomach, but until they're no longer a nuisance to my home and my work you won't get find me lifting a finger for you.
-Artem: In regards to the temple you mentioned. Is this something new of theirs?
+The Witch: No. I want you to find those walking circuit boards and kill them. Then you'll make sure their precious energy temple will never generate an ounce of power again.
+Artem: We don't kill for favor. Even those living in the Needle.
+The Witch: Then don't kill them if you haven't the stomach, but until they're no longer a nuisance to my home, and my work, you won't find me lifting a finger for you.
+Artem: ...In regards to the temple you mentioned. Is this something new of theirs?
 The Witch: It would seem so. I found one of their lackey's poking around my garden and we had a truly delightful chat...
 Artem: And then you let him be on his way?
 The Witch: Whatever sets your heart straight, dear. It would appear they've had a breakthrough communicating with their god and are receiving direction with unprecedented clarity. Among that direction is to construct these temples. They route their power through them and at the center of their grand circuitry is a sinner.
