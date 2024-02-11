@@ -13,4 +13,5 @@ monitoring = false
 script = ExtResource("1_pip7e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
 shape = SubResource("CapsuleShape2D_4ifga")

@@ -31,7 +31,7 @@ centered = false
 
 [node name="itemArt" type="Sprite2D" parent="."]
 light_mask = 0
-position = Vector2(20, 12)
+position = Vector2(16, 12)
 
 [node name="indicator" type="Sprite2D" parent="."]
 visible = false
