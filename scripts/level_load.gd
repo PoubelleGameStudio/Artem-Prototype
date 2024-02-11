@@ -29,6 +29,11 @@ func _process(delta):
 	if music.playing == false:
 		music.playing = true
 	
+	if State.talking == 1:
+		music.volume_db -= 10
+	else:
+		music.volume_db = -25
+	
 		
 		
 ########### checks that save directory exists###########
