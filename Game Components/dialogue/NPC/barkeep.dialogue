@@ -1,3 +1,5 @@
+~ start
+=> Barkeep_welcome
 
 ~ Barkeep_welcome
 if quest_db["barkeep_1"]["Status"] == 0:

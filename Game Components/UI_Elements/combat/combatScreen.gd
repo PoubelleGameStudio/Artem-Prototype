@@ -10,6 +10,7 @@ extends Node2D
 @onready var inv_ui = $inventory_ui
 @onready var eHealth = $combatUI/enemyHealth
 @onready var pHealth = $combatUI/playerHealth
+@onready var spell_book = $combatUI/spellSelect
 @onready var spell1 = $combatUI/spellSelect/spell1
 @onready var spell2 = $combatUI/spellSelect/spell2
 @onready var spell3 = $combatUI/spellSelect/spell3
@@ -42,7 +43,7 @@ func _ready():
 	player.play("idle")
 	eHealth.max_value = enemy.max_health
 	yourTurn = 1
-	add_spells()
+	#add_spells()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -273,12 +274,13 @@ func showAttacks():
 	combat.hide()
 	# show the buttons we do need
 	fight.show()
+	spell_book.show()
 	#defend.show()
-	spell1.show()
-	if State.talents["knowledge1"] == 1:
-		spell2.show()
-	if State.talents["knowledge2"] == 1:
-		spell3.show()
+#	spell1.show()
+#	if State.talents["knowledge1"] == 1:
+#		spell2.show()
+#	if State.talents["knowledge2"] == 1:
+#		spell3.show()
 	
 
 
@@ -289,9 +291,9 @@ func showOptions():
 	# show the buttons we do need
 	fight.hide()
 	defend.hide()
-	spell1.hide()
-	spell2.hide()
-	spell3.hide()
+#	spell1.hide()
+#	spell2.hide()
+#	spell3.hide()
 
 # called when enemy or you dies
 func endgame():
@@ -377,3 +379,7 @@ func _on_inventory_ui_item_used():
 	enemyTurn() 
 	
 
+
+
+func _on_texture_button_pressed():
+	State.spell1 = 'fireball' # Replace with function body.

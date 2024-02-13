@@ -16,8 +16,8 @@ script = ExtResource("1_hfsoy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 0
-position = Vector2(7.62939e-06, 1.90735e-06)
-scale = Vector2(4.75, 3)
+position = Vector2(-4, 8)
+scale = Vector2(0.125, 2)
 texture = ExtResource("1_gh22h")
 centered = false
 

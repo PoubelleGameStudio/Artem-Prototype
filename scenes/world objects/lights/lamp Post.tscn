@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkpx766v6jtwo"]
+[gd_scene load_steps=5 format=3 uid="uid://dkpx766v6jtwo"]
 
 [ext_resource type="Script" path="res://scripts/lamp Post.gd" id="1_argc5"]
+[ext_resource type="Texture2D" uid="uid://fjvhed3xv72s" path="res://Sprites/world objects/lights/Lamp Post - Spooky.png" id="2_ar1wm"]
 
 [sub_resource type="Gradient" id="Gradient_xekvo"]
 offsets = PackedFloat32Array(0, 0.743405)
@@ -15,6 +16,7 @@ fill_from = Vector2(0.5, 0.5)
 script = ExtResource("1_argc5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ar1wm")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -38)

@@ -6,8 +6,6 @@ if State.welcomed == false
 else 
 	=> beer_run
 
-
-
 ~ welcome
 [wave amp=25 freq=5]Hedo[/wave]: Everyone writes. Never had the talent though. Maybe I need a muse.
 Artem: I'm not really current with the art world.
@@ -51,5 +49,6 @@ elif quest_db["beer_run"]["Status"] == 1
 	=> END
 elif quest_db["beer_run"]["Status"] == 2
 	[wave amp=25 freq=5]Hedo[/wave]: leave me to my methods and head east now, muse
+	- Goodbye
 	set State.talking = 0
 => END

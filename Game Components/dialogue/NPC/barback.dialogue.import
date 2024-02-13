@@ -1,6 +1,6 @@
 [remap]
 
-importer="dialogue_manager_compiler_8"
+importer="dialogue_manager_compiler_11"
 type="Resource"
 uid="uid://bk60km1qifiue"
 path="res://.godot/imported/barback.dialogue-b201d4e4b4ecbeec35863fbde4de8b84.tres"
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/barback.dialogue-b201d4e4b4ecbeec35863fbde4de
 
 [params]
 
+defaults=true

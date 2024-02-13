@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=15 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="4_uo8iy"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="6_p1cl7"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="7_6qudd"]
+[ext_resource type="Texture2D" uid="uid://by870enpdddpm" path="res://Sprites/combat/spell icons/fireball.png" id="7_8gb2i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
 atlas = ExtResource("4_43trn")
@@ -183,26 +184,13 @@ text = "HP"
 
 [node name="spellSelect" type="Node2D" parent="combatUI"]
 
-[node name="spell1" type="OptionButton" parent="combatUI/spellSelect"]
-visible = false
-offset_left = 493.0
-offset_top = 750.0
-offset_right = 577.0
-offset_bottom = 813.0
-
-[node name="spell2" type="OptionButton" parent="combatUI/spellSelect"]
-visible = false
-offset_left = 494.0
-offset_top = 840.0
-offset_right = 578.0
-offset_bottom = 903.0
-
-[node name="spell3" type="OptionButton" parent="combatUI/spellSelect"]
-visible = false
-offset_left = 496.0
-offset_top = 923.0
-offset_right = 580.0
-offset_bottom = 986.0
+[node name="fireball" type="TextureButton" parent="combatUI/spellSelect"]
+offset_left = 490.0
+offset_top = 730.0
+offset_right = 524.0
+offset_bottom = 762.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("7_8gb2i")
 
 [node name="EnemyName" type="Label" parent="combatUI"]
 layout_mode = 0
@@ -214,6 +202,29 @@ theme_override_fonts/font = ExtResource("6_p1cl7")
 theme_override_font_sizes/font_size = 60
 text = "Executioner"
 horizontal_alignment = 2
+
+[node name="bin" type="Node" parent="combatUI"]
+
+[node name="spell1" type="OptionButton" parent="combatUI/bin"]
+visible = false
+offset_left = 493.0
+offset_top = 750.0
+offset_right = 577.0
+offset_bottom = 813.0
+
+[node name="spell2" type="OptionButton" parent="combatUI/bin"]
+visible = false
+offset_left = 494.0
+offset_top = 840.0
+offset_right = 578.0
+offset_bottom = 903.0
+
+[node name="spell3" type="OptionButton" parent="combatUI/bin"]
+visible = false
+offset_left = 496.0
+offset_top = 923.0
+offset_right = 580.0
+offset_bottom = 986.0
 
 [node name="enemyCombat" parent="." instance=ExtResource("3_6j6h7")]
 position = Vector2(1551, 285)
@@ -235,10 +246,11 @@ scale = Vector2(2, 2)
 [connection signal="pressed" from="combatUI/combat/cast" to="." method="_on_onepunch_pressed"]
 [connection signal="pressed" from="combatUI/combat/guard" to="." method="_on_combat_pressed"]
 [connection signal="pressed" from="combatUI/combat/spell" to="." method="_on_spell_pressed"]
-[connection signal="item_selected" from="combatUI/spellSelect/spell1" to="." method="_on_spell_1_item_selected"]
-[connection signal="item_selected" from="combatUI/spellSelect/spell2" to="." method="_on_spell_1_item_selected"]
-[connection signal="item_selected" from="combatUI/spellSelect/spell2" to="." method="_on_spell_2_item_selected"]
-[connection signal="item_selected" from="combatUI/spellSelect/spell3" to="." method="_on_spell_3_item_selected"]
-[connection signal="item_selected" from="combatUI/spellSelect/spell3" to="." method="_on_spell_1_item_selected"]
+[connection signal="pressed" from="combatUI/spellSelect/fireball" to="." method="_on_texture_button_pressed"]
+[connection signal="item_selected" from="combatUI/bin/spell1" to="." method="_on_spell_1_item_selected"]
+[connection signal="item_selected" from="combatUI/bin/spell2" to="." method="_on_spell_1_item_selected"]
+[connection signal="item_selected" from="combatUI/bin/spell2" to="." method="_on_spell_2_item_selected"]
+[connection signal="item_selected" from="combatUI/bin/spell3" to="." method="_on_spell_1_item_selected"]
+[connection signal="item_selected" from="combatUI/bin/spell3" to="." method="_on_spell_3_item_selected"]
 [connection signal="dead" from="enemyCombat" to="." method="_on_enemy_combat_dead"]
 [connection signal="item_used" from="inventory_ui" to="." method="_on_inventory_ui_item_used"]

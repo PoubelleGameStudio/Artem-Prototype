@@ -1,6 +1,6 @@
 [remap]
 
-importer="dialogue_manager_compiler_8"
+importer="dialogue_manager_compiler_11"
 type="Resource"
 uid="uid://1rgsd8o7wly4"
 path="res://.godot/imported/beer_run.dialogue-155ff93af6a1c4fd4fdb360e4a82c44b.tres"
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/beer_run.dialogue-155ff93af6a1c4fd4fdb360e4a8
 
 [params]
 
+defaults=true

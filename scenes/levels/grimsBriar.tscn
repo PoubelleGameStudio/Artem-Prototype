@@ -20,8 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://ut8vumbo5nne" path="res://Art/ground/grass_night01.png" id="13_0xsbj"]
 [ext_resource type="Texture2D" uid="uid://tt6q3w3spipg" path="res://Art/ground/basic - spooky.png" id="13_jm2vd"]
 [ext_resource type="Texture2D" uid="uid://cm8e5ypkdprm2" path="res://Sprites/world objects/foliage/berry bush - spooky.png" id="13_lbcpy"]
+[ext_resource type="Texture2D" uid="uid://dp4erypen783e" path="res://Art/ground/wheel grooved end right- spooky.png" id="15_a4vc8"]
 [ext_resource type="PackedScene" uid="uid://b5vowrw45hndi" path="res://scenes/player.tscn" id="15_bf3il"]
-[ext_resource type="Texture2D" uid="uid://dp4erypen783e" path="res://Art/ground/wheel grooved end right- spooky.png" id="15_okxoe"]
 [ext_resource type="Texture2D" uid="uid://dfcmdrqt3crhf" path="res://Sprites/glass_corked001.png" id="16_2vpii"]
 [ext_resource type="Texture2D" uid="uid://dfixx1mpl1eth" path="res://Art/walls/ironFence__vertical_left_night02.png" id="16_o4avx"]
 [ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="17_dt21t"]
@@ -144,8 +144,8 @@ texture = ExtResource("13_lbcpy")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bxew"]
-texture = ExtResource("15_okxoe")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p3xvn"]
+texture = ExtResource("15_a4vc8")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -271,11 +271,11 @@ sources/16 = SubResource("TileSetAtlasSource_r7oe3")
 sources/17 = SubResource("TileSetAtlasSource_k4xvr")
 sources/18 = SubResource("TileSetAtlasSource_yexmo")
 sources/15 = SubResource("TileSetAtlasSource_x61h7")
-sources/19 = SubResource("TileSetAtlasSource_6bxew")
 sources/21 = SubResource("TileSetAtlasSource_2msou")
 sources/22 = SubResource("TileSetAtlasSource_nt74m")
 sources/24 = SubResource("TileSetAtlasSource_yd44n")
 sources/26 = SubResource("TileSetAtlasSource_ga5cv")
+sources/19 = SubResource("TileSetAtlasSource_p3xvn")
 
 [sub_resource type="Gradient" id="Gradient_becap"]
 offsets = PackedFloat32Array(0.00959233, 1)
@@ -541,8 +541,8 @@ position = Vector2(2683, 317)
 model = "Lamp Post - Spooky"
 
 [node name="lamp Post10" parent="." instance=ExtResource("25_qgex0")]
-z_index = 1
-position = Vector2(1737, 237)
+z_index = 2
+position = Vector2(1732, 237)
 model = "Lamp Post - Spooky"
 
 [node name="lamp Post9" parent="." instance=ExtResource("25_qgex0")]
@@ -553,7 +553,7 @@ model = "Lamp Post - Spooky"
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(3010.36, -103.011)
+position = Vector2(-111.865, -4.22003)
 
 [node name="combatScreen" parent="." instance=ExtResource("36_v2jdf")]
 process_mode = 4
@@ -744,7 +744,7 @@ interact_type = "lootable"
 interact_value = "1"
 
 [node name="Trashcan2" type="AnimatedSprite2D" parent="Ground Items"]
-position = Vector2(1550.16, 450.484)
+position = Vector2(1748, 264)
 sprite_frames = SubResource("SpriteFrames_xufpu")
 animation = &"trashcan"
 script = ExtResource("17_xb6tn")

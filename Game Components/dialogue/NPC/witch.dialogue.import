@@ -1,6 +1,6 @@
 [remap]
 
-importer="dialogue_manager_compiler_8"
+importer="dialogue_manager_compiler_11"
 type="Resource"
 uid="uid://6ejwamwyhtl6"
 path="res://.godot/imported/witch.dialogue-831670826bde3f7dc913e7682686b453.tres"
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/witch.dialogue-831670826bde3f7dc913e7682686b4
 
 [params]
 
+defaults=true

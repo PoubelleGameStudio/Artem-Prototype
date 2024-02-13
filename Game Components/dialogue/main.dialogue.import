@@ -1,6 +1,6 @@
 [remap]
 
-importer="dialogue_manager_compiler_8"
+importer="dialogue_manager_compiler_11"
 type="Resource"
 uid="uid://ce7dagw3tegu6"
 path="res://.godot/imported/main.dialogue-b87d914558ff5eeb6f96f889c3bad375.tres"
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/main.dialogue-b87d914558ff5eeb6f96f889c3bad37
 
 [params]
 
+defaults=true

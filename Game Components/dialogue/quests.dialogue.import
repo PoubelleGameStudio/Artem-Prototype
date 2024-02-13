@@ -1,6 +1,6 @@
 [remap]
 
-importer="dialogue_manager_compiler_8"
+importer="dialogue_manager_compiler_11"
 type="Resource"
 uid="uid://ucu6200agt57"
 path="res://.godot/imported/quests.dialogue-cdd6495a14ff37569731f9d14c205983.tres"
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/quests.dialogue-cdd6495a14ff37569731f9d14c205
 
 [params]
 
+defaults=true
