@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=16 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="6_p1cl7"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="7_6qudd"]
 [ext_resource type="Texture2D" uid="uid://by870enpdddpm" path="res://Sprites/combat/spell icons/fireball.png" id="7_8gb2i"]
+[ext_resource type="PackedScene" uid="uid://dpv6cisbc7uye" path="res://Game Components/UI_Elements/combat/spell_button.tscn" id="8_16ejo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
 atlas = ExtResource("4_43trn")
@@ -47,6 +48,61 @@ script = ExtResource("1_mxv4w")
 [node name="Node2D" parent="." instance=ExtResource("2_cjm7y")]
 z_index = -1
 position = Vector2(886, 511)
+scale = Vector2(2.25, 2.25)
+
+[node name="Node2D2" parent="." instance=ExtResource("2_cjm7y")]
+z_index = -1
+position = Vector2(3241, 509)
+scale = Vector2(2.25, 2.25)
+
+[node name="Node2D3" parent="." instance=ExtResource("2_cjm7y")]
+z_index = -1
+position = Vector2(3219, -634)
+scale = Vector2(2.25, 2.25)
+
+[node name="Node2D4" parent="." instance=ExtResource("2_cjm7y")]
+z_index = -1
+position = Vector2(864, -643)
+scale = Vector2(2.25, 2.25)
+
+[node name="Node2D5" parent="." instance=ExtResource("2_cjm7y")]
+z_index = -1
+position = Vector2(-1461, -639)
+scale = Vector2(2.25, 2.25)
+
+[node name="Node2D7" parent="." instance=ExtResource("2_cjm7y")]
+z_index = -1
+position = Vector2(-1375, -1752)
+scale = Vector2(2.25, 2.25)
+
+[node name="Node2D10" parent="." instance=ExtResource("2_cjm7y")]
+z_index = -1
+position = Vector2(-1286, 1670)
+scale = Vector2(2.25, 2.25)
+
+[node name="Node2D11" parent="." instance=ExtResource("2_cjm7y")]
+z_index = -1
+position = Vector2(905, 1645)
+scale = Vector2(2.25, 2.25)
+
+[node name="Node2D12" parent="." instance=ExtResource("2_cjm7y")]
+z_index = -1
+position = Vector2(3178, 1664)
+scale = Vector2(2.25, 2.25)
+
+[node name="Node2D8" parent="." instance=ExtResource("2_cjm7y")]
+z_index = -1
+position = Vector2(974, -1714)
+scale = Vector2(2.25, 2.25)
+
+[node name="Node2D9" parent="." instance=ExtResource("2_cjm7y")]
+z_index = -1
+position = Vector2(3216, -1721)
+scale = Vector2(2.25, 2.25)
+
+[node name="Node2D6" parent="." instance=ExtResource("2_cjm7y")]
+z_index = -1
+position = Vector2(-1470, 506)
 scale = Vector2(2.25, 2.25)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -185,12 +241,19 @@ text = "HP"
 [node name="spellSelect" type="Node2D" parent="combatUI"]
 
 [node name="fireball" type="TextureButton" parent="combatUI/spellSelect"]
+visible = false
 offset_left = 490.0
 offset_top = 730.0
 offset_right = 524.0
 offset_bottom = 762.0
-scale = Vector2(3, 3)
 texture_normal = ExtResource("7_8gb2i")
+
+[node name="MarginContainer" parent="combatUI/spellSelect" instance=ExtResource("8_16ejo")]
+offset_left = 467.0
+offset_top = 752.0
+offset_right = 539.0
+offset_bottom = 824.0
+spell_icon = "fireball"
 
 [node name="EnemyName" type="Label" parent="combatUI"]
 layout_mode = 0

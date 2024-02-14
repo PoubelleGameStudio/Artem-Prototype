@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=54 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://Game Components/UI_Elements/pause/PauseController.gd" id="4_wdihw"]
 [ext_resource type="Script" path="res://Game Components/UI_Elements/character screen/character_info.gd" id="5_2ad3x"]
 [ext_resource type="Texture2D" uid="uid://b4dgg37yjp405" path="res://Sprites/Artem/artem_v1_side_walking-spritesheet.png" id="5_d4qgt"]
-[ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="6_68dct"]
 [ext_resource type="Texture2D" uid="uid://dv7hntw3bi4xl" path="res://Sprites/Artem/artem_v1_back_walking.png" id="7_wkoaj"]
 [ext_resource type="Texture2D" uid="uid://b0kmobajmfp4n" path="res://Sprites/textures/rainfall.png" id="8_v2vqm"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="12_4q3lk"]
@@ -323,23 +322,20 @@ scale = Vector2(0.64375, 0.64375)
 texture = ExtResource("12_4q3lk")
 
 [node name="gold" type="Label" parent="HUD/character_info"]
-offset_left = -256.0
-offset_top = -224.0
-offset_right = -163.0
-offset_bottom = -190.0
-label_settings = ExtResource("6_68dct")
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = -162.0
+offset_top = -122.0
+offset_right = -69.0
+offset_bottom = -80.0
+label_settings = ExtResource("15_oq2cw")
+horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="current level" type="Label" parent="HUD/character_info"]
-offset_left = -424.0
-offset_top = -224.0
-offset_right = -331.0
-offset_bottom = -190.0
-label_settings = ExtResource("6_68dct")
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = -236.0
+offset_top = -80.0
+offset_right = -143.0
+offset_bottom = -38.0
+label_settings = ExtResource("15_oq2cw")
 metadata/_edit_use_anchors_ = true
 
 [node name="cHUB" type="Control" parent="HUD/character_info"]
@@ -429,9 +425,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Inventory" parent="HUD/character_info" instance=ExtResource("13_cjqps")]
 z_index = 100
 offset_left = -236.0
-offset_top = -60.0
+offset_top = -40.0
 offset_right = -180.0
-offset_bottom = -20.0
+offset_bottom = 0.0
 
 [node name="quest_log_label" type="Label" parent="HUD/character_info"]
 offset_left = -40.0
@@ -504,9 +500,9 @@ offset_bottom = -100.0
 
 [node name="Inventory_label" type="Label" parent="HUD/character_info"]
 offset_left = -236.0
-offset_top = -84.0
+offset_top = -56.0
 offset_right = -183.0
-offset_bottom = -61.0
+offset_bottom = -33.0
 text = "Inventory"
 label_settings = ExtResource("15_oq2cw")
 
