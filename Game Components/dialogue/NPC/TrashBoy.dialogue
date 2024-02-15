@@ -1,5 +1,14 @@
 ~ start
 if quest_db["Trash_1"]["Status"] == 0:
+	=> greet
+elif quest_db["Trash_1"]["Status"] == 1 and quest_complete("Trash_1") == false:
+	=> in_prog
+elif quest_db["Trash_1"]["Status"] == 1 and quest_complete("Trash_1") == true:
+	=> completed
+
+
+~ greet
+if quest_db["Trash_1"]["Status"] == 0:
 	Trash God: Hello brave traveller.
 	Artem: Oh right...I'm on drugs.
 	Trash God: I am not drugs nor of drugs. I do have a request to make; humble I am.
@@ -19,5 +28,15 @@ if quest_db["Trash_1"]["Status"] == 0:
 	- Refuse
 		Trash God: Pray you change your mind before my true wrath becomes known 
 		=> END
-
+~ in_prog
+Trash God: I admire and despise your bravery to waltz about as wither away without my trash sustenance.
 => END
+
+~ completed
+Trash God: You've done it! You've acquired the needed resources for me to continue on another day. Truly a god among heroes, you are.
+Artem: Yes. Now, these memories you spoke of?
+Trash God: Of course, a trash god would never withold that boundly due. Never would the trash god stoop so low as to look up and see the very trash it loves.
+Artem: Truly Exceptional.
+Trash God: Please, bathe me in praise another date for you must now be emboldened by the knowledge I grant. My fire paws to your cortex.
+Artem: ...
+Trash God: The graveyard just down the path that way holds more than corpses. 

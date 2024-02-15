@@ -173,6 +173,14 @@ animations = [{
 script = ExtResource("1_2lpvv")
 level_name = "GB_sewers"
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+offset_left = -1080.0
+offset_top = -390.0
+offset_right = 3523.0
+offset_bottom = 626.0
+color = Color(0, 0, 0, 1)
+
 [node name="player" parent="." instance=ExtResource("2_b2s2p")]
 z_index = 1
 position = Vector2(36, -12)

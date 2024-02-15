@@ -1,13 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpv6cisbc7uye"]
+[gd_scene load_steps=5 format=3 uid="uid://dpv6cisbc7uye"]
 
 [ext_resource type="Script" path="res://spell_button.gd" id="1_6wj0f"]
 [ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="2_a4len"]
+[ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="2_l08p6"]
 [ext_resource type="Texture2D" uid="uid://by870enpdddpm" path="res://Sprites/combat/spell icons/fireball.png" id="2_tg7fk"]
 
 [node name="MarginContainer" type="MarginContainer"]
-offset_right = 62.0
-offset_bottom = 70.0
+layout_direction = 3
+offset_right = 72.0
+offset_bottom = 72.0
+size_flags_horizontal = 4
 script = ExtResource("1_6wj0f")
+
+[node name="spell_name" type="Label" parent="."]
+z_index = 1
+layout_mode = 2
+text = "Test"
+label_settings = ExtResource("2_l08p6")
 
 [node name="selected" type="Sprite2D" parent="."]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=15 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="4_uo8iy"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="6_p1cl7"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="7_6qudd"]
-[ext_resource type="Texture2D" uid="uid://by870enpdddpm" path="res://Sprites/combat/spell icons/fireball.png" id="7_8gb2i"]
 [ext_resource type="PackedScene" uid="uid://dpv6cisbc7uye" path="res://Game Components/UI_Elements/combat/spell_button.tscn" id="8_16ejo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
@@ -246,13 +245,12 @@ offset_left = 490.0
 offset_top = 730.0
 offset_right = 524.0
 offset_bottom = 762.0
-texture_normal = ExtResource("7_8gb2i")
 
-[node name="MarginContainer" parent="combatUI/spellSelect" instance=ExtResource("8_16ejo")]
-offset_left = 467.0
-offset_top = 752.0
-offset_right = 539.0
-offset_bottom = 824.0
+[node name="Fireball_cast" parent="combatUI/spellSelect" instance=ExtResource("8_16ejo")]
+offset_left = -507.0
+offset_top = 744.0
+offset_right = -435.0
+offset_bottom = 816.0
 spell_icon = "fireball"
 
 [node name="EnemyName" type="Label" parent="combatUI"]

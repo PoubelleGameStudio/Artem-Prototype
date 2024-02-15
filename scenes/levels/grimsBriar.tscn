@@ -553,7 +553,7 @@ model = "Lamp Post - Spooky"
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(1777.96, -77.4072)
+position = Vector2(-96.2185, -21.5841)
 
 [node name="combatScreen" parent="." instance=ExtResource("36_v2jdf")]
 process_mode = 4
