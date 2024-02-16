@@ -216,6 +216,7 @@ layer_3/tile_data = PackedInt32Array(589838, 0, 15, 589837, 0, 15, 589836, 0, 15
 [node name="front_desk" parent="quest givers" instance=ExtResource("2_4xq2b")]
 z_index = -1
 position = Vector2(-8, 16)
+scale = Vector2(1, 1)
 sprite = "front_desk"
 
 [node name="quest_interaction" parent="quest givers/front_desk" instance=ExtResource("3_3le5n")]

@@ -177,9 +177,9 @@ var quest_db ={
 	"barkeep_1":{
 		"giver":"barkeep",
 		"quest_name":"Meet The Crowd",
-		"Status":0,
+		"Status":1,
 		"Items":{
-			"beer"=1,
+			beer=1,
 			"Grims Briar Room Key"=1
 			},
 		"description":"Grab some creature comforts."
@@ -266,7 +266,7 @@ func update_quest_status(quest,status):
 	if status == 2:
 		for item in items:
 			inventory[item]-=int(quest_db[quest]["Items"][item])
-		cur_xp += 10
+		cur_xp += round(pow(State.level,1.5)+State.level*3.3)
 		level_up()
 
 func level_up():

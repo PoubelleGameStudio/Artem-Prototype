@@ -127,7 +127,7 @@ func play_anim(movement):
 			
 ######################UI Element Data#################################
 func update_HUD():
-	xp_label.text = str("XP: ",State.xp_to_next - State.cur_xp,"/",State.xp_to_next," (",((float(State.cur_xp)/State.xp_to_next)*100),"%)")
+	xp_label.text = str("XP: ",State.cur_xp,"/",State.xp_to_next," (",((float(State.cur_xp)/State.xp_to_next)*100),"%)")
 	hp_label.text = str("HP: ",State.health,"/",State.maxHealth)
 	goldLabel.text = str(State.gold," g")
 	inv.populate_grid()

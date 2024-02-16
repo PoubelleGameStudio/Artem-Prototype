@@ -28,15 +28,22 @@ if quest_db["Trash_1"]["Status"] == 0:
 	- Refuse
 		Trash God: Pray you change your mind before my true wrath becomes known 
 		=> END
+
+
 ~ in_prog
 Trash God: I admire and despise your bravery to waltz about as wither away without my trash sustenance.
 => END
 
+
 ~ completed
 Trash God: You've done it! You've acquired the needed resources for me to continue on another day. Truly a god among heroes, you are.
 Artem: Yes. Now, these memories you spoke of?
-Trash God: Of course, a trash god would never withold that boundly due. Never would the trash god stoop so low as to look up and see the very trash it loves.
+Trash God: Of course, a trash god would never withold that which is boundly due. Never would the trash god stoop so low as to look up and see the very trash it loves.
 Artem: Truly Exceptional.
-Trash God: Please, bathe me in praise another date for you must now be emboldened by the knowledge I grant. My fire paws to your cortex.
+Trash God: Please, bathe me in praise another date for you must now be emboldened by the knowledge I grant. My furry paws to your cortex.
 Artem: ...
-Trash God: The graveyard just down the path that way holds more than corpses. 
+Trash God: Now, the graveyard just down the path that way holds more than only corpses. Find the portal it hides and emerge to answers on the other side.
+Artem: Thank you, I guess?
+Trash God: I hope our paths cross again, and that you carry the scent of my beloved trash in your heart wherever you roam.
+do update_quest_status("Trash_1",2)
+=> END

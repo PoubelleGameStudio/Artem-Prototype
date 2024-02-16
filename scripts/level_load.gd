@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var music = $AudioStreamPlayer
+@onready var c_music: AudioStreamPlayer = AudioStreamPlayer.new()
 @export var is_raining: int 
 @export var level_name: String
 
@@ -14,6 +15,8 @@ func _ready():
 	if State.p_locs.has(level_name):
 		get_node("player").global_position = State.p_locs[level_name]
 	State.is_raining = is_raining
+	add_child(c_music)
+	c_music.stream = load("res://sounds/levelMusic/to battle so that we may die.wav")
 
 	if combat:
 		combat.process_mode = 4
@@ -26,13 +29,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if music.playing == false:
-		music.playing = true
 	
+
 	if State.talking == 1:
 		music.volume_db -= 10
 	else:
-		music.volume_db = -25
+		music.volume_db = -10
 	
 		
 		
@@ -75,11 +77,15 @@ func _on_combat_screen_combat_end():
 	player.camera_current()
 	State.combat = 0
 	State.level_up()
+	music.playing = true
+	c_music.playing = false
 	pass # Replace with function body.
 
 
 func _on_player_combat_entered():
 	if State.combat == 0:
+		c_music.playing = true
+		music.playing = false
 		setup_combat()
 		combat.combat_data()
 		combat.camera_current()
@@ -92,4 +98,6 @@ func _on_combat_screen_death():
 	player.camera_current()
 	player.global_position = respawn_location
 	State.combat = 0
+	music.play = true
+	c_music.playing = false
 	pass

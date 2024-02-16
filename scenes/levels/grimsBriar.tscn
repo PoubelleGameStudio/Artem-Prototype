@@ -1,9 +1,10 @@
-[gd_scene load_steps=71 format=3 uid="uid://q5ywfy1ec1ow"]
+[gd_scene load_steps=76 format=3 uid="uid://q5ywfy1ec1ow"]
 
 [ext_resource type="Texture2D" uid="uid://dcuunnkft6r1s" path="res://Sprites/bugs_night01_spritesheet.png" id="1_4guck"]
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_a3bhj"]
 [ext_resource type="Environment" uid="uid://bsxawlioltobo" path="res://themes/base_worldenv.tres" id="2_05bvd"]
 [ext_resource type="Texture2D" uid="uid://cajwxlip58ygf" path="res://Art/walls/ironFence_night02.png" id="2_uirp8"]
+[ext_resource type="Texture2D" uid="uid://bhx6u3r52bon6" path="res://Sprites/Artem/artem_v1_front_idle-spritesheet.png" id="3_7wnry"]
 [ext_resource type="Texture2D" uid="uid://h8joxnvt8lrh" path="res://Art/ground/grass_night_down01.png" id="3_qik86"]
 [ext_resource type="Texture2D" uid="uid://dgq7eniigpsyl" path="res://Art/walls/cobblestone_wall_vines002.png" id="4_yukyy"]
 [ext_resource type="Texture2D" uid="uid://degr8n3kge2a5" path="res://Art/walls/cobblestone_wall_vines003.png" id="5_br54c"]
@@ -35,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://ugqmeknu43n7" path="res://sounds/levelMusic/grimsBriar.wav" id="22_rmce2"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="22_tdvik"]
 [ext_resource type="PackedScene" uid="uid://dkpx766v6jtwo" path="res://scenes/world objects/lights/lamp Post.tscn" id="25_qgex0"]
+[ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="29_8tf4m"]
 [ext_resource type="Script" path="res://scenes/levels/GB_Quest_Givers.gd" id="29_ptohh"]
 [ext_resource type="Texture2D" uid="uid://dtdoyj0egobim" path="res://Sprites/world objects/trashcans/trashcan.png" id="35_8300o"]
 [ext_resource type="PackedScene" uid="uid://dc6twae4gpv87" path="res://Game Components/UI_Elements/combat/combatScreen.tscn" id="36_v2jdf"]
@@ -286,6 +288,28 @@ gradient = SubResource("Gradient_becap")
 fill = 1
 fill_from = Vector2(0.478632, 0.512821)
 fill_to = Vector2(0.713675, 0.0384615)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nsd3"]
+atlas = ExtResource("3_7wnry")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j668j"]
+atlas = ExtResource("3_7wnry")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7oh4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nsd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j668j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m1f20"]
 animations = [{
@@ -550,10 +574,50 @@ z_index = 1
 position = Vector2(2193, 216)
 model = "Lamp Post - Spooky"
 
+[node name="TITLE CARD" type="Node2D" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="TITLE CARD"]
+offset_left = -995.0
+offset_top = 136.0
+offset_right = -920.0
+offset_bottom = 228.0
+text = "The"
+label_settings = ExtResource("29_8tf4m")
+
+[node name="Label2" type="Label" parent="TITLE CARD"]
+offset_left = -754.0
+offset_top = 184.0
+offset_right = -629.0
+offset_bottom = 276.0
+theme_override_constants/outline_size = 11
+text = "Curse
+"
+label_settings = ExtResource("29_8tf4m")
+
+[node name="Label3" type="Label" parent="TITLE CARD"]
+offset_left = -910.0
+offset_top = 136.0
+offset_right = -697.0
+offset_bottom = 228.0
+text = "Watcher's"
+label_settings = ExtResource("29_8tf4m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TITLE CARD"]
+position = Vector2(-833.25, 248.5)
+scale = Vector2(1.70313, 1.70313)
+sprite_frames = SubResource("SpriteFrames_7oh4u")
+frame_progress = 0.62295
+
+[node name="Node2D" parent="TITLE CARD/AnimatedSprite2D" instance=ExtResource("25_qgex0")]
+position = Vector2(-1.59674, -0.215363)
+scale = Vector2(1, 0.937)
+model = " "
+
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-96.2185, -21.5841)
+position = Vector2(1863.8, -87.0432)
 
 [node name="combatScreen" parent="." instance=ExtResource("36_v2jdf")]
 process_mode = 4
@@ -782,7 +846,7 @@ interact_type = "quest_giver"
 
 [node name="barkeep" parent="Quest_Givers" instance=ExtResource("19_w08lc")]
 position = Vector2(557, -105)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 has_quest = 1
 sprite = "barkeep"
 

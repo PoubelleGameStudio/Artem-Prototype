@@ -1,4 +1,4 @@
-~ this_is_a_node_title
+~ start
 
 Barback: The correct term is mixologist. Here's your beer.
 do update_inventory("beer",1)

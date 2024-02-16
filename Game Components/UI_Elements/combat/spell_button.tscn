@@ -15,6 +15,7 @@ script = ExtResource("1_6wj0f")
 [node name="spell_name" type="Label" parent="."]
 z_index = 1
 layout_mode = 2
+theme_override_font_sizes/font_size = 17
 text = "Test"
 label_settings = ExtResource("2_l08p6")
 
@@ -28,6 +29,7 @@ texture = ExtResource("2_a4len")
 layout_mode = 2
 icon = ExtResource("2_tg7fk")
 flat = true
+icon_alignment = 1
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

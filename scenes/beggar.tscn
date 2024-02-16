@@ -1,15 +1,15 @@
-[gd_scene load_steps=60 format=3 uid="uid://cxwgljlj2pfk1"]
+[gd_scene load_steps=61 format=3 uid="uid://cxwgljlj2pfk1"]
 
 [ext_resource type="Script" path="res://scripts/beggar.gd" id="1_tk6om"]
 [ext_resource type="Texture2D" uid="uid://jn0psaihgi7i" path="res://Sprites/beggar.png" id="1_ujaiu"]
 [ext_resource type="Texture2D" uid="uid://cxe3nogps8dc7" path="res://Sprites/vendor - GrimsBriar - sprite sheet.png" id="2_2ytqp"]
 [ext_resource type="Texture2D" uid="uid://cd7todjajlpev" path="res://Sprites/barmaid.png" id="2_f1ps1"]
-[ext_resource type="Texture2D" uid="uid://bi6nkg2muigkr" path="res://Sprites/barkeep.png" id="2_numk2"]
 [ext_resource type="Texture2D" uid="uid://bvt27gyk3i662" path="res://Sprites/quest givers/raccoon.png" id="3_sxpij"]
 [ext_resource type="Texture2D" uid="uid://xhooccfhxt6x" path="res://Game Components/UI_Elements/quest_turn_in_spriteSheet.png" id="4_1oeoe"]
 [ext_resource type="Texture2D" uid="uid://cq6fmjsjnmkbv" path="res://Game Components/UI_Elements/quest_available_spriteSheet.png" id="4_lw2lv"]
-[ext_resource type="Texture2D" uid="uid://cpn30fqtn1jjg" path="res://Sprites/elder.png" id="5_ug2ty"]
+[ext_resource type="Texture2D" uid="uid://bf77qsbmfnqrt" path="res://Sprites/quest givers/mayor_barkeep - sprite sheet.png" id="5_r00cb"]
 [ext_resource type="Texture2D" uid="uid://c6vko46s6dstj" path="res://Game Components/UI_Elements/chat_bubble_spriteSheet.png" id="5_y0kg0"]
+[ext_resource type="Texture2D" uid="uid://hu8o7ckq5rkw" path="res://Sprites/NPC/front_desk - sprite sheet.png" id="7_8b88k"]
 [ext_resource type="Texture2D" uid="uid://cvatbeu3hl0yj" path="res://Game Components/UI_Elements/quest_incomplete_spriteSheet.png" id="7_ky7r1"]
 [ext_resource type="Texture2D" uid="uid://4cjp8pme00u1" path="res://Sprites/quest givers/Witch_idle - sprite sheet.png" id="8_bmj81"]
 
@@ -69,25 +69,25 @@ region = Rect2(102, 0, 34, 34)
 atlas = ExtResource("2_f1ps1")
 region = Rect2(136, 0, 34, 34)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iwd2d"]
-atlas = ExtResource("2_numk2")
-region = Rect2(0, 0, 34, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ritgp"]
+atlas = ExtResource("5_r00cb")
+region = Rect2(0, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sdhn8"]
-atlas = ExtResource("2_numk2")
-region = Rect2(34, 0, 34, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfrlr"]
+atlas = ExtResource("5_r00cb")
+region = Rect2(32, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fkhr8"]
-atlas = ExtResource("2_numk2")
-region = Rect2(68, 0, 34, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejwxv"]
+atlas = ExtResource("5_r00cb")
+region = Rect2(64, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hcjks"]
-atlas = ExtResource("2_numk2")
-region = Rect2(102, 0, 34, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcrd6"]
+atlas = ExtResource("5_r00cb")
+region = Rect2(96, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tomfq"]
-atlas = ExtResource("2_numk2")
-region = Rect2(136, 0, 34, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3u25"]
+atlas = ExtResource("5_r00cb")
+region = Rect2(128, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sii0y"]
 atlas = ExtResource("1_ujaiu")
@@ -109,21 +109,25 @@ region = Rect2(102, 0, 34, 34)
 atlas = ExtResource("1_ujaiu")
 region = Rect2(136, 0, 34, 34)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6n3jn"]
-atlas = ExtResource("5_ug2ty")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia3s0"]
+atlas = ExtResource("7_8b88k")
+region = Rect2(0, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eddwt"]
-atlas = ExtResource("5_ug2ty")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_erxwh"]
+atlas = ExtResource("7_8b88k")
+region = Rect2(32, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wyvfk"]
-atlas = ExtResource("5_ug2ty")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm63w"]
+atlas = ExtResource("7_8b88k")
+region = Rect2(64, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ped24"]
-atlas = ExtResource("5_ug2ty")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_as12g"]
+atlas = ExtResource("7_8b88k")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34vv1"]
+atlas = ExtResource("7_8b88k")
+region = Rect2(128, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ids83"]
 atlas = ExtResource("8_bmj81")
@@ -221,19 +225,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iwd2d")
+"texture": SubResource("AtlasTexture_ritgp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sdhn8")
+"texture": SubResource("AtlasTexture_gfrlr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fkhr8")
+"texture": SubResource("AtlasTexture_ejwxv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hcjks")
+"texture": SubResource("AtlasTexture_bcrd6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tomfq")
+"texture": SubResource("AtlasTexture_v3u25")
 }],
 "loop": true,
 "name": &"barkeep",
@@ -261,16 +265,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6n3jn")
+"texture": SubResource("AtlasTexture_ia3s0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eddwt")
+"texture": SubResource("AtlasTexture_erxwh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wyvfk")
+"texture": SubResource("AtlasTexture_rm63w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ped24")
+"texture": SubResource("AtlasTexture_as12g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34vv1")
 }],
 "loop": true,
 "name": &"front_desk",
@@ -396,13 +403,14 @@ script = ExtResource("1_tk6om")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f8675")
-animation = &"witch"
+animation = &"barkeep"
+frame_progress = 0.357372
 speed_scale = 0.4
 
 [node name="dialogue_indicator" type="AnimatedSprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(0, -32)
+position = Vector2(0, -43.7637)
 scale = Vector2(0.354167, 0.354167)
 sprite_frames = SubResource("SpriteFrames_pf133")
 animation = &"quest_complete"
