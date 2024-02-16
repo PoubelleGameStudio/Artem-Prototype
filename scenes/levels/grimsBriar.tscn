@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://q5ywfy1ec1ow"]
+[gd_scene load_steps=80 format=3 uid="uid://q5ywfy1ec1ow"]
 
 [ext_resource type="Texture2D" uid="uid://dcuunnkft6r1s" path="res://Sprites/bugs_night01_spritesheet.png" id="1_4guck"]
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_a3bhj"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://b5vowrw45hndi" path="res://scenes/player.tscn" id="15_bf3il"]
 [ext_resource type="Texture2D" uid="uid://dfcmdrqt3crhf" path="res://Sprites/glass_corked001.png" id="16_2vpii"]
 [ext_resource type="Texture2D" uid="uid://dfixx1mpl1eth" path="res://Art/walls/ironFence__vertical_left_night02.png" id="16_o4avx"]
+[ext_resource type="Texture2D" uid="uid://bfqpgw368ayv1" path="res://Art/buildings/vendor stand.png" id="17_3tr1x"]
 [ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="17_dt21t"]
 [ext_resource type="Texture2D" uid="uid://cihyb6ichognq" path="res://Art/walls/ironFence__vertical_right_night02.png" id="17_uwxen"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="17_xb6tn"]
@@ -32,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://7ulmawr4kvyq" path="res://Art/object sheets/graveyard - sprite sheet-export.png" id="19_503ej"]
 [ext_resource type="PackedScene" uid="uid://cxwgljlj2pfk1" path="res://scenes/beggar.tscn" id="19_w08lc"]
 [ext_resource type="Texture2D" uid="uid://c5h4ltd4oxpla" path="res://Art/ground/basic03 - spooky.png" id="19_xgyv5"]
+[ext_resource type="Texture2D" uid="uid://cv1geiwpd66th" path="res://Art/buildings/vendor banner.png" id="20_7otdj"]
 [ext_resource type="Texture2D" uid="uid://dm05foi04h1xs" path="res://Art/doors/door_001.png" id="20_23yu5"]
 [ext_resource type="AudioStream" uid="uid://ugqmeknu43n7" path="res://sounds/levelMusic/grimsBriar.wav" id="22_rmce2"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="22_tdvik"]
@@ -53,7 +55,7 @@ texture_region_size = Vector2i(1, 1)
 texture = ExtResource("2_uirp8")
 0:0/size_in_atlas = Vector2i(3, 3)
 0:0/0 = 0
-0:0/0/y_sort_origin = 6
+0:0/0/y_sort_origin = 20
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28, 11.5, 23, 12, 23, 26, -25.5, 26.5)
@@ -161,6 +163,15 @@ texture = ExtResource("7_wphc3")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lhpi0"]
+texture = ExtResource("17_3tr1x")
+0:0/size_in_atlas = Vector2i(8, 4)
+0:0/0 = 0
+0:0/0/y_sort_origin = -15
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63.5, -10, 60, -9, 64.5, 33, -64, 34.5)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2msou"]
 texture = ExtResource("16_o4avx")
 0:0/size_in_atlas = Vector2i(1, 3)
@@ -176,6 +187,13 @@ texture = ExtResource("17_uwxen")
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.5, -23.5, 8.5, -23.5, 8, 25, 2, 25)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0oq1t"]
+texture = ExtResource("20_7otdj")
+0:0/size_in_atlas = Vector2i(8, 4)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd44n"]
 texture = ExtResource("19_xgyv5")
@@ -278,6 +296,8 @@ sources/22 = SubResource("TileSetAtlasSource_nt74m")
 sources/24 = SubResource("TileSetAtlasSource_yd44n")
 sources/26 = SubResource("TileSetAtlasSource_ga5cv")
 sources/19 = SubResource("TileSetAtlasSource_p3xvn")
+sources/20 = SubResource("TileSetAtlasSource_lhpi0")
+sources/23 = SubResource("TileSetAtlasSource_0oq1t")
 
 [sub_resource type="Gradient" id="Gradient_becap"]
 offsets = PackedFloat32Array(0.00959233, 1)
@@ -516,7 +536,7 @@ layer_4/modulate = Color(1, 1, 1, 1)
 layer_4/y_sort_enabled = true
 layer_4/y_sort_origin = 0
 layer_4/z_index = 1
-layer_4/tile_data = PackedInt32Array(655361, 1, 0, 655364, 1, 0, 655367, 1, 0, 655370, 1, 0, 655373, 1, 0, 655376, 1, 0, 655379, 1, 0, 655382, 1, 0, 655385, 1, 0, 655388, 1, 0, 655391, 1, 0, 655394, 1, 0, 720894, 1, 0, 655397, 1, 0, 655400, 1, 0, 655403, 1, 0, 655406, 1, 0, 655409, 1, 0, 655412, 1, 0, 655415, 1, 0, 655418, 1, 0, 655421, 1, 0, 655424, 1, 0, 655427, 1, 0, 655430, 1, 0, 655433, 1, 0, 655436, 1, 0, 655439, 1, 0, 721079, 1, 0, 721082, 1, 0, 721085, 1, 0, 721088, 1, 0, 721091, 1, 0, 721094, 1, 0, 721097, 1, 0, 721100, 1, 0, 721103, 1, 0, 721106, 1, 0, 721109, 1, 0, 721112, 1, 0, 721115, 1, 0, 721118, 1, 0, 721121, 1, 0, 721124, 1, 0, -1048393, 1, 0, -1048390, 1, 0, -1048387, 1, 0, -1048384, 1, 0, -1048381, 1, 0, -1048378, 1, 0, -1048366, 1, 0, -1048363, 1, 0, -1048360, 1, 0, -1048357, 1, 0, -1048354, 1, 0, -1048351, 1, 0, -1048348, 1, 0, 327761, 1, 0, 327764, 1, 0, 327767, 1, 0, 327770, 1, 0, 327773, 1, 0, 327776, 1, 0, 327779, 1, 0, 327782, 1, 0, 327785, 1, 0, 327788, 1, 0, 327791, 1, 0, 327794, 1, 0, 327797, 1, 0, 327800, 1, 0, 327803, 1, 0, 327806, 1, 0, 327809, 1, 0, 327812, 1, 0, 327815, 1, 0, 327818, 1, 0, 327821, 1, 0, 327824, 1, 0, 327827, 1, 0, 327830, 1, 0, 327833, 1, 0, 327836, 1, 0, 327839, 1, 0, 327842, 1, 0, 327845, 1, 0, 327848, 1, 0, 327851, 1, 0, 327854, 1, 0, 327857, 1, 0, 327860, 1, 0, 2162795, 1, 0, 2162798, 1, 0, 2162801, 1, 0, 2162804, 1, 0, 2162807, 1, 0, 2162810, 1, 0, 2162813, 1, 0, 2162816, 1, 0, 2162819, 1, 0, 2162822, 1, 0, 2162825, 1, 0, 2162828, 1, 0, 2162831, 1, 0, 2162834, 1, 0, 917649, 1, 0, 917646, 1, 0, 917643, 1, 0, 917640, 1, 0, 917637, 1, 0, 917634, 1, 0, 917631, 1, 0, 917628, 1, 0, 917623, 1, 0, 917620, 1, 0, 917617, 1, 0, 917614, 1, 0, 917611, 1, 0, 1704060, 1245210, 11, 1704067, 1245210, 11, 1704074, 1245210, 11, 1048703, 1245210, 11, 1048710, 1245210, 11, 1048717, 1245210, 11, 1704062, 1310746, 17, 1769662, 1, 0, 917625, 1, 0, 1048688, 262170, 6)
+layer_4/tile_data = PackedInt32Array(655361, 1, 0, 655364, 1, 0, 655367, 1, 0, 655370, 1, 0, 655373, 1, 0, 655376, 1, 0, 655379, 1, 0, 655382, 1, 0, 655385, 1, 0, 655388, 1, 0, 655391, 1, 0, 655394, 1, 0, 720894, 1, 0, 655397, 1, 0, 655400, 1, 0, 655403, 1, 0, 655406, 1, 0, 655409, 1, 0, 655412, 1, 0, 655415, 1, 0, 655418, 1, 0, 655421, 1, 0, 655424, 1, 0, 655427, 1, 0, 655430, 1, 0, 655433, 1, 0, 655436, 1, 0, 655439, 1, 0, 721079, 1, 0, 721082, 1, 0, 721085, 1, 0, 721088, 1, 0, 721091, 1, 0, 721094, 1, 0, 721097, 1, 0, 721100, 1, 0, 721103, 1, 0, 721106, 1, 0, 721109, 1, 0, 721112, 1, 0, 721115, 1, 0, 721118, 1, 0, 721121, 1, 0, 721124, 1, 0, -1048393, 1, 0, -1048390, 1, 0, -1048387, 1, 0, -1048384, 1, 0, -1048381, 1, 0, -1048378, 1, 0, -1048366, 1, 0, -1048363, 1, 0, -1048360, 1, 0, -1048357, 1, 0, -1048354, 1, 0, -1048351, 1, 0, -1048348, 1, 0, 327761, 1, 0, 327764, 1, 0, 327767, 1, 0, 327770, 1, 0, 327773, 1, 0, 327776, 1, 0, 327779, 1, 0, 327782, 1, 0, 327785, 1, 0, 327788, 1, 0, 327791, 1, 0, 327794, 1, 0, 327797, 1, 0, 327800, 1, 0, 327803, 1, 0, 327806, 1, 0, 327809, 1, 0, 327812, 1, 0, 327815, 1, 0, 327818, 1, 0, 327821, 1, 0, 327824, 1, 0, 327827, 1, 0, 327830, 1, 0, 327833, 1, 0, 327836, 1, 0, 327839, 1, 0, 327842, 1, 0, 327845, 1, 0, 327848, 1, 0, 327851, 1, 0, 327854, 1, 0, 327857, 1, 0, 327860, 1, 0, 2162795, 1, 0, 2162798, 1, 0, 2162801, 1, 0, 2162804, 1, 0, 2162807, 1, 0, 2162810, 1, 0, 2162813, 1, 0, 2162816, 1, 0, 2162819, 1, 0, 2162822, 1, 0, 2162825, 1, 0, 2162828, 1, 0, 2162831, 1, 0, 2162834, 1, 0, 917649, 1, 0, 917646, 1, 0, 917643, 1, 0, 917640, 1, 0, 917637, 1, 0, 917634, 1, 0, 917631, 1, 0, 917628, 1, 0, 917623, 1, 0, 917620, 1, 0, 917617, 1, 0, 917614, 1, 0, 917611, 1, 0, 1704060, 1245210, 11, 1704067, 1245210, 11, 1704074, 1245210, 11, 1048703, 1245210, 11, 1048710, 1245210, 11, 1048717, 1245210, 11, 1704062, 1310746, 17, 1769662, 1, 0, 917625, 1, 0, 1048688, 262170, 6, -2162483, 20, 0, -2359091, 23, 0)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-178.5, -15)
@@ -617,7 +637,7 @@ model = " "
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(1863.8, -87.0432)
+position = Vector2(2963.85, -585.164)
 
 [node name="combatScreen" parent="." instance=ExtResource("36_v2jdf")]
 process_mode = 4
@@ -630,13 +650,13 @@ scale = Vector2(1.25, 1.25)
 
 [node name="Vendor" parent="Vendors" instance=ExtResource("19_w08lc")]
 position = Vector2(2018, -368)
-scale = Vector2(0.9, 0.9)
+scale = Vector2(1, 1)
 sprite = "GB_vendor"
 vendor = 1
 
 [node name="InteractArea" parent="Vendors/Vendor" instance=ExtResource("18_a2bs0")]
 z_index = 1
-position = Vector2(0, 4.86263)
+position = Vector2(-0.399902, 41.6)
 interact_type = "vendor"
 interact_value = "0"
 
@@ -873,6 +893,7 @@ interact_value = "0"
 
 [node name="barkeep2" parent="Quest_Givers" instance=ExtResource("19_w08lc")]
 position = Vector2(557, -105)
+scale = Vector2(1.5, 1.5)
 has_quest = 1
 sprite = "barkeep"
 

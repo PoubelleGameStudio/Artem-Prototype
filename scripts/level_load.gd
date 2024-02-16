@@ -79,7 +79,7 @@ func _on_combat_screen_combat_end():
 	State.level_up()
 	music.playing = true
 	c_music.playing = false
-	pass # Replace with function body.
+
 
 
 func _on_player_combat_entered():
@@ -100,4 +100,4 @@ func _on_combat_screen_death():
 	State.combat = 0
 	music.play = true
 	c_music.playing = false
-	pass
+

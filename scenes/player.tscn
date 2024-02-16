@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=55 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://5v2qsot5igdu" path="res://Game Components/UI_Elements/quest log components/quest_log.tscn" id="14_xc3j5"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="15_oq2cw"]
 [ext_resource type="PackedScene" uid="uid://c8skkvcn0ci81" path="res://Game Components/UI_Elements/Talent Tree/talentTree.tscn" id="16_unwu1"]
+[ext_resource type="Theme" uid="uid://vo18d0emeivc" path="res://themes/progress_bar.tres" id="17_ev8yw"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="18_jm848"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5msp"]
@@ -510,85 +511,105 @@ label_settings = ExtResource("15_oq2cw")
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="HUD/shop"]
+visible = false
 offset_left = -160.0
 offset_top = -120.0
 offset_right = 160.0
 offset_bottom = 120.0
 color = Color(0.490196, 0, 0.490196, 1)
 
-[node name="buy" type="Node2D" parent="HUD/shop/ColorRect"]
+[node name="Sprite2D" type="Sprite2D" parent="HUD/shop"]
+position = Vector2(-12.0001, -32)
+scale = Vector2(0.6375, 0.6375)
+texture = ExtResource("12_4q3lk")
 
-[node name="BuyButton" type="Button" parent="HUD/shop/ColorRect/buy"]
+[node name="buy" type="Node2D" parent="HUD/shop/Sprite2D"]
+position = Vector2(-160, -120)
+
+[node name="BuyButton" type="Button" parent="HUD/shop/Sprite2D/buy"]
 offset_right = 40.0
 offset_bottom = 24.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3xgl1")
 flat = true
 
-[node name="BuyLabel" type="Label" parent="HUD/shop/ColorRect/buy/BuyButton"]
+[node name="BuyLabel" type="Label" parent="HUD/shop/Sprite2D/buy/BuyButton"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 26.0
+offset_left = -132.571
+offset_top = -62.8571
+offset_right = -92.5714
+offset_bottom = -36.8571
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 19
 text = "Buy"
+label_settings = ExtResource("15_oq2cw")
 horizontal_alignment = 1
 
-[node name="BuyIndicate" type="ColorRect" parent="HUD/shop/ColorRect/buy/BuyButton"]
+[node name="BuyIndicate" type="ColorRect" parent="HUD/shop/Sprite2D/buy/BuyButton"]
 visible = false
 layout_mode = 0
 offset_top = 24.0
 offset_right = 40.0
 offset_bottom = 32.0
 
-[node name="item" type="Button" parent="HUD/shop/ColorRect/buy"]
-offset_left = 120.0
-offset_top = 64.0
-offset_right = 160.0
-offset_bottom = 85.0
+[node name="item" type="Button" parent="HUD/shop/Sprite2D/buy"]
+offset_left = 13.7143
+offset_top = -17.1429
+offset_right = 53.7143
+offset_bottom = 3.85715
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 19
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jkbq4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_h0l2v")
 text = "Buy"
 
-[node name="itemlabel" type="RichTextLabel" parent="HUD/shop/ColorRect/buy/item"]
+[node name="itemlabel" type="RichTextLabel" parent="HUD/shop/Sprite2D/buy/item"]
 layout_mode = 0
-offset_left = -112.0
-offset_right = -16.0
+offset_left = -137.143
+offset_right = -41.1429
 offset_bottom = 16.0
+theme = ExtResource("17_ev8yw")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_8eknr")
 theme_override_font_sizes/normal_font_size = 19
 text = "Health Restore"
 scroll_active = false
 
-[node name="costLabel" type="RichTextLabel" parent="HUD/shop/ColorRect/buy/item"]
+[node name="costLabel" type="RichTextLabel" parent="HUD/shop/Sprite2D/buy/item"]
 layout_mode = 0
-offset_left = -16.0
+offset_left = -45.7143
+offset_right = -29.7143
 offset_bottom = 16.0
+theme = ExtResource("17_ev8yw")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_8eknr")
 theme_override_font_sizes/normal_font_size = 19
 text = "5g"
 scroll_active = false
 
-[node name="sell" type="Node2D" parent="HUD/shop/ColorRect"]
+[node name="sell" type="Node2D" parent="HUD/shop/Sprite2D"]
+position = Vector2(-160, -120)
 
-[node name="SellButton" type="Button" parent="HUD/shop/ColorRect/sell"]
+[node name="SellButton" type="Button" parent="HUD/shop/Sprite2D/sell"]
 offset_left = 40.0
 offset_right = 80.0
 offset_bottom = 24.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5nw3a")
 flat = true
 
-[node name="SellLabel" type="Label" parent="HUD/shop/ColorRect/sell/SellButton"]
+[node name="SellLabel" type="Label" parent="HUD/shop/Sprite2D/sell/SellButton"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 26.0
+offset_left = 138.286
+offset_top = -62.8571
+offset_right = 178.286
+offset_bottom = -36.8571
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 19
 text = "Sell"
+label_settings = ExtResource("15_oq2cw")
 horizontal_alignment = 1
 
-[node name="SellIndicate" type="ColorRect" parent="HUD/shop/ColorRect/sell/SellButton"]
+[node name="SellIndicate" type="ColorRect" parent="HUD/shop/Sprite2D/sell/SellButton"]
 visible = false
 layout_mode = 0
 offset_top = 24.0
@@ -620,6 +641,6 @@ fixed_fps = 144
 [connection signal="pressed" from="HUD/character_info/Rest" to="." method="_on_rest_pressed"]
 [connection signal="pressed" from="HUD/character_info/show_inv" to="." method="_on_show_inv_pressed"]
 [connection signal="pressed" from="HUD/character_info/show_q" to="." method="_on_show_q_pressed"]
-[connection signal="pressed" from="HUD/shop/ColorRect/buy/BuyButton" to="." method="_on_buy_button_pressed"]
-[connection signal="pressed" from="HUD/shop/ColorRect/buy/item" to="." method="_on_item_pressed"]
-[connection signal="pressed" from="HUD/shop/ColorRect/sell/SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="HUD/shop/Sprite2D/buy/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="HUD/shop/Sprite2D/buy/item" to="." method="_on_item_pressed"]
+[connection signal="pressed" from="HUD/shop/Sprite2D/sell/SellButton" to="." method="_on_sell_button_pressed"]
