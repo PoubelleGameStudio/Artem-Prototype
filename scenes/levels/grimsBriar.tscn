@@ -635,6 +635,7 @@ scale = Vector2(1, 0.937)
 model = " "
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
+visible = false
 z_index = 1
 y_sort_enabled = true
 position = Vector2(2963.85, -585.164)

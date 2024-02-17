@@ -289,14 +289,13 @@ func _on_sell_button_pressed():
 
 
 func _on_item_pressed():
-	if int($HUD/shop/ColorRect/buy/item/costLabel.text) < State.gold:
+	if int($HUD/shop/Sprite2D/buy/item/costLabel.text) < State.gold:
 		#inv.add_item(str($HUD/shop/ColorRect/buy/item/itemlabel.text))
-		State.update_inventory(str($HUD/shop/ColorRect/buy/item/itemlabel.text),1)
-		State.gold -= int($HUD/shop/ColorRect/buy/item/costLabel.text)
+		State.update_inventory(str($HUD/shop/Sprite2D/buy/item/itemlabel.text),1)
+		State.gold -= int($HUD/shop/Sprite2D/buy/item/costLabel.text)
 	else:
 		# add message about being too poor 
 		pass
-	pass # Replace with function body.
 
 
 func _on_rest_pressed():
@@ -304,7 +303,7 @@ func _on_rest_pressed():
 	itemLabel.text = "FULL HEALTH!"
 	await get_tree().create_timer(2).timeout
 	itemLabel.text = ""
-	pass # Replace with function body.
+
 
 
 func _on_show_inv_pressed():
@@ -319,4 +318,4 @@ func _on_show_q_pressed():
 	$HUD/character_info/quest_log.show()
 	$HUD/character_info/show_q/q_indicate.show()
 	$HUD/character_info/show_inv/inv_indicate.hide()
-	pass # Replace with function body.
+

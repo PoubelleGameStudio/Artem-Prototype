@@ -1,8 +1,11 @@
 ~ start
-if quest_db["Trash_1"]["Status"] == 2
+if quest_db["Trash_1"]["Status"] == 2 and quest_db["witch_1"]["Status"] == 0:
 	=> trash_path
-else
+elif quest_db["witch_1"]["Status"] == 0:
 	=> no_trash
+	
+if quest_db["witch_1"]["Status"] == 1:
+	=> witch_1_in_prog
 	
 ~ trash_path
 The Witch: Well you're a fresh face. Is there a reason I shouldn't add it to the wall?
@@ -63,6 +66,13 @@ The Witch: Dead center, even. It would seem their god has stated that by placing
 Artem: They're killing them? 
 The Witch: By the dozens if not hundreds at this point. They fry them until their little light finally goes out. Our little canary told me they treat them beforehand to reinforce the vessel but it does little for the pain.
 Artem: How many of these temples are there?
-The Witch: More than any of us would care for, but I've said enough for now. There are some items in the chest over there. If you're still unwilling to take their lives, you'll at least find some delightful potions to destroy their putrid temples.
+The Witch: More than any of us would care for, but I've said enough for now. If you're still unwilling to take their lives, you'll find this useful. It's an elemental soaking stone. First it breaks the loop and absorbs the energy, then when it reaches capacity it all expels.
+Artem: So...a bomb?
+The Witch: Not always, but ideally.
+do update_quest_status("witch_1",1)
+
+~ witch_1_in_prog
+The Witch: You've all you need to find your answers.
+=> END
 
 => END
