@@ -271,7 +271,6 @@ func enemyTurn():
 # funcs to handle various UI elements and button presses
 func showAttacks():
 	inv.hide()
-	combat.hide()
 	# show the buttons we do need
 	fight.show()
 	spell_book.show()
@@ -286,14 +285,10 @@ func showAttacks():
 
 	
 func showOptions():
-	inv.show()
-	combat.show()
+	# inv.show()
+	# combat.show()
 	# show the buttons we do need
-	fight.hide()
-	defend.hide()
-#	spell1.hide()
-#	spell2.hide()
-#	spell3.hide()
+	pass
 
 # called when enemy or you dies
 func endgame():

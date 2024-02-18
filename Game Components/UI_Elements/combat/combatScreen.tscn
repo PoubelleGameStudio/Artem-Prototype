@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=16 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
@@ -40,6 +40,11 @@ gradient = SubResource("Gradient_bm1tl")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.876068, 0.149573)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qtvrs"]
+color = Color(0.113725, 0.133333, 0.160784, 1)
+thickness = 8
+vertical = true
 
 [node name="combatScreen" type="Node2D"]
 script = ExtResource("1_mxv4w")
@@ -152,6 +157,7 @@ offset_bottom = 871.0
 text = "flee"
 
 [node name="Inventory" type="Button" parent="combatUI"]
+visible = false
 layout_mode = 0
 offset_left = 972.0
 offset_top = 751.0
@@ -171,6 +177,7 @@ text = "exit"
 [node name="combat" type="Node2D" parent="combatUI"]
 
 [node name="Combat" type="Button" parent="combatUI/combat"]
+visible = false
 offset_left = 128.0
 offset_top = 743.0
 offset_right = 383.0
@@ -178,13 +185,17 @@ offset_bottom = 811.0
 text = "combat"
 
 [node name="cast" type="Button" parent="combatUI/combat"]
-visible = false
-offset_left = 129.0
-offset_top = 818.0
-offset_right = 384.0
-offset_bottom = 886.0
-text = "cast a spell
+offset_left = 118.0
+offset_top = 741.0
+offset_right = 358.0
+offset_bottom = 814.0
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("6_p1cl7")
+theme_override_font_sizes/font_size = 58
+theme_override_styles/hover = SubResource("StyleBoxLine_qtvrs")
+text = "Cast!
 "
+flat = true
 
 [node name="guard" type="Button" parent="combatUI/combat"]
 visible = false
@@ -294,7 +305,6 @@ scale = Vector2(5, 5)
 emitter = 1
 
 [node name="inventory_ui" parent="." instance=ExtResource("7_6qudd")]
-visible = false
 offset_left = 1332.0
 offset_top = 716.0
 offset_right = 1584.0
