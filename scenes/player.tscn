@@ -203,9 +203,10 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8mi52"]
 emission_shape = 3
-emission_box_extents = Vector3(700, 1, 1)
+emission_box_extents = Vector3(800, 1, 1)
 particle_flag_align_y = true
 particle_flag_disable_z = true
+spread = 69.27
 gravity = Vector3(-30, 200, 0)
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
@@ -626,7 +627,7 @@ offset_bottom = 0.0
 [node name="Weather" type="GPUParticles2D" parent="."]
 z_index = 1
 position = Vector2(32, -312)
-amount = 250
+amount = 275
 process_material = SubResource("ParticleProcessMaterial_8mi52")
 texture = ExtResource("8_v2vqm")
 lifetime = 2.75

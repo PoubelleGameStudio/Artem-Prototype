@@ -1,0 +1,132 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1jcq7rvu0h6m"]
+
+[ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="1_2dcj5"]
+[ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="1_irif3"]
+[ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_kqvca"]
+[ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="3_qi0nm"]
+[ext_resource type="Texture2D" uid="uid://b0kmobajmfp4n" path="res://Sprites/textures/rainfall.png" id="5_sw188"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tln6c"]
+emission_shape = 3
+emission_box_extents = Vector3(700, 1, 1)
+particle_flag_align_y = true
+particle_flag_disable_z = true
+gravity = Vector3(-30, 200, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -229.5
+angle_max = -208.6
+scale_min = 0.5
+scale_max = 0.55
+color = Color(1, 0.917647, 1, 0.45098)
+
+[node name="root" type="Node2D"]
+position = Vector2(232, 152)
+script = ExtResource("1_kqvca")
+level_name = "title_screen"
+
+[node name="flies" type="Node2D" parent="."]
+
+[node name="Node2D" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(256, 104)
+
+[node name="Node2D2" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(1296, 104)
+
+[node name="Node2D2" parent="flies/Node2D2" instance=ExtResource("1_irif3")]
+position = Vector2(2082, 0)
+
+[node name="Node2D4" parent="flies/Node2D2" instance=ExtResource("1_irif3")]
+position = Vector2(2082, 528)
+
+[node name="Node2D5" parent="flies/Node2D2" instance=ExtResource("1_irif3")]
+position = Vector2(3116, 0)
+
+[node name="Node2D6" parent="flies/Node2D2" instance=ExtResource("1_irif3")]
+position = Vector2(3118, 524)
+
+[node name="Node2D3" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(256, 632)
+
+[node name="Node2D4" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(1296, 632)
+
+[node name="Node2D5" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(2330, 104)
+
+[node name="Node2D6" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(2332, 628)
+
+[node name="Node2D7" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(-794, 636)
+
+[node name="Node2D8" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(-794, 117)
+
+[node name="Node2D9" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(-778, -390)
+
+[node name="Node2D10" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(256, -390)
+
+[node name="Node2D11" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(1288, -390)
+
+[node name="Node2D12" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(2324, -390)
+
+[node name="Node2D13" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(3370, -382)
+
+[node name="Node2D14" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(4404, -406)
+
+[node name="Node2D15" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(-802, 1147)
+
+[node name="Node2D16" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(224, 1155)
+
+[node name="Node2D17" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(1246, 1155)
+
+[node name="Node2D18" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(2250, 1147)
+
+[node name="Node2D19" parent="flies" instance=ExtResource("1_irif3")]
+position = Vector2(3223, 1156)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1398.68, 347.683)
+zoom = Vector2(3, 3)
+
+[node name="Weather" type="GPUParticles2D" parent="Camera2D"]
+z_index = 1
+position = Vector2(49.3198, -379.683)
+amount = 250
+process_material = SubResource("ParticleProcessMaterial_tln6c")
+texture = ExtResource("5_sw188")
+lifetime = 2.75
+preprocess = 4.0
+speed_scale = 1.5
+fixed_fps = 144
+
+[node name="MainMenu" parent="." instance=ExtResource("1_2dcj5")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1357.0
+offset_top = 280.0
+offset_right = 1357.0
+offset_bottom = 280.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Label" type="Label" parent="MainMenu"]
+layout_mode = 0
+offset_left = -162.0
+offset_top = -120.0
+offset_right = 293.0
+offset_bottom = -28.0
+text = "The Watcher's Curse"
+label_settings = ExtResource("3_qi0nm")

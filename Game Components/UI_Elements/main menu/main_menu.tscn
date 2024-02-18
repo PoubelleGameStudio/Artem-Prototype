@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8uoijdcmqgg6"]
+[gd_scene load_steps=6 format=3 uid="uid://b8uoijdcmqgg6"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/main menu/MainMenu.gd" id="1_vrrwu"]
+[ext_resource type="Texture2D" uid="uid://bbnpyi3kpxt8m" path="res://Game Components/UI_Elements/main menu/buttons/new game.png" id="2_e1ylg"]
+[ext_resource type="Texture2D" uid="uid://jv28nanluca3" path="res://Game Components/UI_Elements/main menu/buttons/quit.png" id="3_ae1th"]
+[ext_resource type="Texture2D" uid="uid://cav7reonbiek2" path="res://Game Components/UI_Elements/main menu/buttons/load.png" id="3_pnvef"]
+[ext_resource type="Texture2D" uid="uid://pywpwqrng370" path="res://Game Components/UI_Elements/main menu/buttons/save.png" id="4_ny3nx"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_vrrwu")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -21,12 +26,13 @@ layout_mode = 2
 
 [node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "new game
-"
+icon = ExtResource("2_e1ylg")
+flat = true
 
 [node name="Load" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Load"
+icon = ExtResource("3_pnvef")
+flat = true
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 visible = false
@@ -35,13 +41,17 @@ text = "Options"
 
 [node name="Save" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Save
+text = "
 "
+icon = ExtResource("4_ny3nx")
+flat = true
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Exit
+text = "
 "
+icon = ExtResource("3_ae1th")
+flat = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]

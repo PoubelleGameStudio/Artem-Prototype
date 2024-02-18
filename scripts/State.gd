@@ -279,6 +279,7 @@ func level_up():
 
 #control what enemies in what zone have been defeated
 var area_enemies = {
+	"title_screen":{},
 	"grimsBriar":{
 		"1":0,
 		"2":0,
