@@ -96,13 +96,10 @@ position = Vector2(2250, 1147)
 [node name="Node2D19" parent="flies" instance=ExtResource("1_irif3")]
 position = Vector2(3223, 1156)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1398.68, 347.683)
-zoom = Vector2(3, 3)
-
-[node name="Weather" type="GPUParticles2D" parent="Camera2D"]
+[node name="Weather" type="GPUParticles2D" parent="."]
+top_level = true
 z_index = 1
-position = Vector2(49.3198, -379.683)
+position = Vector2(1592, 205)
 amount = 250
 process_material = SubResource("ParticleProcessMaterial_tln6c")
 texture = ExtResource("5_sw188")
@@ -110,6 +107,10 @@ lifetime = 2.75
 preprocess = 4.0
 speed_scale = 1.5
 fixed_fps = 144
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1398.68, 347.683)
+zoom = Vector2(3, 3)
 
 [node name="MainMenu" parent="." instance=ExtResource("1_2dcj5")]
 anchors_preset = 0
@@ -124,9 +125,27 @@ grow_vertical = 1
 
 [node name="Label" type="Label" parent="MainMenu"]
 layout_mode = 0
-offset_left = -162.0
-offset_top = -120.0
-offset_right = 293.0
-offset_bottom = -28.0
-text = "The Watcher's Curse"
+offset_left = -57.0
+offset_top = -107.0
+offset_right = 398.0
+offset_bottom = -15.0
+text = "The"
+label_settings = ExtResource("3_qi0nm")
+
+[node name="Label2" type="Label" parent="MainMenu"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = -75.0
+offset_right = 378.0
+offset_bottom = 17.0
+text = "Watcher's"
+label_settings = ExtResource("3_qi0nm")
+
+[node name="Label3" type="Label" parent="MainMenu"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = -45.0
+offset_right = 540.0
+offset_bottom = 47.0
+text = "Curse"
 label_settings = ExtResource("3_qi0nm")

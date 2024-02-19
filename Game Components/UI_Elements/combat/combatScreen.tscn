@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=19 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
@@ -6,6 +6,8 @@
 [ext_resource type="Theme" uid="uid://c1pntnyw8t772" path="res://themes/hp_bar.tres" id="4_2r65i"]
 [ext_resource type="Texture2D" uid="uid://dv7hntw3bi4xl" path="res://Sprites/Artem/artem_v1_back_walking.png" id="4_43trn"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="4_uo8iy"]
+[ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="5_be3fw"]
+[ext_resource type="Texture2D" uid="uid://cl7yf2co0u2ed" path="res://Game Components/UI_Elements/main menu/buttons/button blank.png" id="6_6i4oy"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="6_p1cl7"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="7_6qudd"]
 [ext_resource type="PackedScene" uid="uid://dpv6cisbc7uye" path="res://Game Components/UI_Elements/combat/spell_button.tscn" id="8_16ejo"]
@@ -45,6 +47,8 @@ fill_to = Vector2(0.876068, 0.149573)
 color = Color(0.113725, 0.133333, 0.160784, 1)
 thickness = 8
 vertical = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i85tx"]
 
 [node name="combatScreen" type="Node2D"]
 script = ExtResource("1_mxv4w")
@@ -176,34 +180,30 @@ text = "exit"
 
 [node name="combat" type="Node2D" parent="combatUI"]
 
-[node name="Combat" type="Button" parent="combatUI/combat"]
-visible = false
-offset_left = 128.0
-offset_top = 743.0
-offset_right = 383.0
-offset_bottom = 811.0
-text = "combat"
+[node name="chosen_spell_label" type="Label" parent="combatUI/combat"]
+offset_left = 105.0
+offset_top = 732.0
+offset_right = 153.0
+offset_bottom = 774.0
+label_settings = ExtResource("5_be3fw")
 
 [node name="cast" type="Button" parent="combatUI/combat"]
-offset_left = 118.0
-offset_top = 741.0
-offset_right = 358.0
-offset_bottom = 814.0
-theme_override_constants/outline_size = 0
+offset_left = 361.0
+offset_top = 718.0
+offset_right = 599.0
+offset_bottom = 800.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("6_p1cl7")
 theme_override_font_sizes/font_size = 58
 theme_override_styles/hover = SubResource("StyleBoxLine_qtvrs")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i85tx")
 text = "Cast!
 "
+icon = ExtResource("6_6i4oy")
 flat = true
-
-[node name="guard" type="Button" parent="combatUI/combat"]
-visible = false
-offset_left = 413.0
-offset_top = 912.0
-offset_right = 668.0
-offset_bottom = 980.0
-text = "drop the shoulder"
+icon_alignment = 1
+expand_icon = true
 
 [node name="spell" type="Button" parent="combatUI/combat"]
 visible = false
@@ -250,18 +250,35 @@ text = "HP"
 
 [node name="spellSelect" type="Node2D" parent="combatUI"]
 
-[node name="fireball" type="TextureButton" parent="combatUI/spellSelect"]
-visible = false
-offset_left = 490.0
-offset_top = 730.0
-offset_right = 524.0
-offset_bottom = 762.0
+[node name="Control" type="Control" parent="combatUI/spellSelect"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Fireball_cast" parent="combatUI/spellSelect" instance=ExtResource("8_16ejo")]
-offset_left = -507.0
-offset_top = 744.0
-offset_right = -435.0
-offset_bottom = 816.0
+[node name="GridContainer" type="GridContainer" parent="combatUI/spellSelect/Control"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 795.0
+offset_right = 911.0
+offset_bottom = 1088.0
+theme_override_constants/h_separation = 29
+theme_override_constants/v_separation = 53
+columns = 5
+
+[node name="Fireball_cast" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
+layout_mode = 2
+spell_icon = "fireball"
+metadata/_edit_use_anchors_ = true
+
+[node name="Fireball_cast2" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
+layout_mode = 2
+spell_icon = "frostbolt"
+metadata/_edit_use_anchors_ = true
+
+[node name="Fireball_cast3" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
+visible = false
+layout_mode = 2
 spell_icon = "fireball"
 metadata/_edit_use_anchors_ = true
 
@@ -276,53 +293,23 @@ theme_override_font_sizes/font_size = 60
 text = "Executioner"
 horizontal_alignment = 2
 
-[node name="bin" type="Node" parent="combatUI"]
-
-[node name="spell1" type="OptionButton" parent="combatUI/bin"]
-visible = false
-offset_left = 493.0
-offset_top = 750.0
-offset_right = 577.0
-offset_bottom = 813.0
-
-[node name="spell2" type="OptionButton" parent="combatUI/bin"]
-visible = false
-offset_left = 494.0
-offset_top = 840.0
-offset_right = 578.0
-offset_bottom = 903.0
-
-[node name="spell3" type="OptionButton" parent="combatUI/bin"]
-visible = false
-offset_left = 496.0
-offset_top = 923.0
-offset_right = 580.0
-offset_bottom = 986.0
-
 [node name="enemyCombat" parent="." instance=ExtResource("3_6j6h7")]
 position = Vector2(1551, 227)
 scale = Vector2(5, 5)
 emitter = 1
 
 [node name="inventory_ui" parent="." instance=ExtResource("7_6qudd")]
-offset_left = 1332.0
-offset_top = 716.0
-offset_right = 1584.0
-offset_bottom = 816.0
+z_index = 1
+offset_left = 1258.0
+offset_top = 748.0
+offset_right = 1512.0
+offset_bottom = 881.0
 scale = Vector2(2, 2)
 
 [connection signal="pressed" from="combatUI/Flee" to="." method="_on_flee_pressed"]
 [connection signal="pressed" from="combatUI/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="combatUI/return" to="." method="_on_return_pressed"]
-[connection signal="pressed" from="combatUI/combat/Combat" to="." method="_on_combat_pressed"]
 [connection signal="pressed" from="combatUI/combat/cast" to="." method="_on_onepunch_pressed"]
-[connection signal="pressed" from="combatUI/combat/guard" to="." method="_on_combat_pressed"]
 [connection signal="pressed" from="combatUI/combat/spell" to="." method="_on_spell_pressed"]
-[connection signal="pressed" from="combatUI/spellSelect/fireball" to="." method="_on_texture_button_pressed"]
-[connection signal="item_selected" from="combatUI/bin/spell1" to="." method="_on_spell_1_item_selected"]
-[connection signal="item_selected" from="combatUI/bin/spell2" to="." method="_on_spell_1_item_selected"]
-[connection signal="item_selected" from="combatUI/bin/spell2" to="." method="_on_spell_2_item_selected"]
-[connection signal="item_selected" from="combatUI/bin/spell3" to="." method="_on_spell_1_item_selected"]
-[connection signal="item_selected" from="combatUI/bin/spell3" to="." method="_on_spell_3_item_selected"]
 [connection signal="dead" from="enemyCombat" to="." method="_on_enemy_combat_dead"]
 [connection signal="item_used" from="inventory_ui" to="." method="_on_inventory_ui_item_used"]

@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Panel
 class_name spell_button
 
 @onready var selected: Sprite2D = $selected
@@ -9,22 +9,31 @@ class_name spell_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	button.icon = load(str("res://Sprites/combat/spell icons/",spell_icon,".png"))
-	spell_label.text = spell_icon
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	setup_button()
+
 func _process(delta):
+	pass
+
+
+func setup_button() -> void:
+	spell_label.text = spell_icon
+	button.icon = load(str("res://Sprites/combat/spell icons/",spell_icon,".png"))
 	pass
 
 
 func _on_button_pressed():
 	State.spell1 = spell_icon
+#	if selected.visible:
+#		selected.hide()
+#	else:
+#		selected.show()
+		
 
 
 func _on_button_mouse_entered():
-	spell_label.show()
-	selected.show()
-	
+	# selected.show()
+	pass
 
 func _on_button_mouse_exited():
-	spell_label.hide()
-	selected.hide()
+	#selected.hide()
+	pass

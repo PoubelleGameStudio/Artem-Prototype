@@ -11,9 +11,6 @@ extends Node2D
 @onready var eHealth = $combatUI/enemyHealth
 @onready var pHealth = $combatUI/playerHealth
 @onready var spell_book = $combatUI/spellSelect
-@onready var spell1 = $combatUI/spellSelect/spell1
-@onready var spell2 = $combatUI/spellSelect/spell2
-@onready var spell3 = $combatUI/spellSelect/spell3
 @onready var yourTurn = 1
 @onready var spells = State.spell_book
 @onready var specialCounter = 0
@@ -22,6 +19,7 @@ extends Node2D
 @onready var cam = $Camera2D
 @onready var world_instance = get_tree().get_root().get_node('/root/root')
 @onready var world_level = get_tree().get_root().get_node('/root/root').level_name
+@onready var chosen_spell: Label = $combatUI/combat/chosen_spell_label
 
 #signals
 signal combat_end
@@ -50,6 +48,9 @@ func _ready():
 func _process(delta):
 	eHealth.value = enemy.health
 	pHealth.value = State.health
+	chosen_spell.text = State.spell1
+
+	
 	
 		
 
@@ -76,20 +77,21 @@ func combat_data():
 
 # assign spells
 func add_spells():
-	var options = spells.keys()
-	spell1.add_item(State.spell1) 
-	spell2.add_item(State.spell2)
-	spell3.add_item(State.spell3)
-	for opt in options:
-		spell1.add_item(str(opt))
-		spell2.add_item(str(opt))
-		spell3.add_item(str(opt))
-#		if opt != State.spell1:
-#			spell1.add_item(str(opt))
-#		if opt != State.spell2:	 
-#			spell2.add_item(str(opt))
-#		if opt != State.spell3:
-#			spell3.add_item(str(opt))
+	pass
+#	var options = spells.keys()
+#	spell1.add_item(State.spell1) 
+#	spell2.add_item(State.spell2)
+#	spell3.add_item(State.spell3)
+#	for opt in options:
+#		spell1.add_item(str(opt))
+#		spell2.add_item(str(opt))
+#		spell3.add_item(str(opt))
+##		if opt != State.spell1:
+##			spell1.add_item(str(opt))
+##		if opt != State.spell2:	 
+##			spell2.add_item(str(opt))
+##		if opt != State.spell3:
+##			spell3.add_item(str(opt))
 
 
 #handles all damage modification for casting combined spells
@@ -275,11 +277,7 @@ func showAttacks():
 	fight.show()
 	spell_book.show()
 	#defend.show()
-#	spell1.show()
-#	if State.talents["knowledge1"] == 1:
-#		spell2.show()
-#	if State.talents["knowledge2"] == 1:
-#		spell3.show()
+
 	
 
 
@@ -342,23 +340,6 @@ func _on_onepunch_pressed():
 
 func _on_spell_pressed():
 	pass # Replace with function body.
-
-
-func _on_spell_1_item_selected(index):
-	var list = spells.keys()
-	State.spell1 = list[index]
-
-
-
-func _on_spell_2_item_selected(index):
-	var list = spells.keys()
-	State.spell2 = list[index]
-
-
-
-func _on_spell_3_item_selected(index):
-	var list = spells.keys()
-	State.spell3 = list[index]
 
 
 

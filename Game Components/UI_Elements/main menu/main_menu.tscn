@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8uoijdcmqgg6"]
+[gd_scene load_steps=12 format=3 uid="uid://b8uoijdcmqgg6"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/main menu/MainMenu.gd" id="1_vrrwu"]
 [ext_resource type="Texture2D" uid="uid://bbnpyi3kpxt8m" path="res://Game Components/UI_Elements/main menu/buttons/new game.png" id="2_e1ylg"]
 [ext_resource type="Texture2D" uid="uid://jv28nanluca3" path="res://Game Components/UI_Elements/main menu/buttons/quit.png" id="3_ae1th"]
 [ext_resource type="Texture2D" uid="uid://cav7reonbiek2" path="res://Game Components/UI_Elements/main menu/buttons/load.png" id="3_pnvef"]
 [ext_resource type="Texture2D" uid="uid://pywpwqrng370" path="res://Game Components/UI_Elements/main menu/buttons/save.png" id="4_ny3nx"]
+
+[sub_resource type="Theme" id="Theme_cko5l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j558v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ni2g7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e7h4k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipbhb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmhvu"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_cko5l")
 script = ExtResource("1_vrrwu")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -26,11 +39,14 @@ layout_mode = 2
 
 [node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j558v")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ni2g7")
 icon = ExtResource("2_e1ylg")
 flat = true
 
 [node name="Load" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e7h4k")
 icon = ExtResource("3_pnvef")
 flat = true
 
@@ -41,6 +57,7 @@ text = "Options"
 
 [node name="Save" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ipbhb")
 text = "
 "
 icon = ExtResource("4_ny3nx")
@@ -48,6 +65,7 @@ flat = true
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lmhvu")
 text = "
 "
 icon = ExtResource("3_ae1th")

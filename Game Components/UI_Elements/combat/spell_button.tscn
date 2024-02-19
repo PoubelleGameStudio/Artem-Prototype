@@ -1,36 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpv6cisbc7uye"]
+[gd_scene load_steps=8 format=3 uid="uid://dpv6cisbc7uye"]
 
 [ext_resource type="Script" path="res://spell_button.gd" id="1_6wj0f"]
 [ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="2_a4len"]
-[ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="2_l08p6"]
-[ext_resource type="Texture2D" uid="uid://by870enpdddpm" path="res://Sprites/combat/spell icons/fireball.png" id="2_tg7fk"]
+[ext_resource type="Texture2D" uid="uid://bdmndm760hohn" path="res://Sprites/combat/spell icons/fireball.png" id="2_tg7fk"]
+[ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="4_f2866"]
 
-[node name="MarginContainer" type="MarginContainer"]
-layout_direction = 3
-offset_right = 72.0
-offset_bottom = 72.0
-size_flags_horizontal = 4
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8t3q7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xy7do"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_833re"]
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 103.0
+offset_bottom = 118.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8t3q7")
 script = ExtResource("1_6wj0f")
-
-[node name="spell_name" type="Label" parent="."]
-z_index = 1
-layout_mode = 2
-theme_override_font_sizes/font_size = 17
-text = "Test"
-label_settings = ExtResource("2_l08p6")
 
 [node name="selected" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(36.5, 35)
-scale = Vector2(2.40625, 2.5625)
+position = Vector2(28, 27)
+scale = Vector2(1.75, 1.6875)
 texture = ExtResource("2_a4len")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
+offset_top = 1.0
+offset_right = 106.0
+offset_bottom = 92.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xy7do")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_833re")
 icon = ExtResource("2_tg7fk")
 flat = true
 icon_alignment = 1
+expand_icon = true
 
-[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[node name="spell_name" type="Label" parent="."]
+visible = false
+z_index = 1
+layout_mode = 2
+offset_left = 24.0
+offset_top = 88.0
+offset_right = 84.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 48
+text = "test"
+label_settings = ExtResource("4_f2866")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

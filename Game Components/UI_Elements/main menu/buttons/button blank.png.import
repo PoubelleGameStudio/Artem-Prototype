@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdmndm760hohn"
-path="res://.godot/imported/fireball.png-925ff381864a4d8dd788be1dae306853.ctex"
+uid="uid://cl7yf2co0u2ed"
+path="res://.godot/imported/button blank.png-87a152a1b8241052b8692f6238ff0ad5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/combat/spell icons/fireball.png"
-dest_files=["res://.godot/imported/fireball.png-925ff381864a4d8dd788be1dae306853.ctex"]
+source_file="res://Game Components/UI_Elements/main menu/buttons/button blank.png"
+dest_files=["res://.godot/imported/button blank.png-87a152a1b8241052b8692f6238ff0ad5.ctex"]
 
 [params]
 

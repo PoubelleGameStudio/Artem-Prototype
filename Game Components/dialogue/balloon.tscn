@@ -26,12 +26,8 @@ script = ExtResource("1_4u26j")
 
 [node name="Balloon" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(10, 10)
-anchors_preset = 10
-anchor_right = 1.0
-offset_right = -1620.0
-offset_bottom = 296.995
-grow_horizontal = 2
-size_flags_horizontal = 4
+offset_right = 10.0
+offset_bottom = 10.0
 color = Color(0, 0, 0.176471, 1)
 
 [node name="Margin" type="MarginContainer" parent="Balloon"]

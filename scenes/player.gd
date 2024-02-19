@@ -66,7 +66,7 @@ func _physics_process(delta):
 			talents.visible = true
 		pass
 
-func player_movement(delta):
+func player_movement(_delta):
 	
 	if Input.is_action_pressed("MOVE_RIGHT"):
 		current_dir = "right"
@@ -161,9 +161,6 @@ func execute_interaction():
 				pass
 			"quest_giver":
 				if State.talking == 0:
-					var quest_db = State.quest_db
-					var quest = cur_interaction.interact_label
-					print(cur_interaction.interact_value)
 					cur_interaction.set_value("yes")
 					cur_interaction.talk(str("res://Game Components/dialogue/NPC/",
 							cur_interaction.get_parent().sprite,".dialogue"))
@@ -296,26 +293,4 @@ func _on_item_pressed():
 	else:
 		# add message about being too poor 
 		pass
-
-
-func _on_rest_pressed():
-	State.health = State.maxHealth
-	itemLabel.text = "FULL HEALTH!"
-	await get_tree().create_timer(2).timeout
-	itemLabel.text = ""
-
-
-
-func _on_show_inv_pressed():
-	$HUD/character_info/Inventory.show()
-	$HUD/character_info/quest_log.hide()
-	$HUD/character_info/show_q/q_indicate.hide()
-	$HUD/character_info/show_inv/inv_indicate.show()
-
-
-func _on_show_q_pressed():
-	$HUD/character_info/Inventory.hide()
-	$HUD/character_info/quest_log.show()
-	$HUD/character_info/show_q/q_indicate.show()
-	$HUD/character_info/show_inv/inv_indicate.hide()
 

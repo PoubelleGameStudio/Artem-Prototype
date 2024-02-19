@@ -113,11 +113,11 @@ func _on_speak():
 		"stat_mod":{
 		},
 	},
-	"blizzard":{
+	"frostbolt":{
 		"name":"Blizzard",
 		"description":"",
 		"cost":1,
-		"aoe":1,
+		"aoe":0,
 		"damage":10,
 		"class": "attack",
 		"type": "frost",

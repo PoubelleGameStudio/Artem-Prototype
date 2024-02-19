@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdmndm760hohn"
-path="res://.godot/imported/fireball.png-925ff381864a4d8dd788be1dae306853.ctex"
+uid="uid://cb123ud0064fm"
+path="res://.godot/imported/frostbolt.png-08a1a77c094af1a1fae72d56d7cfe982.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/combat/spell icons/fireball.png"
-dest_files=["res://.godot/imported/fireball.png-925ff381864a4d8dd788be1dae306853.ctex"]
+source_file="res://Sprites/combat/spell icons/frostbolt.png"
+dest_files=["res://.godot/imported/frostbolt.png-08a1a77c094af1a1fae72d56d7cfe982.ctex"]
 
 [params]
 
