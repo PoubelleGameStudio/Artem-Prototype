@@ -248,7 +248,7 @@ offset_bottom = 40.0
 [node name="Camera2D" type="Camera2D" parent="HUD"]
 y_sort_enabled = true
 position = Vector2(0, 8)
-zoom = Vector2(2.4, 2.4)
+zoom = Vector2(3, 3)
 limit_left = -20000000
 limit_top = -1863462912
 limit_right = 2000000
