@@ -84,6 +84,7 @@ func save_player()-> void:
 	playerData.talents = State.talents
 	playerData.world = loader.level_name
 	playerData.pos = player.get_global_position()
+	get_parent().resume()
 	
 func load_player() -> void:
 	State.welcomed = playerData.welcomed
@@ -116,8 +117,12 @@ func load_player() -> void:
 	State.area_enemies = playerData.area_enemies
 	State.Vendor_wares = playerData.Vendor_wares
 	State.talents = playerData.talents
-	await get_tree().change_scene_to_file((str("res://scenes/levels/",playerData.world,".tscn")))
-#	player.set_global_position(Vector2(playerData.pos))
-#	player.camera_current()
+	get_tree().change_scene_to_file((str("res://scenes/levels/",playerData.world,".tscn")))
+	# establish new player ref
+	var player = $"../../.."
+	if get_tree().get_root().get_node("root").level_name != "title_screen":
+		player.set_global_position(Vector2(playerData.pos))
+		player.camera_current()
+		get_parent().resume()
 	print("save loaded")
 

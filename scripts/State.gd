@@ -177,7 +177,7 @@ var quest_db ={
 	"barkeep_1":{
 		"giver":"barkeep",
 		"quest_name":"Meet The Crowd",
-		"Status":1,
+		"Status":0,
 		"Items":{
 			beer=1,
 			"Grims Briar Room Key"=1
@@ -296,7 +296,8 @@ var area_enemies = {
 		"1":0,
 		"2":0,
 		"3":0,
-	}
+	},
+	"energy_temple":{}
 }
 
 # enemy DB

@@ -17,7 +17,7 @@ func _ready():
 	State.is_raining = is_raining
 	add_child(c_music)
 	c_music.stream = load("res://sounds/levelMusic/to battle so that we may die.wav")
-
+#	player.camera_current()
 	if combat:
 		combat.process_mode = 4
 		player.world = level_name

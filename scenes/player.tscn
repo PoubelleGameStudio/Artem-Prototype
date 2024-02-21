@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=42 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -150,19 +150,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rq8f3"]
-radius = 7.0
-height = 14.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jl5s"]
+size = Vector2(24, 6)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dfod3"]
-radius = 24.0
+radius = 16.0
 height = 48.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_g0to7"]
-font = ExtResource("3_8eknr")
-font_size = 27
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xgl1"]
 
@@ -203,8 +196,8 @@ animation = &"down_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, 25)
-shape = SubResource("CapsuleShape2D_rq8f3")
+position = Vector2(0, 29)
+shape = SubResource("RectangleShape2D_0jl5s")
 
 [node name="interactionComponents" type="Node2D" parent="."]
 
@@ -215,17 +208,18 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactionComponents/interactionArea"]
+position = Vector2(0, 16)
 shape = SubResource("CapsuleShape2D_dfod3")
 
 [node name="itemLabel" type="Label" parent="interactionComponents/interactionArea"]
 z_index = 2
-offset_left = -285.0
-offset_top = -50.0
-offset_right = 280.0
-offset_bottom = -16.0
+offset_left = -282.0
+offset_top = -60.0
+offset_right = 283.0
+offset_bottom = -26.0
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 19
-label_settings = SubResource("LabelSettings_g0to7")
+label_settings = ExtResource("15_oq2cw")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -241,6 +235,7 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="HUD"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -363,6 +358,7 @@ label_settings = ExtResource("15_oq2cw")
 
 [node name="shop" type="Node2D" parent="HUD"]
 visible = false
+position = Vector2(4, 16)
 
 [node name="ColorRect" type="ColorRect" parent="HUD/shop"]
 visible = false

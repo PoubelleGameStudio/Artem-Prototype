@@ -16,7 +16,6 @@ extends CharacterBody2D
 @onready var all_interactions = []
 
 
-
 var speed = 150.0
 
 
@@ -231,6 +230,13 @@ func execute_interaction():
 					print(State.inventory)
 				await get_tree().create_timer(2).timeout
 				itemLabel.text = ""
+			
+			"portal":
+				# portals are used instead of gateways when the player is moving
+				# to a new location within the same scene, so a gateway isn't needed
+				var destination_name = cur_interaction.interact_value
+				var destination = get_node(str("../portals/",destination_name))
+				global_position = destination.global_position
 
 
 func camera_current():
@@ -239,10 +245,16 @@ func camera_current():
 
 func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0,area)
+	var cur_interact = all_interactions[0]
+	
+	
+	# portal logic
+	if cur_interact.interact_type == "portal":
+		itemLabel.text = cur_interact.interact_label
 	
 
 	#sets up the combat vars and launching combatScene
-	var cur_interact = all_interactions[0]
+	
 	if cur_interact.interact_type == "enemy" and State.combat == 0:
 		State.p_locs[get_parent().level_name] = get_node("../player").global_position
 		State.engaging.insert(0,cur_interact.interact_label)	
@@ -270,6 +282,7 @@ func _on_interaction_area_area_exited(area):
 	cur_interact.talk_end()
 	shop.hide()
 	State.talking = 0
+	itemLabel.text = ""
 	all_interactions.erase(area)
 	
 

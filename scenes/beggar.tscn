@@ -417,6 +417,6 @@ animation = &"quest_complete"
 speed_scale = 0.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4.76837e-07, -3.72529e-09)
+position = Vector2(-1.49011e-08, 17.5055)
 rotation = 0.0119802
 shape = SubResource("CapsuleShape2D_husku")
