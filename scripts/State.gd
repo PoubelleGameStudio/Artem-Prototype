@@ -30,25 +30,25 @@ var weapon: String = 'dagger of belonging'
 
 
 # stats
-var maxHealth = 100
-var health = 100
-var cur_xp = 0
-var xp_to_next = 10
-var level = 1
-var armor = 0 # physical resist
-var mana = 25  # still not sure about mana usage
+var maxHealth: int = 100
+var health: int = 100
+var cur_xp: int = 0
+var xp_to_next: int = 10
+var level: int = 1
+var armor: int = 0 # physical resist
+var mana: int = 25  # still not sure about mana usage
 # var speed = 5
 var crit_chance = 0 + (level/2+1)
 
 # spell resists
-var rFire = 0
-var rFrost = 0
-var rArcane = 0
-var rBlood = 0
-var rVoid = 0
+var rFire: int = 0
+var rFrost: int = 0
+var rArcane: int = 0
+var rBlood: int = 0
+var rVoid: int = 0
 
 # resources
-var gold = 100
+var gold: int = 100
 
 # social trackers
 var welcomed: bool = 0

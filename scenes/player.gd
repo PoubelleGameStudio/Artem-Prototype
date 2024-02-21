@@ -234,9 +234,9 @@ func execute_interaction():
 			"portal":
 				# portals are used instead of gateways when the player is moving
 				# to a new location within the same scene, so a gateway isn't needed
-				var destination_name = cur_interaction.interact_value
-				var destination = get_node(str("../portals/",destination_name))
-				global_position = destination.global_position
+				var portal_name = cur_interaction.interact_value
+				var portal = get_node(str("../portals/",portal_name))
+				global_position = portal.global_position
 
 
 func camera_current():

@@ -478,6 +478,14 @@ process_mode = 3
 z_index = 2
 script = ExtResource("4_wdihw")
 
+[node name="dimmer" type="ColorRect" parent="HUD/PauseController"]
+visible = false
+offset_left = -700.0
+offset_top = -336.0
+offset_right = 664.0
+offset_bottom = 416.0
+color = Color(0, 0, 0, 0.443137)
+
 [node name="pause_text" type="Label" parent="HUD/PauseController"]
 offset_left = -284.0
 offset_top = -116.0
