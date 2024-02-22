@@ -20,6 +20,8 @@ extends Node2D
 @onready var world_instance = get_tree().get_root().get_node('/root/root')
 @onready var world_level = get_tree().get_root().get_node('/root/root').level_name
 @onready var chosen_spell: Label = $combatUI/combat/chosen_spell_label
+@onready var instruct: Label = $instruct
+@onready var turn_sign: Label = $turn_sign
 
 #signals
 signal combat_end
@@ -49,6 +51,13 @@ func _process(delta):
 	eHealth.value = enemy.health
 	pHealth.value = State.health
 	chosen_spell.text = State.spell1
+	
+	if yourTurn == 0:
+		instruct.hide()
+		turn_sign.text = "Enemy Turn"
+	else:
+		instruct.show()
+		turn_sign.text = "Your Turn"
 
 	
 	

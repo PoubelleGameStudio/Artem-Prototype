@@ -16,6 +16,7 @@ extends CharacterBody2D
 @onready var all_interactions = []
 
 
+
 var speed = 150.0
 
 
@@ -178,10 +179,10 @@ func execute_interaction():
 				if cur_interaction.interact_value == "in":
 					print(get_parent().level_name)
 					State.p_locs[get_parent().level_name] = get_node("../player").global_position
-					get_tree().change_scene_to_file((str("res://scenes/levels/",
+					SceneTransition.change_scene((str("res://scenes/levels/",
 							cur_interaction.interact_label)))
 				elif cur_interaction.interact_value == "out":
-					get_tree().change_scene_to_file((str("res://scenes/levels/",
+					SceneTransition.change_scene((str("res://scenes/levels/",
 															cur_interaction.interact_label)))
 			
 			#locked door
@@ -236,7 +237,9 @@ func execute_interaction():
 				# to a new location within the same scene, so a gateway isn't needed
 				var portal_name = cur_interaction.interact_value
 				var portal = get_node(str("../portals/",portal_name))
+				SceneTransition.fade_out()
 				global_position = portal.global_position
+				SceneTransition.fade_in()
 
 
 func camera_current():
@@ -282,8 +285,9 @@ func _on_interaction_area_area_exited(area):
 	cur_interact.talk_end()
 	shop.hide()
 	State.talking = 0
-	itemLabel.text = ""
 	all_interactions.erase(area)
+	await get_tree().create_timer(2).timeout
+	itemLabel.text = ""
 	
 
 func _on_buy_button_pressed():

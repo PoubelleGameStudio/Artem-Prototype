@@ -107,7 +107,7 @@ func _on_speak():
 		"description":"",
 		"cost":1,
 		"aoe":0,
-		"damage":100,
+		"damage":20,
 		"class": "attack",
 		"type": "fire",
 		"stat_mod":{
