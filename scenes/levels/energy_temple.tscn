@@ -167,7 +167,7 @@ layer_1/tile_data = PackedInt32Array(393260, 196608, 5, -393173, 65536, 5, 11796
 
 [node name="player" parent="." instance=ExtResource("2_cdvju")]
 y_sort_enabled = true
-position = Vector2(530.505, 203.723)
+position = Vector2(22.04, 8.50919)
 
 [node name="combatScreen" parent="." instance=ExtResource("3_injt7")]
 position = Vector2(-13506.4, 333.843)
@@ -203,3 +203,11 @@ position = Vector2(2071, 8)
 interact_label = "RITUAL LAB"
 interact_type = "portal"
 interact_value = "portal6"
+
+[node name="gateways" type="Node2D" parent="."]
+
+[node name="InteractArea" parent="gateways" instance=ExtResource("4_sbvxa")]
+position = Vector2(-53, 21)
+interact_label = "WitchForest.tscn"
+interact_type = "gateway"
+interact_value = "out"

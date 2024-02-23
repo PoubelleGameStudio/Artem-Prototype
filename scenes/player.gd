@@ -177,7 +177,6 @@ func execute_interaction():
 			#door logic
 			"gateway":
 				if cur_interaction.interact_value == "in":
-					print(get_parent().level_name)
 					State.p_locs[get_parent().level_name] = get_node("../player").global_position
 					SceneTransition.change_scene((str("res://scenes/levels/",
 							cur_interaction.interact_label)))

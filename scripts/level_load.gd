@@ -4,7 +4,6 @@ extends Node2D
 @onready var c_music: AudioStreamPlayer = AudioStreamPlayer.new()
 @export var is_raining: int 
 @export var level_name: String
-
 @onready var combat = $combatScreen
 @onready var enemy_list = State.area_enemies[level_name]
 @onready var player = $player

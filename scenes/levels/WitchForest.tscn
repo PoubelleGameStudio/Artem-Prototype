@@ -371,7 +371,7 @@ script = ExtResource("3_7k25k")
 
 [node name="player" parent="." instance=ExtResource("3_x4lny")]
 y_sort_enabled = true
-position = Vector2(702.6, 211.845)
+position = Vector2(326.953, 166.98)
 
 [node name="respawn" parent="." instance=ExtResource("6_d8wmu")]
 position = Vector2(326, 168)
@@ -446,6 +446,16 @@ scale = Vector2(3, 3)
 interact_label = "Void Squirrel"
 interact_type = "enemy"
 interact_value = "0"
+
+[node name="gateways" type="Node2D" parent="."]
+position = Vector2(593, -174)
+scale = Vector2(1.25, 1.25)
+
+[node name="InteractArea" parent="gateways" instance=ExtResource("6_d8wmu")]
+position = Vector2(3472.8, 708)
+interact_label = "energy_temple.tscn"
+interact_type = "gateway"
+interact_value = "in"
 
 [node name="Vendors" type="Node2D" parent="."]
 y_sort_enabled = true

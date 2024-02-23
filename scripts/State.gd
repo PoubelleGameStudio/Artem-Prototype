@@ -297,7 +297,8 @@ var area_enemies = {
 		"2":0,
 		"3":0,
 	},
-	"energy_temple":{}
+	"energy_temple":{},
+	"forest_cave":{}
 }
 
 # enemy DB
