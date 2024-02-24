@@ -190,10 +190,10 @@ func execute_interaction():
 					if cur_interaction.interact_value == "in":
 						print(get_parent().level_name)
 						State.p_locs[get_parent().level_name] = get_node("../player").global_position
-						get_tree().change_scene_to_file((str("res://scenes/levels/",
+						SceneTransition.change_scene((str("res://scenes/levels/",
 								cur_interaction.interact_label)))
 					elif cur_interaction.interact_value == "out":
-						get_tree().change_scene_to_file((str("res://scenes/levels/",
+						SceneTransition.change_scene((str("res://scenes/levels/",
 								cur_interaction.interact_label)))
 				else:
 					itemLabel.text = "The Gate's Locked..."	

@@ -59,4 +59,5 @@ class_name PlayerData
 @export var quest_db: Dictionary
 @export var area_enemies: Dictionary
 @export var Vendor_wares: Dictionary
+@export var tutorials: Dictionary
 

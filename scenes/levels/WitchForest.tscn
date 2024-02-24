@@ -246,6 +246,7 @@ position = Vector2(324.614, 167.699)
 
 [node name="InteractArea" parent="Gateways" instance=ExtResource("6_d8wmu")]
 position = Vector2(479.386, -867.699)
+interact_label = "forest_cave.tscn"
 interact_type = "gateway"
 interact_value = "in"
 
@@ -371,7 +372,7 @@ script = ExtResource("3_7k25k")
 
 [node name="player" parent="." instance=ExtResource("3_x4lny")]
 y_sort_enabled = true
-position = Vector2(326.953, 166.98)
+position = Vector2(781, -582)
 
 [node name="respawn" parent="." instance=ExtResource("6_d8wmu")]
 position = Vector2(326, 168)

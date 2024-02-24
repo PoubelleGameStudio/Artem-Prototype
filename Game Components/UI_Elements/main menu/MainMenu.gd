@@ -82,6 +82,7 @@ func save_player()-> void:
 	playerData.area_enemies = State.area_enemies
 	playerData.Vendor_wares = State.Vendor_wares
 	playerData.talents = State.talents
+	playerData.tutorials = State.tutorials
 	playerData.world = loader.level_name
 	playerData.pos = player.get_global_position()
 	get_parent().resume()
@@ -117,6 +118,7 @@ func load_player() -> void:
 	State.area_enemies = playerData.area_enemies
 	State.Vendor_wares = playerData.Vendor_wares
 	State.talents = playerData.talents
+	State.tutorials = playerData.tutorials
 	get_tree().change_scene_to_file((str("res://scenes/levels/",playerData.world,".tscn")))
 	# establish new player ref
 	var player = $"../../.."

@@ -65,6 +65,12 @@ func _ready():
 func _on_speak():
 	pass
 
+@onready var tutorials: Dictionary = {
+	"Basics":{
+		"text":"Welcome to The Watcher's Curse! Move with W,A,S,D and interact with objects or people using the F key! Enjoy"
+		,"seen":0
+		}
+}
 
 # spell book and functions
 @onready var spell_book = {

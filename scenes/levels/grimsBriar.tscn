@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://q5ywfy1ec1ow"]
+[gd_scene load_steps=86 format=3 uid="uid://q5ywfy1ec1ow"]
 
 [ext_resource type="Texture2D" uid="uid://dcuunnkft6r1s" path="res://Sprites/bugs_night01_spritesheet.png" id="1_4guck"]
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_a3bhj"]
@@ -43,6 +43,7 @@
 [ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="29_8tf4m"]
 [ext_resource type="Script" path="res://scenes/levels/GB_Quest_Givers.gd" id="29_ptohh"]
 [ext_resource type="Texture2D" uid="uid://dtdoyj0egobim" path="res://Sprites/world objects/trashcans/trashcan.png" id="35_8300o"]
+[ext_resource type="PackedScene" uid="uid://cwolc4dutryab" path="res://Game Components/tutorials/tutorials pop up.tscn" id="35_mit16"]
 [ext_resource type="PackedScene" uid="uid://dc6twae4gpv87" path="res://Game Components/UI_Elements/combat/combatScreen.tscn" id="36_v2jdf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dg6g"]
@@ -663,6 +664,13 @@ model = " "
 y_sort_enabled = true
 position = Vector2(-98.5, -19)
 
+[node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
+offset_left = -194.5
+offset_top = -133.0
+offset_right = -194.5
+offset_bottom = -133.0
+title = "Basics"
+
 [node name="combatScreen" parent="." instance=ExtResource("36_v2jdf")]
 process_mode = 4
 z_index = 100
@@ -882,6 +890,7 @@ interact_type = "lootable"
 interact_value = "1"
 
 [node name="Quest_Givers" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("29_ptohh")
 
 [node name="beer_run" parent="Quest_Givers" instance=ExtResource("19_w08lc")]
