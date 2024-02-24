@@ -5,7 +5,9 @@ elif quest_db["witch_1"]["Status"] == 0:
 	=> no_trash
 	
 if quest_db["witch_1"]["Status"] == 1:
-	=> witch_1_in_prog
+	=> witch_1_turn_in
+if quest_db["witch_1"]["Status"] == 1 and quest_complete("witch_1"):
+	=> witch_1_complete
 	
 ~ trash_path
 The Witch: Well you're a fresh face. Is there a reason I shouldn't add it to the wall?
@@ -74,5 +76,34 @@ do update_quest_status("witch_1",1)
 ~ witch_1_in_prog
 The Witch: You've all you need to find your answers.
 => END
+
+~ witch_1_turn_in
+The Witch: Was it everything you dreamed of?
+Artem: The piles of corpses...their own people.
+The Witch: Horrors of flesh in the name of fielty
+Artem: How many are there?
+The Witch: Precisely nine. Arranged and connected in quite the peculiar manner.
+Artem: Peculiar?
+The Witch: The nine temples encircle their precious needle, which isn't terribly surprising, however tracing the powerlines connecting each temple etches quite the symbol.
+Artem: Their needle and everything on it runs off the power the core generates. What good would a rune do them?
+The Witch: Curious, isn't it? Like giving gills to a paper bag. 
+Artem: Whose rune is it?
+The Witch: That is truly the best part, my duty burdened Watcher. I can feel the oscilations of the universe. I can feel them and they have fallen from harmony. I'd wondered what would could have happened to create such a reaction. I haven't learned the what, but it appears the who has revealed itself. The owner of this rune, this etching, this greeting...is one of our two cosmic founding fathers. Chaos is making their move.
+Artem: Unprecedented clarity...
+The Witch: A precarious coincidence, is it not? Existence once again speaks the same time these hardwired pscyhopaths start wiring up runes of chaos?
+Artem: Why did you need me to deal with that temple? If you already knew all of this, then you must have been close enough to destroy them?
+The Witch: I don't make it a habit to wage war with a cosmic fundamental. However, you and your colleagues will not share my steps.
+Artem: Did you orchestrate my arrival just to show me what they've built?
+The Witch: I took no action to influence your journey. I watched this moment of time and space through the infinite. I exhaled and spread myself atom by atom across every universal instance until I found you here in this moment. So here I am, just a witch...standing in front of a watcher...asking him to kill a god.
+Artem: You spent too much time in the Void. No one has the ability, much less the desire, to kill one of the pillars of the universe because the high tech cultists accidentally drew something. 
+The Witch: There is a way forward to harmony, little watcher. You will see horrors beyond anything you could ever conceive. You will face spawns of chaos that level kingdoms. You will find victory...and you will die.
+Artem: You want me to kill a god then [wave amp=25 freq=5]die[/wave]?
+The Witch: Wants aren't truly something my kind experience. I'm compelled to journey forward, by a force beyond even my sight, to witness the curse of existence. It will become your compulsion to carry this curse.
+Artem: What do you even expect em to do? Demand an audience with the 5 Eso and tell them we've a received a request to one of the two oldest gods?
+The Witch: Yes. You can step through my door and find yourself back home in the eye. A warning, though...stepping through will mean no turning back.
+do update_quest_status("witch_1",2)
+
+~ witch_1_complete
+The Witch: Shouldn't you be making a cosmically impactful decision?
 
 => END
