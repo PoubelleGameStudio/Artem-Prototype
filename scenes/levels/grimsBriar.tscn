@@ -662,7 +662,7 @@ model = " "
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
 y_sort_enabled = true
-position = Vector2(-98.5, -19)
+position = Vector2(1814.14, -80.6682)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
 offset_left = -194.5

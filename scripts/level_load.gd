@@ -103,6 +103,6 @@ func _on_combat_screen_death():
 	player.camera_current()
 	player.global_position = respawn_location
 	State.combat = 0
-	music.play = true
+	music.playing = true
 	c_music.playing = false
 
