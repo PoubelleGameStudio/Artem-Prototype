@@ -10,6 +10,8 @@ extends CanvasLayer
 @onready var response_template: RichTextLabel = %ResponseTemplate
 @onready var talk: AudioStreamPlayer = $Talk
 @onready var artem_talk: AudioStreamPlayer = $artem_talk
+@onready var portrait: AnimatedSprite2D = $Balloon/Margin/VBox/MarginContainer/portrait
+
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -99,7 +101,6 @@ func _ready() -> void:
 	balloon.hide()
 	balloon.custom_minimum_size.x = 1920 # balloon.get_viewport_rect().size.x
 	
-	
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
 
@@ -115,6 +116,8 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	resource = dialogue_resource
 	
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
+	portrait.play(character_label.text)
+	print(character_label.text)
 
 
 ## Go to the next line

@@ -5,6 +5,7 @@ class_name spell_button
 @onready var button: Button = $Button
 @onready var spell_label: Label = $spell_name
 
+
 @export var spell_icon: String = ""
 
 # Called when the node enters the scene tree for the first time.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=21 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="6_p1cl7"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="7_6qudd"]
 [ext_resource type="PackedScene" uid="uid://dpv6cisbc7uye" path="res://Game Components/UI_Elements/combat/spell_button.tscn" id="8_16ejo"]
+[ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="12_jwlj2"]
 [ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="12_vu285"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
@@ -302,11 +303,23 @@ emitter = 1
 
 [node name="inventory_ui" parent="." instance=ExtResource("7_6qudd")]
 z_index = 1
-offset_left = 1258.0
-offset_top = 748.0
-offset_right = 1512.0
-offset_bottom = 881.0
+offset_left = 1335.0
+offset_top = 723.0
+offset_right = 1589.0
+offset_bottom = 856.0
 scale = Vector2(2, 2)
+
+[node name="Label2" type="Label" parent="inventory_ui"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 18.0
+offset_right = 288.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("6_p1cl7")
+theme_override_font_sizes/font_size = 19
+text = "E: Drop Item
+Q: Use Item"
+label_settings = ExtResource("12_jwlj2")
 
 [node name="turn_sign" type="Label" parent="."]
 offset_left = 48.0

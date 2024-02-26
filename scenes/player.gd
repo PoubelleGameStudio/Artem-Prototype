@@ -30,6 +30,7 @@ func _ready():
 	update_HUD()
 	State.level_up()
 	character_screen.visible = false
+	$HUD/TalentTree.hide()
 	
 
 

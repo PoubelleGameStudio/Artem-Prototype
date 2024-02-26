@@ -462,11 +462,10 @@ offset_right = 40.0
 offset_bottom = 32.0
 
 [node name="TalentTree" parent="HUD" instance=ExtResource("16_unwu1")]
-visible = false
-offset_left = -312.0
-offset_top = -156.0
-offset_right = -128.0
-offset_bottom = 0.0
+offset_left = -144.0
+offset_top = -80.0
+offset_right = 40.0
+offset_bottom = 76.0
 
 [node name="PauseController" type="Node2D" parent="HUD"]
 process_mode = 3

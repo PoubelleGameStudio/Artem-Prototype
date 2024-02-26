@@ -3,6 +3,7 @@
 
 ~ Barkeep_welcome
 if quest_db["barkeep_1"]["Status"] == 0:
+	Mayor Barkeep: Hello there.
 	Artem: Please tell me you aren't also drunk.
 	Mayor Barkeep: Sounds like you met Hedo. I'm not drunk but I am Mayor Barkeep of Grim's Briar, so that makes Hedo's state a bit my fault. Got a name, friend?
 	Artem: Artem. He mentioned Grim's Briar. Where, geographically, are we right now?

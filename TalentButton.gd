@@ -1,4 +1,4 @@
-extends TextureButton
+extends Button
 class_name TalentButton
 
 @export var talentName : String = ""
@@ -7,20 +7,26 @@ class_name TalentButton
 @export var required_level : int
 
 @onready var line = $Line2D
-@onready var pop_up = $Label
-@onready var label = $MarginContainer/Label
+@onready var displayName: Label = $name
 @onready var panel = $Panel
+@onready var art_path: String = "res://Sprites/combat/spell icons/"
+
 @export var rank : int = 0:
 	set(value):
 		rank = value
 		State.talents[talentName] = rank
-		label.text = str(rank)+ "/" + str(maxRank)
+		displayName.text = talentName
+		
 
 
 func _ready():
 	if get_parent() is TalentButton:
 		line.add_point(global_position + size/2)
 		line.add_point(get_parent().global_position + size/2)
+		
+	
+	self.icon = load(str(art_path,talentName,".png"))
+	
 
 
 		
@@ -34,7 +40,8 @@ func is_max():
 
 ################## SIGNALS ##################
 func _on_pressed():
-	if get_parent() is TalentButton: #&& State.level >= required_level:
+	print("pressed button ",talentName)
+	if get_parent() is TalentButton && State.level >= required_level:
 		if get_parent().is_max() == true:
 			rank = min(rank+1, maxRank)
 			panel.show_behind_parent = true
@@ -49,11 +56,10 @@ func _on_pressed():
 	
 	
 func _on_mouse_entered():
-	pop_up.text = description
-	pop_up.show()
+	pass
 	
 func _on_mouse_exited():
-	pop_up.hide()
+	pass
 	
 
 

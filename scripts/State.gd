@@ -398,7 +398,10 @@ var gear = {
 
 # talents
 var talents = {
-	"HP":0
+	"HP+1":0
+	,"HP+2":0
+	,"HP+3":0
+	,"HP+4":0
 	,"knowledge1":0
 	,"knowledge2":0
 }

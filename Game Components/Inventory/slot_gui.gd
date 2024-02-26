@@ -22,8 +22,6 @@ func _ready():
 		itemArt.show()
 		itemArt.set_texture(artRes)
 		$hoverName.text = item_name
-	else:
-		pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -74,9 +72,16 @@ func hover_check():
 			if State.items.has(item_name):
 				match State.items[item_name]["type"]:
 					"Potion":
-							State.health += State.items[item_name]["effect"]['HP']
-							inv[item_name]-=1
-							item_used.emit()
+						if State.health < State.maxHealth:
+							if State.maxHealth && (State.health + State.items[item_name]["effect"]['HP']) > State.maxHealth:
+								State.health = State.maxHealth
+								inv[item_name]-=1
+								item_used.emit()
+							else:
+								State.health += State.items[item_name]["effect"]['HP']
+								inv[item_name]-=1
+								item_used.emit()
+							
 					
 
 
