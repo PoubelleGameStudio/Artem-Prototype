@@ -2,9 +2,7 @@ extends Node2D
 
 @onready var enemy = $enemyCombat
 @onready var player = $player
-@onready var combat = $combatUI/combat/Combat
 @onready var fight = $"combatUI/combat/cast"
-@onready var defend = $"combatUI/combat/guard"
 @onready var exit_inv = $combatUI/return
 @onready var inv = $combatUI/Inventory
 @onready var inv_ui = $inventory_ui
@@ -22,6 +20,8 @@ extends Node2D
 @onready var chosen_spell: Label = $combatUI/combat/chosen_spell_label
 @onready var instruct: Label = $instruct
 @onready var turn_sign: Label = $turn_sign
+@onready var casts_left: int = State.casts
+
 
 #signals
 signal combat_end
@@ -221,7 +221,10 @@ func castSpell() -> int:
 			State.health = State.maxHealth
 		else:
 			State.health += (damage * life_drain)
-	
+	if State.t_attack_up:
+		print("base damage: ",damage)
+		damage *= 1.20
+		print("buffed damage: ",damage)
 	return damage
 
 
@@ -273,6 +276,7 @@ func enemyTurn():
 			specialCounter += 1
 		State.health -= damageTaken
 		yourTurn = 1
+		casts_left = State.casts
 		if State.health < 1:
 			death.emit()
 
@@ -325,25 +329,24 @@ func _on_combat_pressed():
 func _on_inventory_pressed():
 	if yourTurn == 1:
 		inv.hide()
-		combat.hide()
 		inv_ui.show()
 		exit_inv.show()
 	
 func _on_return_pressed():
 	inv.show()
-	combat.show()
 	# show the buttons we do need
 	inv_ui.hide()
 	exit_inv.hide()
 
 func _on_onepunch_pressed():
 	if yourTurn == 1:
-		enemy.updateHealth(castSpell())
-		eHealth.value = enemy.health
-		yourTurn=0
-		enemyTurn()
-	else:
-		pass
+		if casts_left > 0:
+			enemy.updateHealth(castSpell())
+			eHealth.value = enemy.health
+			casts_left -= 1
+			if casts_left == 0:
+				yourTurn = 0
+				enemyTurn()
 	
 
 

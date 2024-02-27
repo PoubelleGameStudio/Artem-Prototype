@@ -10,6 +10,7 @@ class_name TalentButton
 @onready var displayName: Label = $name
 @onready var panel = $Panel
 @onready var art_path: String = "res://Sprites/combat/spell icons/"
+@onready var selected_icon: Sprite2D = $select
 
 @export var rank : int = 0:
 	set(value):
@@ -40,18 +41,23 @@ func is_max():
 
 ################## SIGNALS ##################
 func _on_pressed():
-	print("pressed button ",talentName)
-	if get_parent() is TalentButton && State.level >= required_level:
-		if get_parent().is_max() == true:
-			rank = min(rank+1, maxRank)
-			panel.show_behind_parent = true
-			
-			line.default_color = Color(0.9026962518692, 0.48281198740005, 1)
+	if selected_icon.visible:
+				selected_icon.hide()
 	else:
-		rank = min(rank+1, maxRank)
-		panel.show_behind_parent = true
-		
-		line.default_color = Color(0.9026962518692, 0.48281198740005, 1)
+		selected_icon.show()
+#	print("pressed button ",talentName)
+#	if get_parent() is TalentButton && State.level >= required_level:
+#		if get_parent().is_max() == true:
+#			rank = min(rank+1, maxRank)
+#			panel.show_behind_parent = true
+#
+#			line.default_color = Color(0.9026962518692, 0.48281198740005, 1)
+#	else:
+#		rank = min(rank+1, maxRank)
+#		panel.show_behind_parent = true
+#
+#		line.default_color = Color(0.9026962518692, 0.48281198740005, 1)
+	
 	
 	
 	

@@ -102,6 +102,8 @@ func load_player() -> void:
 	State.weapon = playerData.weapon
 	State.health = playerData.health
 	State.maxHealth = playerData.maxHealth
+	State.bonusMaxHealth = playerData.bonusMaxHealth
+	State.baseMaxHealth = playerData.baseMaxHealth
 	State.cur_xp = playerData.cur_xp
 	State.xp_to_next = playerData.xp_to_next
 	State.level = playerData.level

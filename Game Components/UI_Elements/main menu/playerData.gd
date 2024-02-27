@@ -32,6 +32,8 @@ class_name PlayerData
 
 # stats
 @export var maxHealth: int
+@export var bonusMaxHealth: int
+@export var baseMaxHealth: int
 @export var health: int
 @export var cur_xp: int
 @export var xp_to_next: int

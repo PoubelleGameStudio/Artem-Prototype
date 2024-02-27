@@ -41,12 +41,12 @@ func _process(delta):
 	else:
 		music.volume_db = -10
 	
-		
-		
+
 ########### checks that save directory exists###########
 func verify_save_directory(path:String):
 	DirAccess.make_dir_absolute(path)
 	
+
 func bury_the_dead():
 	var to_kill = get_tree().get_nodes_in_group("enemies")
 	for bad in to_kill:
@@ -88,6 +88,7 @@ func _on_combat_screen_combat_end():
 
 
 func _on_player_combat_entered():
+	combat.casts_left = State.casts
 	if State.combat == 0:
 		c_music.playing = true
 		music.playing = false

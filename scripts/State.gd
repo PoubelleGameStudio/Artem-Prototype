@@ -30,8 +30,18 @@ var weapon: String = 'dagger of belonging'
 
 
 # stats
-var maxHealth: int = 100
+var maxHealth: int = 99
+var bonusMaxHealth: float = 1.0:
+	set(value):
+		bonusMaxHealth = value
+		maxHealth = (bonusMaxHealth) * baseMaxHealth
+var baseMaxHealth: int = 100:
+	set(value):
+		baseMaxHealth = value
+		maxHealth = (bonusMaxHealth) * baseMaxHealth
 var health: int = 100
+var casts: int = 1
+var shield
 var cur_xp: int = 0
 var xp_to_next: int = 10
 var level: int = 1
@@ -54,11 +64,8 @@ var gold: int = 100
 var welcomed: bool = 0
 var witch_greeted: bool = 0
 
-#@onready var dm = get_parent().get_node("/root/DialogueManager")
-#@onready var voice = $root/player/voice
-
 func _ready():
-	pass
+	maxHealth = baseMaxHealth + bonusMaxHealth
 
 
 #connected signals
@@ -280,7 +287,8 @@ func level_up():
 		cur_xp -= xp_to_next
 		level += 1
 		xp_to_next = round(pow(level,1.8) + level*4+2)
-		print(xp_to_next)
+		baseMaxHealth += 10
+
 
 
 #control what enemies in what zone have been defeated
@@ -397,11 +405,28 @@ var gear = {
 }
 
 # talents
-var talents = {
-	"HP+1":0
-	,"HP+2":0
-	,"HP+3":0
-	,"HP+4":0
-	,"knowledge1":0
-	,"knowledge2":0
-}
+@onready var t_HP: bool = false: #increase HP by 10%
+	set(value):
+		var old_val = t_HP
+		if old_val != value:
+			t_HP = value
+			bonusMaxHealth += .1
+
+@onready var t_attack_up: bool = false: #increase damage
+	set(value):
+		var old_val = t_attack_up
+		if old_val != value:
+			t_attack_up = value
+
+@onready var t_extra_cast: bool = false: #cast a 2nd spell each turn
+	set(value):
+		var old_val = t_extra_cast
+		if old_val != value:
+			t_extra_cast = value
+			casts += 1
+
+@onready var t_shield: bool = false: #reduce damage taken
+	set(value):
+		var old_val = t_shield
+		if old_val != value:
+			t_shield = value
