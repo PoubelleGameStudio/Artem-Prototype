@@ -5,6 +5,11 @@ class_name TalentButton
 @export var description : String = ""
 @export var maxRank : int
 @export var required_level : int
+@export var selected: bool:
+	set(value):
+		selected = value
+		if value:
+			selected_icon.show()
 
 @onready var line = $Line2D
 @onready var displayName: Label = $name

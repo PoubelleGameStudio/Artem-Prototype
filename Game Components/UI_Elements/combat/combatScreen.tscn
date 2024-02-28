@@ -153,15 +153,6 @@ position = Vector2(960, 1267)
 scale = Vector2(2.84609, 2.84609)
 texture = ExtResource("4_uo8iy")
 
-[node name="Flee" type="Button" parent="combatUI"]
-visible = false
-layout_mode = 0
-offset_left = 1309.0
-offset_top = 803.0
-offset_right = 1564.0
-offset_bottom = 871.0
-text = "flee"
-
 [node name="Inventory" type="Button" parent="combatUI"]
 visible = false
 layout_mode = 0
@@ -269,20 +260,19 @@ theme_override_constants/h_separation = 29
 theme_override_constants/v_separation = 53
 columns = 5
 
-[node name="Fireball_cast" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
+[node name="Fireball" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
 layout_mode = 2
 spell_icon = "fireball"
 metadata/_edit_use_anchors_ = true
 
-[node name="Fireball_cast2" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
+[node name="Frostbolt" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
 layout_mode = 2
 spell_icon = "frostbolt"
 metadata/_edit_use_anchors_ = true
 
-[node name="Fireball_cast3" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
-visible = false
+[node name="Sanguine Strings" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
 layout_mode = 2
-spell_icon = "fireball"
+spell_icon = "Sanguine Strings"
 metadata/_edit_use_anchors_ = true
 
 [node name="EnemyName" type="Label" parent="combatUI"]
@@ -329,15 +319,23 @@ offset_bottom = 134.0
 text = "Enemy Turn"
 label_settings = ExtResource("12_vu285")
 
+[node name="cast_lefts" type="Label" parent="."]
+z_index = 1
+offset_left = 578.0
+offset_top = 735.0
+offset_right = 824.0
+offset_bottom = 827.0
+text = "Enemy Turn"
+label_settings = ExtResource("5_be3fw")
+
 [node name="instruct" type="Label" parent="."]
 offset_left = 725.0
-offset_top = 327.0
+offset_top = 529.0
 offset_right = 1126.0
-offset_bottom = 377.0
+offset_bottom = 579.0
 text = "Select a spell and then click cast!"
 label_settings = ExtResource("5_be3fw")
 
-[connection signal="pressed" from="combatUI/Flee" to="." method="_on_flee_pressed"]
 [connection signal="pressed" from="combatUI/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="combatUI/return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="combatUI/combat/cast" to="." method="_on_onepunch_pressed"]

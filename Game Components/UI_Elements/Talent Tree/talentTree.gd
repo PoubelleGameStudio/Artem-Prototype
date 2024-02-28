@@ -15,29 +15,29 @@ class_name TalentTree
 @onready var extra_pressed: bool = false
 @onready var attack: Button = $"PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Attack+"
 @onready var attack_pressed: bool = false
-@onready var talents: Dictionary = State.talents
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	TalentName.text = ""
 	lvl_req.text = ""
 	skill_check()
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func skill_check():
-	if talents["HP+"] == 1:
+	if State.t_HP:
 		hp_pressed = true
-	if talents["attack"] == 1:
+		hp.selected = true
+	if State.t_attack_up:
 		attack_pressed = true
-	if talents["extra_cast"] == 1:
-		extra_pressed = 1
-	if talents["shield"] == 1:
-		shield_pressed = 1
+		attack.selected = true
+	if State.t_extra_cast:
+		extra_pressed = true
+		extra_cast.selected = true
+	if State.t_shield:
+		shield.selected = true
 
 func commit_skills() -> void:
 	if hp_pressed:

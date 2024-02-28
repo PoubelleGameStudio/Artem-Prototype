@@ -20,8 +20,11 @@ extends Node2D
 @onready var chosen_spell: Label = $combatUI/combat/chosen_spell_label
 @onready var instruct: Label = $instruct
 @onready var turn_sign: Label = $turn_sign
-@onready var casts_left: int = State.casts
-
+@onready var casts_left: int = State.casts:
+	set(value):
+		casts_left = value
+		casts_left_label.text = str("Casts Left: ", casts_left)
+@onready var casts_left_label: Label = $cast_lefts
 
 #signals
 signal combat_end
@@ -274,6 +277,9 @@ func enemyTurn():
 			specialCounter = 0
 		else:
 			specialCounter += 1
+		if State.t_shield:
+			print("dmg reduced")
+			State.health -= damageTaken * .85
 		State.health -= damageTaken
 		yourTurn = 1
 		casts_left = State.casts
@@ -365,9 +371,3 @@ func _on_inventory_ui_item_used():
 	inv_ui.hide()
 	yourTurn=0
 	enemyTurn() 
-	
-
-
-
-func _on_texture_button_pressed():
-	State.spell1 = 'fireball' # Replace with function body.

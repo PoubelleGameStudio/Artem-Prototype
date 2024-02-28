@@ -74,38 +74,33 @@ func _on_speak():
 
 @onready var tutorials: Dictionary = {
 	"Basics":{
-		"text":"Welcome to The Watcher's Curse! Move with W,A,S,D and interact with objects or people using the F key! Enjoy"
+		"text":str("Welcome to The Watcher's Curse! Move with W,A,S,D and", 
+					"interact with objects or people using the F key! ",
+					"As you level, you'll be able to unlock new spells and",
+					" traits. These are found in the the 'Field Training' ",
+					"portion of your Watcher's journal by pressing 'T'. Enjoy!"
+				)
 		,"seen":0
 		}
 }
 
 # spell book and functions
 @onready var spell_book = {
-	"reference":{
-		"name":"Reference",
-		"description":"You reference your journal for critical weak points in similar foes",
-		"cost":1,
-		"damage":0,
-		"class": "support",
-		"stat_mod":{
-			"crit_chance":2,
-			},
-	},
 	"bloodThirst":{
 		"name":"Blood Thirst",
 		"description":"You reference your journal for critical weak points in similar foes",
-		"cost":1,
+		"learned":0,
 		"damage":0,
 		"class": "support",
 		"type":"blood",
 		"stat_mod":{
-			"life_drain":.2
+			"crit_chance":.2
 			},
 	},
 	"barrier":{
 		"name":"Barrier",
 		"description":"You protect yourself from damage for 2 turns",
-		"cost":1,
+		"learned":0,
 		"damage":0,
 		"class": "defend",
 		"stat_mod":{
@@ -118,7 +113,7 @@ func _on_speak():
 	"fireball":{
 		"name":"Fireball",
 		"description":"",
-		"cost":1,
+		"learned":1,
 		"aoe":0,
 		"damage":20,
 		"class": "attack",
@@ -129,7 +124,7 @@ func _on_speak():
 	"frostbolt":{
 		"name":"Blizzard",
 		"description":"",
-		"cost":1,
+		"learned":1,
 		"aoe":0,
 		"damage":10,
 		"class": "attack",
@@ -137,11 +132,11 @@ func _on_speak():
 		"stat_mod":{
 		},
 	},
-	"sanguineStrings":{
+	"Sanguine Strings":{
 		"name":"Sanguine Strings",
 		"description":"Manipulate the blood flowing through your foe like a marionette and turn their
 						aim inward.",
-		"cost":1,
+		"learned":1,
 		"aoe":0,
 		"damage":0,
 		"class": "attack",
@@ -325,7 +320,7 @@ var enemies = {
 		"armor":0,
 		"type": "void",
 		"resists":{
-			"blood":100
+			"blood":10
 		},
 		"moves":{
 			"basic":10,

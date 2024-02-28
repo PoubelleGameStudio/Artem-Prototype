@@ -41,7 +41,6 @@ class_name PlayerData
 @export var armor: int # physical resist
 @export var mana: int# still not sure about mana usage
 @export var crit_chance: int
-@export var talents: Dictionary
 
 # spell resists
 @export var rFire: int
@@ -49,6 +48,12 @@ class_name PlayerData
 @export var rArcane: int
 @export var rBlood: int
 @export var rVoid: int
+
+# talents
+@export var t_HP: bool
+@export var t_attack_up: bool
+@export var t_extra_cast: bool
+@export var t_shield: bool
 
 # resources
 @export var gold: int

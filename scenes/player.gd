@@ -64,6 +64,7 @@ func _physics_process(delta):
 		if talents.visible == true:
 			talents.visible = false
 		else:
+			talents.skill_check()
 			talents.visible = true
 		pass
 

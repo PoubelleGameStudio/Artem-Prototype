@@ -17,9 +17,12 @@ func _process(delta):
 
 
 func setup_button() -> void:
-	spell_label.text = spell_icon
-	button.icon = load(str("res://Sprites/combat/spell icons/",spell_icon,".png"))
-	pass
+	if State["spell_book"][spell_icon]["learned"]==1:
+		show()
+		spell_label.text = spell_icon
+		button.icon = load(str("res://Sprites/combat/spell icons/",spell_icon,".png"))
+	else:
+		queue_free()
 
 
 func _on_button_pressed():

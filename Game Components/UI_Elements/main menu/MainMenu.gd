@@ -81,8 +81,11 @@ func save_player()-> void:
 	playerData.quest_db = State.quest_db 
 	playerData.area_enemies = State.area_enemies
 	playerData.Vendor_wares = State.Vendor_wares
-	playerData.talents = State.talents
 	playerData.tutorials = State.tutorials
+	playerData.t_HP = State.t_HP
+	playerData.t_attack_up = State.t_attack_up
+	playerData.t_extra_cast = State.t_extra_cast
+	playerData.t_shield = State.t_shield
 	playerData.world = loader.level_name
 	playerData.pos = player.get_global_position()
 	get_parent().resume()
@@ -115,11 +118,15 @@ func load_player() -> void:
 	State.rBlood = playerData.rBlood
 	State.rVoid = playerData.rVoid
 	State.gold = playerData.gold
+	State.t_HP = playerData.t_HP
+	State.t_attack_up = playerData.t_attack_up
+	State.t_extra_cast = playerData.t_extra_cast
+	State.t_shield = playerData.t_shield
 	State.inventory = playerData.player_inv
 	State.quest_db = playerData.quest_db 
 	State.area_enemies = playerData.area_enemies
 	State.Vendor_wares = playerData.Vendor_wares
-	State.talents = playerData.talents
+
 	State.tutorials = playerData.tutorials
 	get_tree().change_scene_to_file((str("res://scenes/levels/",playerData.world,".tscn")))
 	# establish new player ref
