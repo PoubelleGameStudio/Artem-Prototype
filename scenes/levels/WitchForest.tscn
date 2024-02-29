@@ -372,7 +372,7 @@ script = ExtResource("3_7k25k")
 
 [node name="player" parent="." instance=ExtResource("3_x4lny")]
 y_sort_enabled = true
-position = Vector2(327.946, 161.285)
+position = Vector2(323.114, 171.357)
 
 [node name="respawn" parent="." instance=ExtResource("6_d8wmu")]
 position = Vector2(326, 168)
@@ -406,28 +406,28 @@ position = Vector2(-12172, -1596.94)
 [node name="enemies" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="ghost" parent="enemies" groups=["enemies"] instance=ExtResource("13_d00uf")]
+[node name="ghost1" parent="enemies" groups=["enemies"] instance=ExtResource("13_d00uf")]
 z_index = 1
 position = Vector2(2006.5, 281.294)
 enemy_type = "ghost"
 emitter = 1
 id = "1"
 
-[node name="test_dummy" parent="enemies/ghost" instance=ExtResource("6_d8wmu")]
+[node name="test_dummy" parent="enemies/ghost1" instance=ExtResource("6_d8wmu")]
 position = Vector2(8, 41)
 scale = Vector2(3, 3)
 interact_label = "ghost"
 interact_type = "enemy"
 interact_value = "0"
 
-[node name="Void Squirrel" parent="enemies" groups=["enemies"] instance=ExtResource("13_d00uf")]
+[node name="Void Squirrel1" parent="enemies" groups=["enemies"] instance=ExtResource("13_d00uf")]
 z_index = 1
 position = Vector2(1553.42, -238.39)
 enemy_type = "Void Squirrel"
 emitter = 1
 id = "2"
 
-[node name="test_dummy" parent="enemies/Void Squirrel" instance=ExtResource("6_d8wmu")]
+[node name="test_dummy" parent="enemies/Void Squirrel1" instance=ExtResource("6_d8wmu")]
 position = Vector2(8, 41)
 scale = Vector2(3, 3)
 interact_label = "Void Squirrel"

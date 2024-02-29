@@ -306,7 +306,18 @@ var area_enemies = {
 		"2":0,
 		"3":0,
 	},
-	"energy_temple":{},
+	"energy_temple":{
+		"1":0,
+		"2":0,
+		"3":0,
+		"4":0,
+		"5":0,
+		"6":0,
+		"7":0,
+		"8":0,
+		"9":0,
+		"10":0
+	},
 	"forest_cave":{}
 }
 
@@ -350,6 +361,23 @@ var enemies = {
 	},
 	"ghost":{
 		"health":45,
+		"speed":5,
+		"defeated":0,
+		"armor":0,
+		"type": "void",
+		"resists":{
+			"void":100
+		},
+		"moves":{
+			"basic":20,
+			"special":45
+		},
+		"drops":{
+			"Health Restore":1
+		}
+	},
+	"Technotheist Grunt":{
+		"health":65,
 		"speed":5,
 		"defeated":0,
 		"armor":0,

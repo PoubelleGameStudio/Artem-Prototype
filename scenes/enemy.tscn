@@ -1,10 +1,55 @@
-[gd_scene load_steps=42 format=3 uid="uid://c5v3gl8bbth1g"]
+[gd_scene load_steps=54 format=3 uid="uid://c5v3gl8bbth1g"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_eqi02"]
 [ext_resource type="Texture2D" uid="uid://11bp34n8ur61" path="res://Sprites/combat/enemies/void squirrel-Sheet.png" id="2_5vix6"]
 [ext_resource type="Texture2D" uid="uid://crr8pqffinomt" path="res://Sprites/combat/enemies/attacking.png" id="2_hlc6k"]
 [ext_resource type="Texture2D" uid="uid://cpe5ata55ng54" path="res://Sprites/combat/enemies/idle2.png" id="2_xb11b"]
 [ext_resource type="Texture2D" uid="uid://cu7unx4prxw50" path="res://Sprites/combat/enemies/ghost001_spritesheet.png" id="5_cltwg"]
+[ext_resource type="Texture2D" uid="uid://52rvto5g48og" path="res://Sprites/combat/enemies/Technotheist Grunt.png" id="6_8sr5a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yews"]
+atlas = ExtResource("6_8sr5a")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0an3c"]
+atlas = ExtResource("6_8sr5a")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuqjt"]
+atlas = ExtResource("6_8sr5a")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa7eu"]
+atlas = ExtResource("6_8sr5a")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es4we"]
+atlas = ExtResource("6_8sr5a")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v5jg"]
+atlas = ExtResource("6_8sr5a")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf7o7"]
+atlas = ExtResource("6_8sr5a")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6upp"]
+atlas = ExtResource("6_8sr5a")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkq3d"]
+atlas = ExtResource("6_8sr5a")
+region = Rect2(256, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1a8u"]
+atlas = ExtResource("6_8sr5a")
+region = Rect2(288, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0juf"]
+atlas = ExtResource("6_8sr5a")
+region = Rect2(320, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0y0ta"]
 atlas = ExtResource("2_5vix6")
@@ -136,6 +181,44 @@ region = Rect2(160, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ovs6o"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yews")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0an3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuqjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa7eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_es4we")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v5jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf7o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6upp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkq3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1a8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0juf")
+}],
+"loop": true,
+"name": &"Technotheist Grunt_idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0y0ta")
@@ -280,8 +363,7 @@ y_sort_enabled = true
 position = Vector2(2, 25)
 scale = Vector2(1.74, 1.74)
 sprite_frames = SubResource("SpriteFrames_ovs6o")
-animation = &"ghost_idle"
-frame_progress = 0.330389
+animation = &"Technotheist Grunt_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true

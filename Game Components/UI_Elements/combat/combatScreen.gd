@@ -315,8 +315,8 @@ func endgame():
 		State.update_inventory(drop,State.enemies[enemy.enemy_type]["drops"][drop])
 		print(drop," added to inventory")
 	State.cur_xp += round(pow(State.level,1.5)+State.level*2.6)
-	var killed = get_node(NodePath(str('../enemies/',enemy.enemy_type)))
-	killed.set_defeat(1)
+#	var killed = get_node(NodePath(str('../enemies/',enemy.enemy_type)))
+#	killed.set_defeat(1)
 	yourTurn = 1
 	#get_tree().change_scene_to_file((str(State.prev_scene)))
 

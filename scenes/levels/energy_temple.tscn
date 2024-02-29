@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1hmdftpignqv"]
+[gd_scene load_steps=9 format=3 uid="uid://d1hmdftpignqv"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_jdbre"]
 [ext_resource type="PackedScene" uid="uid://b5vowrw45hndi" path="res://scenes/player.tscn" id="2_cdvju"]
 [ext_resource type="PackedScene" uid="uid://dc6twae4gpv87" path="res://Game Components/UI_Elements/combat/combatScreen.tscn" id="3_injt7"]
 [ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="4_sbvxa"]
 [ext_resource type="Texture2D" uid="uid://dq881nfs51m71" path="res://Art/ground/dungeons/temple_tiles.png" id="5_l0pju"]
+[ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="6_4fv7r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lauss"]
 texture = ExtResource("5_l0pju")
@@ -211,3 +212,135 @@ position = Vector2(-53, 21)
 interact_label = "WitchForest.tscn"
 interact_type = "gateway"
 interact_value = "out"
+
+[node name="enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ghost" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
+position = Vector2(38, 1498)
+enemy_type = "ghost"
+emitter = 1
+id = "1"
+
+[node name="test_dummy" parent="enemies/ghost" instance=ExtResource("4_sbvxa")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "ghost"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="ghost2" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
+position = Vector2(29, 1326)
+enemy_type = "ghost"
+emitter = 1
+id = "2"
+
+[node name="test_dummy" parent="enemies/ghost2" instance=ExtResource("4_sbvxa")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "ghost"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="ghost3" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
+position = Vector2(342, 1361)
+enemy_type = "ghost"
+emitter = 1
+id = "3"
+
+[node name="test_dummy" parent="enemies/ghost3" instance=ExtResource("4_sbvxa")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "ghost"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="ghost4" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
+position = Vector2(186, 1361)
+enemy_type = "ghost"
+emitter = 1
+id = "4"
+
+[node name="test_dummy" parent="enemies/ghost4" instance=ExtResource("4_sbvxa")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "ghost"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="ghost5" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
+position = Vector2(245, 1463)
+enemy_type = "ghost"
+emitter = 1
+id = "5"
+
+[node name="test_dummy" parent="enemies/ghost5" instance=ExtResource("4_sbvxa")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "ghost"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="grunt1" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
+position = Vector2(282.973, 22.3875)
+enemy_type = "Technotheist Grunt"
+id = "6"
+
+[node name="test_dummy" parent="enemies/grunt1" instance=ExtResource("4_sbvxa")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "Technotheist Grunt"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="grunt2" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
+position = Vector2(862.221, 287.689)
+enemy_type = "Technotheist Grunt"
+id = "7"
+
+[node name="test_dummy" parent="enemies/grunt2" instance=ExtResource("4_sbvxa")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "Technotheist Grunt"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="grunt3" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
+position = Vector2(498.248, 135.602)
+enemy_type = "Technotheist Grunt"
+id = "8"
+
+[node name="test_dummy" parent="enemies/grunt3" instance=ExtResource("4_sbvxa")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "Technotheist Grunt"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="grunt4" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
+position = Vector2(2281.24, 145.953)
+enemy_type = "Technotheist Grunt"
+id = "9"
+
+[node name="test_dummy" parent="enemies/grunt4" instance=ExtResource("4_sbvxa")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "Technotheist Grunt"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="grunt5" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
+position = Vector2(1804.42, 222.037)
+enemy_type = "Technotheist Grunt"
+id = "10"
+
+[node name="test_dummy" parent="enemies/grunt5" instance=ExtResource("4_sbvxa")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "Technotheist Grunt"
+interact_type = "enemy"
+interact_value = "0"
+
+[connection signal="combat_entered" from="player" to="." method="_on_player_combat_entered"]
+[connection signal="combat_end" from="combatScreen" to="." method="_on_combat_screen_combat_end"]
+[connection signal="death" from="combatScreen" to="." method="_on_combat_screen_death"]
