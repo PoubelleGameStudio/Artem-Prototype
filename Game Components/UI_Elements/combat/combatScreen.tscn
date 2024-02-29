@@ -127,6 +127,7 @@ animation = &"idle"
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(549, 569)
 scale = Vector2(18.5156, 17.5078)
+energy = 0.4
 texture = SubResource("GradientTexture2D_1r4qu")
 
 [node name="combatUI" type="Control" parent="."]
@@ -325,7 +326,7 @@ offset_left = 578.0
 offset_top = 735.0
 offset_right = 824.0
 offset_bottom = 827.0
-text = "Enemy Turn"
+text = "Casts Left:"
 label_settings = ExtResource("5_be3fw")
 
 [node name="instruct" type="Label" parent="."]

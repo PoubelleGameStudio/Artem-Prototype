@@ -662,7 +662,7 @@ model = " "
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
 y_sort_enabled = true
-position = Vector2(-95.8782, -16.7194)
+position = Vector2(3119.08, -506.263)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
 offset_left = -194.5
@@ -684,7 +684,7 @@ scale = Vector2(1.25, 1.25)
 [node name="Vendor" parent="Vendors" instance=ExtResource("19_w08lc")]
 position = Vector2(2002.4, -369.6)
 scale = Vector2(1, 1)
-sprite = "GB_vendor"
+sprite = "vendor"
 vendor = 1
 
 [node name="InteractArea" parent="Vendors/Vendor" instance=ExtResource("18_a2bs0")]

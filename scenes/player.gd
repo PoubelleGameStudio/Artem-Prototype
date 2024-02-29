@@ -159,6 +159,8 @@ func execute_interaction():
 		var cur_interaction = all_interactions[0]
 		match cur_interaction.interact_type:
 			"vendor":
+				cur_interaction.talk(str("res://Game Components/dialogue/NPC/",
+					cur_interaction.get_parent().sprite,".dialogue"))
 				shop.show()
 				pass
 			"quest_giver":
@@ -309,6 +311,6 @@ func _on_item_pressed():
 		State.update_inventory(str($HUD/shop/Sprite2D/buy/item/itemlabel.text),1)
 		State.gold -= int($HUD/shop/Sprite2D/buy/item/costLabel.text)
 	else:
-		# add message about being too poor 
+		# play poor sound 
 		pass
 

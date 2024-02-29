@@ -372,7 +372,7 @@ script = ExtResource("3_7k25k")
 
 [node name="player" parent="." instance=ExtResource("3_x4lny")]
 y_sort_enabled = true
-position = Vector2(323.114, 171.357)
+position = Vector2(3944.08, -216.78)
 
 [node name="respawn" parent="." instance=ExtResource("6_d8wmu")]
 position = Vector2(326, 168)
@@ -466,7 +466,7 @@ scale = Vector2(1.25, 1.25)
 [node name="Vendor" parent="Vendors" instance=ExtResource("9_siaec")]
 position = Vector2(2699.2, -154.4)
 scale = Vector2(1, 1)
-sprite = "GB_vendor"
+sprite = "vendor"
 vendor = 1
 
 [node name="InteractArea" parent="Vendors/Vendor" instance=ExtResource("6_d8wmu")]

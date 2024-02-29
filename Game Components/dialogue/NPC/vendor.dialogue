@@ -1,0 +1,22 @@
+
+~ start
+if State.world =="grimsBriar" 
+	=> grimsBriar
+elif State.world == "WitchForest" 
+	=> WitchForest
+elif State.world == "forest_cave" 
+	=> forest_cave
+
+~ grimsBriar
+Legitimate Business Owner: Imagine the pickle you'd be in if I knew how to read!
+=> END
+
+~ WitchForest
+Legitimate Business Owner: I've always considered chain locations to be a core tenant of a truly performant, sales-driven business.
+=> END
+
+~ forest_cave
+Legitimate Business Owner: I find death often causes customers to not shop with me again.
+=> END
+
+=> END

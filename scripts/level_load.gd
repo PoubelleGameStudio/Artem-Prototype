@@ -16,6 +16,7 @@ func _ready():
 	if State.p_locs.has(level_name):
 		get_node("player").global_position = State.p_locs[level_name]
 	State.is_raining = is_raining
+	State.world = level_name
 	add_child(c_music)
 	c_music.stream = load("res://sounds/levelMusic/to battle so that we may die.wav")
 #	player.camera_current()

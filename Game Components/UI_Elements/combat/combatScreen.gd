@@ -56,15 +56,10 @@ func _process(delta):
 	chosen_spell.text = State.spell1
 	
 	if yourTurn == 0:
-		instruct.hide()
 		turn_sign.text = "Enemy Turn"
 	else:
-		instruct.show()
-		turn_sign.text = "Your Turn"
 
-	
-	
-		
+		turn_sign.text = "Your Turn"
 
 func start_turn():
 	yourTurn = 1
@@ -345,7 +340,8 @@ func _on_return_pressed():
 	exit_inv.hide()
 
 func _on_onepunch_pressed():
-	if yourTurn == 1:
+	if yourTurn == 1 && State.spell1 != '':
+		instruct.hide()
 		if casts_left > 0:
 			enemy.updateHealth(castSpell())
 			eHealth.value = enemy.health

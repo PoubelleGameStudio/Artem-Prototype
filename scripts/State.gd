@@ -63,6 +63,7 @@ var gold: int = 100
 # social trackers
 var welcomed: bool = 0
 var witch_greeted: bool = 0
+var world: String
 
 func _ready():
 	maxHealth = baseMaxHealth + bonusMaxHealth
