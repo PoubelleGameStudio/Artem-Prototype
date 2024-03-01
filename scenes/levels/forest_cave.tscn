@@ -92,14 +92,17 @@ texture = ExtResource("5_ib0tb")
 0:6/0 = 0
 0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:6/0/physics_layer_0/angular_velocity = 0.0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -32, 16, -32, -2, -8)
 2:6/size_in_atlas = Vector2i(2, 4)
 2:6/0 = 0
 2:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:6/0/physics_layer_0/angular_velocity = 0.0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -32, 16, -32, -2, -8)
 4:6/size_in_atlas = Vector2i(2, 4)
 4:6/0 = 0
 4:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:6/0/physics_layer_0/angular_velocity = 0.0
+4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -32, 16, -32, -2, -8)
 6:0/size_in_atlas = Vector2i(2, 4)
 6:0/0 = 0
 6:0/0/y_sort_origin = -5
@@ -110,14 +113,17 @@ texture = ExtResource("5_ib0tb")
 13:5/0 = 0
 13:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:5/0/physics_layer_0/angular_velocity = 0.0
+13:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, 1.5, 8, 3, 8, 9, 16, 16, -16, 16, -11, 8)
 6:12/size_in_atlas = Vector2i(6, 2)
 6:12/0 = 0
 6:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:12/0/physics_layer_0/angular_velocity = 0.0
+6:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-47.5, 10.5, 43, 11, 46, 15.5, -48, 16)
 6:14/size_in_atlas = Vector2i(6, 2)
 6:14/0 = 0
 6:14/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:14/0/physics_layer_0/angular_velocity = 0.0
+6:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48.5, -16.5, 48.5, -16, 41.5, -12.5, -46.5, -14.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x2jtm"]
 texture = ExtResource("6_c6iyu")
@@ -150,7 +156,7 @@ position = Vector2(4, -68)
 
 [node name="player" parent="." instance=ExtResource("3_o024g")]
 y_sort_enabled = true
-position = Vector2(-150.705, -847.852)
+position = Vector2(3.461, -66.7726)
 
 [node name="combatScreen" parent="." instance=ExtResource("4_sn0qy")]
 position = Vector2(-11890.3, 20.936)
