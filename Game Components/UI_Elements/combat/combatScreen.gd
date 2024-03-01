@@ -25,6 +25,8 @@ extends Node2D
 		casts_left = value
 		casts_left_label.text = str("Casts Left: ", casts_left)
 @onready var casts_left_label: Label = $cast_lefts
+@onready var spellAnimation: AnimationPlayer = $spellEffects
+@onready var spellTexture: AnimatedSprite2D = $"spell effect"
 
 #signals
 signal combat_end
@@ -45,7 +47,9 @@ var frozen = 0 		# is enemy frozen
 func _ready():
 	player.play("idle")
 	eHealth.max_value = enemy.max_health
+	spellTexture.hide()
 	yourTurn = 1
+
 	#add_spells()
 	
 
@@ -341,6 +345,11 @@ func _on_return_pressed():
 
 func _on_onepunch_pressed():
 	if yourTurn == 1 && State.spell1 != '':
+		spellTexture.show()
+		spellTexture.play(State.spell1)
+		spellAnimation.play("spell cast")
+		await get_tree().create_timer(1).timeout
+		spellTexture.hide()
 		instruct.hide()
 		if casts_left > 0:
 			enemy.updateHealth(castSpell())

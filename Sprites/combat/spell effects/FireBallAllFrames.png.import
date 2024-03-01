@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p27qdar5wv8g"
-path="res://.godot/imported/Sanguine Strings.png-7c34f80a486037056689f4c7d3379e26.ctex"
+uid="uid://dfqt46pkyp73t"
+path="res://.godot/imported/FireBallAllFrames.png-dd4d23a8fc57f74e1a462779640cdc4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/combat/spell icons/Sanguine Strings.png"
-dest_files=["res://.godot/imported/Sanguine Strings.png-7c34f80a486037056689f4c7d3379e26.ctex"]
+source_file="res://Sprites/combat/spell effects/FireBallAllFrames.png"
+dest_files=["res://.godot/imported/FireBallAllFrames.png-dd4d23a8fc57f74e1a462779640cdc4f.ctex"]
 
 [params]
 

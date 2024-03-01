@@ -133,7 +133,7 @@ func _on_speak():
 		"stat_mod":{
 		},
 	},
-	"Sanguine Strings":{
+	"Curse":{
 		"name":"Sanguine Strings",
 		"description":"Manipulate the blood flowing through your foe like a marionette and turn their
 						aim inward.",
