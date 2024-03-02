@@ -14,7 +14,7 @@ var enemyID:String
 var is_raining = 0
 
 # spell slots
-var spell1: String = ''
+var spell1: String = 'fireball'
 var spell2: String = ''
 var spell3: String = ''
 
@@ -113,10 +113,10 @@ func _on_speak():
 	},
 	"fireball":{
 		"name":"Fireball",
-		"description":"",
+		"description":"A technique, taught to you by a beared tea lover, that blasts your opponent with concentrated fire.",
 		"learned":1,
 		"aoe":0,
-		"damage":20,
+		"damage":15,
 		"class": "attack",
 		"type": "fire",
 		"stat_mod":{
@@ -134,7 +134,7 @@ func _on_speak():
 		},
 	},
 	"Curse":{
-		"name":"Sanguine Strings",
+		"name":"Curse",
 		"description":"Manipulate the blood flowing through your foe like a marionette and turn their
 						aim inward.",
 		"learned":1,
@@ -378,7 +378,7 @@ var enemies = {
 		}
 	},
 	"Technotheist Grunt":{
-		"health":65,
+		"health":55,
 		"speed":5,
 		"defeated":0,
 		"armor":0,

@@ -30,8 +30,8 @@ func _ready():
 		line.add_point(global_position + size/2)
 		line.add_point(get_parent().global_position + size/2)
 		
-	
-	self.icon = load(str(art_path,talentName,".png"))
+	if talentName:
+		self.icon = load(str(art_path,talentName,".png"))
 	
 
 

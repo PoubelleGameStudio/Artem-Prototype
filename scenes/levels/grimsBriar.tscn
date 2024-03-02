@@ -662,7 +662,7 @@ model = " "
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
 y_sort_enabled = true
-position = Vector2(-97.7357, -19.3073)
+position = Vector2(1834, -59)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
 offset_left = -194.5
@@ -699,6 +699,7 @@ y_sort_enabled = true
 [node name="executioner" parent="enemies" groups=["enemies"] instance=ExtResource("17_dt21t")]
 z_index = 1
 position = Vector2(3451, -133)
+scale = Vector2(1.75, 1.75)
 enemy_type = "executioner"
 emitter = 1
 id = "1"
@@ -713,6 +714,7 @@ interact_value = "0"
 [node name="Void Squirrel" parent="enemies" groups=["enemies"] instance=ExtResource("17_dt21t")]
 z_index = 1
 position = Vector2(2009, -133)
+scale = Vector2(2, 2)
 enemy_type = "Void Squirrel"
 emitter = 1
 id = "2"
@@ -727,6 +729,7 @@ interact_value = "0"
 [node name="ghost" parent="enemies" groups=["enemies"] instance=ExtResource("17_dt21t")]
 z_index = 1
 position = Vector2(2177.52, 271.312)
+scale = Vector2(1.75, 1.75)
 enemy_type = "ghost"
 emitter = 1
 id = "3"
@@ -741,6 +744,7 @@ interact_value = "0"
 [node name="ghost2" parent="enemies" groups=["enemies"] instance=ExtResource("17_dt21t")]
 z_index = 1
 position = Vector2(3115, -361)
+scale = Vector2(1.4, 1.4)
 enemy_type = "ghost"
 emitter = 1
 id = "4"
@@ -755,6 +759,7 @@ interact_value = "0"
 [node name="ghost3" parent="enemies" groups=["enemies"] instance=ExtResource("17_dt21t")]
 z_index = 1
 position = Vector2(2933, -16)
+scale = Vector2(1.5, 1.5)
 enemy_type = "ghost"
 emitter = 1
 id = "5"
@@ -769,6 +774,7 @@ interact_value = "0"
 [node name="ghost4" parent="enemies" groups=["enemies"] instance=ExtResource("17_dt21t")]
 z_index = 1
 position = Vector2(3188, -143)
+scale = Vector2(1.2, 1.2)
 enemy_type = "ghost"
 emitter = 1
 id = "6"

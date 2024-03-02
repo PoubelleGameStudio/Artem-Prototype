@@ -17,7 +17,10 @@ extends Node2D
 @onready var cam = $Camera2D
 @onready var world_instance = get_tree().get_root().get_node('/root/root')
 @onready var world_level = get_tree().get_root().get_node('/root/root').level_name
+@onready var chosen_spell_desc: Label = $combatUI/combat/chosen_spell_desc
+@onready var chosen_spell_dmg: Label = $combatUI/combat/chosen_spell_dmg
 @onready var chosen_spell: Label = $combatUI/combat/chosen_spell_label
+@onready var chosen_spell_text: String = chosen_spell.text
 @onready var instruct: Label = $instruct
 @onready var turn_sign: Label = $turn_sign
 @onready var casts_left: int = State.casts:
@@ -59,6 +62,8 @@ func _process(delta):
 	eHealth.value = enemy.health
 	pHealth.value = State.health
 	chosen_spell.text = State.spell1
+	chosen_spell_desc.text = State["spell_book"][State.spell1]["description"]
+	chosen_spell_dmg.text = str("Damage: ",State["spell_book"][State.spell1]["damage"])
 	
 	if yourTurn == 0:
 		turn_sign.text = "Enemy Turn"

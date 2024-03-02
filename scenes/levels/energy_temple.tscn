@@ -380,6 +380,7 @@ interact_value = "0"
 [node name="grunt1" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
 position = Vector2(282.973, 22.3875)
 enemy_type = "Technotheist Grunt"
+emitter = 1
 id = "6"
 
 [node name="test_dummy" parent="enemies/grunt1" instance=ExtResource("4_sbvxa")]
@@ -392,6 +393,7 @@ interact_value = "0"
 [node name="grunt2" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
 position = Vector2(862.221, 287.689)
 enemy_type = "Technotheist Grunt"
+emitter = 1
 id = "7"
 
 [node name="test_dummy" parent="enemies/grunt2" instance=ExtResource("4_sbvxa")]
@@ -404,6 +406,7 @@ interact_value = "0"
 [node name="grunt3" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
 position = Vector2(498.248, 135.602)
 enemy_type = "Technotheist Grunt"
+emitter = 1
 id = "8"
 
 [node name="test_dummy" parent="enemies/grunt3" instance=ExtResource("4_sbvxa")]
@@ -416,6 +419,7 @@ interact_value = "0"
 [node name="grunt4" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
 position = Vector2(2281.24, 145.953)
 enemy_type = "Technotheist Grunt"
+emitter = 1
 id = "9"
 
 [node name="test_dummy" parent="enemies/grunt4" instance=ExtResource("4_sbvxa")]
@@ -428,6 +432,7 @@ interact_value = "0"
 [node name="grunt5" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
 position = Vector2(1804.42, 222.037)
 enemy_type = "Technotheist Grunt"
+emitter = 1
 id = "10"
 
 [node name="test_dummy" parent="enemies/grunt5" instance=ExtResource("4_sbvxa")]

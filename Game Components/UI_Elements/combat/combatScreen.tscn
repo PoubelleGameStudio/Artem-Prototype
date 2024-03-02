@@ -134,7 +134,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jkrrw")
 }],
 "loop": true,
-"name": &"Sanguine Strings",
+"name": &"Curse",
 "speed": 5.0
 }, {
 "frames": [{
@@ -338,19 +338,41 @@ text = "exit"
 [node name="combat" type="Node2D" parent="combatUI"]
 
 [node name="chosen_spell_label" type="Label" parent="combatUI/combat"]
-offset_left = 105.0
-offset_top = 732.0
-offset_right = 153.0
-offset_bottom = 774.0
+offset_left = 558.0
+offset_top = 734.0
+offset_right = 658.0
+offset_bottom = 826.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+text = "test"
 label_settings = ExtResource("12_vu285")
 
+[node name="chosen_spell_desc" type="Label" parent="combatUI/combat"]
+offset_left = 562.0
+offset_top = 814.0
+offset_right = 910.0
+offset_bottom = 906.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "test"
+label_settings = ExtResource("5_be3fw")
+autowrap_mode = 2
+
+[node name="chosen_spell_dmg" type="Label" parent="combatUI/combat"]
+offset_left = 562.0
+offset_top = 987.0
+offset_right = 662.0
+offset_bottom = 1079.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "test"
+label_settings = ExtResource("5_be3fw")
+
 [node name="cast" type="Button" parent="combatUI/combat"]
-offset_left = 361.0
-offset_top = 718.0
-offset_right = 599.0
-offset_bottom = 791.0
+offset_left = 39.0
+offset_top = 714.0
+offset_right = 277.0
+offset_bottom = 787.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("6_p1cl7")
@@ -454,7 +476,7 @@ horizontal_alignment = 2
 
 [node name="enemyCombat" parent="." instance=ExtResource("3_6j6h7")]
 position = Vector2(1551, 227)
-scale = Vector2(5, 5)
+scale = Vector2(7, 7)
 emitter = 1
 
 [node name="inventory_ui" parent="." instance=ExtResource("7_6qudd")]
@@ -487,10 +509,10 @@ label_settings = ExtResource("12_vu285")
 
 [node name="cast_lefts" type="Label" parent="."]
 z_index = 1
-offset_left = 578.0
-offset_top = 735.0
-offset_right = 824.0
-offset_bottom = 827.0
+offset_left = 230.0
+offset_top = 727.0
+offset_right = 476.0
+offset_bottom = 819.0
 text = "Casts Left:"
 label_settings = ExtResource("5_be3fw")
 
@@ -507,7 +529,7 @@ z_index = 2
 position = Vector2(693.913, 456.094)
 scale = Vector2(5.18579, 5.41277)
 sprite_frames = SubResource("SpriteFrames_o7q31")
-animation = &"Sanguine Strings"
+animation = &"Curse"
 
 [node name="spellEffects" type="AnimationPlayer" parent="."]
 libraries = {
