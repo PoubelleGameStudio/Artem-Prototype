@@ -29,8 +29,10 @@ extends Node2D
 		casts_left_label.text = str("Casts Left: ", casts_left)
 @onready var casts_left_label: Label = $cast_lefts
 @onready var is_casting: bool
+@onready var burning_for: int = 0
 @onready var spellAnimation: AnimationPlayer = $spellEffects
 @onready var spellTexture: AnimatedSprite2D = $"spell effect"
+@onready var DoTEffect: AnimatedSprite2D = $"DoT effect"
 
 #signals
 signal combat_end
@@ -38,11 +40,6 @@ signal death
 
 
 var rng = RandomNumberGenerator.new()
-
-# over time effect trackers
-var burnTime = 0 	# turns enemy is burning
-var burnDamage = 0 	# amount enemy burns for
-var frozen = 0 		# is enemy frozen
 
 
 
@@ -53,6 +50,7 @@ func _ready():
 	eHealth.max_value = enemy.max_health
 	spellTexture.hide()
 	yourTurn = 1
+	DoTEffect.hide()
 
 	#add_spells()
 	
@@ -178,6 +176,8 @@ func castSpell() -> int:
 				specialCounter = 0
 			else:
 				damage = enemyBook[enemy.enemy_type]["moves"]["basic"]
+		elif type == "fire":
+			burning_for = 3
 	
 	# final checks 
 	#roll for crit
@@ -285,7 +285,19 @@ func enemyTurn():
 		if State.t_shield:
 			print("dmg reduced")
 			State.health -= damageTaken * .85
+		
 		State.health -= damageTaken
+		
+		if burning_for > 0:
+			burning_for -= 1
+			DoTEffect.show()
+			DoTEffect.play("burning")
+			await get_tree().create_timer(2.0).timeout
+			enemy.updateHealth(10)
+			eHealth.value = enemy.health
+			DoTEffect.hide()
+			pass
+		
 		yourTurn = 1
 		casts_left = State.casts
 		if State.health < 1:

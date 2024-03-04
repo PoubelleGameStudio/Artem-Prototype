@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=53 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
@@ -15,6 +15,7 @@
 [ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="12_vu285"]
 [ext_resource type="Texture2D" uid="uid://dfqt46pkyp73t" path="res://Sprites/combat/spell effects/FireBallAllFrames.png" id="14_1rcju"]
 [ext_resource type="Texture2D" uid="uid://81doju5tfqyi" path="res://Sprites/combat/spell effects/CurseAllFrames.png" id="14_g0v7m"]
+[ext_resource type="Texture2D" uid="uid://dtg70mxrhn41l" path="res://Sprites/combat/DoT effects/burning.png" id="16_wk2nr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
 atlas = ExtResource("4_43trn")
@@ -177,6 +178,70 @@ animations = [{
 "loop": true,
 "name": &"fireball",
 "speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8von"]
+atlas = ExtResource("16_wk2nr")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7yj4"]
+atlas = ExtResource("16_wk2nr")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3etu"]
+atlas = ExtResource("16_wk2nr")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hd2u"]
+atlas = ExtResource("16_wk2nr")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8eb1"]
+atlas = ExtResource("16_wk2nr")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deeq1"]
+atlas = ExtResource("16_wk2nr")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyvem"]
+atlas = ExtResource("16_wk2nr")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrva3"]
+atlas = ExtResource("16_wk2nr")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s2ubq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8von")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7yj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3etu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hd2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8eb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deeq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyvem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrva3")
+}],
+"loop": true,
+"name": &"burning",
+"speed": 8.0
 }]
 
 [sub_resource type="Animation" id="Animation_txicx"]
@@ -530,6 +595,13 @@ position = Vector2(693.913, 456.094)
 scale = Vector2(5.18579, 5.41277)
 sprite_frames = SubResource("SpriteFrames_o7q31")
 animation = &"Curse"
+
+[node name="DoT effect" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(1562, 533)
+scale = Vector2(8.91666, 8.91666)
+sprite_frames = SubResource("SpriteFrames_s2ubq")
+animation = &"burning"
 
 [node name="spellEffects" type="AnimationPlayer" parent="."]
 libraries = {
