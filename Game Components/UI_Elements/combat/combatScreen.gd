@@ -29,10 +29,18 @@ extends Node2D
 		casts_left_label.text = str("Casts Left: ", casts_left)
 @onready var casts_left_label: Label = $cast_lefts
 @onready var is_casting: bool
-@onready var burning_for: int = 0
+@onready var burning_for: int = 0:
+	set(value):
+		burning_for = value
+		if value > 0:
+			statusEffect.text = str("Burning x",burning_for)
+			statusEffect.show()
+		else:
+			statusEffect.hide()
 @onready var spellAnimation: AnimationPlayer = $spellEffects
 @onready var spellTexture: AnimatedSprite2D = $"spell effect"
 @onready var DoTEffect: AnimatedSprite2D = $"DoT effect"
+@onready var statusEffect: Label = $combatUI/enemyHealth/status_effect
 
 #signals
 signal combat_end
