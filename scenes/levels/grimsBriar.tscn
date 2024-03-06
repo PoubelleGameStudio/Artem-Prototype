@@ -662,7 +662,7 @@ model = " "
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
 y_sort_enabled = true
-position = Vector2(1834, -59)
+position = Vector2(-98, -19)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
 offset_left = -194.5
@@ -869,7 +869,7 @@ animation = &"trashcan"
 script = ExtResource("17_xb6tn")
 
 [node name="interaction" parent="Ground Items/Trashcan" instance=ExtResource("18_a2bs0")]
-interact_label = "Trash Food"
+interact_label = "trash food"
 interact_type = "lootable"
 interact_value = "1"
 
@@ -880,7 +880,7 @@ animation = &"trashcan"
 script = ExtResource("17_xb6tn")
 
 [node name="interaction" parent="Ground Items/Trashcan2" instance=ExtResource("18_a2bs0")]
-interact_label = "Trash Food"
+interact_label = "trash food"
 interact_type = "lootable"
 interact_value = "1"
 
@@ -891,7 +891,7 @@ animation = &"trashcan"
 script = ExtResource("17_xb6tn")
 
 [node name="interaction" parent="Ground Items/Trashcan3" instance=ExtResource("18_a2bs0")]
-interact_label = "Trash Food"
+interact_label = "trash food"
 interact_type = "lootable"
 interact_value = "1"
 

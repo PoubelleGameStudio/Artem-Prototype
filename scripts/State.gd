@@ -185,10 +185,10 @@ var quest_db ={
 	},
 	"barkeep_1":{
 		"giver":"barkeep",
-		"quest_name":"Meet The Crowd",
+		"quest_name":"Make Some Friends",
 		"Status":0,
 		"Items":{
-			beer=1,
+			"beer"=1,
 			"Grims Briar Room Key"=1
 			},
 		"description":"Grab some creature comforts."
@@ -207,7 +207,7 @@ var quest_db ={
 		"quest_name":"Dirty Little Secret",
 		"Status":0,
 		"Items":{
-			"Tims Notes":1
+			"Tim's Lament":1
 			},
 		"description":"Artist's Intent"
 	},
@@ -217,7 +217,7 @@ var quest_db ={
 		"Status":0,
 		"Items":{
 			"Void Goop":1,
-			"berry bushel":1,
+			"berry":1,
 			"Bone Dust":1
 		},
 		"description":"You're in bat country and the visuals are kicking in. Time to find the goods."
@@ -274,7 +274,7 @@ func update_quest_status(quest,status):
 	var items = quest_db[quest]["Items"]
 	if status == 2:
 		for item in items:
-			inventory[item]-=int(quest_db[quest]["Items"][item])
+			inventory[item]-=int(quest_db[quest]["Items"][str(item)])
 		cur_xp += round(pow(State.level,1.5)+State.level*3.3)
 		level_up()
 
@@ -454,3 +454,9 @@ var gear = {
 		var old_val = t_shield
 		if old_val != value:
 			t_shield = value
+
+@onready var t_kindling: bool = false: #increase fire damage
+	set(value):
+		var old_val = t_kindling
+		if old_val != value:
+			t_kindling = value

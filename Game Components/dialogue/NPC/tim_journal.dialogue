@@ -1,0 +1,14 @@
+~ start
+Tim's lament - 3/25: I'm not sure how long this will take, but if I'm ever found I want to have explained myself. To have apologized. I made such a mess...
+Tim's lament - 4/1: I feel like the last of me is leaving soon...I've never been without the voices, but now they no longer whisper. 
+Tim's lament - 4/1: They howl and moan and shriek until my body tries to weep what little water I have left. Perhaps, rather than the voices chasing me, I've been chasing them this whole time. Guided by sadistic fate...
+Tim's lament - 4/3: Discussions with manifestations have held my attention these last few days. I never intended for anyone to get hurt. 
+Tim's lament - 4/4: I wanted to show I had finally created something. That her, as my muse, had inspired such art. They told me it would make everyone like the book.
+Tim's lament - 4/5: I've been in and out of conciousness to the point that writing this single sentence has taken what feels like years. 
+Tim's lament - 4/5: All I wanted was for you to read the book, remember the love we shared, and embrace me as I pulled you into my arms. 
+Tim's lament - 4/5: They never said the other books would take anyone else away. I never would have wanted that, but I saw what became of those who held my work. Friends that held my work.
+Tim's lament - 4/5: They shoved them into cages until it was their time...
+Tim's lament - 4/5: I'd known Trent since wandering into town as a lost teen. I watched the life finally leave his eyes as blood poured from him like a battered machine leaks oil.
+Tim's lament - 4/5: I fear the wrath of no god more than thought of spending another moment as this wastrel of hubris. I am a failure, and I am sorry...
+do State.update_inventory("Tim's Lament",1)
+=> END

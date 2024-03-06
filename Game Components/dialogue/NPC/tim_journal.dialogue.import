@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://3bgvjxygv32i"
+path="res://.godot/imported/tim_journal.dialogue-8a4269d2c53eb54b808609b639932bc4.tres"
+
+[deps]
+
+source_file="res://Game Components/dialogue/NPC/tim_journal.dialogue"
+dest_files=["res://.godot/imported/tim_journal.dialogue-8a4269d2c53eb54b808609b639932bc4.tres"]
+
+[params]
+
+defaults=true

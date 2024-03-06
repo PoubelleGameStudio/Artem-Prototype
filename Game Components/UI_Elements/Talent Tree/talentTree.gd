@@ -16,6 +16,10 @@ class_name TalentTree
 @onready var attack: Button = $"PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Attack+"
 @onready var attack_pressed: bool = false
 
+#character spell unlocks
+@onready var kindling: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells/Sacred Kindling"
+@onready var kindling_pressed: bool = false
+
 
 func _ready():
 	TalentName.text = ""
@@ -93,3 +97,13 @@ func _on_confirm_pressed():
 	commit_skills()
 	print("confirmed")
 	pass # Replace with function body.
+
+
+func _on_sacred_kindling_pressed():
+	TalentName.text = kindling.talentName
+	TalentDesc.text = kindling.description
+	lvl_req.text = str("Level Required: ",kindling.required_level)
+	if kindling_pressed:
+		kindling_pressed = false
+	else:
+		kindling_pressed = true

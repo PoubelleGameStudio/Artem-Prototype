@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8skkvcn0ci81"]
+[gd_scene load_steps=19 format=3 uid="uid://c8skkvcn0ci81"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/Talent Tree/talentTree.gd" id="1_jmed0"]
 [ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="2_t0owy"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="2_w43jx"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="5_p3t0c"]
+[ext_resource type="Texture2D" uid="uid://d11wrjcwmffb5" path="res://Sprites/combat/spell icons/Sacred Kindling.png" id="6_e6b38"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cflig"]
 
@@ -16,6 +17,8 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7txmj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1c8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mljab"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rw8hg"]
 
@@ -190,9 +193,14 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells" instance=ExtResource("1_np83o")]
-visible = false
+[node name="Sacred Kindling" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mljab")
+icon = ExtResource("6_e6b38")
+icon_alignment = 1
+talentName = "Sacred Kindling"
+description = "The first kindling ever ignited by the wielders of flame increases the damage over time damage of your fire spells"
+required_level = 10
 
 [node name="Button2" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells" instance=ExtResource("1_np83o")]
 visible = false
@@ -292,4 +300,5 @@ horizontal_alignment = 1
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Extra Action" to="." method="_on_extra_action_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Shield+" to="." method="_on_shield_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Attack+" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells/Sacred Kindling" to="." method="_on_sacred_kindling_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Confirm" to="." method="_on_confirm_pressed"]

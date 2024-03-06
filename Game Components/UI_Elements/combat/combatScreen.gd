@@ -295,6 +295,7 @@ func enemyTurn():
 			State.health -= damageTaken * .85
 		
 		State.health -= damageTaken
+		await get_tree().create_timer(2.0).timeout
 		
 		if burning_for > 0:
 			burning_for -= 1
@@ -305,6 +306,8 @@ func enemyTurn():
 			eHealth.value = enemy.health
 			DoTEffect.hide()
 			pass
+		
+		
 		
 		yourTurn = 1
 		casts_left = State.casts
@@ -396,11 +399,12 @@ func _on_spell_pressed():
 
 func _on_enemy_combat_dead():
 	combat_end.emit()
-	#death.emit()
+	burning_for = 0
+
 
 
 
 func _on_inventory_ui_item_used():
 	inv_ui.hide()
-	yourTurn=0
+	casts_left -= 1
 	enemyTurn() 

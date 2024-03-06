@@ -99,6 +99,7 @@ func _on_player_combat_entered():
 
 
 func _on_combat_screen_death():
+	c_music.playing = false
 	stop_combat()
 	_ready()
 	State.health = State.maxHealth
@@ -106,5 +107,5 @@ func _on_combat_screen_death():
 	player.global_position = respawn_location
 	State.combat = 0
 	music.playing = true
-	c_music.playing = false
+	
 

@@ -141,7 +141,7 @@ func update_HUD():
 		cur_level.text = str("Lvl: ",State.level)
 	elif (int(cur_level.text) != State.level) and State.level > 1:
 		cur_level.text = str("Lvl: ",State.level)
-		itemLabel.text = str("Lvl ",State.level,"reached!")
+		itemLabel.text = str("Level ",State.level,"!")
 		await get_tree().create_timer(3).timeout
 		itemLabel.text = ""
 	
@@ -163,6 +163,9 @@ func execute_interaction():
 					cur_interaction.get_parent().sprite,".dialogue"))
 				shop.show()
 				pass
+			"dialogue":
+				cur_interaction.talk(str("res://Game Components/dialogue/NPC/",
+							cur_interaction.interact_label,".dialogue"))
 			"quest_giver":
 				if State.talking == 0:
 					cur_interaction.set_value("yes")
@@ -257,8 +260,9 @@ func _on_interaction_area_area_entered(area):
 	# portal logic
 	if cur_interact.interact_type == "portal":
 		itemLabel.text = cur_interact.interact_label
+	elif cur_interact.interact_type == "lootable" or "dialogue":
+		itemLabel.text = "Press F"
 	
-
 	#sets up the combat vars and launching combatScene
 	
 	if cur_interact.interact_type == "enemy" and State.combat == 0:
