@@ -254,6 +254,6 @@ volume_db = -13.371
 autoplay = true
 
 [node name="respawn" parent="." instance=ExtResource("3_3le5n")]
-position = Vector2(88, 72)
+position = Vector2(64, 120)
 interact_type = "respawn"
 interact_value = "1"

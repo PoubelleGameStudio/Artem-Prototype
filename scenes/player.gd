@@ -2,18 +2,19 @@ extends CharacterBody2D
 
 @onready var inv = $HUD/character_info/Inventory
 @onready var q_log = $HUD/character_info/quest_log
-@onready var itemLabel = $interactionComponents/interactionArea/itemLabel
-@onready var goldLabel = $HUD/character_info/gold
+@onready var itemLabel: Label = $interactionComponents/interactionArea/itemLabel
+@onready var goldLabel : Label= $HUD/character_info/gold
 @onready var character_screen = $HUD/character_info
 @onready var cur_level = $"HUD/character_info/current level"
-@onready var xp_label = $HUD/character_info/cHUB/XP
-@onready var hp_label = $HUD/character_info/cHUB/Health
+@onready var xp_label: Label = $HUD/character_info/cHUB/XP
+@onready var hp_label: Label = $HUD/character_info/cHUB/Health
 @onready var shop = $HUD/shop
 @onready var pause = $HUD/PauseController
-@onready var rain = $Weather
+@onready var rain: GPUParticles2D = $Weather
 @onready var talents = $HUD/TalentTree
 @onready var qBook = State.quest_db.keys()
 @onready var all_interactions = []
+@onready var prompt: Sprite2D = $prompt
 
 
 
@@ -30,7 +31,9 @@ func _ready():
 	update_HUD()
 	State.level_up()
 	character_screen.visible = false
+	itemLabel.text = ""
 	$HUD/TalentTree.hide()
+	prompt.hide()
 	
 
 
@@ -47,7 +50,7 @@ func _physics_process(delta):
 		inv.populate_grid()
 		q_log.populate_log()
 	
-	
+	##### controls ####
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 	if Input.is_action_just_pressed("action"):
@@ -164,16 +167,20 @@ func execute_interaction():
 				shop.show()
 				pass
 			"dialogue":
-				cur_interaction.talk(str("res://Game Components/dialogue/NPC/",
-							cur_interaction.interact_label,".dialogue"))
+				if State.talking == 0:
+					State.talking = 1
+					prompt.hide()
+					cur_interaction.talk(str("res://Game Components/dialogue/NPC/",
+								cur_interaction.interact_label,".dialogue"))
 			"quest_giver":
 				if State.talking == 0:
+					State.talking = 1
+					prompt.hide()
 					cur_interaction.set_value("yes")
 					cur_interaction.talk(str("res://Game Components/dialogue/NPC/",
 							cur_interaction.get_parent().sprite,".dialogue"))
 					cur_interaction.get_parent().hasTalked(0)
 					cur_interaction.get_parent().get_NPC_state()
-					State.talking = 1
 				else:
 					pass
 			#secret passage
@@ -250,21 +257,24 @@ func execute_interaction():
 
 func camera_current():
 	$HUD/Camera2D.make_current()
-	pass
+
+
 
 func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0,area)
 	var cur_interact = all_interactions[0]
 	
+	if cur_interact.interact_type == "portal" || "lootable" || "gateway":
+		prompt.show()
+	else:
+		print(cur_interact.interact_type)
+		prompt.hide()
 	
 	# portal logic
-	if cur_interact.interact_type == "portal":
-		itemLabel.text = cur_interact.interact_label
-	elif cur_interact.interact_type == "lootable" or "dialogue":
-		itemLabel.text = "Press F"
+#	if cur_interact.interact_type == "portal":
+#		itemLabel.text = cur_interact.interact_label
 	
 	#sets up the combat vars and launching combatScene
-	
 	if cur_interact.interact_type == "enemy" and State.combat == 0:
 		State.p_locs[get_parent().level_name] = get_node("../player").global_position
 		State.engaging.insert(0,cur_interact.interact_label)	
@@ -274,8 +284,6 @@ func _on_interaction_area_area_entered(area):
 		State.talking = 1
 		combat_entered.emit()
 		State.combat = 1
-
-
 	else:
 		pass
 		
@@ -287,14 +295,14 @@ func _on_interaction_area_area_entered(area):
 
 func _on_interaction_area_area_exited(area):
 	var cur_interact = all_interactions[0]
-	#if cur_interact.interact_type == "enemy":
-		#State.combat = 0
 	cur_interact.talk_end()
 	shop.hide()
+	prompt.hide()
 	State.talking = 0
 	all_interactions.erase(area)
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(.5).timeout
 	itemLabel.text = ""
+	
 	
 
 func _on_buy_button_pressed():

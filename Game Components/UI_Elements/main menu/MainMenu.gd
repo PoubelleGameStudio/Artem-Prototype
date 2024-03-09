@@ -24,11 +24,13 @@ func verify_save_directory(path: String):
 	DirAccess.make_dir_absolute(path)
 
 func _on_new_game_pressed():
+	SceneTransition.fade_out()
 	get_tree().change_scene_to_file("res://scenes/levels/grimsBriar.tscn")
 
 
 
 func _on_load_pressed():
+	SceneTransition.fade_out()
 	playerData = ResourceLoader.load(save_dir + save_file).duplicate(true)
 	load_player()
 	

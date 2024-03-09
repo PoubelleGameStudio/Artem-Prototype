@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=43 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c8skkvcn0ci81" path="res://Game Components/UI_Elements/Talent Tree/talentTree.tscn" id="16_unwu1"]
 [ext_resource type="Theme" uid="uid://vo18d0emeivc" path="res://themes/progress_bar.tres" id="17_ev8yw"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="18_jm848"]
+[ext_resource type="Texture2D" uid="uid://diwnan71ffp7" path="res://Game Components/UI_Elements/prompts/f.png" id="19_4cvsh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5msp"]
 atlas = ExtResource("2_he7ll")
@@ -499,7 +500,7 @@ offset_bottom = -68.0
 
 [node name="Weather" type="GPUParticles2D" parent="."]
 z_index = 1
-position = Vector2(32, -312)
+position = Vector2(28, -252)
 amount = 275
 process_material = SubResource("ParticleProcessMaterial_8mi52")
 texture = ExtResource("8_v2vqm")
@@ -509,6 +510,11 @@ speed_scale = 1.5
 fixed_fps = 144
 
 [node name="voice" type="AudioStreamPlayer" parent="."]
+
+[node name="prompt" type="Sprite2D" parent="."]
+z_index = 98
+position = Vector2(0, -48)
+texture = ExtResource("19_4cvsh")
 
 [connection signal="area_entered" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_exited"]

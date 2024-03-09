@@ -372,7 +372,7 @@ script = ExtResource("3_7k25k")
 
 [node name="player" parent="." instance=ExtResource("3_x4lny")]
 y_sort_enabled = true
-position = Vector2(3944.08, -216.78)
+position = Vector2(330.118, 171.548)
 
 [node name="respawn" parent="." instance=ExtResource("6_d8wmu")]
 position = Vector2(326, 168)

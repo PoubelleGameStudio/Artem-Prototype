@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1hmdftpignqv"]
+[gd_scene load_steps=10 format=3 uid="uid://d1hmdftpignqv"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_jdbre"]
 [ext_resource type="PackedScene" uid="uid://b5vowrw45hndi" path="res://scenes/player.tscn" id="2_cdvju"]
+[ext_resource type="AudioStream" uid="uid://cvdf5xxqwap6n" path="res://sounds/levelMusic/out for a walk.wav" id="2_yk4qg"]
 [ext_resource type="PackedScene" uid="uid://dc6twae4gpv87" path="res://Game Components/UI_Elements/combat/combatScreen.tscn" id="3_injt7"]
 [ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="4_sbvxa"]
 [ext_resource type="Texture2D" uid="uid://dq881nfs51m71" path="res://Art/ground/dungeons/temple_tiles.png" id="5_l0pju"]
@@ -237,6 +238,7 @@ script = ExtResource("1_jdbre")
 level_name = "energy_temple"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yk4qg")
 
 [node name="respawn" parent="." instance=ExtResource("4_sbvxa")]
 

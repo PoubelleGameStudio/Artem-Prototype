@@ -302,7 +302,10 @@ func enemyTurn():
 			DoTEffect.show()
 			DoTEffect.play("burning")
 			await get_tree().create_timer(2.0).timeout
-			enemy.updateHealth(10)
+			if State.t_kindling:
+				enemy.updateHealth(10*1.20)
+			else:
+				enemy.updateHealth(10*1.20)
 			eHealth.value = enemy.health
 			DoTEffect.hide()
 			pass

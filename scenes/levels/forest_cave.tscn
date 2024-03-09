@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://ctvmh6j5ftr0x"]
+[gd_scene load_steps=16 format=3 uid="uid://ctvmh6j5ftr0x"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_tyufh"]
 [ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="2_baw7g"]
 [ext_resource type="PackedScene" uid="uid://b5vowrw45hndi" path="res://scenes/player.tscn" id="3_o024g"]
 [ext_resource type="PackedScene" uid="uid://dc6twae4gpv87" path="res://Game Components/UI_Elements/combat/combatScreen.tscn" id="4_sn0qy"]
 [ext_resource type="Texture2D" uid="uid://qmcg5mk2q2je" path="res://Art/ground/dungeons/forest_cave_tiles.png" id="5_ib0tb"]
+[ext_resource type="AudioStream" uid="uid://cjnnm77nn23wx" path="res://sounds/levelMusic/3 hours.wav" id="5_qntw2"]
 [ext_resource type="Texture2D" uid="uid://bfqpgw368ayv1" path="res://Art/buildings/vendor stand.png" id="6_c6iyu"]
 [ext_resource type="Texture2D" uid="uid://cv1geiwpd66th" path="res://Art/buildings/vendor banner.png" id="7_y4nwa"]
 [ext_resource type="PackedScene" uid="uid://cxwgljlj2pfk1" path="res://scenes/beggar.tscn" id="8_arxuq"]
@@ -178,7 +179,7 @@ position = Vector2(4, -68)
 
 [node name="player" parent="." instance=ExtResource("3_o024g")]
 y_sort_enabled = true
-position = Vector2(-3713, -502.552)
+position = Vector2(-0.317383, -119.026)
 
 [node name="combatScreen" parent="." instance=ExtResource("4_sn0qy")]
 position = Vector2(-11890.3, 20.936)
@@ -267,3 +268,10 @@ scale = Vector2(1.52076, 1.52076)
 interact_label = "tim_journal"
 interact_type = "dialogue"
 interact_value = "1"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-3781.19, -566.412)
+stream = ExtResource("5_qntw2")
+autoplay = true
+max_distance = 4000.0
+attenuation = 0.482968

@@ -72,6 +72,42 @@ func _ready():
 #connected signals
 func _on_speak():
 	pass
+	
+
+# talents
+@onready var t_HP: bool = false: #increase HP by 10%
+	set(value):
+		var old_val = t_HP
+		if old_val != value:
+			t_HP = value
+			bonusMaxHealth += .1
+
+@onready var t_attack_up: bool = false: #increase damage
+	set(value):
+		var old_val = t_attack_up
+		if old_val != value:
+			t_attack_up = value
+
+@onready var t_extra_cast: bool = false: #cast a 2nd spell each turn
+	set(value):
+		var old_val = t_extra_cast
+		if old_val != value:
+			t_extra_cast = value
+			casts += 1
+
+@onready var t_shield: bool = false: #reduce damage taken
+	set(value):
+		var old_val = t_shield
+		if old_val != value:
+			t_shield = value
+
+@onready var t_kindling: bool = false: #increase fire damage
+	set(value):
+		var old_val = t_kindling
+		if old_val != value:
+			t_kindling = value
+
+
 
 @onready var tutorials: Dictionary = {
 	"Basics":{
@@ -135,13 +171,12 @@ func _on_speak():
 	},
 	"Curse":{
 		"name":"Curse",
-		"description":"Manipulate the blood flowing through your foe like a marionette and turn their
-						aim inward.",
+		"description":"Chaos entangled matter attacks the soul directly.",
 		"learned":1,
 		"aoe":0,
 		"damage":0,
 		"class": "attack",
-		"type": "blood",
+		"type": "void",
 		"stat_mod":{
 		}
 	}
@@ -244,7 +279,7 @@ var quest_db ={
 }
 
 # various quest progress trackers
-var given_ingredients = 0 #barkeep_1 progress
+#var given_ingredients = 0 #barkeep_1 progress
 
 func quest_complete(quest) -> bool:
 	var items = quest_db[quest]["Items"]
@@ -428,35 +463,4 @@ var gear = {
 	}
 }
 
-# talents
-@onready var t_HP: bool = false: #increase HP by 10%
-	set(value):
-		var old_val = t_HP
-		if old_val != value:
-			t_HP = value
-			bonusMaxHealth += .1
 
-@onready var t_attack_up: bool = false: #increase damage
-	set(value):
-		var old_val = t_attack_up
-		if old_val != value:
-			t_attack_up = value
-
-@onready var t_extra_cast: bool = false: #cast a 2nd spell each turn
-	set(value):
-		var old_val = t_extra_cast
-		if old_val != value:
-			t_extra_cast = value
-			casts += 1
-
-@onready var t_shield: bool = false: #reduce damage taken
-	set(value):
-		var old_val = t_shield
-		if old_val != value:
-			t_shield = value
-
-@onready var t_kindling: bool = false: #increase fire damage
-	set(value):
-		var old_val = t_kindling
-		if old_val != value:
-			t_kindling = value
