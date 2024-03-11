@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ctvmh6j5ftr0x"]
+[gd_scene load_steps=18 format=3 uid="uid://ctvmh6j5ftr0x"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_tyufh"]
 [ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="2_baw7g"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cv1geiwpd66th" path="res://Art/buildings/vendor banner.png" id="7_y4nwa"]
 [ext_resource type="PackedScene" uid="uid://cxwgljlj2pfk1" path="res://scenes/beggar.tscn" id="8_arxuq"]
 [ext_resource type="Texture2D" uid="uid://dq881nfs51m71" path="res://Art/ground/dungeons/temple_tiles.png" id="8_rgn1j"]
+[ext_resource type="Script" path="res://scripts/autoloop music.gd" id="11_47602"]
+[ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="11_xhgop"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msrwj"]
 texture = ExtResource("5_ib0tb")
@@ -178,8 +180,7 @@ level_name = "forest_cave"
 position = Vector2(4, -68)
 
 [node name="player" parent="." instance=ExtResource("3_o024g")]
-y_sort_enabled = true
-position = Vector2(-0.317383, -119.026)
+position = Vector2(-4.05493, -104.945)
 
 [node name="combatScreen" parent="." instance=ExtResource("4_sn0qy")]
 position = Vector2(-11890.3, 20.936)
@@ -273,5 +274,81 @@ interact_value = "1"
 position = Vector2(-3781.19, -566.412)
 stream = ExtResource("5_qntw2")
 autoplay = true
-max_distance = 4000.0
+max_distance = 4300.0
 attenuation = 0.482968
+script = ExtResource("11_47602")
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="Sorrow Shade2" parent="enemies" groups=["enemies"] instance=ExtResource("11_xhgop")]
+position = Vector2(-156, -708)
+scale = Vector2(1.5, 1.5)
+enemy_type = "Sorrow Shade"
+emitter = 1
+id = "2"
+
+[node name="InteractArea" parent="enemies/Sorrow Shade2" instance=ExtResource("2_baw7g")]
+position = Vector2(16, 37.3333)
+interact_label = "Sorrow Shade"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="Sorrow Shade5" parent="enemies" groups=["enemies"] instance=ExtResource("11_xhgop")]
+position = Vector2(-2179.71, -452.905)
+scale = Vector2(1.5, 1.5)
+enemy_type = "Sorrow Shade"
+emitter = 1
+id = "4"
+
+[node name="InteractArea" parent="enemies/Sorrow Shade5" instance=ExtResource("2_baw7g")]
+position = Vector2(7.80728, 43.2702)
+scale = Vector2(1.5, 1.5)
+interact_label = "Sorrow Shade"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="Sorrow Shade4" parent="enemies" groups=["enemies"] instance=ExtResource("11_xhgop")]
+position = Vector2(-1664, -416)
+scale = Vector2(1.5, 1.5)
+enemy_type = "Sorrow Shade"
+emitter = 1
+id = "5"
+
+[node name="InteractArea" parent="enemies/Sorrow Shade4" instance=ExtResource("2_baw7g")]
+position = Vector2(0, 37.3334)
+scale = Vector2(3, 3)
+interact_label = "Sorrow Shade"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="Sorrow Shade6" parent="enemies" groups=["enemies"] instance=ExtResource("11_xhgop")]
+position = Vector2(-2320, -664)
+scale = Vector2(1.5, 1.5)
+enemy_type = "Sorrow Shade"
+emitter = 1
+id = "6"
+
+[node name="InteractArea" parent="enemies/Sorrow Shade6" instance=ExtResource("2_baw7g")]
+position = Vector2(-2.66663, 18.6667)
+scale = Vector2(2, 2)
+interact_label = "Sorrow Shade"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="Sorrow Shade7" parent="enemies" groups=["enemies"] instance=ExtResource("11_xhgop")]
+position = Vector2(-3784, -592)
+scale = Vector2(1.5, 1.5)
+enemy_type = "Sorrow Shade"
+emitter = 1
+id = "7"
+
+[node name="InteractArea" parent="enemies/Sorrow Shade7" instance=ExtResource("2_baw7g")]
+position = Vector2(-0.00012207, 32)
+scale = Vector2(1.4, 1.4)
+interact_label = "Sorrow Shade"
+interact_type = "enemy"
+interact_value = "0"
+
+[connection signal="combat_entered" from="player" to="." method="_on_player_combat_entered"]
+[connection signal="combat_end" from="combatScreen" to="." method="_on_combat_screen_combat_end"]
+[connection signal="death" from="combatScreen" to="." method="_on_combat_screen_death"]

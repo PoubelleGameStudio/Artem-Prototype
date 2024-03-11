@@ -1,11 +1,48 @@
-[gd_scene load_steps=54 format=3 uid="uid://c5v3gl8bbth1g"]
+[gd_scene load_steps=64 format=3 uid="uid://c5v3gl8bbth1g"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_eqi02"]
 [ext_resource type="Texture2D" uid="uid://11bp34n8ur61" path="res://Sprites/combat/enemies/void squirrel-Sheet.png" id="2_5vix6"]
+[ext_resource type="Texture2D" uid="uid://bulwapv5v5ea7" path="res://Sprites/combat/enemies/sorrow_shade_spritesheet.png" id="2_f3wnq"]
 [ext_resource type="Texture2D" uid="uid://crr8pqffinomt" path="res://Sprites/combat/enemies/attacking.png" id="2_hlc6k"]
 [ext_resource type="Texture2D" uid="uid://cpe5ata55ng54" path="res://Sprites/combat/enemies/idle2.png" id="2_xb11b"]
 [ext_resource type="Texture2D" uid="uid://cu7unx4prxw50" path="res://Sprites/combat/enemies/ghost001_spritesheet.png" id="5_cltwg"]
 [ext_resource type="Texture2D" uid="uid://52rvto5g48og" path="res://Sprites/combat/enemies/Technotheist Grunt.png" id="6_8sr5a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldmoo"]
+atlas = ExtResource("2_f3wnq")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af35e"]
+atlas = ExtResource("2_f3wnq")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1p31"]
+atlas = ExtResource("2_f3wnq")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fwg1"]
+atlas = ExtResource("2_f3wnq")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdx7b"]
+atlas = ExtResource("2_f3wnq")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec4q4"]
+atlas = ExtResource("2_f3wnq")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glcja"]
+atlas = ExtResource("2_f3wnq")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yab11"]
+atlas = ExtResource("2_f3wnq")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vg8t"]
+atlas = ExtResource("2_f3wnq")
+region = Rect2(256, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6yews"]
 atlas = ExtResource("6_8sr5a")
@@ -181,6 +218,38 @@ region = Rect2(160, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ovs6o"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldmoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af35e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1p31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fwg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdx7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec4q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glcja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yab11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vg8t")
+}],
+"loop": true,
+"name": &"Sorrow Shade_idle",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6yews")
@@ -362,7 +431,8 @@ script = ExtResource("1_eqi02")
 y_sort_enabled = true
 position = Vector2(2, 25)
 sprite_frames = SubResource("SpriteFrames_ovs6o")
-animation = &"Technotheist Grunt_idle"
+animation = &"Sorrow Shade_idle"
+frame_progress = 0.0329569
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
@@ -370,8 +440,9 @@ position = Vector2(1, 35)
 shape = SubResource("CapsuleShape2D_jxhvg")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-1, 24)
-scale = Vector2(3.9375, 4.5)
+process_mode = 4
+position = Vector2(2, 36)
+scale = Vector2(3.24219, 3.70536)
 color = Color(1, 0.00784314, 0.341176, 1)
 energy = 1.47
 texture = SubResource("GradientTexture2D_giqp0")

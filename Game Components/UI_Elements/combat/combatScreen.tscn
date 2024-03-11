@@ -353,9 +353,9 @@ sprite_frames = SubResource("SpriteFrames_htvib")
 animation = &"idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visibility_layer = 0
 position = Vector2(549, 569)
 scale = Vector2(18.5156, 17.5078)
-energy = 0.4
 texture = SubResource("GradientTexture2D_1r4qu")
 
 [node name="combatUI" type="Control" parent="."]

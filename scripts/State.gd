@@ -262,7 +262,7 @@ var quest_db ={
 		"quest_name":"Trash for the Trash God",
 		"Status":0,
 		"Items":{
-			"Trash Food":4
+			"trash food":4
 		},
 		"description":"Kindly bring Trash to the Trash God."
 	},
@@ -279,7 +279,7 @@ var quest_db ={
 }
 
 # various quest progress trackers
-#var given_ingredients = 0 #barkeep_1 progress
+var given_ingredients = 0 #barkeep_1 progress
 
 func quest_complete(quest) -> bool:
 	var items = quest_db[quest]["Items"]
@@ -354,7 +354,15 @@ var area_enemies = {
 		"9":0,
 		"10":0
 	},
-	"forest_cave":{}
+	"forest_cave":{
+		"1":0,
+		"2":0,
+		"3":0,
+		"4":0,
+		"5":0,
+		"6":0,
+		"7":0
+	}
 }
 
 # enemy DB
@@ -427,6 +435,21 @@ var enemies = {
 		},
 		"drops":{
 			"Health Restore":1
+		}
+	},
+	"Sorrow Shade":{
+		"health":40,
+		"speed":5,
+		"defeated":0,
+		"armor":0,
+		"type": "void",
+		"resists":{},
+		"moves":{
+			"basic":20,
+			"special":20,
+		},
+		"drops":{
+			"Health Restore":2
 		}
 	}
 }

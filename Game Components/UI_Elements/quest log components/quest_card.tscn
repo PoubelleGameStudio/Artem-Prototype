@@ -1,11 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://cedk2s7on1gg5"]
+[gd_scene load_steps=7 format=3 uid="uid://cedk2s7on1gg5"]
 
 [ext_resource type="Texture2D" uid="uid://gp2mtifsphtl" path="res://Game Components/UI_Elements/inv_components/inv_background.png" id="1_gh22h"]
 [ext_resource type="Script" path="res://Game Components/UI_Elements/quest log components/quest_card.gd" id="1_hfsoy"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="3_rljj1"]
-[ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="4_4ig8f"]
+[ext_resource type="LabelSettings" uid="uid://bwi74ldi25y7a" path="res://journal_text.tres" id="4_3g46k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyxv6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gaskx"]
+line_spacing = 0.0
+font = ExtResource("3_rljj1")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
 
 [node name="quest_card" type="Panel"]
 light_mask = 0
@@ -16,35 +23,38 @@ script = ExtResource("1_hfsoy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 0
-position = Vector2(-4, 8)
-scale = Vector2(0.125, 2)
+position = Vector2(-12, 12)
+scale = Vector2(0.375, 0.125)
 texture = ExtResource("1_gh22h")
 centered = false
 
-[node name="quest_name" type="Label" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 148.0
-offset_bottom = 25.0
-label_settings = ExtResource("4_4ig8f")
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 192.0
+offset_bottom = 91.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="quest_status" type="Label" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 20.0
-offset_right = 152.0
-offset_bottom = 41.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -6
+
+[node name="quest_name" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_gaskx")
+uppercase = true
+
+[node name="quest_desc" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(40, 35)
+layout_mode = 2
+theme_override_constants/outline_size = 0
+label_settings = ExtResource("4_3g46k")
+autowrap_mode = 2
+
+[node name="quest_status" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_rljj1")
 theme_override_font_sizes/font_size = 19
-label_settings = ExtResource("4_4ig8f")
-
-[node name="quest_desc" type="Label" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 44.0
-offset_right = 144.0
-offset_bottom = 96.0
-theme_override_constants/line_spacing = 10000
-label_settings = ExtResource("4_4ig8f")
-autowrap_mode = 3
+label_settings = SubResource("LabelSettings_gaskx")

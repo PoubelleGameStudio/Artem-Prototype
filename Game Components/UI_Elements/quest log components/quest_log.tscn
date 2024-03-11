@@ -15,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_quhll")
 
 [node name="quests" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(50, 10)
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 405.0

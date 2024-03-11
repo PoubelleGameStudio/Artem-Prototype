@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bwi74ldi25y7a"]
+
+[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="1_cy11y"]
+
+[resource]
+line_spacing = -9.0
+font = ExtResource("1_cy11y")
+font_size = 19
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)

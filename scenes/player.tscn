@@ -188,6 +188,7 @@ scale_max = 0.55
 color = Color(1, 0.917647, 1, 0.45098)
 
 [node name="player" type="CharacterBody2D"]
+y_sort_enabled = true
 position = Vector2(16, -16)
 script = ExtResource("1_6vypi")
 
