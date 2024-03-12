@@ -73,30 +73,31 @@ func _physics_process(delta):
 
 func player_movement(_delta):
 	
-	if Input.is_action_pressed("MOVE_RIGHT"):
-		current_dir = "right"
-		play_anim(1)
-		velocity.x = speed
-		velocity.y = 0
-	elif Input.is_action_pressed("MOVE_LEFT"):
-		current_dir = "left"
-		play_anim(1)
-		velocity.x = -speed
-		velocity.y = 0
-	elif Input.is_action_pressed("MOVE_DOWN"):
-		current_dir = "down"
-		play_anim(1)
-		velocity.x = 0
-		velocity.y = speed
-	elif Input.is_action_pressed("MOVE_UP"):
-		current_dir = "up"
-		play_anim(1)
-		velocity.x = 0
-		velocity.y = -speed
-	else:
-		play_anim(0)
-		velocity.x = 0
-		velocity.y = 0
+	if State.can_walk:
+		if Input.is_action_pressed("MOVE_RIGHT"):
+			current_dir = "right"
+			play_anim(1)
+			velocity.x = speed
+			velocity.y = 0
+		elif Input.is_action_pressed("MOVE_LEFT"):
+			current_dir = "left"
+			play_anim(1)
+			velocity.x = -speed
+			velocity.y = 0
+		elif Input.is_action_pressed("MOVE_DOWN"):
+			current_dir = "down"
+			play_anim(1)
+			velocity.x = 0
+			velocity.y = speed
+		elif Input.is_action_pressed("MOVE_UP"):
+			current_dir = "up"
+			play_anim(1)
+			velocity.x = 0
+			velocity.y = -speed
+		else:
+			play_anim(0)
+			velocity.x = 0
+			velocity.y = 0
 	
 	move_and_slide()
 	
@@ -104,6 +105,7 @@ func player_movement(_delta):
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
+	
 	
 	if dir == "right":
 		anim.flip_h = false

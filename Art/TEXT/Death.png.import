@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbnpyi3kpxt8m"
-path="res://.godot/imported/New Game.png-8139f6c3357fd40d7adf50eae9aa6a1e.ctex"
+uid="uid://sp85nof8yyvt"
+path="res://.godot/imported/Death.png-af5479f03744c6126407cb8c629fc931.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game Components/UI_Elements/main menu/buttons/New Game.png"
-dest_files=["res://.godot/imported/New Game.png-8139f6c3357fd40d7adf50eae9aa6a1e.ctex"]
+source_file="res://Art/TEXT/Death.png"
+dest_files=["res://.godot/imported/Death.png-af5479f03744c6126407cb8c629fc931.ctex"]
 
 [params]
 

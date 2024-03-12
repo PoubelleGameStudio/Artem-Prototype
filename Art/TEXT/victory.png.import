@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbnpyi3kpxt8m"
-path="res://.godot/imported/New Game.png-8139f6c3357fd40d7adf50eae9aa6a1e.ctex"
+uid="uid://d1hl4vlwwk6pf"
+path="res://.godot/imported/victory.png-3b1c6696df4bdd01de1e59b14e2a3c52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game Components/UI_Elements/main menu/buttons/New Game.png"
-dest_files=["res://.godot/imported/New Game.png-8139f6c3357fd40d7adf50eae9aa6a1e.ctex"]
+source_file="res://Art/TEXT/victory.png"
+dest_files=["res://.godot/imported/victory.png-3b1c6696df4bdd01de1e59b14e2a3c52.ctex"]
 
 [params]
 

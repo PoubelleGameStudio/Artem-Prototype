@@ -3,6 +3,8 @@ extends Control
 @onready var loader = $"../../../.."
 @onready var player = $"../../.."
 
+@export var seperation:int = 100
+
 
 
 
@@ -13,11 +15,13 @@ var playerData = PlayerData.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$MarginContainer/VBoxContainer.add_theme_constant_override("seperation",seperation)
 	verify_save_directory(save_dir)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	pass
 
 func verify_save_directory(path: String):

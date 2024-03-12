@@ -247,6 +247,7 @@ limit_bottom = 20000000
 editor_draw_limits = true
 
 [node name="character_info" type="Node2D" parent="HUD"]
+visible = false
 z_index = 2
 y_sort_enabled = true
 position = Vector2(43.0405, -15.7506)
@@ -485,20 +486,36 @@ color = Color(0, 0, 0, 0.443137)
 
 [node name="pause_text" type="Label" parent="HUD/PauseController"]
 offset_left = -284.0
-offset_top = -116.0
+offset_top = -132.0
 offset_right = 285.0
-offset_bottom = -62.0
+offset_bottom = -78.0
 label_settings = SubResource("LabelSettings_5kijb")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="MainMenu" parent="HUD/PauseController" instance=ExtResource("18_jm848")]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/PauseController"]
+layout_direction = 2
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -72.0
+offset_right = -32.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.45)
+size_flags_horizontal = 0
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="MainMenu" parent="HUD/PauseController/HBoxContainer" instance=ExtResource("18_jm848")]
 visible = false
-offset_left = -44.0
-offset_top = -68.0
-offset_right = -44.0
-offset_bottom = -68.0
+layout_mode = 2
+seperation = 10
 
 [node name="Weather" type="GPUParticles2D" parent="."]
 z_index = 1

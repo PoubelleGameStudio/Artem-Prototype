@@ -1,9 +1,9 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dlqqfhw358iwk"]
 
-[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="1_ibygw"]
+[ext_resource type="FontFile" uid="uid://i8xcwtoee0vp" path="res://Game Components/fonts/AlmendraSC-Italic.otf" id="1_7w4kh"]
 
 [resource]
-font = ExtResource("1_ibygw")
-font_size = 80
-outline_size = 10
+font = ExtResource("1_7w4kh")
+font_size = 250
+font_color = Color(0.431373, 1, 0.388235, 1)
 outline_color = Color(0, 0, 0, 1)

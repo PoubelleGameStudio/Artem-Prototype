@@ -19,7 +19,7 @@ func _ready():
 	State.world = level_name
 	add_child(c_music)
 	c_music.stream = load("res://sounds/levelMusic/to battle so that we may die.wav")
-#	player.camera_current()
+	player.camera_current()
 	if combat:
 		combat.process_mode = 4
 		player.world = level_name
@@ -77,6 +77,7 @@ func stop_combat():
 func _on_combat_screen_combat_end():
 	enemy_list[State.engaging] = 1
 	var hide_node = NodePath(str("enemies/",State.engaging[0]))
+	SceneTransition.victory()
 	stop_combat()
 	State.talking = 0
 	combat.endgame()
@@ -99,10 +100,11 @@ func _on_player_combat_entered():
 
 
 func _on_combat_screen_death():
+	SceneTransition.death()
 	c_music.playing = false
 	stop_combat()
-	_ready()
 	State.health = State.maxHealth
+	await 	await get_tree().create_timer(2).timeout
 	player.camera_current()
 	player.global_position = respawn_location
 	State.combat = 0

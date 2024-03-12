@@ -2,7 +2,7 @@ extends Node2D
 
 
 @onready var dimmer: ColorRect = $dimmer
-@onready var pause_menu = $MainMenu
+@onready var pause_menu = $HBoxContainer/MainMenu
 
 @export var can_toggle_pause = true
 

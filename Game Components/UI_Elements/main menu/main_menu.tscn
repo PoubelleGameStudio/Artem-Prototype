@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://b8uoijdcmqgg6"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/main menu/MainMenu.gd" id="1_vrrwu"]
-[ext_resource type="Texture2D" uid="uid://bbnpyi3kpxt8m" path="res://Game Components/UI_Elements/main menu/buttons/new game.png" id="2_e1ylg"]
-[ext_resource type="Texture2D" uid="uid://jv28nanluca3" path="res://Game Components/UI_Elements/main menu/buttons/quit.png" id="3_ae1th"]
+[ext_resource type="Texture2D" uid="uid://bbnpyi3kpxt8m" path="res://Game Components/UI_Elements/main menu/buttons/New Game.png" id="2_pwos0"]
 [ext_resource type="Texture2D" uid="uid://cav7reonbiek2" path="res://Game Components/UI_Elements/main menu/buttons/load.png" id="3_pnvef"]
 [ext_resource type="Texture2D" uid="uid://pywpwqrng370" path="res://Game Components/UI_Elements/main menu/buttons/save.png" id="4_ny3nx"]
+[ext_resource type="Texture2D" uid="uid://jv28nanluca3" path="res://Game Components/UI_Elements/main menu/buttons/Quit.png" id="5_h6ixv"]
 
 [sub_resource type="Theme" id="Theme_cko5l"]
 
@@ -20,13 +20,13 @@
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+grow_horizontal = 0
 theme = SubResource("Theme_cko5l")
 script = ExtResource("1_vrrwu")
+seperation = 50
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(100, 100)
@@ -36,12 +36,15 @@ offset_bottom = 40.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 50
 
 [node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_j558v")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ni2g7")
-icon = ExtResource("2_e1ylg")
+icon = ExtResource("2_pwos0")
 flat = true
 
 [node name="Load" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -49,11 +52,6 @@ layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_e7h4k")
 icon = ExtResource("3_pnvef")
 flat = true
-
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "Options"
 
 [node name="Save" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -68,11 +66,11 @@ layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lmhvu")
 text = "
 "
-icon = ExtResource("3_ae1th")
+icon = ExtResource("5_h6ixv")
 flat = true
+icon_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
