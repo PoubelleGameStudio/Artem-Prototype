@@ -177,7 +177,7 @@ script = ExtResource("1_tyufh")
 level_name = "forest_cave"
 
 [node name="respawn" parent="." instance=ExtResource("2_baw7g")]
-position = Vector2(4, -68)
+position = Vector2(-208, -288)
 
 [node name="player" parent="." instance=ExtResource("3_o024g")]
 position = Vector2(-4.05493, -104.945)
@@ -348,6 +348,14 @@ scale = Vector2(1.4, 1.4)
 interact_label = "Sorrow Shade"
 interact_type = "enemy"
 interact_value = "0"
+
+[node name="Gateways" type="Node2D" parent="."]
+
+[node name="InteractArea" parent="Gateways" instance=ExtResource("2_baw7g")]
+position = Vector2(4, -68)
+interact_label = "WitchForest.tscn"
+interact_type = "gateway"
+interact_value = "out"
 
 [connection signal="combat_entered" from="player" to="." method="_on_player_combat_entered"]
 [connection signal="combat_end" from="combatScreen" to="." method="_on_combat_screen_combat_end"]

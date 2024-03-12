@@ -327,10 +327,10 @@ label_settings = ExtResource("15_oq2cw")
 
 [node name="Inventory" parent="HUD/character_info" instance=ExtResource("13_cjqps")]
 z_index = 100
-offset_left = -236.0
-offset_top = -40.0
-offset_right = -180.0
-offset_bottom = 0.0
+offset_left = -239.04
+offset_top = -32.2494
+offset_right = -183.04
+offset_bottom = 7.7506
 
 [node name="quest_log_label" type="Label" parent="HUD/character_info"]
 offset_left = -40.0
@@ -346,10 +346,10 @@ offset_right = -40.0
 offset_bottom = -100.0
 
 [node name="Inventory_label" type="Label" parent="HUD/character_info"]
-offset_left = -236.0
-offset_top = -56.0
-offset_right = -183.0
-offset_bottom = -33.0
+offset_left = -243.04
+offset_top = -64.2494
+offset_right = -190.04
+offset_bottom = -41.2494
 text = "Inventory"
 label_settings = ExtResource("15_oq2cw")
 
@@ -464,6 +464,7 @@ offset_right = 40.0
 offset_bottom = 32.0
 
 [node name="TalentTree" parent="HUD" instance=ExtResource("16_unwu1")]
+visible = false
 offset_left = -80.0
 offset_top = -120.0
 offset_right = 104.0

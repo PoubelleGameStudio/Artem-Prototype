@@ -1,14 +1,23 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8skkvcn0ci81"]
+[gd_scene load_steps=20 format=3 uid="uid://c8skkvcn0ci81"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/Talent Tree/talentTree.gd" id="1_jmed0"]
 [ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
-[ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="2_bj6jf"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="2_t0owy"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="2_w43jx"]
+[ext_resource type="FontFile" uid="uid://i8xcwtoee0vp" path="res://Game Components/fonts/AlmendraSC-Italic.otf" id="3_f43mx"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="5_p3t0c"]
 [ext_resource type="Texture2D" uid="uid://d11wrjcwmffb5" path="res://Sprites/combat/spell icons/Sacred Kindling.png" id="6_e6b38"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cflig"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ba1b8"]
+font = ExtResource("3_f43mx")
+font_size = 36
+font_color = Color(0.431373, 1, 0.388235, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0.537255, 1)
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8n0d"]
 
@@ -32,7 +41,7 @@
 
 [node name="TalentTree" type="Control"]
 light_mask = 0
-z_index = 98
+z_index = 99
 layout_mode = 3
 anchors_preset = 0
 offset_right = 304.0
@@ -67,7 +76,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "FIELD        TRAINING"
-label_settings = ExtResource("2_bj6jf")
+label_settings = SubResource("LabelSettings_ba1b8")
 horizontal_alignment = 1
 vertical_alignment = 1
 

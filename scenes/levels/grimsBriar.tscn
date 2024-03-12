@@ -745,6 +745,7 @@ scale = Vector2(1, 0.937)
 model = " "
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
+z_index = 1
 position = Vector2(-132.128, -18.8951)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]

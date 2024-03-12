@@ -239,12 +239,13 @@ var quest_db ={
 	},
 	"barkeep_3":{
 		"giver":"barkeep",
-		"quest_name":"Dirty Little Secret",
+		"quest_name":"Violent Delights",
 		"Status":0,
 		"Items":{
-			"Tim's Lament":1
+			"Tim's Lament":1,
+			"Evidence":1
 			},
-		"description":"Artist's Intent"
+		"description":"An artist's intent"
 	},
 	"homebrewed":{
 		"Giver":"front_desk",
@@ -255,7 +256,7 @@ var quest_db ={
 			"berry":1,
 			"Bone Dust":1
 		},
-		"description":"You're in bat country and the visuals are kicking in. Time to find the goods."
+		"description":"You're in bat country."
 	},
 	"Trash_1":{
 		"Giver":"TrashBoy",

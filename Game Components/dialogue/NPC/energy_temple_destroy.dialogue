@@ -1,0 +1,11 @@
+~ start
+
+The Witch told me to place the device here and let it do the rest. By the time techies send backup the temple should be in ruins. I shouldn't place this until I'm sure I don't want to come back.
+- Place the item.
+	do update_quest_status("witch_1",2)
+	=> END
+- Not Yet
+	=> END
+	
+
+=> END
