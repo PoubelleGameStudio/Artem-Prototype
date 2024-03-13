@@ -438,6 +438,7 @@ offset_left = 39.0
 offset_top = 714.0
 offset_right = 277.0
 offset_bottom = 787.0
+focus_neighbor_right = NodePath("../../spellSelect/Control/GridContainer/Fireball")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("6_p1cl7")

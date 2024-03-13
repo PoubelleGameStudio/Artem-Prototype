@@ -26,7 +26,6 @@ anchor_right = 1.0
 grow_horizontal = 0
 theme = SubResource("Theme_cko5l")
 script = ExtResource("1_vrrwu")
-seperation = 50
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(100, 100)
@@ -42,27 +41,57 @@ theme_override_constants/separation = 50
 
 [node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Load")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_j558v")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ni2g7")
 icon = ExtResource("2_pwos0")
 flat = true
 
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/New Game"]
+visible = false
+layout_mode = 0
+offset_top = 67.0
+offset_right = 149.0
+offset_bottom = 75.0
+color = Color(0.431373, 1, 0.388235, 1)
+
 [node name="Load" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../New Game")
+focus_neighbor_bottom = NodePath("../Save")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_e7h4k")
 icon = ExtResource("3_pnvef")
 flat = true
 
+[node name="ColorRect2" type="ColorRect" parent="MarginContainer/VBoxContainer/Load"]
+visible = false
+layout_mode = 0
+offset_top = 67.0
+offset_right = 149.0
+offset_bottom = 75.0
+color = Color(0.431373, 1, 0.388235, 1)
+
 [node name="Save" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Load")
+focus_neighbor_bottom = NodePath("../Exit")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ipbhb")
 text = "
 "
 icon = ExtResource("4_ny3nx")
 flat = true
 
+[node name="ColorRect3" type="ColorRect" parent="MarginContainer/VBoxContainer/Save"]
+visible = false
+layout_mode = 0
+offset_top = 67.0
+offset_right = 149.0
+offset_bottom = 75.0
+color = Color(0.431373, 1, 0.388235, 1)
+
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Save")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lmhvu")
 text = "
 "
@@ -70,7 +99,31 @@ icon = ExtResource("5_h6ixv")
 flat = true
 icon_alignment = 1
 
+[node name="ColorRect4" type="ColorRect" parent="MarginContainer/VBoxContainer/Exit"]
+visible = false
+layout_mode = 0
+offset_top = 71.0
+offset_right = 149.0
+offset_bottom = 79.0
+color = Color(0.431373, 1, 0.388235, 1)
+
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_focus_exited"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_focus_exited"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Save" to="." method="_on_save_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/Save" to="." method="_on_save_focus_exited"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Save" to="." method="_on_save_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Save" to="." method="_on_save_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_focus_exited"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

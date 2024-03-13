@@ -1,9 +1,7 @@
 extends Control
 
-@onready var loader = $"../../../.."
-@onready var player = $"../../.."
-
-@export var seperation:int = 100
+@onready var loader = $"../../../../.."
+@onready var player = $"../../../.."
 
 
 
@@ -15,7 +13,7 @@ var playerData = PlayerData.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MarginContainer/VBoxContainer.add_theme_constant_override("seperation",seperation)
+	$"MarginContainer/VBoxContainer/New Game".grab_focus()
 	verify_save_directory(save_dir)
 
 
@@ -26,6 +24,12 @@ func _process(delta):
 
 func verify_save_directory(path: String):
 	DirAccess.make_dir_absolute(path)
+	
+
+func focus() -> void:
+	$"MarginContainer/VBoxContainer/New Game".grab_focus()
+
+
 
 func _on_new_game_pressed():
 	SceneTransition.fade_out()
@@ -94,7 +98,7 @@ func save_player()-> void:
 	playerData.t_shield = State.t_shield
 	playerData.world = loader.level_name
 	playerData.pos = player.get_global_position()
-	get_parent().resume()
+	$"../..".resume()
 	
 func load_player() -> void:
 	State.welcomed = playerData.welcomed
@@ -143,3 +147,72 @@ func load_player() -> void:
 		get_parent().resume()
 	print("save loaded")
 
+func toggle_focus_mark(node) -> void:
+	if node.visible:
+		node.hide()
+		print("node hid")
+	else:
+		node.show()
+
+func _on_new_game_focus_entered():
+	toggle_focus_mark($"MarginContainer/VBoxContainer/New Game/ColorRect")
+
+
+func _on_new_game_focus_exited():
+	toggle_focus_mark($"MarginContainer/VBoxContainer/New Game/ColorRect") # Replace with function body.
+
+
+func _on_new_game_mouse_entered():
+	toggle_focus_mark($"MarginContainer/VBoxContainer/New Game/ColorRect")
+
+
+func _on_new_game_mouse_exited():
+	toggle_focus_mark($"MarginContainer/VBoxContainer/New Game/ColorRect")
+
+
+func _on_load_focus_entered():
+	toggle_focus_mark($MarginContainer/VBoxContainer/Load/ColorRect2)
+
+
+func _on_load_focus_exited():
+	toggle_focus_mark($MarginContainer/VBoxContainer/Load/ColorRect2)
+
+
+func _on_load_mouse_entered():
+	toggle_focus_mark($MarginContainer/VBoxContainer/Load/ColorRect2)
+
+
+func _on_load_mouse_exited():
+	toggle_focus_mark($MarginContainer/VBoxContainer/Load/ColorRect2)
+
+
+func _on_save_focus_entered():
+	toggle_focus_mark($MarginContainer/VBoxContainer/Save/ColorRect3)
+
+
+func _on_save_focus_exited():
+	toggle_focus_mark($MarginContainer/VBoxContainer/Save/ColorRect3)
+
+
+func _on_save_mouse_entered():
+	toggle_focus_mark($MarginContainer/VBoxContainer/Save/ColorRect3)
+
+
+func _on_save_mouse_exited():
+	toggle_focus_mark($MarginContainer/VBoxContainer/Save/ColorRect3)
+
+
+func _on_exit_mouse_entered():
+	toggle_focus_mark($MarginContainer/VBoxContainer/Exit/ColorRect4)
+
+
+func _on_exit_mouse_exited():
+	toggle_focus_mark($MarginContainer/VBoxContainer/Exit/ColorRect4)
+
+
+func _on_exit_focus_entered():
+	toggle_focus_mark($MarginContainer/VBoxContainer/Exit/ColorRect4)
+
+
+func _on_exit_focus_exited():
+	toggle_focus_mark($MarginContainer/VBoxContainer/Exit/ColorRect4)

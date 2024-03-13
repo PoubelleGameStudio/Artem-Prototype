@@ -59,7 +59,7 @@ func _ready():
 	spellTexture.hide()
 	yourTurn = 1
 	DoTEffect.hide()
-
+	fight.grab_focus()
 	#add_spells()
 	
 

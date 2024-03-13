@@ -9,6 +9,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
+	$PanelContainer/MarginContainer/VBoxContainer/Button.grab_focus()
 	if State.tutorials[title]["seen"] == 0:
 		title_label.text = title
 		text_label.text = State.tutorials[title]["text"]

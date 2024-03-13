@@ -515,7 +515,6 @@ alignment = 1
 [node name="MainMenu" parent="HUD/PauseController/HBoxContainer" instance=ExtResource("18_jm848")]
 visible = false
 layout_mode = 2
-seperation = 10
 
 [node name="Weather" type="GPUParticles2D" parent="."]
 z_index = 1

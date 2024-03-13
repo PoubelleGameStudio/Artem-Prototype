@@ -11,6 +11,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		if !get_tree().paused:
 			pause()
+			pause_menu.focus()
 		else:
 			resume()
 			
