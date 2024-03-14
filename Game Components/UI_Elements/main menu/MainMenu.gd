@@ -168,6 +168,7 @@ func _on_new_game_mouse_entered():
 
 func _on_new_game_mouse_exited():
 	toggle_focus_mark($"MarginContainer/VBoxContainer/New Game/ColorRect")
+	$"MarginContainer/VBoxContainer/New Game".release_focus()
 
 
 func _on_load_focus_entered():
@@ -184,6 +185,8 @@ func _on_load_mouse_entered():
 
 func _on_load_mouse_exited():
 	toggle_focus_mark($MarginContainer/VBoxContainer/Load/ColorRect2)
+	$"MarginContainer/VBoxContainer/Load".release_focus()
+	
 
 
 func _on_save_focus_entered():
@@ -200,6 +203,7 @@ func _on_save_mouse_entered():
 
 func _on_save_mouse_exited():
 	toggle_focus_mark($MarginContainer/VBoxContainer/Save/ColorRect3)
+	$"MarginContainer/VBoxContainer/Save".release_focus()
 
 
 func _on_exit_mouse_entered():
@@ -208,6 +212,7 @@ func _on_exit_mouse_entered():
 
 func _on_exit_mouse_exited():
 	toggle_focus_mark($MarginContainer/VBoxContainer/Exit/ColorRect4)
+	$"MarginContainer/VBoxContainer/Exit".release_focus()
 
 
 func _on_exit_focus_entered():

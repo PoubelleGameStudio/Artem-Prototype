@@ -789,8 +789,8 @@ emitter = 1
 id = "1"
 
 [node name="test_dummy" parent="enemies/executioner" instance=ExtResource("18_a2bs0")]
-position = Vector2(0.000488281, 47)
-scale = Vector2(5, 5)
+position = Vector2(19.4285, 21.7143)
+scale = Vector2(4, 4)
 interact_label = "executioner"
 interact_type = "enemy"
 interact_value = "0"
@@ -1085,7 +1085,8 @@ volume_db = -25.413
 autoplay = true
 
 [node name="respawn" parent="." instance=ExtResource("18_a2bs0")]
-position = Vector2(1060.07, -252.062)
+position = Vector2(-3, 8)
+monitorable = false
 interact_type = "respawn"
 interact_value = "1"
 

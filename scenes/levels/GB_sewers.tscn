@@ -183,7 +183,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="player" parent="." instance=ExtResource("2_b2s2p")]
 z_index = 1
-position = Vector2(36, -12)
+position = Vector2(37.4219, 12.9243)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3lg6i")
@@ -239,7 +239,7 @@ z_index = 1
 position = Vector2(-8, 6)
 interact_label = "WitchForest.tscn"
 interact_type = "gateway"
-interact_value = "in"
+interact_value = "out"
 
 [node name="torch2" parent="." instance=ExtResource("9_jh4dl")]
 position = Vector2(88, -32)

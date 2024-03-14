@@ -27,47 +27,49 @@ set State.witch_greeted = 1
 => main_path 
 
 ~ no_trash
-The Witch: Well you're a fresh face. Is there a reason I shouldn't add it to the wall?
+The Witch: Well you're a fresh face. Tell me why I shouldn't add it to the wall?
 Artem: I don't suppose you're a friend of the bartending mayor?
-The Witch: He's never caused me trouble. Will I come to say the same of you?
+The Witch: He's never caused me trouble. Will I get to say the same of you?
 Artem: Ideally. I'm Artem, a watcher.
-The Witch: Bit of a mixed bag, you lot. What's brought you to my door?
-Artem: In a unique turn of events I've found myself in Grim's briar after touching this book, that apparently belongs to a man named Tim, who has given the locals such books that have inversely sent them away from Grim's Briar.
+The Witch: A real mixed bag, you lot. Doesn't seem you want my head, so what's brought you to my door?
+Artem: I've found myself in Grim's briar after touching this book. It apparently belongs to a local man named Tim, who distributed copies to the townies and now they've all gone missing.
 => main_path
 
 ~ main_path
 The Witch: Make a habit of touching strange books?
 Artem: Only the enticing ones.
-The Witch: Finally you utter something agreeable. Do you still have it?
-Artem: *Artem hands the book over* Mayor said it was one of Tim's reader copies and everyone who held their copy has since gone missing. Only folks left are a couple workers and some drunk named Hedo.
-The Witch: Heh, of course. That misguided fool wouldn't touch anything short of first edition hardback. Helped him this time though.
-Artem: He did mention something of the sort.
+The Witch: At least have common ground there. Do you still have it?
+Artem: *Artem hands the book over* Only folks left are a couple workers and some drunk named Hedo.
+The Witch: That misguided fool wouldn't touch anything short of first edition hardback. Helped him this time though.
+Artem: He did mention something of the sort...
 The Witch: *The witch tosses the book into a nearby cauldron*
 Artem: Is that a productive action?
-The Witch: Quickest way to confirm that it's an enchantment that I and Tim are very familiar with.
-Artem: So you know Tim?
-The Witch: Of course. I know everyone. He came to me some months ago about wanting to surprise some girl he claimed to be in love with. Asked if I could help him with a simlpe transportation spell. Looks like it worked.
-Artem: Did you also help him with the cursed books?
-The Witch: Of course not. I spent enough centuries pilgraming through the endless void and much prefer the mindless chatter the locals provide. I put explicit restrictions on that tome so it would only move someone to Grim's Briar once.
-Artem: You weren't concerned about any consequences the transported might suffer?
-The Witch: A dead tree branch is a graver threat than Tim on his worst days. The mayor runs a tight ship for a village full of degenerates.
-Artem: Then how have all the degenerates gone missing?
-The Witch: I have a theory. However, I'd like you to do something for me that will benefit both of us.
+The Witch: Quickest way to find out where it came from is to get rid of it.
+Artem: and?
+The Witch: It seems you're finally in the right place at the right time.
+Artem: That's an evasive answer.
+The Witch: I take it you didn't notice how uniform the page cuts and binding were?
+Artem: A town full of artists can't produce a well made book?
+The Witch: That town full of artists would never call this a well made book. They live for rough edges and pulled stitches. Perfection is the only flaw they refuse; it's what makes their art truly theirs. It seems Tim's publisher was none other than our infamous techies.
+Artem: Tim was in contact with The Needle...but how were either of them able to enchant it?
+The Witch: Far from an enchantment, burdened one. This was a curse, and no ordinary one...
+Artem: I'm concerned at what you would consider extraordinary
+The Witch: I have a theory. However, I'd like you to do something for me that will benefit the both of us.
 Artem: ...and what would that be?
-The Witch: As a watcher I'm sure you're aware of how painfully close we are to the Needle. That wasn't always the case, but unfortunately as time marches forward so do their perceived property lines.
+The Witch: As a watcher I'm sure you're aware of how painfully close we are to the Needle. That wasn't always the case, but as time marches forward so do their perceived property lines.
 Artem: You want me to settle a land dispute?
 The Witch: No. I want you to find those walking circuit boards and kill them. Then you'll make sure their precious energy temple will never generate an ounce of power again.
-Artem: We don't kill for favor. Even those living in the Needle.
-The Witch: Then don't kill them if you haven't the stomach, but until they're no longer a nuisance to my home, and my work, you won't find me lifting a finger for you.
-Artem: ...In regards to the temple you mentioned. Is this something new of theirs?
-The Witch: It would seem so. I found one of their lackey's poking around my garden and we had a truly delightful chat...
+Artem: I'm not a mercenary
+The Witch: Then don't kill them if you haven't the stomach, though they likley won't share your sentiment. Regardless, until they're no longer a nuisance to my home, and my work, you won't find me lifting a finger for you.
+Artem: Is this temple something new of theirs?
+The Witch: I found one of their lackey's poking around my garden and we had a truly delightful chat...
 Artem: And then you let him be on his way?
-The Witch: Whatever sets your heart straight, dear. It would appear they've had a breakthrough communicating with their god and are receiving direction with unprecedented clarity. Among that direction is to construct these temples. They route their power through them and at the center of their grand circuitry is a sinner.
+The Witch: Whatever sets your heart straight, dear. It would appear, though, they've had a breakthrough communicating with their god and are receiving direction with unprecedented clarity. Among that direction is to construct these temples. They route their power through them and at the center of their grand circuitry is a sinner.
 Artem: At the center?
 The Witch: Dead center, even. It would seem their god has stated that by placing these sinners into the energy's path it both purifies their vessel and strengthens the energy that passes through. Something about it challenging their sin.
 Artem: They're killing them? 
-The Witch: By the dozens if not hundreds at this point. They fry them until their little light finally goes out. Our little canary told me they treat them beforehand to reinforce the vessel but it does little for the pain.
-Artem: How many of these temples are there?
+The Witch: By the dozens if not hundreds at this point. They fry them until their little light finally goes out.
+Artem: How many temples are there?
 The Witch: More than any of us would care for, but I've said enough for now. If you're still unwilling to take their lives, you'll find this useful. It's an elemental soaking stone. First it breaks the loop and absorbs the energy, then when it reaches capacity it all expels.
 Artem: So...a bomb?
 The Witch: Not always, but ideally.
@@ -81,29 +83,29 @@ The Witch: You've all you need to find your answers.
 The Witch: Was it everything you dreamed of?
 Artem: The piles of corpses...their own people.
 The Witch: Horrors of flesh in the name of fielty
-Artem: How many are there?
+Artem: How many?
 The Witch: Precisely nine. Arranged and connected in quite the peculiar manner.
 Artem: Peculiar?
 The Witch: The nine temples encircle their precious needle, which isn't terribly surprising, however tracing the powerlines connecting each temple etches quite the symbol.
-Artem: Their needle and everything on it runs off the power the core generates. What good would a rune do them?
+Artem: Their needle and everything on it runs off the power their core generates. What good would a rune do them?
 The Witch: Curious, isn't it? Like giving gills to a paper bag. 
 Artem: Whose rune is it?
-The Witch: That is truly the best part, my duty burdened Watcher. I can feel the oscilations of the universe. I can feel them and they have fallen from harmony. I'd wondered what would could have happened to create such a reaction. I haven't learned the what, but it appears the who has revealed itself. The owner of this rune, this etching, this greeting...is one of our two cosmic founding fathers. Chaos is making their move.
+The Witch: That is [wave amp=25 freq=5]truly[/wave] the best part, my duty burdened Watcher. I can feel the oscilations of the universe. I can feel them and they have fallen from harmony. I'd wondered what could have happened to create such a reaction and it appears the source has revealed itself. The owner of this rune, this etching, this [shake rate=20 level=10]greeting[/shake]...is none other than a cosmic founding father. Chaos has made their first move.
 Artem: Unprecedented clarity...
-The Witch: A precarious coincidence, is it not? Existence once again speaks the same time these hardwired pscyhopaths start wiring up runes of chaos?
-Artem: Why did you need me to deal with that temple? If you already knew all of this, then you must have been close enough to destroy them?
-The Witch: I don't make it a habit to wage war with a cosmic fundamental. However, you and your colleagues will not share my steps.
+The Witch: A precarious coincidence, is it not? A creator of existence once again speaks the same time these hardwired pscyhopaths start wiring up runes?
+Artem: If you already knew all of this, then why not do something yourself?
+The Witch: I don't make it a habit to wage war with a cosmic fundamental.
 Artem: Did you orchestrate my arrival just to show me what they've built?
-The Witch: I took no action to influence your journey. I watched this moment of time and space through the infinite. I exhaled and spread myself atom by atom across every universal instance until I found you here in this moment. So here I am, just a witch...standing in front of a watcher...asking him to kill a god.
-Artem: You spent too much time in the Void. No one has the ability, much less the desire, to kill one of the pillars of the universe because the high tech cultists accidentally drew something. 
-The Witch: There is a way forward to harmony, little watcher. You will see horrors beyond anything you could ever conceive. You will face spawns of chaos that level kingdoms. You will find victory...and you will die.
-Artem: You want me to kill a god then [wave amp=25 freq=5]die[/wave]?
-The Witch: Wants aren't truly something my kind experience. I'm compelled to journey forward, by a force beyond even my sight, to witness the curse of existence. It will become your compulsion to carry this curse.
-Artem: What do you even expect em to do? Demand an audience with the 5 Eso and tell them we've a received a request to one of the two oldest gods?
-The Witch: Yes. You can step through my door and find yourself back home in the eye. A warning, though...stepping through will mean no turning back.
+The Witch: I took no action to influence your journey. I watched this moment of time and space through the infinite. I exhaled and dispersed myself atom by atom like a river across every universal instance until I found you [shake rate=20 level=10]here[/shake] in this moment. So here I am, just a witch...standing in front of a watcher...asking him to kill a god.
+Artem: You're insane
+The Witch: There is a way forward to harmony, little watcher. You will see horrors beyond anything you could ever conceive. You will face spawns of chaos that level kingdoms. You will find victory. Then you will die.
+Artem: You want me to kill a god then [wave amp=25 freq=5]DIE[/wave]?
+The Witch: I don't deal in wants. I'm compelled, by a force beyond even my sight, to witness the curse of existence. It will be your compulsion to carry this curse.
+Artem: What do you even expect me to do? Demand an audience with the 3 Eso and tell them we've a received a request to assassinate one of the god of gods?
+The Witch: Yes, my Watcher.
 do update_quest_status("witch_1",2)
 
 ~ witch_1_complete
-The Witch: Shouldn't you be making a cosmically impactful decision?
+The Witch: Carry on, Artem. We'll find our paths entwined soon enough.
 
 => END

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://drfmrbkjx66t8"]
+[gd_scene load_steps=52 format=3 uid="uid://drfmrbkjx66t8"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_74c0b"]
 [ext_resource type="Environment" uid="uid://bsxawlioltobo" path="res://themes/base_worldenv.tres" id="2_454ue"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="13_d00uf"]
 [ext_resource type="Texture2D" uid="uid://cv1geiwpd66th" path="res://Art/buildings/vendor banner.png" id="13_f5r35"]
 [ext_resource type="Texture2D" uid="uid://be7e65erueknx" path="res://Art/ground/stepping_stone004.png" id="14_5kljq"]
+[ext_resource type="Texture2D" uid="uid://dm05foi04h1xs" path="res://Art/doors/door_001.png" id="27_s1fca"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yh8mh"]
 texture = ExtResource("3_1xkim")
@@ -374,7 +375,8 @@ script = ExtResource("3_7k25k")
 position = Vector2(330.118, 171.548)
 
 [node name="respawn" parent="." instance=ExtResource("6_d8wmu")]
-position = Vector2(326, 168)
+position = Vector2(413, 161)
+monitorable = false
 interact_type = "respawn"
 interact_value = "1"
 
@@ -456,6 +458,16 @@ position = Vector2(3472.8, 708)
 interact_label = "energy_temple.tscn"
 interact_type = "gateway"
 interact_value = "in"
+
+[node name="Sprite2D" type="Sprite2D" parent="gateways"]
+position = Vector2(-208, 254.4)
+texture = ExtResource("27_s1fca")
+
+[node name="InteractArea2" parent="gateways/Sprite2D" instance=ExtResource("6_d8wmu")]
+position = Vector2(-4, 25.6)
+interact_label = "GB_sewers.tscn"
+interact_type = "gateway"
+interact_value = "out"
 
 [node name="Vendors" type="Node2D" parent="."]
 y_sort_enabled = true

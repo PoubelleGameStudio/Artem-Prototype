@@ -273,7 +273,7 @@ var quest_db ={
 		"quest_name":"Witch's Crew",
 		"Status":0,
 		"Items":{
-			"plans":1
+			"temple schematics":1
 		},
 		"description":"The techies are giving The Witch some trouble."
 	}

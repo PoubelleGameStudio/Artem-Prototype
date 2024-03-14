@@ -353,6 +353,7 @@ interact_value = "0"
 
 [node name="InteractArea" parent="Gateways" instance=ExtResource("2_baw7g")]
 position = Vector2(4, -68)
+monitorable = false
 interact_label = "WitchForest.tscn"
 interact_type = "gateway"
 interact_value = "out"
