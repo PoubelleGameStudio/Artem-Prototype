@@ -9,6 +9,7 @@ var p_locs = {}
 var combat = 0
 var enemyID:String
 var can_walk: bool = true
+var can_use: bool = true
 
 
 #weather vars

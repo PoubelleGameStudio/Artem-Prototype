@@ -34,84 +34,105 @@ func populate_grid():
 
 
 func _on_slot_1_item_used():
-	item_used.emit() # Replace with function body.
+	if State.can_use:
+		item_used.emit() # Replace with function body.
 
 
 func _on_slot_2_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_3_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_4_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_5_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_6_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_7_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_8_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_9_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_10_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_11_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_12_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_13_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_14_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_15_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_16_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_17_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_18_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_19_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_20_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.
 
 
 func _on_slot_21_item_used():
-	item_used.emit()  # Replace with function body.
+	if State.can_use:
+		item_used.emit()  # Replace with function body.

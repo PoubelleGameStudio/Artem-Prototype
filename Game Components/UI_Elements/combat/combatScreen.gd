@@ -7,7 +7,11 @@ extends Node2D
 @onready var inv = $combatUI/Inventory
 @onready var inv_ui = $inventory_ui
 @onready var eHealth = $combatUI/enemyHealth
+#	set(value):
+#		eHealth = value
+#		pHealth_label.text = str("HP ",State.health,"/",State.maxHealth)
 @onready var pHealth = $combatUI/playerHealth
+@onready var pHealth_label: Label = $combatUI/playerHealth/current_health
 @onready var spell_book = $combatUI/spellSelect
 @onready var yourTurn = 1
 @onready var spells = State.spell_book
@@ -27,6 +31,10 @@ extends Node2D
 	set(value):
 		casts_left = value
 		casts_left_label.text = str("Casts Left: ", casts_left)
+		if casts_left < 1:
+			State.can_use = false
+		else:
+			State.can_use = true
 @onready var casts_left_label: Label = $cast_lefts
 @onready var is_casting: bool
 @onready var burning_for: int = 0:
@@ -41,6 +49,7 @@ extends Node2D
 @onready var spellTexture: AnimatedSprite2D = $"spell effect"
 @onready var DoTEffect: AnimatedSprite2D = $"DoT effect"
 @onready var statusEffect: Label = $combatUI/enemyHealth/status_effect
+@onready var enemyAttack: AnimatedSprite2D = $"enemy attack"
 
 #signals
 signal combat_end
@@ -59,6 +68,7 @@ func _ready():
 	spellTexture.hide()
 	yourTurn = 1
 	DoTEffect.hide()
+	enemyAttack.hide()
 	fight.grab_focus()
 	#add_spells()
 	
@@ -253,12 +263,16 @@ func enemyTurn():
 
 		# enemy attacks
 		enemy.enemySprite.play(str(enemy.enemy_type,"_attack"))
+		enemyAttack.play(enemy.enemy_type)
+		enemyAttack.show()
+		spellAnimation.play("enemy cast")
 		await get_tree().create_timer(2).timeout
 		if specialCounter < 5:
 			damageTaken = (enemyBook[enemy.enemy_type]["moves"]["basic"] * rng.randf_range(1,1.1))
 		else:
 			damageTaken = (enemyBook[enemy.enemy_type]["moves"]["special"] * rng.randf_range(1,1.15))
 		enemy.enemySprite.play(str(enemy.enemy_type,"_idle"))
+		enemyAttack.hide()
 
 		#handle player resist
 		match enemyBook[enemy.enemy_type]["type"]:
@@ -408,6 +422,5 @@ func _on_enemy_combat_dead():
 
 
 func _on_inventory_ui_item_used():
-	inv_ui.hide()
 	casts_left -= 1
 	enemyTurn() 

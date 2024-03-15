@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=62 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
@@ -15,7 +15,9 @@
 [ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="12_vu285"]
 [ext_resource type="Texture2D" uid="uid://dfqt46pkyp73t" path="res://Sprites/combat/spell effects/FireBallAllFrames.png" id="14_1rcju"]
 [ext_resource type="Texture2D" uid="uid://81doju5tfqyi" path="res://Sprites/combat/spell effects/CurseAllFrames.png" id="14_g0v7m"]
+[ext_resource type="Texture2D" uid="uid://7ulmawr4kvyq" path="res://Art/object sheets/graveyard - sprite sheet-export.png" id="16_f3jmm"]
 [ext_resource type="Texture2D" uid="uid://dtg70mxrhn41l" path="res://Sprites/combat/DoT effects/burning.png" id="16_wk2nr"]
+[ext_resource type="Texture2D" uid="uid://cbiid034h0hbe" path="res://Sprites/combat/spell effects/DisruptingRayAllFrames.png" id="16_ytna7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
 atlas = ExtResource("4_43trn")
@@ -71,6 +73,26 @@ region = Rect2(48, 0, 24, 24)
 atlas = ExtResource("14_g0v7m")
 region = Rect2(72, 0, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpvet"]
+atlas = ExtResource("16_f3jmm")
+region = Rect2(358, 149, 168, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4onp"]
+atlas = ExtResource("16_ytna7")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukotb"]
+atlas = ExtResource("16_ytna7")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0gl6"]
+atlas = ExtResource("16_ytna7")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2i7m"]
+atlas = ExtResource("16_ytna7")
+region = Rect2(72, 0, 24, 24)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0oemn"]
 atlas = ExtResource("14_1rcju")
 region = Rect2(0, 0, 24, 24)
@@ -119,6 +141,10 @@ region = Rect2(240, 0, 24, 24)
 atlas = ExtResource("14_1rcju")
 region = Rect2(264, 0, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8ocv"]
+atlas = ExtResource("16_f3jmm")
+region = Rect2(287, 179, 83, 54)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_o7q31"]
 animations = [{
 "frames": [{
@@ -136,7 +162,32 @@ animations = [{
 }],
 "loop": true,
 "name": &"Curse",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpvet")
+}],
+"loop": true,
+"name": &"Sorrow Shade",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4onp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukotb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0gl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2i7m")
+}],
+"loop": true,
+"name": &"Technotheist Grunt",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -178,6 +229,14 @@ animations = [{
 "loop": true,
 "name": &"fireball",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8ocv")
+}],
+"loop": true,
+"name": &"ghost",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8von"]
@@ -258,6 +317,33 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(693.913, 456.094)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("enemy attack:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1421, 366)]
+}
+
+[sub_resource type="Animation" id="Animation_4yych"]
+resource_name = "enemy cast"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enemy attack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1421, 366), Vector2(506, 487)]
+}
 
 [sub_resource type="Animation" id="Animation_cqn8w"]
 resource_name = "spell cast"
@@ -277,6 +363,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6s30w"]
 _data = {
 "RESET": SubResource("Animation_txicx"),
+"enemy cast": SubResource("Animation_4yych"),
 "spell cast": SubResource("Animation_cqn8w")
 }
 
@@ -494,7 +581,7 @@ theme = ExtResource("4_2r65i")
 theme_override_fonts/font = ExtResource("6_p1cl7")
 theme_override_font_sizes/font_size = 48
 
-[node name="Label" type="Label" parent="combatUI/playerHealth"]
+[node name="current_health" type="Label" parent="combatUI/playerHealth"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -66.0
@@ -604,6 +691,16 @@ position = Vector2(693.913, 456.094)
 scale = Vector2(5.18579, 5.41277)
 sprite_frames = SubResource("SpriteFrames_o7q31")
 animation = &"Curse"
+frame_progress = 0.145384
+
+[node name="enemy attack" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(1421, 366)
+scale = Vector2(4.94994, 5.16659)
+sprite_frames = SubResource("SpriteFrames_o7q31")
+animation = &"Curse"
+frame_progress = 0.832722
+flip_h = true
 
 [node name="DoT effect" type="AnimatedSprite2D" parent="."]
 z_index = 1

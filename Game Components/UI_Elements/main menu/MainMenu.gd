@@ -140,11 +140,11 @@ func load_player() -> void:
 	State.tutorials = playerData.tutorials
 	get_tree().change_scene_to_file((str("res://scenes/levels/",playerData.world,".tscn")))
 	# establish new player ref
-	var player = $"../../.."
+
 	if get_tree().get_root().get_node("root").level_name != "title_screen":
 		player.set_global_position(Vector2(playerData.pos))
 		player.camera_current()
-		get_parent().resume()
+		$"../..".resume()
 	print("save loaded")
 
 func toggle_focus_mark(node) -> void:
