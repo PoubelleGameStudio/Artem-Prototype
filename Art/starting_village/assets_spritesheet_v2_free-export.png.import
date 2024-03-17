@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8llkfpy3nyuj"
-path="res://.godot/imported/A5.png-27b41fb8ab09b36f4c411d37f5fa2b46.ctex"
+uid="uid://bevu1qeiuq1up"
+path="res://.godot/imported/assets_spritesheet_v2_free-export.png-01f546d59c3413bdd94d70cd341d68a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/starting_village/A5.png"
-dest_files=["res://.godot/imported/A5.png-27b41fb8ab09b36f4c411d37f5fa2b46.ctex"]
+source_file="res://Art/starting_village/assets_spritesheet_v2_free-export.png"
+dest_files=["res://.godot/imported/assets_spritesheet_v2_free-export.png-01f546d59c3413bdd94d70cd341d68a9.ctex"]
 
 [params]
 

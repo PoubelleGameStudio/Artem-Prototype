@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xigg2ih7jx5l"
-path="res://.godot/imported/Tileset_Water.png-062ddfe17b0a5b488f1a81b38d7e333e.ctex"
+uid="uid://dcqqa4kgadh4u"
+path="res://.godot/imported/terrain_tiles_v2.png-8cfbbb5eb3248ddeaa513a166ce48f24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/starting_village/Tileset_Water.png"
-dest_files=["res://.godot/imported/Tileset_Water.png-062ddfe17b0a5b488f1a81b38d7e333e.ctex"]
+source_file="res://Art/starting_village/terrain_tiles_v2.png"
+dest_files=["res://.godot/imported/terrain_tiles_v2.png-8cfbbb5eb3248ddeaa513a166ce48f24.ctex"]
 
 [params]
 

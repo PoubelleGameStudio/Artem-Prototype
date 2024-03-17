@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://387vfx0ln8g1"
-path="res://.godot/imported/Inside_C.png-413bbcd9cd6857ee2ed674142b36b7c2.ctex"
+uid="uid://cikjs408dgeai"
+path="res://.godot/imported/assets_spritesheet_v2_free.png-0ff1a01164ce71327790fcc7cf5b7f44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/starting_village/Inside_C.png"
-dest_files=["res://.godot/imported/Inside_C.png-413bbcd9cd6857ee2ed674142b36b7c2.ctex"]
+source_file="res://Art/starting_village/assets_spritesheet_v2_free.png"
+dest_files=["res://.godot/imported/assets_spritesheet_v2_free.png-0ff1a01164ce71327790fcc7cf5b7f44.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bat2wer8xfg6x"
-path="res://.godot/imported/Inside_A.png-42fcfbcbe92a4b85db448c5dc91fcb48.ctex"
+uid="uid://cdq1sbcq0y85y"
+path="res://.godot/imported/dirtpath_tiles.png-b00555256481748a1b3c3cb77337eb98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/starting_village/Inside_A.png"
-dest_files=["res://.godot/imported/Inside_A.png-42fcfbcbe92a4b85db448c5dc91fcb48.ctex"]
+source_file="res://Art/starting_village/dirtpath_tiles.png"
+dest_files=["res://.godot/imported/dirtpath_tiles.png-b00555256481748a1b3c3cb77337eb98.ctex"]
 
 [params]
 

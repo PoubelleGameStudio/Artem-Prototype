@@ -7,9 +7,6 @@ extends Node2D
 @onready var inv = $combatUI/Inventory
 @onready var inv_ui = $inventory_ui
 @onready var eHealth = $combatUI/enemyHealth
-#	set(value):
-#		eHealth = value
-#		pHealth_label.text = str("HP ",State.health,"/",State.maxHealth)
 @onready var pHealth = $combatUI/playerHealth
 @onready var pHealth_label: Label = $combatUI/playerHealth/current_health
 @onready var spell_book = $combatUI/spellSelect
@@ -64,28 +61,22 @@ var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.play("idle")
-	eHealth.max_value = enemy.max_health
+	pHealth.value = State.health
 	spellTexture.hide()
 	yourTurn = 1
 	DoTEffect.hide()
 	enemyAttack.hide()
 	fight.grab_focus()
+	pHealth_label.text = str("HP ",State.health,"/",State.maxHealth)
 	#add_spells()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	eHealth.value = enemy.health
-	pHealth.value = State.health
+func _process(delta):	
 	chosen_spell.text = State.spell1
 	chosen_spell_desc.text = State["spell_book"][State.spell1]["description"]
 	chosen_spell_dmg.text = str("Damage: ",State["spell_book"][State.spell1]["damage"])
 	
-	if yourTurn == 0:
-		turn_sign.text = "Enemy Turn"
-	else:
-
-		turn_sign.text = "Your Turn"
 
 func start_turn():
 	yourTurn = 1
@@ -111,26 +102,11 @@ func combat_data():
 # assign spells
 func add_spells():
 	pass
-#	var options = spells.keys()
-#	spell1.add_item(State.spell1) 
-#	spell2.add_item(State.spell2)
-#	spell3.add_item(State.spell3)
-#	for opt in options:
-#		spell1.add_item(str(opt))
-#		spell2.add_item(str(opt))
-#		spell3.add_item(str(opt))
-##		if opt != State.spell1:
-##			spell1.add_item(str(opt))
-##		if opt != State.spell2:	 
-##			spell2.add_item(str(opt))
-##		if opt != State.spell3:
-##			spell3.add_item(str(opt))
 
 
 #handles all damage modification for casting combined spells
 func castSpell() -> int:
 	var damage: int
-	var attackCount: int = 0
 	var crit_chance = State.crit_chance
 	var life_drain: float = 0.0
 	var types = []
@@ -140,28 +116,6 @@ func castSpell() -> int:
 	if spells[State.spell1]["class"]=="attack":
 		damage += spells[State.spell1]["damage"]
 		types.insert(0,str(spells[State.spell1]["type"]))
-		attackCount += 1
-	if State.spell2 != '':
-		if spells[State.spell2]["class"]=="attack":
-			damage += spells[State.spell2]["damage"]
-			types.insert(0,str(spells[State.spell2]["type"]))
-			attackCount += 1
-	if State.spell3 != '':
-		if spells[State.spell3]["class"]=="attack":
-			damage += spells[State.spell3]["damage"]
-			types.insert(0,str(spells[State.spell3]["type"]))
-			attackCount += 1
-		
-	# check for empowerments
-	if attackCount > 1:
-		if State.spell1 == State.spell2 and State.spell2 == State.spell3:
-			damage *= 1.5
-		elif spells[State.spell1] == spells[State.spell2]:
-			damage *= 1.25
-		elif spells[State.spell2] == spells[State.spell3]:
-			damage *= 1.25
-		elif spells[State.spell1] == spells[State.spell3]:
-			damage *= 1.25
 
 	
 	# check for support spells
@@ -179,12 +133,6 @@ func castSpell() -> int:
 	if State.spell1 !="":
 		if spells[State.spell1]["class"]=="defend":
 			State.armor += spells[State.spell1]["stat_mod"]["armor"]
-	if State.spell2 != "":
-		if spells[State.spell2]["class"]=="defend":
-			State.armor += spells[State.spell2]["stat_mod"]["armor"]
-	if State.spell3 !="":
-		if spells[State.spell3]["class"]=="defend":
-			State.armor += spells[State.spell3]["stat_mod"]["armor"]
 	
 	# check for blood type and do enemy self damage
 	for type in types:
@@ -309,6 +257,8 @@ func enemyTurn():
 			State.health -= damageTaken * .85
 		
 		State.health -= damageTaken
+		pHealth.value = State.health
+		pHealth_label.text = str("HP ",State.health,"/",State.maxHealth)
 		await get_tree().create_timer(2.0).timeout
 		
 		if burning_for > 0:
@@ -322,11 +272,12 @@ func enemyTurn():
 				enemy.updateHealth(10*1.20)
 			eHealth.value = enemy.health
 			DoTEffect.hide()
-			pass
+			
 		
 		
 		
 		yourTurn = 1
+		turn_sign.text = "Your Turn"
 		casts_left = State.casts
 		if State.health < 1:
 			death.emit()
@@ -336,7 +287,6 @@ func enemyTurn():
 
 # funcs to handle various UI elements and button presses
 func showAttacks():
-	inv.hide()
 	# show the buttons we do need
 	fight.show()
 	spell_book.show()
@@ -399,12 +349,14 @@ func _on_onepunch_pressed():
 		spellTexture.hide()
 		is_casting = false
 		instruct.hide()
+		
 		if casts_left > 0:
 			enemy.updateHealth(castSpell())
 			eHealth.value = enemy.health
 			casts_left -= 1
 			if casts_left == 0:
 				yourTurn = 0
+				turn_sign.text = "Enemy Turn"
 				enemyTurn()
 	
 
