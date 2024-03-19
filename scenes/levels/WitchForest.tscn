@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://drfmrbkjx66t8"]
+[gd_scene load_steps=53 format=3 uid="uid://drfmrbkjx66t8"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_74c0b"]
 [ext_resource type="Environment" uid="uid://bsxawlioltobo" path="res://themes/base_worldenv.tres" id="2_454ue"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cv1geiwpd66th" path="res://Art/buildings/vendor banner.png" id="13_f5r35"]
 [ext_resource type="Texture2D" uid="uid://be7e65erueknx" path="res://Art/ground/stepping_stone004.png" id="14_5kljq"]
 [ext_resource type="Texture2D" uid="uid://dm05foi04h1xs" path="res://Art/doors/door_001.png" id="27_s1fca"]
+[ext_resource type="Texture2D" uid="uid://dcj4b1jwt0t3t" path="res://Art/starting_village/chest.png" id="28_kbs45"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yh8mh"]
 texture = ExtResource("3_1xkim")
@@ -486,6 +487,17 @@ y_sort_enabled = true
 position = Vector2(-0.399902, 41.6)
 interact_type = "vendor"
 interact_value = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(700, 174)
+scale = Vector2(1.96875, 1.96875)
+texture = ExtResource("28_kbs45")
+
+[node name="InteractArea" parent="Sprite2D" instance=ExtResource("6_d8wmu")]
+position = Vector2(-0.112457, -0.0163879)
+interact_label = "Health Restore"
+interact_type = "lootable"
+interact_value = "5"
 
 [connection signal="combat_entered" from="player" to="." method="_on_player_combat_entered"]
 [connection signal="combat_end" from="combatScreen" to="." method="_on_combat_screen_combat_end"]

@@ -188,7 +188,6 @@ func _on_load_mouse_exited():
 	$"MarginContainer/VBoxContainer/Load".release_focus()
 	
 
-
 func _on_save_focus_entered():
 	toggle_focus_mark($MarginContainer/VBoxContainer/Save/ColorRect3)
 

@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdp5hv3wi84fi"]
+[gd_scene load_steps=4 format=3 uid="uid://cdp5hv3wi84fi"]
 
 [ext_resource type="Script" path="res://scripts/chest.gd" id="1_jqvul"]
+[ext_resource type="Texture2D" uid="uid://dcj4b1jwt0t3t" path="res://Art/starting_village/chest.png" id="2_on2od"]
 [ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="2_veku5"]
 
 [node name="chest" type="Node2D"]
 script = ExtResource("1_jqvul")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 4.76837e-07)
+scale = Vector2(1.375, 1.375)
+texture = ExtResource("2_on2od")
 
 [node name="InteractArea" parent="." instance=ExtResource("2_veku5")]
+position = Vector2(0, 12)
 interact_type = "chest"

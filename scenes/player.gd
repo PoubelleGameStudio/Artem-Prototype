@@ -229,20 +229,21 @@ func execute_interaction():
 										all_interactions[0].interact_label)
 				if State.inventory.has(cur_interaction.interact_label):
 						State.inventory[cur_interaction.interact_label] += int(cur_interaction.interact_value) 
-						cur_interaction.interact_value = str(int(cur_interaction.interact_value)-1)
-						if (int(cur_interaction.interact_value) == 0):
-							cur_interaction.get_parent().visible = false
-							cur_interaction.monitorable = false
+						
+						cur_interaction.get_parent().visible = false
+						cur_interaction.monitorable = false
+						
 						print(State.inventory)
 				else:
 					inv.populate_grid()
 					itemLabel.text = str("Picked up ",all_interactions[0].interact_value," ",
 							all_interactions[0].interact_label)
 					State.inventory[cur_interaction.interact_label] = int(cur_interaction.interact_value)
-					cur_interaction.interact_value = str(int(cur_interaction.interact_value)-1)
-					if (int(cur_interaction.interact_value) == 0):
-							cur_interaction.get_parent().visible = false
-							cur_interaction.monitorable = false
+					cur_interaction.interact_value = 0
+
+					cur_interaction.get_parent().visible = false
+					cur_interaction.monitorable = false
+					
 					print(State.inventory)
 				await get_tree().create_timer(2).timeout
 				itemLabel.text = ""

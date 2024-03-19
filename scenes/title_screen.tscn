@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1jcq7rvu0h6m"]
+[gd_scene load_steps=16 format=3 uid="uid://c1jcq7rvu0h6m"]
 
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="1_2dcj5"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="1_irif3"]
 [ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_kqvca"]
-[ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="3_qi0nm"]
 [ext_resource type="Texture2D" uid="uid://b0kmobajmfp4n" path="res://Sprites/textures/rainfall.png" id="5_sw188"]
 [ext_resource type="Texture2D" uid="uid://cvknnwa52hask" path="res://images/TITLE_SCREEN.png" id="6_hiifq"]
+[ext_resource type="Texture2D" uid="uid://bbnpyi3kpxt8m" path="res://Game Components/UI_Elements/main menu/buttons/New Game.png" id="7_knn8c"]
+[ext_resource type="Texture2D" uid="uid://cav7reonbiek2" path="res://Game Components/UI_Elements/main menu/buttons/load.png" id="8_m5rxt"]
+[ext_resource type="Texture2D" uid="uid://jv28nanluca3" path="res://Game Components/UI_Elements/main menu/buttons/Quit.png" id="9_ljm66"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tln6c"]
 emission_shape = 3
@@ -20,6 +22,18 @@ angle_max = -208.6
 scale_min = 0.5
 scale_max = 0.55
 color = Color(1, 0.917647, 1, 0.45098)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wr5ty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cthy1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0kpnj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5v1nd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_43dif"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btbyn"]
 
 [node name="root" type="Node2D"]
 position = Vector2(0.144531, -4.02728)
@@ -133,41 +147,100 @@ expand_mode = 2
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-visible = false
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -13.0
-offset_right = 162.0
-offset_bottom = 13.0
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 40
-
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer"]
-visible = false
-layout_mode = 2
-text = "The 
-Watcher's 
-Curse"
-label_settings = ExtResource("3_qi0nm")
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -321.0
-offset_top = -162.0
-offset_bottom = 162.0
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.5
+offset_top = -281.0
+offset_right = 73.5
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 40
 
 [node name="MainMenu" parent="CanvasLayer/HBoxContainer2" instance=ExtResource("1_2dcj5")]
+visible = false
 layout_mode = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="New Game" type="Button" parent="CanvasLayer/HBoxContainer2"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Load")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wr5ty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cthy1")
+icon = ExtResource("7_knn8c")
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HBoxContainer2/New Game"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.0
+offset_top = -92.0
+offset_right = 76.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.431373, 1, 0.388235, 1)
+
+[node name="Load" type="Button" parent="CanvasLayer/HBoxContainer2"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../New Game")
+focus_neighbor_bottom = NodePath("../Save")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0kpnj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5v1nd")
+icon = ExtResource("8_m5rxt")
+flat = true
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/HBoxContainer2/Load"]
+visible = false
+layout_mode = 0
+offset_left = 0.5
+offset_top = 189.0
+offset_right = 149.5
+offset_bottom = 197.0
+color = Color(0.431373, 1, 0.388235, 1)
+
+[node name="Exit" type="Button" parent="CanvasLayer/HBoxContainer2"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Save")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_43dif")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_btbyn")
+text = "
+"
+icon = ExtResource("9_ljm66")
+flat = true
+icon_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/HBoxContainer2/Exit"]
+visible = false
+layout_mode = 0
+offset_left = 0.5
+offset_top = 189.0
+offset_right = 149.5
+offset_bottom = 197.0
+color = Color(0.431373, 1, 0.388235, 1)
+
+[connection signal="focus_entered" from="CanvasLayer/HBoxContainer2/New Game" to="." method="_on_new_game_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/HBoxContainer2/New Game" to="." method="_on_new_game_focus_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/HBoxContainer2/New Game" to="." method="_on_new_game_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/HBoxContainer2/New Game" to="." method="_on_new_game_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="focus_entered" from="CanvasLayer/HBoxContainer2/Load" to="." method="_on_load_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/HBoxContainer2/Load" to="." method="_on_load_focus_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/HBoxContainer2/Load" to="." method="_on_load_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/HBoxContainer2/Load" to="." method="_on_load_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/Load" to="." method="_on_load_pressed"]
+[connection signal="focus_entered" from="CanvasLayer/HBoxContainer2/Exit" to="." method="_on_exit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/HBoxContainer2/Exit" to="." method="_on_exit_focus_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/HBoxContainer2/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/HBoxContainer2/Exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/Exit" to="." method="_on_exit_pressed"]

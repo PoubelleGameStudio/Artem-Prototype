@@ -40,6 +40,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 50
 
 [node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Load")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_j558v")
