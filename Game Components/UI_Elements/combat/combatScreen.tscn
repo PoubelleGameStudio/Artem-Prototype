@@ -632,7 +632,6 @@ horizontal_alignment = 2
 [node name="enemyCombat" parent="." instance=ExtResource("3_6j6h7")]
 position = Vector2(1551, 227)
 scale = Vector2(7, 7)
-emitter = 1
 
 [node name="inventory_ui" parent="." instance=ExtResource("7_6qudd")]
 z_index = 1

@@ -431,8 +431,7 @@ script = ExtResource("1_eqi02")
 y_sort_enabled = true
 position = Vector2(2, 25)
 sprite_frames = SubResource("SpriteFrames_ovs6o")
-animation = &"Sorrow Shade_idle"
-frame_progress = 0.0329569
+animation = &"executioner_attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true

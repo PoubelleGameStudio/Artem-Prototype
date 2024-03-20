@@ -40,7 +40,7 @@ func _process(delta):
 	if State.talking == 1:
 		music.volume_db -= 10
 	else:
-		music.volume_db = -10
+		music.volume_db = -15
 	
 
 ########### checks that save directory exists###########

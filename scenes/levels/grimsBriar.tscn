@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://q5ywfy1ec1ow"]
+[gd_scene load_steps=100 format=3 uid="uid://q5ywfy1ec1ow"]
 
 [ext_resource type="Texture2D" uid="uid://dcuunnkft6r1s" path="res://Sprites/bugs_night01_spritesheet.png" id="1_4guck"]
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_a3bhj"]
@@ -50,16 +50,21 @@
 [ext_resource type="Texture2D" uid="uid://dtdoyj0egobim" path="res://Sprites/world objects/trashcans/trashcan.png" id="35_8300o"]
 [ext_resource type="PackedScene" uid="uid://cwolc4dutryab" path="res://Game Components/tutorials/tutorials pop up.tscn" id="35_mit16"]
 [ext_resource type="PackedScene" uid="uid://dc6twae4gpv87" path="res://Game Components/UI_Elements/combat/combatScreen.tscn" id="36_v2jdf"]
+[ext_resource type="AudioStream" uid="uid://dk4rbq3qappgy" path="res://sounds/ambient/Rain.mp3" id="51_iu4o1"]
+[ext_resource type="Script" path="res://scripts/autoplay_sound.gd" id="52_fstjm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4df8r"]
 shader = ExtResource("2_30yjd")
+shader_parameter/base_color = Color(0.592157, 0.0705882, 0.258824, 0.619608)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_unpto"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i301y"]
 frequency = 0.0063
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ytnll"]
+width = 2000
+height = 2000
 seamless = true
-noise = SubResource("FastNoiseLite_unpto")
+noise = SubResource("FastNoiseLite_i301y")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dg6g"]
 texture = ExtResource("1_4guck")
@@ -511,10 +516,10 @@ level_name = "grimsBriar"
 z_index = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_4df8r")
-offset_left = -328.0
-offset_top = -1182.0
-offset_right = 5688.0
-offset_bottom = 3116.0
+offset_left = -1519.0
+offset_top = -1147.0
+offset_right = 4533.0
+offset_bottom = 1160.0
 texture = SubResource("NoiseTexture2D_ytnll")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -766,7 +771,7 @@ scale = Vector2(1, 0.937)
 model = " "
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
-position = Vector2(-3.11951, -3.90521)
+position = Vector2(2585.67, -85.2432)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
 visible = false
@@ -1110,6 +1115,12 @@ position = Vector2(-3, 8)
 monitorable = false
 interact_type = "respawn"
 interact_value = "1"
+
+[node name="rain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("51_iu4o1")
+volume_db = -22.962
+autoplay = true
+script = ExtResource("52_fstjm")
 
 [connection signal="combat_entered" from="player" to="." method="_on_player_combat_entered"]
 [connection signal="combat_end" from="combatScreen" to="." method="_on_combat_screen_combat_end"]
