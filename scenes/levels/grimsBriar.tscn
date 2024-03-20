@@ -1,8 +1,9 @@
-[gd_scene load_steps=94 format=3 uid="uid://q5ywfy1ec1ow"]
+[gd_scene load_steps=98 format=3 uid="uid://q5ywfy1ec1ow"]
 
 [ext_resource type="Texture2D" uid="uid://dcuunnkft6r1s" path="res://Sprites/bugs_night01_spritesheet.png" id="1_4guck"]
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_a3bhj"]
 [ext_resource type="Environment" uid="uid://bsxawlioltobo" path="res://themes/base_worldenv.tres" id="2_05bvd"]
+[ext_resource type="Shader" path="res://shaders/fog.gdshader" id="2_30yjd"]
 [ext_resource type="Texture2D" uid="uid://cajwxlip58ygf" path="res://Art/walls/ironFence_night02.png" id="2_uirp8"]
 [ext_resource type="Texture2D" uid="uid://bhx6u3r52bon6" path="res://Sprites/Artem/artem_v1_front_idle-spritesheet.png" id="3_7wnry"]
 [ext_resource type="Texture2D" uid="uid://h8joxnvt8lrh" path="res://Art/ground/grass_night_down01.png" id="3_qik86"]
@@ -49,6 +50,16 @@
 [ext_resource type="Texture2D" uid="uid://dtdoyj0egobim" path="res://Sprites/world objects/trashcans/trashcan.png" id="35_8300o"]
 [ext_resource type="PackedScene" uid="uid://cwolc4dutryab" path="res://Game Components/tutorials/tutorials pop up.tscn" id="35_mit16"]
 [ext_resource type="PackedScene" uid="uid://dc6twae4gpv87" path="res://Game Components/UI_Elements/combat/combatScreen.tscn" id="36_v2jdf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4df8r"]
+shader = ExtResource("2_30yjd")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_unpto"]
+frequency = 0.0063
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ytnll"]
+seamless = true
+noise = SubResource("FastNoiseLite_unpto")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dg6g"]
 texture = ExtResource("1_4guck")
@@ -495,6 +506,16 @@ position = Vector2(279, 163)
 script = ExtResource("1_a3bhj")
 is_raining = 1
 level_name = "grimsBriar"
+
+[node name="Fog" type="TextureRect" parent="."]
+z_index = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_4df8r")
+offset_left = -328.0
+offset_top = -1182.0
+offset_right = 5688.0
+offset_bottom = 3116.0
+texture = SubResource("NoiseTexture2D_ytnll")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_05bvd")
