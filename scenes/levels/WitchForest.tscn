@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://drfmrbkjx66t8"]
+[gd_scene load_steps=59 format=3 uid="uid://drfmrbkjx66t8"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_74c0b"]
 [ext_resource type="Environment" uid="uid://bsxawlioltobo" path="res://themes/base_worldenv.tres" id="2_454ue"]
@@ -28,6 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://be7e65erueknx" path="res://Art/ground/stepping_stone004.png" id="14_5kljq"]
 [ext_resource type="Texture2D" uid="uid://dm05foi04h1xs" path="res://Art/doors/door_001.png" id="27_s1fca"]
 [ext_resource type="Texture2D" uid="uid://dcj4b1jwt0t3t" path="res://Art/starting_village/chest.png" id="28_kbs45"]
+[ext_resource type="Shader" path="res://shaders/fog.gdshader" id="29_q7g8q"]
+[ext_resource type="AudioStream" uid="uid://dk4rbq3qappgy" path="res://sounds/ambient/Rain.mp3" id="30_arh7t"]
+[ext_resource type="Script" path="res://scripts/autoplay_sound.gd" id="31_ij33q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yh8mh"]
 texture = ExtResource("3_1xkim")
@@ -236,6 +239,19 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pqx84"]
+shader = ExtResource("29_q7g8q")
+shader_parameter/base_color = Color(0.396078, 0.819608, 0.737255, 0.337255)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_od5ih"]
+frequency = 0.0063
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s1dgo"]
+width = 2000
+height = 2000
+seamless = true
+noise = SubResource("FastNoiseLite_od5ih")
 
 [node name="root" type="Node2D"]
 y_sort_enabled = true
@@ -498,6 +514,22 @@ position = Vector2(-0.112457, -0.0163879)
 interact_label = "Health Restore"
 interact_type = "lootable"
 interact_value = "5"
+
+[node name="Fog" type="TextureRect" parent="."]
+z_index = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_pqx84")
+offset_left = -732.0
+offset_top = -1147.0
+offset_right = 5732.0
+offset_bottom = 1317.0
+texture = SubResource("NoiseTexture2D_s1dgo")
+
+[node name="rain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_arh7t")
+volume_db = -22.962
+autoplay = true
+script = ExtResource("31_ij33q")
 
 [connection signal="combat_entered" from="player" to="." method="_on_player_combat_entered"]
 [connection signal="combat_end" from="combatScreen" to="." method="_on_combat_screen_combat_end"]
