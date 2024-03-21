@@ -55,16 +55,18 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4df8r"]
 shader = ExtResource("2_30yjd")
-shader_parameter/base_color = Color(0.592157, 0.0705882, 0.258824, 0.619608)
+shader_parameter/base_color = Color(1, 1, 1, 0.6)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_lsybx"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u6be7"]
+seed = 112293
 frequency = 0.0063
+fractal_octaves = 7
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ytnll"]
 width = 2000
 height = 2000
 seamless = true
-noise = SubResource("FastNoiseLite_lsybx")
+noise = SubResource("FastNoiseLite_u6be7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dg6g"]
 texture = ExtResource("1_4guck")
@@ -771,7 +773,7 @@ scale = Vector2(1, 0.937)
 model = " "
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
-position = Vector2(2585.67, -85.2432)
+position = Vector2(800.866, -132.326)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
 visible = false

@@ -12,6 +12,6 @@ fog_light_energy = 8.87
 fog_sun_scatter = 0.41
 fog_density = 0.9547
 adjustment_enabled = true
-adjustment_brightness = 0.7
+adjustment_brightness = 0.6
 adjustment_contrast = 1.26
 adjustment_saturation = 1.13
