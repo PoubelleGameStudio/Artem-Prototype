@@ -14,7 +14,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ma6fg"]
 shader = ExtResource("9_pdgth")
-shader_parameter/base_color = Color(0.592157, 0.0705882, 0.258824, 0.360784)
+shader_parameter/base_color = Color(0.995022, 0.822996, 0.849881, 0.360784)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_n80gp"]
 frequency = 0.0063
@@ -162,10 +162,10 @@ zoom = Vector2(3, 3)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -82.0
-offset_top = -414.0
-offset_right = -82.0
-offset_bottom = 426.0
+offset_left = -474.0
+offset_top = -418.0
+offset_right = 366.0
+offset_bottom = 422.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_hiifq")

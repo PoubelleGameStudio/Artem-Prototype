@@ -1,12 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://c8skkvcn0ci81"]
+[gd_scene load_steps=22 format=3 uid="uid://c8skkvcn0ci81"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/Talent Tree/talentTree.gd" id="1_jmed0"]
 [ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="2_t0owy"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="2_w43jx"]
 [ext_resource type="FontFile" uid="uid://i8xcwtoee0vp" path="res://Game Components/fonts/AlmendraSC-Italic.otf" id="3_f43mx"]
+[ext_resource type="LabelSettings" uid="uid://bwi74ldi25y7a" path="res://journal_text.tres" id="5_e1hj4"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="5_p3t0c"]
 [ext_resource type="Texture2D" uid="uid://d11wrjcwmffb5" path="res://Sprites/combat/spell icons/Sacred Kindling.png" id="6_e6b38"]
+[ext_resource type="Texture2D" uid="uid://f5ep3bwx48d4" path="res://Sprites/combat/spell icons/Hollowed Threats.png" id="7_ao7lw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cflig"]
 
@@ -107,6 +109,11 @@ text = "Welcome to the Field Training section of your Watcher's Journal! Select 
 label_settings = ExtResource("2_t0owy")
 autowrap_mode = 2
 
+[node name="TalentType" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
+layout_mode = 2
+text = "Type"
+label_settings = ExtResource("5_e1hj4")
+
 [node name="lvl req" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
 layout_mode = 2
 text = "Level Required: 17"
@@ -145,6 +152,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_j8n0d")
 talentName = "HP+"
 description = "Increase your total health by 10"
 required_level = 10
+talentType = "Passive Buff"
 
 [node name="Extra Action" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -152,6 +160,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_jybwg")
 talentName = "Extra Action"
 description = "Perform a second cast each turn"
 required_level = 10
+talentType = "Passive Buff"
 
 [node name="Shield+" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -159,6 +168,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_7txmj")
 talentName = "Shield+"
 description = "Decrease damange taken by 15%"
 required_level = 15
+talentType = "Passive Buff"
 
 [node name="Attack+" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -166,6 +176,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_q1c8s")
 talentName = "Attack+"
 description = "Increase damage by 20%"
 required_level = 20
+talentType = "Passive Buff"
 
 [node name="border" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -187,7 +198,7 @@ layout_mode = 2
 
 [node name="Skills" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Artifacts
+text = "Improvements
 
 "
 label_settings = ExtResource("2_t0owy")
@@ -211,6 +222,7 @@ icon_alignment = 1
 talentName = "Sacred Kindling"
 description = "The first kindling ever ignited by the wielders of flame increases the damage over time damage of your fire spells"
 required_level = 10
+talentType = "Passive Buff"
 
 [node name="Button2" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells" instance=ExtResource("1_np83o")]
 visible = false
@@ -233,9 +245,14 @@ horizontal_alignment = 1
 [node name="Arcane_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 
-[node name="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
-visible = false
+[node name="Hollowed Threats" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+icon = ExtResource("7_ao7lw")
+icon_alignment = 1
+talentName = "Hollowed Threats"
+description = "Seep your opponent in void energy weakening their attack by 10%"
+required_level = 5
+talentType = "Spell"
 
 [node name="Button2" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 visible = false
@@ -312,4 +329,5 @@ horizontal_alignment = 1
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Shield+" to="." method="_on_shield_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Attack+" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells/Sacred Kindling" to="." method="_on_sacred_kindling_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Hollowed Threats" to="." method="_on_hollowed_threats_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Confirm" to="." method="_on_confirm_pressed"]

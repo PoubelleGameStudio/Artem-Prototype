@@ -3,8 +3,8 @@ class_name TalentButton
 
 @export var talentName : String = ""
 @export var description : String = ""
-@export var maxRank : int
 @export var required_level : int
+@export var talentType: String = ""
 @export var selected: bool:
 	set(value):
 		selected = value
@@ -34,15 +34,6 @@ func _ready():
 		self.icon = load(str(art_path,talentName,".png"))
 	
 
-
-		
-		
-
-func is_max():
-	if rank == maxRank:
-		return true
-	else:
-		return false
 
 ################## SIGNALS ##################
 func _on_pressed():

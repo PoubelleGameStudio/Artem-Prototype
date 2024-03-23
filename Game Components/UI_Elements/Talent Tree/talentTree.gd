@@ -3,6 +3,7 @@ class_name TalentTree
 
 @onready var TalentName: Label = $PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/TalentName
 @onready var TalentDesc: Label = $PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/TalentDescription
+@onready var TalentType: Label = $PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/TalentType
 @onready var lvl_req: Label = $"PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/lvl req"
 
 
@@ -16,10 +17,14 @@ class_name TalentTree
 @onready var attack: Button = $"PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Attack+"
 @onready var attack_pressed: bool = false
 
-#character spell unlocks
+# character spell unlocks
+# Fire
 @onready var kindling: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells/Sacred Kindling"
 @onready var kindling_pressed: bool = false
 
+# Void
+@onready var hollowed_threats: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Hollowed Threats"
+@onready var hollowed_threats_pressed: bool = false
 
 func _ready():
 	TalentName.text = ""
@@ -57,6 +62,7 @@ func _on_hp_1_pressed():
 	print('talentTree sees press')
 	TalentName.text = hp.talentName
 	TalentDesc.text = hp.description
+	TalentType.text = str("Type: ",hp.talentType)
 	lvl_req.text = str("Level Required: ",hp.required_level)
 	if hp_pressed:
 		hp_pressed = false
@@ -67,6 +73,7 @@ func _on_hp_1_pressed():
 func _on_shield_pressed():
 	TalentName.text = shield.talentName
 	TalentDesc.text = shield.description
+	TalentType.text = str("Type: ",shield.talentType)
 	lvl_req.text = str("Level Required: ",shield.required_level)
 	if shield_pressed:
 		shield_pressed = false
@@ -77,6 +84,7 @@ func _on_shield_pressed():
 func _on_extra_action_pressed():
 	TalentName.text = extra_cast.talentName
 	TalentDesc.text = extra_cast.description
+	TalentType.text = str("Type: ",extra_cast.talentType)
 	lvl_req.text = str("Level Required: ",extra_cast.required_level)
 	if extra_pressed:
 		extra_pressed = false
@@ -86,6 +94,7 @@ func _on_extra_action_pressed():
 func _on_attack_pressed():
 	TalentName.text = attack.talentName
 	TalentDesc.text = attack.description
+	TalentType.text = str("Type: ",attack.talentType)
 	lvl_req.text = str("Level Required: ",attack.required_level)
 	if attack_pressed:
 		attack_pressed = false
@@ -102,8 +111,16 @@ func _on_confirm_pressed():
 func _on_sacred_kindling_pressed():
 	TalentName.text = kindling.talentName
 	TalentDesc.text = kindling.description
+	TalentType.text = str("Type: ",kindling.talentType)
 	lvl_req.text = str("Level Required: ",kindling.required_level)
 	if kindling_pressed:
 		kindling_pressed = false
 	else:
 		kindling_pressed = true
+
+
+func _on_hollowed_threats_pressed():
+	TalentName.text = hollowed_threats.talentName
+	TalentDesc.text = hollowed_threats.description
+	TalentType.text = str("Type: ",hollowed_threats.talentType)
+	lvl_req.text = str("Level Required: ",hollowed_threats.required_level)
