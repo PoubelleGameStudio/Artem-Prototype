@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhyo328ib0t0j"
-path="res://.godot/imported/Sanguinated Shell.png-669c0af983d39d9cd8639bce45546c9d.ctex"
+uid="uid://f5ep3bwx48d4"
+path="res://.godot/imported/Hollowed Threats - talent.png-2fdf702ccc819c44ec43abfa54e15b2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/combat/spell icons/Sanguinated Shell.png"
-dest_files=["res://.godot/imported/Sanguinated Shell.png-669c0af983d39d9cd8639bce45546c9d.ctex"]
+source_file="res://Sprites/combat/spell icons/Hollowed Threats - talent.png"
+dest_files=["res://.godot/imported/Hollowed Threats - talent.png-2fdf702ccc819c44ec43abfa54e15b2d.ctex"]
 
 [params]
 

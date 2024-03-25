@@ -52,10 +52,7 @@ func _ready():
 	TalentName.text = ""
 	lvl_req.text = ""
 	skill_check()
-	
 
-func _process(_delta):
-	pass
 
 func skill_check():
 	if State.t_HP:
@@ -68,7 +65,36 @@ func skill_check():
 		extra_pressed = true
 		extra_cast.selected = true
 	if State.t_shield:
+		shield_pressed = true
 		shield.selected = true
+	if State.t_kindling:
+		kindling_pressed = true
+		kindling.selected = true
+	if State.t_curse:
+		curse_pressed = true
+		curse.selected = true
+	if State.t_poison_swamp:
+		poison_swamp_pressed = true
+		poison_swamp.selected = true
+	if State.t_hollowed_threats: 
+		hollowed_threats_pressed = true
+		hollowed_threats.selected = true
+	if State.t_void_sight:
+		void_sight_pressed = true
+		void_sight.selected = true
+	if State.t_vapid_affliction:
+		vapid_affliction_pressed = true
+		vapid_affliction.selected = true
+	if State.t_sanguinated_shell:
+		sanguinated_shell_pressed = true
+		sanguinated_shell.selected = true
+	if State.t_blood_clot_homunculus:
+		blood_clot_homunculus_pressed = true
+		blood_clot_homunculus.selected = true
+	if State.t_blood_moon:
+		blood_moon_pressed = true
+		blood_moon.selected = true
+
 
 func commit_skills() -> void:
 	if hp_pressed:
@@ -79,6 +105,25 @@ func commit_skills() -> void:
 		State.t_extra_cast = true
 	if shield_pressed:
 		State.t_shield = true
+	if kindling_pressed:
+		State.t_kindling = true
+	if curse_pressed:
+		State.t_curse = true
+	if poison_swamp_pressed:
+		State.t_poison_swamp = true
+	if hollowed_threats_pressed:
+		State.t_hollowed_threats = true
+	if void_sight_pressed:
+		State.t_void_sight = true
+	if vapid_affliction_pressed:
+		State.t_vapid_affliction = true
+	if sanguinated_shell_pressed:
+		State.t_sanguinated_shell = true
+	if blood_clot_homunculus_pressed:
+		State.t_blood_clot_homunculus = true
+	if blood_moon_pressed:
+		State.t_blood_moon = true
+
 
 func _on_hp_1_pressed():
 	print('talentTree sees press')
@@ -113,6 +158,7 @@ func _on_extra_action_pressed():
 	else:
 		extra_pressed = true
 
+
 func _on_attack_pressed():
 	TalentName.text = attack.talentName
 	TalentDesc.text = attack.description
@@ -139,19 +185,28 @@ func _on_sacred_kindling_pressed():
 		kindling_pressed = false
 	else:
 		kindling_pressed = true
-		
+
+
 func _on_curse_pressed():
 	TalentName.text = curse.talentName
 	TalentDesc.text = curse.description
 	TalentType.text = str("Type: ",curse.talentType)
 	lvl_req.text = str("Level Required: ",curse.required_level)
-	
+	if curse_pressed:
+		curse_pressed = false
+	else:
+		curse_pressed = true
+
 
 func _on_poison_swamp_pressed():
 	TalentName.text = poison_swamp.talentName
 	TalentDesc.text = poison_swamp.description
 	TalentType.text = str("Type: ",poison_swamp.talentType)
 	lvl_req.text = str("Level Required: ",poison_swamp.required_level)
+	if poison_swamp_pressed:
+		poison_swamp_pressed = false
+	else:
+		poison_swamp_pressed = true
 
 
 func _on_hollowed_threats_pressed():
@@ -159,29 +214,43 @@ func _on_hollowed_threats_pressed():
 	TalentDesc.text = hollowed_threats.description
 	TalentType.text = str("Type: ",hollowed_threats.talentType)
 	lvl_req.text = str("Level Required: ",hollowed_threats.required_level)
-	
+	if hollowed_threats_pressed:
+		hollowed_threats_pressed = false
+	else:
+		hollowed_threats_pressed = true	
+
 
 func _on_void_sight_pressed():
 	TalentName.text = void_sight.talentName
 	TalentDesc.text = void_sight.description
 	TalentType.text = str("Type: ",void_sight.talentType)
 	lvl_req.text = str("Level Required: ", void_sight.required_level)
-	
-	
+	if void_sight_pressed:
+		void_sight_pressed = false
+	else:
+		void_sight_pressed = true		
+
 
 func _on_vapid_affliction_pressed():
 	TalentName.text = vapid_affliction.talentName
 	TalentDesc.text = vapid_affliction.description
 	TalentType.text = str("Type: ",vapid_affliction.talentType)
 	lvl_req.text = str("Level Required: ", vapid_affliction.required_level)
+	if vapid_affliction_pressed:
+		vapid_affliction_pressed = false
+	else:
+		vapid_affliction_pressed = true		
+
 
 func _on_sanguinated_shell_pressed():
 	TalentName.text = sanguinated_shell.talentName
 	TalentDesc.text = sanguinated_shell.description
 	TalentType.text = str("Type: ",sanguinated_shell.talentType)
 	lvl_req.text = str("Level Required: ",sanguinated_shell.required_level)
-	
-
+	if sanguinated_shell_pressed:
+		sanguinated_shell_pressed = false
+	else:
+		sanguinated_shell_pressed = true			
 
 
 func _on_blood_clot_homunculus_pressed():
@@ -189,7 +258,10 @@ func _on_blood_clot_homunculus_pressed():
 	TalentDesc.text = blood_clot_homunculus.description
 	TalentType.text = str("Type: ",blood_clot_homunculus.talentType)
 	lvl_req.text = str("Level Required: ",blood_clot_homunculus.required_level)
-
+	if blood_clot_homunculus_pressed:
+		blood_clot_homunculus_pressed = false
+	else:
+		blood_clot_homunculus_pressed = true	
 
 
 func _on_blood_moon_pressed():
@@ -197,4 +269,7 @@ func _on_blood_moon_pressed():
 	TalentDesc.text = blood_moon.description
 	TalentType.text = str("Type: ",blood_moon.talentType)
 	lvl_req.text = str("Level Required: ",blood_moon.required_level)
-
+	if blood_moon_pressed:
+		blood_moon_pressed = false
+	else:
+		blood_moon_pressed = true	

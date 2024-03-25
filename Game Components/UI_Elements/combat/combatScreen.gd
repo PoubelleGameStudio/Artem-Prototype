@@ -88,6 +88,7 @@ func camera_current():
 
 #set up on combat start
 func combat_data():
+	_ready()
 	enemy.enemyID(State.enemyID)
 	enemy.world = world_level
 	enemy.enemyType(State.engaging[0])

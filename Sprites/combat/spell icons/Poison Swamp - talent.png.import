@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhyo328ib0t0j"
-path="res://.godot/imported/Sanguinated Shell.png-669c0af983d39d9cd8639bce45546c9d.ctex"
+uid="uid://bf55ok55kpkja"
+path="res://.godot/imported/Poison Swamp - talent.png-ded4c11a0cf709a29dbd7c2d457e0e94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/combat/spell icons/Sanguinated Shell.png"
-dest_files=["res://.godot/imported/Sanguinated Shell.png-669c0af983d39d9cd8639bce45546c9d.ctex"]
+source_file="res://Sprites/combat/spell icons/Poison Swamp - talent.png"
+dest_files=["res://.godot/imported/Poison Swamp - talent.png-ded4c11a0cf709a29dbd7c2d457e0e94.ctex"]
 
 [params]
 

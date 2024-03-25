@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhyo328ib0t0j"
-path="res://.godot/imported/Sanguinated Shell.png-669c0af983d39d9cd8639bce45546c9d.ctex"
+uid="uid://b7txla0nj71dl"
+path="res://.godot/imported/Void Sight talent.png-50ba39a32b5256e09dc512375d8d2f1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/combat/spell icons/Sanguinated Shell.png"
-dest_files=["res://.godot/imported/Sanguinated Shell.png-669c0af983d39d9cd8639bce45546c9d.ctex"]
+source_file="res://Sprites/combat/spell icons/Void Sight talent.png"
+dest_files=["res://.godot/imported/Void Sight talent.png-50ba39a32b5256e09dc512375d8d2f1a.ctex"]
 
 [params]
 

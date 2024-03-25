@@ -109,7 +109,61 @@ func _on_speak():
 		if old_val != value:
 			t_kindling = value
 
+@onready var t_curse: bool = false: #
+	set(value):
+		var old_val = t_curse
+		if old_val != value:
+			t_curse = value
+			spell_book["Curse"]["learned"] = 1
+			
+@onready var t_poison_swamp: bool = false: #
+	set(value):
+		var old_val = t_poison_swamp
+		if old_val != value:
+			t_poison_swamp = value
+			spell_book["Poison Swamp"]["learned"] = 1
 
+@onready var t_hollowed_threats: bool = false:
+	set(value):
+		var old_val = t_hollowed_threats
+		if old_val != value:
+			t_hollowed_threats = value
+			spell_book["Hollowed Threats"]["learned"] = 1
+			
+@onready var t_void_sight: bool = false:
+	set(value):
+		var old_val = t_void_sight
+		if old_val != value:
+			t_void_sight = value
+			spell_book["Void Sight"]["learned"] = 1
+
+@onready var t_vapid_affliction: bool = false:
+	set(value):
+		var old_val = t_vapid_affliction
+		if old_val != value:
+			t_vapid_affliction = value
+			spell_book["Vapid Affliction"]["learned"] = 1
+			
+@onready var t_sanguinated_shell: bool = false:
+	set(value):
+		var old_val = t_sanguinated_shell
+		if old_val != value:
+			t_sanguinated_shell = value
+			spell_book["Sanguinated Shell"]["learned"] = 1
+			
+@onready var t_blood_clot_homunculus: bool = false:
+	set(value):
+		var old_val = t_blood_clot_homunculus
+		if old_val != value:
+			t_blood_clot_homunculus = value
+			spell_book["Blood Clot Homunculus"]["learned"] = 1
+			
+@onready var t_blood_moon: bool = false:
+	set(value):
+		var old_val = t_blood_moon
+		if old_val != value:
+			t_blood_moon = value
+			spell_book["Blood Moon"]["learned"] = 1
 
 @onready var tutorials: Dictionary = {
 	"Basics":{
@@ -125,63 +179,87 @@ func _on_speak():
 
 # spell book and functions
 @onready var spell_book = {
-	"bloodThirst":{
-		"name":"Blood Thirst",
-		"description":"You reference your journal for critical weak points in similar foes",
-		"learned":0,
-		"damage":0,
-		"class": "support",
-		"type":"blood",
-		"stat_mod":{
-			"crit_chance":.2
-			},
-	},
-	"barrier":{
-		"name":"Barrier",
-		"description":"You protect yourself from damage for 2 turns",
+	"Sanguinated Shell":{
+		"name":"Sanguinated Shell",
+		"description":"",
 		"learned":0,
 		"damage":0,
 		"class": "defend",
-		"stat_mod":{
-			"armor":200 
-			# each enemy attack will check if player armor is over 100
-			# if armor is over 100 then the attack will remove 100 armor
-			# this way defense spells with armor buffs don't need to count turns
-		},
+		"type":"blood",
+		"stat_mod":{}
+	},
+	"Blood Clot Homunculus":{
+		"name":"Blood Clot Homunculus",
+		"description":"",
+		"learned":0,
+		"damage":0,
+		"class": "attack",
+		"type": "blood",
+		"stat_mod":{}
+	},
+	"Blood Moon":{
+		"name":"Blood Moon",
+		"description":"",
+		"learned":0,
+		"damage":0,
+		"class": "stadium",
+		"type": "blood",
+		"stat_mod":{}
 	},
 	"fireball":{
 		"name":"Fireball",
-		"description":"A technique, taught to you by a beared tea lover, that blasts your opponent with concentrated fire.",
+		"description":"A technique, taught to you by a bearded flamethrower, that blasts your opponent with concentrated fire.",
 		"learned":1,
-		"aoe":0,
 		"damage":15,
 		"class": "attack",
-		"type": "fire",
-		"stat_mod":{
-		},
+		"type": "Fire",
+		"stat_mod":{},
 	},
-	"frostbolt":{
-		"name":"Blizzard",
+	"Hollowed Threats":{
+		"name":"Hollowed Threats",
 		"description":"",
-		"learned":1,
-		"aoe":0,
-		"damage":10,
+		"learned":0,
+		"damage":0,
 		"class": "attack",
-		"type": "frost",
-		"stat_mod":{
-		},
+		"type": "void",
+		"stat_mod":{},
+	},
+	"Void Sight":{
+		"name":"Void Sight",
+		"description":"",
+		"learned":0,
+		"damage":0,
+		"class": "attack",
+		"type": "void",
+		"stat_mod":{},
+	},
+	"Vapid Affliction":{
+		"name":"Vapid Affliction",
+		"description":"",
+		"learned":0,
+		"damage":0,
+		"class": "attack",
+		"type": "void",
+		"stat_mod":{},
 	},
 	"Curse":{
 		"name":"Curse",
 		"description":"Chaos entangled matter attacks the soul directly.",
-		"learned":1,
-		"aoe":0,
+		"learned":0,
 		"damage":15,
 		"class": "attack",
 		"type": "void",
-		"stat_mod":{
-		}
-	}
+		"stat_mod":{}
+	},
+	"Poison Swamp":{
+		"name":"Poison Swamp",
+		"description":"",
+		"learned":0,
+		"damage":10,
+		"class": "attack",
+		"type": "Invoke",
+		"stat_mod":{}
+	},
 }
 
 func learn_spell(spell,cost,damage,stat_mod,stat_mod_amt,stat_req,stat_req_amt):

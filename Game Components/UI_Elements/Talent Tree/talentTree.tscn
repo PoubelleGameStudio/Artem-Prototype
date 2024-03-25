@@ -8,17 +8,17 @@
 [ext_resource type="LabelSettings" uid="uid://bwi74ldi25y7a" path="res://journal_text.tres" id="5_e1hj4"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="5_p3t0c"]
 [ext_resource type="Texture2D" uid="uid://d11wrjcwmffb5" path="res://Sprites/combat/spell icons/Sacred Kindling.png" id="6_e6b38"]
-[ext_resource type="Texture2D" uid="uid://f5ep3bwx48d4" path="res://Sprites/combat/spell icons/Hollowed Threats.png" id="7_ao7lw"]
 [ext_resource type="Texture2D" uid="uid://c1qyxdxyd0j4h" path="res://Sprites/combat/spell icons/Extra Action.png" id="7_dsysm"]
 [ext_resource type="Texture2D" uid="uid://bo1o03unrmgk3" path="res://Sprites/combat/spell icons/Shield+.png" id="8_6sv8i"]
 [ext_resource type="Texture2D" uid="uid://bq5tnn7nw5kxi" path="res://Sprites/combat/spell icons/Curse - Talent.png" id="8_75706"]
-[ext_resource type="Texture2D" uid="uid://bf55ok55kpkja" path="res://Sprites/combat/spell icons/Poison Swamp.png" id="9_4a43k"]
 [ext_resource type="Texture2D" uid="uid://bngn30hbsucx3" path="res://Sprites/combat/spell icons/Attack+.png" id="9_k7y6d"]
-[ext_resource type="Texture2D" uid="uid://lem1okyj7ipu" path="res://Sprites/combat/spell icons/Sanguinated Shell.png" id="9_mfiw6"]
-[ext_resource type="Texture2D" uid="uid://b7txla0nj71dl" path="res://Sprites/combat/spell icons/Void Sight.png" id="9_r0h7l"]
-[ext_resource type="Texture2D" uid="uid://crxsgi7w4u7aj" path="res://Sprites/combat/spell icons/Blood Clot Homunculus.png" id="11_t67al"]
-[ext_resource type="Texture2D" uid="uid://dywubxvjdwo8p" path="res://Sprites/combat/spell icons/Vapid Affliction.png" id="12_6hupt"]
-[ext_resource type="Texture2D" uid="uid://bcranc40bjctv" path="res://Sprites/combat/spell icons/Blood Moon.png" id="15_3v4qx"]
+[ext_resource type="Texture2D" uid="uid://bf55ok55kpkja" path="res://Sprites/combat/spell icons/Poison Swamp - talent.png" id="12_86fet"]
+[ext_resource type="Texture2D" uid="uid://f5ep3bwx48d4" path="res://Sprites/combat/spell icons/Hollowed Threats - talent.png" id="13_dfx5d"]
+[ext_resource type="Texture2D" uid="uid://b7txla0nj71dl" path="res://Sprites/combat/spell icons/Void Sight talent.png" id="14_roe8q"]
+[ext_resource type="Texture2D" uid="uid://dywubxvjdwo8p" path="res://Sprites/combat/spell icons/Vapid Affliction- talent.png" id="15_ado0h"]
+[ext_resource type="Texture2D" uid="uid://ghlikels4uq8" path="res://Sprites/combat/spell icons/Sanguinated Shell - Icont.png" id="16_nfr74"]
+[ext_resource type="Texture2D" uid="uid://crxsgi7w4u7aj" path="res://Sprites/combat/spell icons/Blood Clot Homunculus - talent.png" id="17_pyrdo"]
+[ext_resource type="Texture2D" uid="uid://bcranc40bjctv" path="res://Sprites/combat/spell icons/Blood Moon - talent.png" id="18_blfk6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cflig"]
 
@@ -281,7 +281,7 @@ description = "Chaos entangled matter attacks the soul directly."
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_y0tb0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uvg1d")
-icon = ExtResource("9_4a43k")
+icon = ExtResource("12_86fet")
 talentName = "Poison Swamp"
 description = "Seep the ground beneath your foes feet in thick, poisonous sludge"
 required_level = 15
@@ -304,7 +304,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_yld72")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r4m4g")
-icon = ExtResource("7_ao7lw")
+icon = ExtResource("13_dfx5d")
 icon_alignment = 1
 talentName = "Hollowed Threats"
 description = "Seep your opponent in void energy weakening their attack by 10%"
@@ -315,7 +315,7 @@ talentType = "Spell"
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_rmea8")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u3vwr")
-icon = ExtResource("9_r0h7l")
+icon = ExtResource("14_roe8q")
 talentName = "Void Sight"
 description = "Look through the void to anticipate your oppoents attacks. Increase chance to dodge by 15% for 3 turns."
 
@@ -323,7 +323,7 @@ description = "Look through the void to anticipate your oppoents attacks. Increa
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_7tupi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37wyq")
-icon = ExtResource("12_6hupt")
+icon = ExtResource("15_ado0h")
 talentName = "Vapid Affliction"
 description = "The void invades your foe's mind. Each turn they have an increasing chance to not attack on their next turn."
 
@@ -346,7 +346,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ud3x2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vr8le")
-icon = ExtResource("9_mfiw6")
+icon = ExtResource("16_nfr74")
 talentName = "Sanguinated Shell"
 description = "Coalesce your blood into a hardened shell absorbing 50% damage for 3 turns. When the shell expires you heal for half the amount absorbed."
 required_level = 1
@@ -356,7 +356,7 @@ talentType = "Spell"
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_0bxbq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ihux3")
-icon = ExtResource("11_t67al")
+icon = ExtResource("17_pyrdo")
 talentName = "Blood Clot Homunculus"
 description = "Sacrifice 20% of your health to construct a blood clot homunculus that will copy your attacks for 20% of the damage done."
 required_level = 5
@@ -366,7 +366,7 @@ talentType = "Spell"
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vsrlo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_41fsf")
-icon = ExtResource("15_3v4qx")
+icon = ExtResource("18_blfk6")
 talentName = "Blood Moon"
 description = "Increase the effects of all blood magic by 20% for 3 turns."
 required_level = 15

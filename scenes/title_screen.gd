@@ -116,6 +116,15 @@ func load_player() -> void:
 	State.t_attack_up = playerData.t_attack_up
 	State.t_extra_cast = playerData.t_extra_cast
 	State.t_shield = playerData.t_shield
+	State.t_kindling = playerData.t_kindling
+	State.t_curse = playerData.t_curse
+	State.t_poison_swamp = playerData.t_poison_swamp
+	State.t_hollowed_threats = playerData.t_hollowed_threats
+	State.t_void_sight = playerData.t_void_sight
+	State.t_vapid_affliction = playerData.t_vapid_affliction
+	State.t_sanguinated_shell = playerData.t_sanguinated_shell
+	State.t_blood_clot_homunculus = playerData.t_blood_clot_homunculus
+	State.t_blood_moon = playerData.t_blood_moon
 	State.inventory = playerData.player_inv
 	State.quest_db = playerData.quest_db 
 	State.area_enemies = playerData.area_enemies

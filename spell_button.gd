@@ -13,7 +13,7 @@ func _ready():
 	setup_button()
 
 func _process(delta):
-	pass
+	setup_button()
 
 
 func setup_button() -> void:
@@ -22,7 +22,7 @@ func setup_button() -> void:
 		spell_label.text = spell_icon
 		button.icon = load(str("res://Sprites/combat/spell icons/",spell_icon,".png"))
 	else:
-		queue_free()
+		hide()
 
 
 func _on_button_pressed():

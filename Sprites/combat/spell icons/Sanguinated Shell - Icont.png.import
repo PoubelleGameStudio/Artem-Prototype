@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhyo328ib0t0j"
-path="res://.godot/imported/Sanguinated Shell.png-669c0af983d39d9cd8639bce45546c9d.ctex"
+uid="uid://ghlikels4uq8"
+path="res://.godot/imported/Sanguinated Shell - Icont.png-ee780ff1252430c3cb10c4f4b7cebd17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/combat/spell icons/Sanguinated Shell.png"
-dest_files=["res://.godot/imported/Sanguinated Shell.png-669c0af983d39d9cd8639bce45546c9d.ctex"]
+source_file="res://Sprites/combat/spell icons/Sanguinated Shell - Icont.png"
+dest_files=["res://.godot/imported/Sanguinated Shell - Icont.png-ee780ff1252430c3cb10c4f4b7cebd17.ctex"]
 
 [params]
 

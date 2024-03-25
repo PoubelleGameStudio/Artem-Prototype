@@ -514,9 +514,9 @@ text = "test"
 label_settings = ExtResource("5_be3fw")
 
 [node name="cast" type="Button" parent="combatUI/combat"]
-offset_left = 39.0
+offset_left = 54.0
 offset_top = 714.0
-offset_right = 277.0
+offset_right = 292.0
 offset_bottom = 787.0
 focus_neighbor_right = NodePath("../../spellSelect/Control/GridContainer/Fireball")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -594,28 +594,94 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="GridContainer" type="GridContainer" parent="combatUI/spellSelect/Control"]
+visible = false
 layout_mode = 0
-offset_left = 89.0
-offset_top = 810.0
-offset_right = 911.0
-offset_bottom = 1103.0
+offset_left = 99.0
+offset_top = 793.0
+offset_right = 903.0
+offset_bottom = 1086.0
 theme_override_constants/h_separation = 29
-theme_override_constants/v_separation = 53
-columns = 5
+theme_override_constants/v_separation = 29
+columns = 4
 
 [node name="Fireball" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
 layout_mode = 2
 spell_icon = "fireball"
 metadata/_edit_use_anchors_ = true
 
-[node name="Frostbolt" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
-layout_mode = 2
-spell_icon = "frostbolt"
-metadata/_edit_use_anchors_ = true
-
 [node name="Curse" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
 layout_mode = 2
 spell_icon = "Curse"
+metadata/_edit_use_anchors_ = true
+
+[node name="Poison Swamp" parent="combatUI/spellSelect/Control/GridContainer" instance=ExtResource("8_16ejo")]
+layout_mode = 2
+spell_icon = "Poison Swamp"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="combatUI/spellSelect/Control"]
+layout_mode = 2
+offset_left = 104.0
+offset_top = 789.0
+offset_right = 488.0
+offset_bottom = 1039.0
+theme_override_constants/separation = 29
+
+[node name="Invoke" type="HBoxContainer" parent="combatUI/spellSelect/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 29
+
+[node name="Fireball" parent="combatUI/spellSelect/Control/VBoxContainer/Invoke" instance=ExtResource("8_16ejo")]
+layout_mode = 2
+spell_icon = "fireball"
+metadata/_edit_use_anchors_ = true
+
+[node name="Curse" parent="combatUI/spellSelect/Control/VBoxContainer/Invoke" instance=ExtResource("8_16ejo")]
+layout_mode = 2
+spell_icon = "Curse"
+metadata/_edit_use_anchors_ = true
+
+[node name="Poison Swamp" parent="combatUI/spellSelect/Control/VBoxContainer/Invoke" instance=ExtResource("8_16ejo")]
+layout_mode = 2
+spell_icon = "Poison Swamp"
+metadata/_edit_use_anchors_ = true
+
+[node name="Void" type="HBoxContainer" parent="combatUI/spellSelect/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 29
+
+[node name="Hollowed Threats" parent="combatUI/spellSelect/Control/VBoxContainer/Void" instance=ExtResource("8_16ejo")]
+layout_mode = 2
+spell_icon = "Hollowed Threats"
+metadata/_edit_use_anchors_ = true
+
+[node name="Void Sight" parent="combatUI/spellSelect/Control/VBoxContainer/Void" instance=ExtResource("8_16ejo")]
+layout_mode = 2
+spell_icon = "Void Sight"
+metadata/_edit_use_anchors_ = true
+
+[node name="Vapid Affliction" parent="combatUI/spellSelect/Control/VBoxContainer/Void" instance=ExtResource("8_16ejo")]
+layout_mode = 2
+spell_icon = "Vapid Affliction"
+metadata/_edit_use_anchors_ = true
+
+[node name="Blood" type="HBoxContainer" parent="combatUI/spellSelect/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 29
+
+[node name="Sanguinated Shell" parent="combatUI/spellSelect/Control/VBoxContainer/Blood" instance=ExtResource("8_16ejo")]
+layout_mode = 2
+spell_icon = "Sanguinated Shell"
+metadata/_edit_use_anchors_ = true
+
+[node name="Blood Clot Homunculus" parent="combatUI/spellSelect/Control/VBoxContainer/Blood" instance=ExtResource("8_16ejo")]
+layout_mode = 2
+spell_icon = "Blood Clot Homunculus"
+metadata/_edit_use_anchors_ = true
+
+[node name="Blood Moon" parent="combatUI/spellSelect/Control/VBoxContainer/Blood" instance=ExtResource("8_16ejo")]
+layout_mode = 2
+spell_icon = "Blood Moon"
 metadata/_edit_use_anchors_ = true
 
 [node name="EnemyName" type="Label" parent="combatUI"]
@@ -658,14 +724,14 @@ offset_left = 48.0
 offset_top = 42.0
 offset_right = 294.0
 offset_bottom = 134.0
-text = "Enemy Turn"
+text = "Your Turn"
 label_settings = ExtResource("12_vu285")
 
 [node name="cast_lefts" type="Label" parent="."]
 z_index = 1
-offset_left = 230.0
+offset_left = 245.0
 offset_top = 727.0
-offset_right = 476.0
+offset_right = 491.0
 offset_bottom = 819.0
 text = "Casts Left:"
 label_settings = ExtResource("5_be3fw")

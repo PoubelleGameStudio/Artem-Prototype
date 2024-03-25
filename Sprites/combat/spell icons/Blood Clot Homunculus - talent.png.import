@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhyo328ib0t0j"
-path="res://.godot/imported/Sanguinated Shell.png-669c0af983d39d9cd8639bce45546c9d.ctex"
+uid="uid://crxsgi7w4u7aj"
+path="res://.godot/imported/Blood Clot Homunculus - talent.png-3b7ff3ac424a3d4c13e39bc0c47d4e82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/combat/spell icons/Sanguinated Shell.png"
-dest_files=["res://.godot/imported/Sanguinated Shell.png-669c0af983d39d9cd8639bce45546c9d.ctex"]
+source_file="res://Sprites/combat/spell icons/Blood Clot Homunculus - talent.png"
+dest_files=["res://.godot/imported/Blood Clot Homunculus - talent.png-3b7ff3ac424a3d4c13e39bc0c47d4e82.ctex"]
 
 [params]
 
