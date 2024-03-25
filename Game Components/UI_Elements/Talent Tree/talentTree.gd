@@ -19,12 +19,34 @@ class_name TalentTree
 
 # character spell unlocks
 # Fire
-@onready var kindling: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells/Sacred Kindling"
+@onready var kindling: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Sacred Kindling"
 @onready var kindling_pressed: bool = false
+
+@onready var curse: Button = $PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Curse
+@onready var curse_pressed: bool = false
+
+@onready var poison_swamp: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Poison Swamp"
+@onready var poison_swamp_pressed: bool = false
 
 # Void
 @onready var hollowed_threats: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Hollowed Threats"
 @onready var hollowed_threats_pressed: bool = false
+
+@onready var void_sight: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Void Sight"
+@onready var void_sight_pressed: bool = false
+
+@onready var vapid_affliction: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Vapid Affliction"
+@onready var vapid_affliction_pressed: bool = false
+
+# blood
+@onready var sanguinated_shell: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Sanguinated Shell"
+@onready var sanguinated_shell_pressed: bool = false
+
+@onready var blood_clot_homunculus: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Blood Clot Homunculus"
+@onready var blood_clot_homunculus_pressed: bool = false
+
+@onready var blood_moon: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Blood Moon"
+@onready var blood_moon_pressed: bool = false
 
 func _ready():
 	TalentName.text = ""
@@ -117,6 +139,19 @@ func _on_sacred_kindling_pressed():
 		kindling_pressed = false
 	else:
 		kindling_pressed = true
+		
+func _on_curse_pressed():
+	TalentName.text = curse.talentName
+	TalentDesc.text = curse.description
+	TalentType.text = str("Type: ",curse.talentType)
+	lvl_req.text = str("Level Required: ",curse.required_level)
+	
+
+func _on_poison_swamp_pressed():
+	TalentName.text = poison_swamp.talentName
+	TalentDesc.text = poison_swamp.description
+	TalentType.text = str("Type: ",poison_swamp.talentType)
+	lvl_req.text = str("Level Required: ",poison_swamp.required_level)
 
 
 func _on_hollowed_threats_pressed():
@@ -124,3 +159,42 @@ func _on_hollowed_threats_pressed():
 	TalentDesc.text = hollowed_threats.description
 	TalentType.text = str("Type: ",hollowed_threats.talentType)
 	lvl_req.text = str("Level Required: ",hollowed_threats.required_level)
+	
+
+func _on_void_sight_pressed():
+	TalentName.text = void_sight.talentName
+	TalentDesc.text = void_sight.description
+	TalentType.text = str("Type: ",void_sight.talentType)
+	lvl_req.text = str("Level Required: ", void_sight.required_level)
+	
+	
+
+func _on_vapid_affliction_pressed():
+	TalentName.text = vapid_affliction.talentName
+	TalentDesc.text = vapid_affliction.description
+	TalentType.text = str("Type: ",vapid_affliction.talentType)
+	lvl_req.text = str("Level Required: ", vapid_affliction.required_level)
+
+func _on_sanguinated_shell_pressed():
+	TalentName.text = sanguinated_shell.talentName
+	TalentDesc.text = sanguinated_shell.description
+	TalentType.text = str("Type: ",sanguinated_shell.talentType)
+	lvl_req.text = str("Level Required: ",sanguinated_shell.required_level)
+	
+
+
+
+func _on_blood_clot_homunculus_pressed():
+	TalentName.text = blood_clot_homunculus.talentName
+	TalentDesc.text = blood_clot_homunculus.description
+	TalentType.text = str("Type: ",blood_clot_homunculus.talentType)
+	lvl_req.text = str("Level Required: ",blood_clot_homunculus.required_level)
+
+
+
+func _on_blood_moon_pressed():
+	TalentName.text = blood_moon.talentName
+	TalentDesc.text = blood_moon.description
+	TalentType.text = str("Type: ",blood_moon.talentType)
+	lvl_req.text = str("Level Required: ",blood_moon.required_level)
+

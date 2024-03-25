@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8skkvcn0ci81"]
+[gd_scene load_steps=48 format=3 uid="uid://c8skkvcn0ci81"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/Talent Tree/talentTree.gd" id="1_jmed0"]
 [ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
@@ -9,6 +9,16 @@
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="5_p3t0c"]
 [ext_resource type="Texture2D" uid="uid://d11wrjcwmffb5" path="res://Sprites/combat/spell icons/Sacred Kindling.png" id="6_e6b38"]
 [ext_resource type="Texture2D" uid="uid://f5ep3bwx48d4" path="res://Sprites/combat/spell icons/Hollowed Threats.png" id="7_ao7lw"]
+[ext_resource type="Texture2D" uid="uid://c1qyxdxyd0j4h" path="res://Sprites/combat/spell icons/Extra Action.png" id="7_dsysm"]
+[ext_resource type="Texture2D" uid="uid://bo1o03unrmgk3" path="res://Sprites/combat/spell icons/Shield+.png" id="8_6sv8i"]
+[ext_resource type="Texture2D" uid="uid://bq5tnn7nw5kxi" path="res://Sprites/combat/spell icons/Curse - Talent.png" id="8_75706"]
+[ext_resource type="Texture2D" uid="uid://bf55ok55kpkja" path="res://Sprites/combat/spell icons/Poison Swamp.png" id="9_4a43k"]
+[ext_resource type="Texture2D" uid="uid://bngn30hbsucx3" path="res://Sprites/combat/spell icons/Attack+.png" id="9_k7y6d"]
+[ext_resource type="Texture2D" uid="uid://lem1okyj7ipu" path="res://Sprites/combat/spell icons/Sanguinated Shell.png" id="9_mfiw6"]
+[ext_resource type="Texture2D" uid="uid://b7txla0nj71dl" path="res://Sprites/combat/spell icons/Void Sight.png" id="9_r0h7l"]
+[ext_resource type="Texture2D" uid="uid://crxsgi7w4u7aj" path="res://Sprites/combat/spell icons/Blood Clot Homunculus.png" id="11_t67al"]
+[ext_resource type="Texture2D" uid="uid://dywubxvjdwo8p" path="res://Sprites/combat/spell icons/Vapid Affliction.png" id="12_6hupt"]
+[ext_resource type="Texture2D" uid="uid://bcranc40bjctv" path="res://Sprites/combat/spell icons/Blood Moon.png" id="15_3v4qx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cflig"]
 
@@ -30,6 +40,38 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1c8s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mljab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nx10a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_va31v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0tb0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvg1d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yld72"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4m4g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmea8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3vwr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7tupi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37wyq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ud3x2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vr8le"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bxbq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihux3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsrlo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41fsf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rw8hg"]
 
@@ -77,7 +119,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "FIELD        TRAINING"
+text = "FIELD                TRAINING"
 label_settings = SubResource("LabelSettings_ba1b8")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -157,6 +199,7 @@ talentType = "Passive Buff"
 [node name="Extra Action" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jybwg")
+icon = ExtResource("7_dsysm")
 talentName = "Extra Action"
 description = "Perform a second cast each turn"
 required_level = 10
@@ -165,6 +208,7 @@ talentType = "Passive Buff"
 [node name="Shield+" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7txmj")
+icon = ExtResource("8_6sv8i")
 talentName = "Shield+"
 description = "Decrease damange taken by 15%"
 required_level = 15
@@ -173,6 +217,7 @@ talentType = "Passive Buff"
 [node name="Attack+" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q1c8s")
+icon = ExtResource("9_k7y6d")
 talentName = "Attack+"
 description = "Increase damage by 20%"
 required_level = 20
@@ -198,7 +243,7 @@ layout_mode = 2
 
 [node name="Skills" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Improvements
+text = "Spells
 
 "
 label_settings = ExtResource("2_t0owy")
@@ -210,11 +255,11 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 
-[node name="fire_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+[node name="invoke_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Sacred Kindling" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells" instance=ExtResource("1_np83o")]
+[node name="Sacred Kindling" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mljab")
 icon = ExtResource("6_e6b38")
@@ -224,21 +269,31 @@ description = "The first kindling ever ignited by the wielders of flame increase
 required_level = 10
 talentType = "Passive Buff"
 
-[node name="Button2" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells" instance=ExtResource("1_np83o")]
+[node name="Curse" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nx10a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_va31v")
+icon = ExtResource("8_75706")
+talentName = "Curse"
+description = "Chaos entangled matter attacks the soul directly."
+
+[node name="Poison Swamp" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y0tb0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uvg1d")
+icon = ExtResource("9_4a43k")
+talentName = "Poison Swamp"
+description = "Seep the ground beneath your foes feet in thick, poisonous sludge"
+required_level = 15
+talentType = "Spell"
+
+[node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 visible = false
 layout_mode = 2
 
-[node name="Button3" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells" instance=ExtResource("1_np83o")]
-visible = false
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells"]
 layout_mode = 2
-
-[node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells" instance=ExtResource("1_np83o")]
-visible = false
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells"]
-layout_mode = 2
-text = "Fire"
+text = "Invoke"
 label_settings = ExtResource("2_t0owy")
 horizontal_alignment = 1
 
@@ -247,6 +302,8 @@ layout_mode = 2
 
 [node name="Hollowed Threats" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yld72")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r4m4g")
 icon = ExtResource("7_ao7lw")
 icon_alignment = 1
 talentName = "Hollowed Threats"
@@ -254,13 +311,21 @@ description = "Seep your opponent in void energy weakening their attack by 10%"
 required_level = 5
 talentType = "Spell"
 
-[node name="Button2" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
-visible = false
+[node name="Void Sight" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rmea8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u3vwr")
+icon = ExtResource("9_r0h7l")
+talentName = "Void Sight"
+description = "Look through the void to anticipate your oppoents attacks. Increase chance to dodge by 15% for 3 turns."
 
-[node name="Button3" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
-visible = false
+[node name="Vapid Affliction" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7tupi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_37wyq")
+icon = ExtResource("12_6hupt")
+talentName = "Vapid Affliction"
+description = "The void invades your foe's mind. Each turn they have an increasing chance to not attack on their next turn."
 
 [node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 visible = false
@@ -277,20 +342,35 @@ horizontal_alignment = 1
 [node name="blood_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 
-[node name="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
-visible = false
+[node name="Sanguinated Shell" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
-talentName = "Sanguine Strings"
-description = "Manipulate the blood flowing through your foe like a marionette and turn theiraim inward."
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ud3x2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vr8le")
+icon = ExtResource("9_mfiw6")
+talentName = "Sanguinated Shell"
+description = "Coalesce your blood into a hardened shell absorbing 50% damage for 3 turns. When the shell expires you heal for half the amount absorbed."
 required_level = 1
+talentType = "Spell"
 
-[node name="Button2" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
-visible = false
+[node name="Blood Clot Homunculus" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0bxbq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ihux3")
+icon = ExtResource("11_t67al")
+talentName = "Blood Clot Homunculus"
+description = "Sacrifice 20% of your health to construct a blood clot homunculus that will copy your attacks for 20% of the damage done."
+required_level = 5
+talentType = "Spell"
 
-[node name="Button3" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
-visible = false
+[node name="Blood Moon" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vsrlo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_41fsf")
+icon = ExtResource("15_3v4qx")
+talentName = "Blood Moon"
+description = "Increase the effects of all blood magic by 20% for 3 turns."
+required_level = 15
+talentType = "Spell"
 
 [node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
 visible = false
@@ -302,6 +382,9 @@ text = "Blood
 "
 label_settings = ExtResource("2_t0owy")
 horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="Confirm" type="Button" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 15)
@@ -328,6 +411,13 @@ horizontal_alignment = 1
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Extra Action" to="." method="_on_extra_action_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Shield+" to="." method="_on_shield_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Attack+" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/fire_spells/Sacred Kindling" to="." method="_on_sacred_kindling_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Sacred Kindling" to="." method="_on_sacred_kindling_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Curse" to="." method="_on_curse_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Poison Swamp" to="." method="_on_poison_swamp_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Hollowed Threats" to="." method="_on_hollowed_threats_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Void Sight" to="." method="_on_void_sight_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Vapid Affliction" to="." method="_on_vapid_affliction_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Sanguinated Shell" to="." method="_on_sanguinated_shell_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Blood Clot Homunculus" to="." method="_on_blood_clot_homunculus_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Blood Moon" to="." method="_on_blood_moon_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Confirm" to="." method="_on_confirm_pressed"]

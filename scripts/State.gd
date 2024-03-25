@@ -176,7 +176,7 @@ func _on_speak():
 		"description":"Chaos entangled matter attacks the soul directly.",
 		"learned":1,
 		"aoe":0,
-		"damage":0,
+		"damage":15,
 		"class": "attack",
 		"type": "void",
 		"stat_mod":{

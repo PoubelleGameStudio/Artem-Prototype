@@ -55,14 +55,14 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4df8r"]
 shader = ExtResource("2_30yjd")
-shader_parameter/base_color = Color(0.964706, 0.87451, 0.980392, 0.368627)
+shader_parameter/base_color = Color(0.662745, 0.882353, 0.972549, 0.490196)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_u6be7"]
-noise_type = 0
 seed = 112293
-frequency = 0.0063
-fractal_octaves = 10
-fractal_weighted_strength = 0.1
+frequency = 0.006
+fractal_gain = 0.561
+fractal_weighted_strength = 0.44
+domain_warp_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ytnll"]
 width = 4000
@@ -521,7 +521,7 @@ level_name = "grimsBriar"
 z_index = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_4df8r")
-offset_left = -1519.0
+offset_left = -751.0
 offset_top = -1147.0
 offset_right = 4533.0
 offset_bottom = 1160.0

@@ -242,7 +242,7 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pqx84"]
 shader = ExtResource("29_q7g8q")
-shader_parameter/base_color = Color(0.509804, 0.509804, 0.509804, 0.584314)
+shader_parameter/base_color = Color(1, 1, 1, 0.372549)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_od5ih"]
 seed = 42069
@@ -520,10 +520,10 @@ interact_value = "5"
 z_index = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_pqx84")
-offset_left = -732.0
-offset_top = -1127.0
-offset_right = 6026.0
-offset_bottom = 1337.0
+offset_left = -842.0
+offset_top = -1091.0
+offset_right = 6169.0
+offset_bottom = 2481.0
 texture = SubResource("NoiseTexture2D_s1dgo")
 
 [node name="rain" type="AudioStreamPlayer" parent="."]
