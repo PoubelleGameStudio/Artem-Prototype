@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=64 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://7ulmawr4kvyq" path="res://Art/object sheets/graveyard - sprite sheet-export.png" id="16_f3jmm"]
 [ext_resource type="Texture2D" uid="uid://dtg70mxrhn41l" path="res://Sprites/combat/DoT effects/burning.png" id="16_wk2nr"]
 [ext_resource type="Texture2D" uid="uid://cbiid034h0hbe" path="res://Sprites/combat/spell effects/DisruptingRayAllFrames.png" id="16_ytna7"]
+[ext_resource type="Texture2D" uid="uid://bcranc40bjctv" path="res://Sprites/combat/spell icons/Blood Moon - talent.png" id="19_v8xaj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
 atlas = ExtResource("4_43trn")
@@ -367,6 +368,17 @@ _data = {
 "spell cast": SubResource("Animation_cqn8w")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_mg0qq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_v8xaj")
+}],
+"loop": true,
+"name": &"Blood Moon",
+"speed": 5.0
+}]
+
 [node name="combatScreen" type="Node2D"]
 script = ExtResource("1_mxv4w")
 
@@ -396,6 +408,7 @@ position = Vector2(-1461, -639)
 scale = Vector2(2.25, 2.25)
 
 [node name="Node2D7" parent="." instance=ExtResource("2_cjm7y")]
+visible = false
 z_index = -1
 position = Vector2(-1375, -1752)
 scale = Vector2(2.25, 2.25)
@@ -416,11 +429,13 @@ position = Vector2(3178, 1664)
 scale = Vector2(2.25, 2.25)
 
 [node name="Node2D8" parent="." instance=ExtResource("2_cjm7y")]
+visible = false
 z_index = -1
 position = Vector2(974, -1714)
 scale = Vector2(2.25, 2.25)
 
 [node name="Node2D9" parent="." instance=ExtResource("2_cjm7y")]
+visible = false
 z_index = -1
 position = Vector2(3216, -1721)
 scale = Vector2(2.25, 2.25)
@@ -773,6 +788,21 @@ animation = &"burning"
 libraries = {
 "": SubResource("AnimationLibrary_6s30w")
 }
+
+[node name="field" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(893, 99)
+scale = Vector2(6.55878, 6.55878)
+sprite_frames = SubResource("SpriteFrames_mg0qq")
+animation = &"Blood Moon"
+
+[node name="ColorRect" type="ColorRect" parent="field"]
+offset_left = -497.0
+offset_top = -15.0
+offset_right = 546.0
+offset_bottom = 262.0
+mouse_filter = 2
+color = Color(1, 0.0901961, 0.0901961, 0.215686)
 
 [connection signal="pressed" from="combatUI/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="combatUI/return" to="." method="_on_return_pressed"]

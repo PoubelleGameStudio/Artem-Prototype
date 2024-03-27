@@ -202,7 +202,7 @@ func _on_speak():
 		"description":"",
 		"learned":0,
 		"damage":0,
-		"class": "stadium",
+		"class": "field",
 		"type": "blood",
 		"stat_mod":{}
 	},

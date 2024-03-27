@@ -522,10 +522,10 @@ level_name = "grimsBriar"
 z_index = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_4df8r")
-offset_left = -751.0
+offset_left = -448.0
 offset_top = -1147.0
-offset_right = 4533.0
-offset_bottom = 1160.0
+offset_right = 4588.0
+offset_bottom = 2853.0
 texture = SubResource("NoiseTexture2D_ytnll")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

@@ -47,6 +47,13 @@ extends Node2D
 @onready var DoTEffect: AnimatedSprite2D = $"DoT effect"
 @onready var statusEffect: Label = $combatUI/enemyHealth/status_effect
 @onready var enemyAttack: AnimatedSprite2D = $"enemy attack"
+@onready var bloodMoon: bool = false
+@onready var fieldDuration: int = 0:
+	set(value):
+		fieldDuration = value
+		if fieldDuration == 0:
+			fieldEffect.hide()
+@onready var fieldEffect: AnimatedSprite2D = $field
 
 #signals
 signal combat_end
@@ -88,7 +95,6 @@ func camera_current():
 
 #set up on combat start
 func combat_data():
-	_ready()
 	enemy.enemyID(State.enemyID)
 	enemy.world = world_level
 	enemy.enemyType(State.engaging[0])
@@ -120,20 +126,32 @@ func castSpell() -> int:
 
 	
 	# check for support spells
-	if State.spell3 != '':
-		if spells[State.spell3]["class"]=="support":
-			var stats = spells[State.spell3]["stat_mod"].keys()
-			match stats[0]:
-				"crit_chance":
-					crit_chance += spells[State.spell3]["stat_mod"]["crit_chance"]
-				"life_drain":
-					life_drain += spells[State.spell3]["stat_mod"]["life_drain"]
+#	if State.spell3 != '':
+#		if spells[State.spell3]["class"]=="support":
+#			var stats = spells[State.spell3]["stat_mod"].keys()
+#			match stats[0]:
+#				"crit_chance":
+#					crit_chance += spells[State.spell3]["stat_mod"]["crit_chance"]
+#				"life_drain":
+#					life_drain += spells[State.spell3]["stat_mod"]["life_drain"]
 			
 	
 	# check for defense but only grab armor from one of them if multiple
 	if State.spell1 !="":
 		if spells[State.spell1]["class"]=="defend":
 			State.armor += spells[State.spell1]["stat_mod"]["armor"]
+
+	#handle field spells
+	if State.spell1 !="":
+		if spells[State.spell1]["class"]=="field":
+			match spells[State.spell1]["type"]:
+				"blood": 
+						bloodMoon = true
+						fieldDuration = 3
+						fieldEffect.show()
+				
+			
+			
 	
 	# check for blood type and do enemy self damage
 	for type in types:
@@ -278,6 +296,8 @@ func enemyTurn():
 		
 		
 		yourTurn = 1
+		if fieldDuration > 0:
+			fieldDuration -= 1
 		turn_sign.text = "Your Turn"
 		casts_left = State.casts
 		if State.health < 1:
@@ -343,11 +363,12 @@ func _on_return_pressed():
 func _on_onepunch_pressed():
 	if yourTurn == 1 && State.spell1 != '' and is_casting == false:
 		is_casting = true
-		spellTexture.show()
-		spellTexture.play(State.spell1)
-		spellAnimation.play("spell cast")
-		await get_tree().create_timer(1).timeout
-		spellTexture.hide()
+		if spells[State.spell1]["class"] != "field":
+			spellTexture.show()
+			spellTexture.play(State.spell1)
+			spellAnimation.play("spell cast")
+			await get_tree().create_timer(1).timeout
+			spellTexture.hide()
 		is_casting = false
 		instruct.hide()
 		
