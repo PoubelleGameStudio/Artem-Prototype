@@ -62,6 +62,7 @@ func _on_exit_pressed():
 	
 # system state
 func save_player()-> void:
+	State.p_locs[loader.level_name] = player.global_position
 	playerData.welcomed = State.welcomed
 	playerData.prev_scene = State.prev_scene
 	playerData.engaging = State.engaging
@@ -157,10 +158,10 @@ func load_player() -> void:
 
 	State.tutorials = playerData.tutorials
 	get_tree().change_scene_to_file((str("res://scenes/levels/",playerData.world,".tscn")))
-	# establish new player ref
 
 	if get_tree().get_root().get_node("root").level_name != "title_screen":
-		player.set_global_position(Vector2(playerData.pos))
+		if State.p_locs.has(get_tree().get_root().get_node("root").level_name):
+			player.global_position = State.p_locs[loader.level_name]
 		player.camera_current()
 		$"../..".resume()
 	print("save loaded")

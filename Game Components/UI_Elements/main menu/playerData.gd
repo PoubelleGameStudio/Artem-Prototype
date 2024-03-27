@@ -54,6 +54,15 @@ class_name PlayerData
 @export var t_attack_up: bool
 @export var t_extra_cast: bool
 @export var t_shield: bool
+@export var t_kindling: bool
+@export var t_curse: bool
+@export var t_poison_swamp: bool
+@export var t_hollowed_threats: bool
+@export var t_void_sight: bool
+@export var t_vapid_affliction: bool
+@export var t_sanguinated_shell: bool
+@export var t_blood_clot_homunculus: bool
+@export var t_blood_moon: bool
 
 # resources
 @export var gold: int

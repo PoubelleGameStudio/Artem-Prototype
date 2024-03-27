@@ -32,6 +32,20 @@
 [ext_resource type="AudioStream" uid="uid://dk4rbq3qappgy" path="res://sounds/ambient/Rain.mp3" id="30_arh7t"]
 [ext_resource type="Script" path="res://scripts/autoplay_sound.gd" id="31_ij33q"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pqx84"]
+shader = ExtResource("29_q7g8q")
+shader_parameter/base_color = Color(1, 1, 1, 0.372549)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_od5ih"]
+seed = 42069
+frequency = 0.0063
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s1dgo"]
+width = 2000
+height = 2000
+seamless = true
+noise = SubResource("FastNoiseLite_od5ih")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yh8mh"]
 texture = ExtResource("3_1xkim")
 0:0/size_in_atlas = Vector2i(2, 2)
@@ -240,25 +254,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pqx84"]
-shader = ExtResource("29_q7g8q")
-shader_parameter/base_color = Color(1, 1, 1, 0.372549)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_od5ih"]
-seed = 42069
-frequency = 0.0063
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s1dgo"]
-width = 2000
-height = 2000
-seamless = true
-noise = SubResource("FastNoiseLite_od5ih")
-
 [node name="root" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_74c0b")
 is_raining = 1
 level_name = "WitchForest"
+
+[node name="Fog" type="TextureRect" parent="."]
+z_index = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_pqx84")
+offset_left = -842.0
+offset_top = -1091.0
+offset_right = 6169.0
+offset_bottom = 2481.0
+texture = SubResource("NoiseTexture2D_s1dgo")
 
 [node name="Gateways" type="Node2D" parent="."]
 position = Vector2(324.614, 167.699)
@@ -467,6 +477,34 @@ interact_label = "Void Squirrel"
 interact_type = "enemy"
 interact_value = "0"
 
+[node name="Technotheist Grunt" parent="enemies" groups=["enemies"] instance=ExtResource("13_d00uf")]
+z_index = 1
+position = Vector2(4934, 726)
+enemy_type = "Technotheist Grunt"
+emitter = 1
+id = "4"
+
+[node name="test_dummy" parent="enemies/Technotheist Grunt" instance=ExtResource("6_d8wmu")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "Void Squirrel"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="Technotheist Grunt2" parent="enemies" groups=["enemies"] instance=ExtResource("13_d00uf")]
+z_index = 1
+position = Vector2(3400, 957)
+enemy_type = "Technotheist Grunt"
+emitter = 1
+id = "5"
+
+[node name="test_dummy" parent="enemies/Technotheist Grunt2" instance=ExtResource("6_d8wmu")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "Void Squirrel"
+interact_type = "enemy"
+interact_value = "0"
+
 [node name="gateways" type="Node2D" parent="."]
 position = Vector2(593, -174)
 scale = Vector2(1.25, 1.25)
@@ -515,16 +553,6 @@ position = Vector2(-0.112457, -0.0163879)
 interact_label = "Health Restore"
 interact_type = "lootable"
 interact_value = "5"
-
-[node name="Fog" type="TextureRect" parent="."]
-z_index = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_pqx84")
-offset_left = -842.0
-offset_top = -1091.0
-offset_right = 6169.0
-offset_bottom = 2481.0
-texture = SubResource("NoiseTexture2D_s1dgo")
 
 [node name="rain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_arh7t")

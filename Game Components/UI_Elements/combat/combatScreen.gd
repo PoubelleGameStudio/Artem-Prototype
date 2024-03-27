@@ -38,10 +38,20 @@ extends Node2D
 	set(value):
 		burning_for = value
 		if value > 0:
-			statusEffect.text = str("Burning x",burning_for)
-			statusEffect.show()
+			burningText = str("Burning x",burning_for," ")
+			statusEffect.text = burningText + poisonedText
 		else:
-			statusEffect.hide()
+			burningText = ""
+			statusEffect.text = burningText + poisonedText
+@onready var burningText: String
+@onready var poisoned_for: int = 0:
+	set(value):
+			poisoned_for = value
+			if value > 0:
+				poisonedText = str("Poisoned x",poisoned_for," ")
+			else:
+				poisonedText = ""
+@onready var poisonedText: String
 @onready var spellAnimation: AnimationPlayer = $spellEffects
 @onready var spellTexture: AnimatedSprite2D = $"spell effect"
 @onready var DoTEffect: AnimatedSprite2D = $"DoT effect"
@@ -54,6 +64,7 @@ extends Node2D
 		if fieldDuration == 0:
 			fieldEffect.hide()
 @onready var fieldEffect: AnimatedSprite2D = $field
+@onready var pet: AnimatedSprite2D = $Pet
 
 #signals
 signal combat_end
@@ -75,17 +86,20 @@ func _ready():
 	enemyAttack.hide()
 	fight.grab_focus()
 	pHealth_label.text = str("HP ",State.health,"/",State.maxHealth)
+	statusEffect.text = burningText + poisonedText
 	#add_spells()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
+	print(statusEffect.text)
 	chosen_spell.text = State.spell1
 	chosen_spell_desc.text = State["spell_book"][State.spell1]["description"]
 	chosen_spell_dmg.text = str("Damage: ",State["spell_book"][State.spell1]["damage"])
 	
 
 func start_turn():
+	statusEffect.text = burningText + poisonedText
 	yourTurn = 1
 
 func camera_current():
@@ -139,7 +153,7 @@ func castSpell() -> int:
 	# check for defense but only grab armor from one of them if multiple
 	if State.spell1 !="":
 		if spells[State.spell1]["class"]=="defend":
-			State.armor += spells[State.spell1]["stat_mod"]["armor"]
+			pass
 
 	#handle field spells
 	if State.spell1 !="":
@@ -155,14 +169,18 @@ func castSpell() -> int:
 	
 	# check for blood type and do enemy self damage
 	for type in types:
-		if type == "blood":
-			if specialCounter == 4:
-				damage = enemyBook[enemy.enemy_type]["moves"]["special"]
-				specialCounter = 0
-			else:
-				damage = enemyBook[enemy.enemy_type]["moves"]["basic"]
-		elif type == "fire":
-			burning_for = 3
+		match type:
+			"blood":
+				if specialCounter == 4:
+					damage = enemyBook[enemy.enemy_type]["moves"]["special"]
+					specialCounter = 0
+				else:
+					damage = enemyBook[enemy.enemy_type]["moves"]["basic"]
+			"Fire":
+				burning_for = 3
+				
+			"Poison":
+				poisoned_for = 3 
 	
 	# final checks 
 	#roll for crit
@@ -218,6 +236,7 @@ func castSpell() -> int:
 		print("base damage: ",damage)
 		damage *= 1.20
 		print("buffed damage: ",damage)
+	statusEffect.text = burningText + poisonedText
 	return damage
 
 
@@ -282,19 +301,35 @@ func enemyTurn():
 		
 		if burning_for > 0:
 			burning_for -= 1
+			
 			DoTEffect.show()
 			DoTEffect.play("burning")
 			await get_tree().create_timer(2.0).timeout
+			
 			if State.t_kindling:
 				enemy.updateHealth(10*1.20)
 			else:
-				enemy.updateHealth(10*1.20)
+				enemy.updateHealth(10)
+				
 			eHealth.value = enemy.health
+			
+			DoTEffect.hide()
+		
+		if poisoned_for > 0:
+			poisoned_for -= 1
+			
+			DoTEffect.show()
+			DoTEffect.play("poisoned")
+			await get_tree().create_timer(2.0).timeout
+			
+			enemy.updateHealth(10)
+			eHealth.value = enemy.health
+			
 			DoTEffect.hide()
 			
 		
 		
-		
+		statusEffect.text = burningText + poisonedText
 		yourTurn = 1
 		if fieldDuration > 0:
 			fieldDuration -= 1
@@ -391,6 +426,7 @@ func _on_spell_pressed():
 func _on_enemy_combat_dead():
 	combat_end.emit()
 	burning_for = 0
+	poisoned_for = 0
 
 
 

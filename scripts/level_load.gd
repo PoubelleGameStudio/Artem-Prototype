@@ -1,6 +1,8 @@
 extends Node2D
 class_name LevelManager
 
+
+
 @onready var music = $AudioStreamPlayer
 @onready var c_music: AudioStreamPlayer = AudioStreamPlayer.new()
 @export var is_raining: int 
@@ -10,23 +12,30 @@ class_name LevelManager
 @onready var player = $player
 @onready var respawn_location = $respawn.global_position
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	if level_name != "title_screen":
 		SceneTransition.fade_in()
+		
 	if State.p_locs.has(level_name):
 		get_node("player").global_position = State.p_locs[level_name]
+		
 	State.is_raining = is_raining
 	State.world = level_name
+	
 	add_child(c_music)
 	c_music.stream = load("res://sounds/levelMusic/to battle so that we may die.wav")
+	
 	player.camera_current()
+	
 	if combat:
 		combat.process_mode = 4
 		player.world = level_name
 		
 	bury_the_dead()	
-	
 
 
 
@@ -42,12 +51,13 @@ func _process(delta):
 		music.volume_db -= 10
 	else:
 		music.volume_db = -15
-	
+
+
 
 ########### checks that save directory exists###########
 func verify_save_directory(path:String):
 	DirAccess.make_dir_absolute(path)
-	
+
 
 func bury_the_dead():
 	var to_kill = get_tree().get_nodes_in_group("enemies")
@@ -56,10 +66,8 @@ func bury_the_dead():
 			bad.remove_from_group("enemies")
 			bad.hide()
 			bad.process_mode = 4
-		else:
-			pass
 
-			
+
 func setup_combat():
 	combat.show()
 	combat.showOptions()
@@ -71,8 +79,6 @@ func stop_combat():
 	combat.hide()
 	combat.process_mode = 4
 	bury_the_dead()
-	
-	
 
 
 func _on_combat_screen_combat_end():
@@ -87,7 +93,6 @@ func _on_combat_screen_combat_end():
 	State.level_up()
 	music.playing = true
 	c_music.playing = false
-
 
 
 func _on_player_combat_entered():

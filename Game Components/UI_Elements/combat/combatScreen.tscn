@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=43 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
@@ -7,17 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://dv7hntw3bi4xl" path="res://Sprites/Artem/artem_v1_back_walking.png" id="4_43trn"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="4_uo8iy"]
 [ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="5_be3fw"]
-[ext_resource type="Texture2D" uid="uid://cl7yf2co0u2ed" path="res://Game Components/UI_Elements/main menu/buttons/button blank.png" id="6_6i4oy"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="6_p1cl7"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="7_6qudd"]
+[ext_resource type="FontFile" uid="uid://i8xcwtoee0vp" path="res://Game Components/fonts/AlmendraSC-Italic.otf" id="7_db3go"]
 [ext_resource type="PackedScene" uid="uid://dpv6cisbc7uye" path="res://Game Components/UI_Elements/combat/spell_button.tscn" id="8_16ejo"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="12_jwlj2"]
 [ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="12_vu285"]
-[ext_resource type="Texture2D" uid="uid://dfqt46pkyp73t" path="res://Sprites/combat/spell effects/FireBallAllFrames.png" id="14_1rcju"]
-[ext_resource type="Texture2D" uid="uid://81doju5tfqyi" path="res://Sprites/combat/spell effects/CurseAllFrames.png" id="14_g0v7m"]
-[ext_resource type="Texture2D" uid="uid://7ulmawr4kvyq" path="res://Art/object sheets/graveyard - sprite sheet-export.png" id="16_f3jmm"]
+[ext_resource type="SpriteFrames" uid="uid://ftaerve5ta27" path="res://Game Components/UI_Elements/combat/spell_animations.tres" id="14_cb2l5"]
+[ext_resource type="Texture2D" uid="uid://dj4ugebjlc7vl" path="res://Sprites/combat/spell effects/AcidSplashAllFrames.png" id="16_smb05"]
 [ext_resource type="Texture2D" uid="uid://dtg70mxrhn41l" path="res://Sprites/combat/DoT effects/burning.png" id="16_wk2nr"]
-[ext_resource type="Texture2D" uid="uid://cbiid034h0hbe" path="res://Sprites/combat/spell effects/DisruptingRayAllFrames.png" id="16_ytna7"]
 [ext_resource type="Texture2D" uid="uid://bcranc40bjctv" path="res://Sprites/combat/spell icons/Blood Moon - talent.png" id="19_v8xaj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
@@ -58,188 +56,6 @@ vertical = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i85tx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fk1n8"]
-atlas = ExtResource("14_g0v7m")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4dq81"]
-atlas = ExtResource("14_g0v7m")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x0lbu"]
-atlas = ExtResource("14_g0v7m")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jkrrw"]
-atlas = ExtResource("14_g0v7m")
-region = Rect2(72, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gpvet"]
-atlas = ExtResource("16_f3jmm")
-region = Rect2(358, 149, 168, 106)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j4onp"]
-atlas = ExtResource("16_ytna7")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ukotb"]
-atlas = ExtResource("16_ytna7")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d0gl6"]
-atlas = ExtResource("16_ytna7")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w2i7m"]
-atlas = ExtResource("16_ytna7")
-region = Rect2(72, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0oemn"]
-atlas = ExtResource("14_1rcju")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6eqhp"]
-atlas = ExtResource("14_1rcju")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rnunf"]
-atlas = ExtResource("14_1rcju")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n8khp"]
-atlas = ExtResource("14_1rcju")
-region = Rect2(72, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i7nme"]
-atlas = ExtResource("14_1rcju")
-region = Rect2(96, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0h6f"]
-atlas = ExtResource("14_1rcju")
-region = Rect2(120, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_go3k3"]
-atlas = ExtResource("14_1rcju")
-region = Rect2(144, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5rm6f"]
-atlas = ExtResource("14_1rcju")
-region = Rect2(168, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gims"]
-atlas = ExtResource("14_1rcju")
-region = Rect2(192, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vlyl3"]
-atlas = ExtResource("14_1rcju")
-region = Rect2(216, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8y377"]
-atlas = ExtResource("14_1rcju")
-region = Rect2(240, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xo4j4"]
-atlas = ExtResource("14_1rcju")
-region = Rect2(264, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s8ocv"]
-atlas = ExtResource("16_f3jmm")
-region = Rect2(287, 179, 83, 54)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_o7q31"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fk1n8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4dq81")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x0lbu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jkrrw")
-}],
-"loop": true,
-"name": &"Curse",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gpvet")
-}],
-"loop": true,
-"name": &"Sorrow Shade",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j4onp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ukotb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d0gl6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w2i7m")
-}],
-"loop": true,
-"name": &"Technotheist Grunt",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0oemn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6eqhp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rnunf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n8khp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i7nme")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m0h6f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_go3k3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5rm6f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8gims")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vlyl3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8y377")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xo4j4")
-}],
-"loop": true,
-"name": &"fireball",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s8ocv")
-}],
-"loop": true,
-"name": &"ghost",
-"speed": 5.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8von"]
 atlas = ExtResource("16_wk2nr")
 region = Rect2(48, 0, 24, 24)
@@ -272,6 +88,22 @@ region = Rect2(144, 0, 24, 24)
 atlas = ExtResource("16_wk2nr")
 region = Rect2(168, 0, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d5x3"]
+atlas = ExtResource("16_smb05")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvetj"]
+atlas = ExtResource("16_smb05")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmpic"]
+atlas = ExtResource("16_smb05")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxut1"]
+atlas = ExtResource("16_smb05")
+region = Rect2(72, 0, 24, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_s2ubq"]
 animations = [{
 "frames": [{
@@ -302,6 +134,23 @@ animations = [{
 "loop": true,
 "name": &"burning",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d5x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvetj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmpic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxut1")
+}],
+"loop": true,
+"name": &"poisoned",
+"speed": 5.0
 }]
 
 [sub_resource type="Animation" id="Animation_txicx"]
@@ -498,20 +347,20 @@ text = "exit"
 light_mask = 0
 
 [node name="chosen_spell_label" type="Label" parent="combatUI/combat"]
-offset_left = 558.0
-offset_top = 734.0
-offset_right = 658.0
-offset_bottom = 826.0
+offset_left = 427.0
+offset_top = 722.0
+offset_right = 531.0
+offset_bottom = 814.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "test"
 label_settings = ExtResource("12_vu285")
 
 [node name="chosen_spell_desc" type="Label" parent="combatUI/combat"]
-offset_left = 562.0
-offset_top = 814.0
-offset_right = 910.0
-offset_bottom = 906.0
+offset_left = 434.0
+offset_top = 795.0
+offset_right = 782.0
+offset_bottom = 887.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "test"
@@ -519,30 +368,29 @@ label_settings = ExtResource("5_be3fw")
 autowrap_mode = 2
 
 [node name="chosen_spell_dmg" type="Label" parent="combatUI/combat"]
-offset_left = 562.0
-offset_top = 987.0
-offset_right = 662.0
-offset_bottom = 1079.0
+offset_left = 434.0
+offset_top = 968.0
+offset_right = 534.0
+offset_bottom = 1060.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "test"
 label_settings = ExtResource("5_be3fw")
 
 [node name="cast" type="Button" parent="combatUI/combat"]
-offset_left = 54.0
-offset_top = 714.0
-offset_right = 292.0
-offset_bottom = 787.0
+offset_left = 179.0
+offset_top = 710.0
+offset_right = 335.0
+offset_bottom = 795.0
 focus_neighbor_right = NodePath("../../spellSelect/Control/GridContainer/Fireball")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("6_p1cl7")
-theme_override_font_sizes/font_size = 58
+theme_override_font_sizes/font_size = 72
 theme_override_styles/hover = SubResource("StyleBoxLine_qtvrs")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_i85tx")
 text = "Cast!
 "
-icon = ExtResource("6_6i4oy")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -744,12 +592,13 @@ label_settings = ExtResource("12_vu285")
 
 [node name="cast_lefts" type="Label" parent="."]
 z_index = 1
-offset_left = 245.0
-offset_top = 727.0
-offset_right = 491.0
-offset_bottom = 819.0
+offset_left = 60.0
+offset_top = 128.0
+offset_right = 328.0
+offset_bottom = 219.0
+theme_override_fonts/font = ExtResource("7_db3go")
+theme_override_font_sizes/font_size = 40
 text = "Casts Left:"
-label_settings = ExtResource("5_be3fw")
 
 [node name="instruct" type="Label" parent="."]
 offset_left = 725.0
@@ -764,15 +613,15 @@ light_mask = 0
 z_index = 2
 position = Vector2(693.913, 456.094)
 scale = Vector2(5.18579, 5.41277)
-sprite_frames = SubResource("SpriteFrames_o7q31")
-animation = &"Curse"
-frame_progress = 0.145384
+sprite_frames = ExtResource("14_cb2l5")
+animation = &"Poison Swamp"
+frame_progress = 0.155468
 
 [node name="enemy attack" type="AnimatedSprite2D" parent="."]
 z_index = -1
 position = Vector2(1421, 366)
 scale = Vector2(4.5, 4.5)
-sprite_frames = SubResource("SpriteFrames_o7q31")
+sprite_frames = ExtResource("14_cb2l5")
 animation = &"Curse"
 frame_progress = 0.832722
 flip_h = true
@@ -782,7 +631,8 @@ z_index = 1
 position = Vector2(1562, 533)
 scale = Vector2(8.91666, 8.91666)
 sprite_frames = SubResource("SpriteFrames_s2ubq")
-animation = &"burning"
+animation = &"poisoned"
+frame_progress = 0.270174
 
 [node name="spellEffects" type="AnimationPlayer" parent="."]
 libraries = {
@@ -803,6 +653,13 @@ offset_right = 546.0
 offset_bottom = 262.0
 mouse_filter = 2
 color = Color(1, 0.0901961, 0.0901961, 0.215686)
+
+[node name="Pet" type="AnimatedSprite2D" parent="."]
+position = Vector2(299, 322)
+scale = Vector2(9.10902, 9.10902)
+sprite_frames = ExtResource("14_cb2l5")
+animation = &"Blood Clot Homunculus"
+frame_progress = 0.160864
 
 [connection signal="pressed" from="combatUI/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="combatUI/return" to="." method="_on_return_pressed"]

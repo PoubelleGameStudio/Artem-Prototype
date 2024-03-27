@@ -1,10 +1,17 @@
 extends Node2D
 class_name title_screen
 
+
+@onready var intro_level: PackedScene = preload("res://scenes/levels/grimsBriar.tscn")
+
+
 @export var level_name: String = ''
+
+
 const SAVE_DIR = "user://saves/"
 var save_file = "PlayerSave.tres"
 var playerData = PlayerData.new()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +26,7 @@ func _process(delta):
 
 func _on_new_game_pressed():
 	SceneTransition.fade_out()
-	get_tree().change_scene_to_file("res://scenes/levels/grimsBriar.tscn")
+	get_tree().change_scene_to_packed(intro_level)
 	
 func _on_new_game_focus_entered():
 	toggle_focus_mark($"CanvasLayer/HBoxContainer2/New Game/ColorRect")

@@ -181,7 +181,7 @@ func _on_speak():
 @onready var spell_book = {
 	"Sanguinated Shell":{
 		"name":"Sanguinated Shell",
-		"description":"",
+		"description":"Coalesce your blood into a hardened shell absorbing 50% damage for 3 turns. When the shell expires you heal for half the amount absorbed.",
 		"learned":0,
 		"damage":0,
 		"class": "defend",
@@ -190,7 +190,7 @@ func _on_speak():
 	},
 	"Blood Clot Homunculus":{
 		"name":"Blood Clot Homunculus",
-		"description":"",
+		"description":"Sacrifice 20% of your health to construct a blood clot homunculus that will copy your attacks for 20% of the damage done.",
 		"learned":0,
 		"damage":0,
 		"class": "attack",
@@ -199,7 +199,7 @@ func _on_speak():
 	},
 	"Blood Moon":{
 		"name":"Blood Moon",
-		"description":"",
+		"description":"Increase the effects of all blood magic by 20% for 3 turns.",
 		"learned":0,
 		"damage":0,
 		"class": "field",
@@ -217,7 +217,7 @@ func _on_speak():
 	},
 	"Hollowed Threats":{
 		"name":"Hollowed Threats",
-		"description":"",
+		"description":"Seep your opponent in void energy weakening their attack by 10%",
 		"learned":0,
 		"damage":0,
 		"class": "attack",
@@ -226,7 +226,7 @@ func _on_speak():
 	},
 	"Void Sight":{
 		"name":"Void Sight",
-		"description":"",
+		"description":"Look through the void to anticipate your oppoents attacks. Increase chance to dodge by 15% for 3 turns.",
 		"learned":0,
 		"damage":0,
 		"class": "attack",
@@ -235,7 +235,7 @@ func _on_speak():
 	},
 	"Vapid Affliction":{
 		"name":"Vapid Affliction",
-		"description":"",
+		"description":"The void invades your foe's mind. Each turn they have an increasing chance to not attack on their next turn.",
 		"learned":0,
 		"damage":0,
 		"class": "attack",
@@ -253,11 +253,11 @@ func _on_speak():
 	},
 	"Poison Swamp":{
 		"name":"Poison Swamp",
-		"description":"",
+		"description":"Seep the ground beneath your foes feet in thick, poisonous sludge",
 		"learned":0,
 		"damage":10,
 		"class": "attack",
-		"type": "Invoke",
+		"type": "Poison",
 		"stat_mod":{}
 	},
 }
@@ -422,6 +422,8 @@ var area_enemies = {
 		"1":0,
 		"2":0,
 		"3":0,
+		"4":0,
+		"5":0
 	},
 	"energy_temple":{
 		"1":0,
