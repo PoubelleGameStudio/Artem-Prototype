@@ -77,6 +77,8 @@ func save_player()-> void:
 	playerData.weapon = State.weapon
 	playerData.health = State.health
 	playerData.maxHealth = State.maxHealth
+	playerData.bonusMaxHealth = State.bonusMaxHealth
+	playerData.baseMaxHealth = State.baseMaxHealth
 	playerData.cur_xp = State.cur_xp
 	playerData.xp_to_next = State.xp_to_next
 	playerData.level = State.level
@@ -125,6 +127,7 @@ func load_player() -> void:
 	State.weapon = playerData.weapon
 	State.health = playerData.health
 	State.maxHealth = playerData.maxHealth
+	print(playerData.maxHealth)
 	State.bonusMaxHealth = playerData.bonusMaxHealth
 	State.baseMaxHealth = playerData.baseMaxHealth
 	State.cur_xp = playerData.cur_xp

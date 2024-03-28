@@ -9,13 +9,13 @@
 [ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="5_be3fw"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="6_p1cl7"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="7_6qudd"]
-[ext_resource type="FontFile" uid="uid://i8xcwtoee0vp" path="res://Game Components/fonts/AlmendraSC-Italic.otf" id="7_db3go"]
 [ext_resource type="PackedScene" uid="uid://dpv6cisbc7uye" path="res://Game Components/UI_Elements/combat/spell_button.tscn" id="8_16ejo"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="12_jwlj2"]
 [ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="12_vu285"]
 [ext_resource type="SpriteFrames" uid="uid://ftaerve5ta27" path="res://Game Components/UI_Elements/combat/spell_animations.tres" id="14_cb2l5"]
 [ext_resource type="Texture2D" uid="uid://dj4ugebjlc7vl" path="res://Sprites/combat/spell effects/AcidSplashAllFrames.png" id="16_smb05"]
 [ext_resource type="Texture2D" uid="uid://dtg70mxrhn41l" path="res://Sprites/combat/DoT effects/burning.png" id="16_wk2nr"]
+[ext_resource type="Script" path="res://scripts/Pet.gd" id="18_dsuyw"]
 [ext_resource type="Texture2D" uid="uid://bcranc40bjctv" path="res://Sprites/combat/spell icons/Blood Moon - talent.png" id="19_v8xaj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
@@ -351,16 +351,16 @@ offset_left = 427.0
 offset_top = 722.0
 offset_right = 531.0
 offset_bottom = 814.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_p1cl7")
+theme_override_font_sizes/font_size = 63
 text = "test"
-label_settings = ExtResource("12_vu285")
 
 [node name="chosen_spell_desc" type="Label" parent="combatUI/combat"]
-offset_left = 434.0
-offset_top = 795.0
-offset_right = 782.0
-offset_bottom = 887.0
+offset_left = 423.0
+offset_top = 790.0
+offset_right = 771.0
+offset_bottom = 882.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "test"
@@ -368,20 +368,20 @@ label_settings = ExtResource("5_be3fw")
 autowrap_mode = 2
 
 [node name="chosen_spell_dmg" type="Label" parent="combatUI/combat"]
-offset_left = 434.0
-offset_top = 968.0
-offset_right = 534.0
-offset_bottom = 1060.0
+offset_left = 427.0
+offset_top = 1008.0
+offset_right = 527.0
+offset_bottom = 1100.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "test"
 label_settings = ExtResource("5_be3fw")
 
 [node name="cast" type="Button" parent="combatUI/combat"]
-offset_left = 179.0
-offset_top = 710.0
-offset_right = 335.0
-offset_bottom = 795.0
+offset_left = 116.0
+offset_top = 713.0
+offset_right = 385.0
+offset_bottom = 802.0
 focus_neighbor_right = NodePath("../../spellSelect/Control/GridContainer/Fireball")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
@@ -592,21 +592,24 @@ label_settings = ExtResource("12_vu285")
 
 [node name="cast_lefts" type="Label" parent="."]
 z_index = 1
-offset_left = 60.0
-offset_top = 128.0
-offset_right = 328.0
-offset_bottom = 219.0
-theme_override_fonts/font = ExtResource("7_db3go")
+offset_left = 51.0
+offset_top = 476.0
+offset_right = 319.0
+offset_bottom = 567.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_p1cl7")
 theme_override_font_sizes/font_size = 40
 text = "Casts Left:"
 
 [node name="instruct" type="Label" parent="."]
-offset_left = 725.0
-offset_top = 529.0
-offset_right = 1126.0
-offset_bottom = 579.0
+offset_left = 537.0
+offset_top = 486.0
+offset_right = 1270.0
+offset_bottom = 570.0
+theme_override_font_sizes/font_size = 9
 text = "Select a spell and then click cast!"
-label_settings = ExtResource("5_be3fw")
+label_settings = ExtResource("12_vu285")
 
 [node name="spell effect" type="AnimatedSprite2D" parent="."]
 light_mask = 0
@@ -632,7 +635,7 @@ position = Vector2(1562, 533)
 scale = Vector2(8.91666, 8.91666)
 sprite_frames = SubResource("SpriteFrames_s2ubq")
 animation = &"poisoned"
-frame_progress = 0.270174
+frame_progress = 0.431583
 
 [node name="spellEffects" type="AnimationPlayer" parent="."]
 libraries = {
@@ -655,11 +658,13 @@ mouse_filter = 2
 color = Color(1, 0.0901961, 0.0901961, 0.215686)
 
 [node name="Pet" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(299, 322)
 scale = Vector2(9.10902, 9.10902)
 sprite_frames = ExtResource("14_cb2l5")
 animation = &"Blood Clot Homunculus"
-frame_progress = 0.160864
+frame_progress = 0.322273
+script = ExtResource("18_dsuyw")
 
 [connection signal="pressed" from="combatUI/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="combatUI/return" to="." method="_on_return_pressed"]

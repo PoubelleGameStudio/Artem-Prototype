@@ -76,23 +76,22 @@ var rng = RandomNumberGenerator.new()
 
 
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	player.play("idle")
 	pHealth.value = State.health
+	pHealth.max_value = State.maxHealth
 	spellTexture.hide()
 	yourTurn = 1
 	DoTEffect.hide()
 	enemyAttack.hide()
 	fight.grab_focus()
-	pHealth_label.text = str("HP ",State.health,"/",State.maxHealth)
+	pHealth_label.text = str("HP ",State.health)
 	statusEffect.text = burningText + poisonedText
-	#add_spells()
-	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):	
-	print(statusEffect.text)
+	print(State.maxHealth)
 	chosen_spell.text = State.spell1
 	chosen_spell_desc.text = State["spell_book"][State.spell1]["description"]
 	chosen_spell_dmg.text = str("Damage: ",State["spell_book"][State.spell1]["damage"])
@@ -109,6 +108,7 @@ func camera_current():
 
 #set up on combat start
 func combat_data():
+	_ready()
 	enemy.enemyID(State.enemyID)
 	enemy.world = world_level
 	enemy.enemyType(State.engaging[0])
@@ -139,15 +139,10 @@ func castSpell() -> int:
 		types.insert(0,str(spells[State.spell1]["type"]))
 
 	
-	# check for support spells
-#	if State.spell3 != '':
-#		if spells[State.spell3]["class"]=="support":
-#			var stats = spells[State.spell3]["stat_mod"].keys()
-#			match stats[0]:
-#				"crit_chance":
-#					crit_chance += spells[State.spell3]["stat_mod"]["crit_chance"]
-#				"life_drain":
-#					life_drain += spells[State.spell3]["stat_mod"]["life_drain"]
+	# check for summon spells
+	if spells[State.spell1]["class"] == "summon":
+		pet.summoned = true
+		pet.play(State.spell1)
 			
 	
 	# check for defense but only grab armor from one of them if multiple
@@ -398,12 +393,13 @@ func _on_return_pressed():
 func _on_onepunch_pressed():
 	if yourTurn == 1 && State.spell1 != '' and is_casting == false:
 		is_casting = true
-		if spells[State.spell1]["class"] != "field":
-			spellTexture.show()
-			spellTexture.play(State.spell1)
-			spellAnimation.play("spell cast")
-			await get_tree().create_timer(1).timeout
-			spellTexture.hide()
+		if spells[State.spell1]["class"]  != "summon":
+			if spells[State.spell1]["class"]  != "field":
+				spellTexture.show()
+				spellTexture.play(State.spell1)
+				spellAnimation.play("spell cast")
+				await get_tree().create_timer(1).timeout
+				spellTexture.hide()
 		is_casting = false
 		instruct.hide()
 		

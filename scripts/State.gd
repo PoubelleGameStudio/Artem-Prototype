@@ -32,7 +32,7 @@ var weapon: String = 'dagger of belonging'
 
 
 # stats
-var maxHealth: int = 99
+var maxHealth: int = 100
 var bonusMaxHealth: float = 1.0:
 	set(value):
 		bonusMaxHealth = value
@@ -193,7 +193,7 @@ func _on_speak():
 		"description":"Sacrifice 20% of your health to construct a blood clot homunculus that will copy your attacks for 20% of the damage done.",
 		"learned":0,
 		"damage":0,
-		"class": "attack",
+		"class": "summon",
 		"type": "blood",
 		"stat_mod":{}
 	},
