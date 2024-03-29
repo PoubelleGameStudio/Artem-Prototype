@@ -692,12 +692,10 @@ position = Vector2(570.461, -149.766)
 model = "Lamp Post - Spooky"
 
 [node name="lamp Post1" parent="." instance=ExtResource("25_qgex0")]
-z_index = 1
 position = Vector2(1343.56, -208.006)
 model = "Lamp Post - Spooky"
 
 [node name="lamp Post3" parent="." instance=ExtResource("25_qgex0")]
-z_index = 1
 position = Vector2(1979.19, -31.4086)
 model = "Lamp Post - Spooky"
 
@@ -707,32 +705,26 @@ position = Vector2(2622.55, -210.384)
 model = "Lamp Post - Spooky"
 
 [node name="lamp Post5" parent="." instance=ExtResource("25_qgex0")]
-z_index = 1
 position = Vector2(3726.57, -107.79)
 model = "Lamp Post - Spooky"
 
 [node name="lamp Post6" parent="." instance=ExtResource("25_qgex0")]
-z_index = 1
 position = Vector2(3725, 295)
 model = "Lamp Post - Spooky"
 
 [node name="lamp Post7" parent="." instance=ExtResource("25_qgex0")]
-z_index = 1
 position = Vector2(3203, 216)
 model = "Lamp Post - Spooky"
 
 [node name="lamp Post8" parent="." instance=ExtResource("25_qgex0")]
-z_index = 1
 position = Vector2(2683, 317)
 model = "Lamp Post - Spooky"
 
 [node name="lamp Post10" parent="." instance=ExtResource("25_qgex0")]
-z_index = 2
 position = Vector2(1732, 237)
 model = "Lamp Post - Spooky"
 
 [node name="lamp Post9" parent="." instance=ExtResource("25_qgex0")]
-z_index = 1
 position = Vector2(2193, 216)
 model = "Lamp Post - Spooky"
 

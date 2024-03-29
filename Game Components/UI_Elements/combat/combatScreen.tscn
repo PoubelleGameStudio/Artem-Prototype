@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=29 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="2_cjm7y"]
@@ -13,8 +13,7 @@
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="12_jwlj2"]
 [ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="12_vu285"]
 [ext_resource type="SpriteFrames" uid="uid://ftaerve5ta27" path="res://Game Components/UI_Elements/combat/spell_animations.tres" id="14_cb2l5"]
-[ext_resource type="Texture2D" uid="uid://dj4ugebjlc7vl" path="res://Sprites/combat/spell effects/AcidSplashAllFrames.png" id="16_smb05"]
-[ext_resource type="Texture2D" uid="uid://dtg70mxrhn41l" path="res://Sprites/combat/DoT effects/burning.png" id="16_wk2nr"]
+[ext_resource type="SpriteFrames" uid="uid://b4mvq8yx2t3yi" path="res://Game Components/UI_Elements/combat/Dot Effects.tres" id="14_w4egx"]
 [ext_resource type="Script" path="res://scripts/Pet.gd" id="18_dsuyw"]
 [ext_resource type="Texture2D" uid="uid://bcranc40bjctv" path="res://Sprites/combat/spell icons/Blood Moon - talent.png" id="19_v8xaj"]
 
@@ -55,103 +54,6 @@ thickness = 8
 vertical = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i85tx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n8von"]
-atlas = ExtResource("16_wk2nr")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f7yj4"]
-atlas = ExtResource("16_wk2nr")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h3etu"]
-atlas = ExtResource("16_wk2nr")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0hd2u"]
-atlas = ExtResource("16_wk2nr")
-region = Rect2(72, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8eb1"]
-atlas = ExtResource("16_wk2nr")
-region = Rect2(96, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_deeq1"]
-atlas = ExtResource("16_wk2nr")
-region = Rect2(120, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dyvem"]
-atlas = ExtResource("16_wk2nr")
-region = Rect2(144, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wrva3"]
-atlas = ExtResource("16_wk2nr")
-region = Rect2(168, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4d5x3"]
-atlas = ExtResource("16_smb05")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nvetj"]
-atlas = ExtResource("16_smb05")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wmpic"]
-atlas = ExtResource("16_smb05")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bxut1"]
-atlas = ExtResource("16_smb05")
-region = Rect2(72, 0, 24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_s2ubq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n8von")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f7yj4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h3etu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0hd2u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e8eb1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_deeq1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dyvem")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wrva3")
-}],
-"loop": true,
-"name": &"burning",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4d5x3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nvetj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wmpic")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bxut1")
-}],
-"loop": true,
-"name": &"poisoned",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_txicx"]
 length = 0.001
@@ -425,7 +327,9 @@ offset_left = 3.0
 offset_top = 55.0
 offset_right = 43.0
 offset_bottom = 97.0
-label_settings = ExtResource("5_be3fw")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_p1cl7")
+theme_override_font_sizes/font_size = 45
 
 [node name="playerHealth" type="ProgressBar" parent="combatUI"]
 light_mask = 0
@@ -620,6 +524,15 @@ sprite_frames = ExtResource("14_cb2l5")
 animation = &"Poison Swamp"
 frame_progress = 0.155468
 
+[node name="defend" type="AnimatedSprite2D" parent="."]
+visible = false
+light_mask = 0
+position = Vector2(519, 470)
+scale = Vector2(19.345, 21.9891)
+sprite_frames = ExtResource("14_cb2l5")
+animation = &"Sanguinated Shell"
+frame_progress = 0.465408
+
 [node name="enemy attack" type="AnimatedSprite2D" parent="."]
 z_index = -1
 position = Vector2(1421, 366)
@@ -633,7 +546,7 @@ flip_h = true
 z_index = 1
 position = Vector2(1562, 533)
 scale = Vector2(8.91666, 8.91666)
-sprite_frames = SubResource("SpriteFrames_s2ubq")
+sprite_frames = ExtResource("14_w4egx")
 animation = &"poisoned"
 frame_progress = 0.431583
 

@@ -65,6 +65,18 @@ extends Node2D
 			fieldEffect.hide()
 @onready var fieldEffect: AnimatedSprite2D = $field
 @onready var pet: AnimatedSprite2D = $Pet
+@onready var defend: AnimatedSprite2D = $defend
+@onready var shielded: bool = false:
+	set(value):
+		shielded = value
+		if shielded == false:
+			defend.hide()
+@onready var shield_absorbed: int = 0:
+	set(value):
+		shield_absorbed = value
+		if shield_absorbed >= State.maxHealth/2:
+			shielded = false
+			shield_absorbed = 0
 
 #signals
 signal combat_end
@@ -91,7 +103,6 @@ func _ready():
 
 
 func _process(delta):	
-	print(State.maxHealth)
 	chosen_spell.text = State.spell1
 	chosen_spell_desc.text = State["spell_book"][State.spell1]["description"]
 	chosen_spell_dmg.text = str("Damage: ",State["spell_book"][State.spell1]["damage"])
@@ -130,52 +141,45 @@ func castSpell() -> int:
 	var damage: int
 	var crit_chance = State.crit_chance
 	var life_drain: float = 0.0
-	var types = []
+	var type: String = spells[State.spell1]["type"]
 	var preResists = 0
 	
 	#check for attacks
 	if spells[State.spell1]["class"]=="attack":
 		damage += spells[State.spell1]["damage"]
-		types.insert(0,str(spells[State.spell1]["type"]))
-
-	
+		
 	# check for summon spells
-	if spells[State.spell1]["class"] == "summon":
+	elif spells[State.spell1]["class"] == "summon":
 		pet.summoned = true
 		pet.play(State.spell1)
-			
-	
-	# check for defense but only grab armor from one of them if multiple
-	if State.spell1 !="":
-		if spells[State.spell1]["class"]=="defend":
-			pass
+		
+	# check for defensive spells
+	elif spells[State.spell1]["class"]=="defend":
+		match spells[State.spell1]["name"]:
+			"Sanguinated Shell":
+				shielded = true
+				defend.play("Sanguinated Shell")
+				defend.show()
 
-	#handle field spells
-	if State.spell1 !="":
-		if spells[State.spell1]["class"]=="field":
-			match spells[State.spell1]["type"]:
-				"blood": 
-						bloodMoon = true
-						fieldDuration = 3
-						fieldEffect.show()
-				
-			
-			
-	
+	# check for field spells
+	elif spells[State.spell1]["class"]=="field":
+		match spells[State.spell1]["type"]:
+			"blood": 
+				bloodMoon = true
+				fieldDuration = 3
+				fieldEffect.show()
+
+
 	# check for blood type and do enemy self damage
-	for type in types:
-		match type:
-			"blood":
-				if specialCounter == 4:
-					damage = enemyBook[enemy.enemy_type]["moves"]["special"]
-					specialCounter = 0
-				else:
-					damage = enemyBook[enemy.enemy_type]["moves"]["basic"]
-			"Fire":
-				burning_for = 3
-				
-			"Poison":
-				poisoned_for = 3 
+	match type:
+		"Fire":
+			burning_for = 3
+			
+		"Poison":
+			poisoned_for = 3 
+		
+		"Void":
+			pass
 	
 	# final checks 
 	#roll for crit
@@ -186,40 +190,36 @@ func castSpell() -> int:
 
 	#handle spell resist
 	if enemyBook[enemy.enemy_type]["resists"]:
+		
 		preResists = damage
 		var resists = enemyBook[enemy.enemy_type]["resists"].keys()
+		
 		for resist in resists:
 			match resist:
 				"void":
-					for type in types:
 						if type == "void": 
 							var reduce = (100 - enemyBook[enemy.enemy_type]["resists"]["void"]) * .01
 							damage *= reduce
 
 				"fire":
-					for type in types:
 						if type == "fire": 
 							var reduce = (100 - enemyBook[enemy.enemy_type]["resists"]["fire"]) * .01
 							damage *= reduce
 
 				"frost":
-					for type in types:
 						if type == "frost": 
 							var reduce = (100 - enemyBook[enemy.enemy_type]["resists"]["frost"]) * .01
 							damage *= reduce
 
 				"arcane":
-					for type in types:
 						if type == "arcane": 
 							var reduce = (100 - enemyBook[enemy.enemy_type]["resists"]["frost"]) * .01
 							damage *= reduce
 
 				"blood":
-					for type in types:
 						if type == "blood": 
 							var reduce = (100 - enemyBook[enemy.enemy_type]["resists"]["blood"]) * .01
 							damage *= reduce
-							
 
 	#handle life_drain after all damage calcs are done
 	if life_drain > 0.0:
@@ -227,10 +227,10 @@ func castSpell() -> int:
 			State.health = State.maxHealth
 		else:
 			State.health += (damage * life_drain)
+
 	if State.t_attack_up:
-		print("base damage: ",damage)
 		damage *= 1.20
-		print("buffed damage: ",damage)
+	
 	statusEffect.text = burningText + poisonedText
 	return damage
 
@@ -285,9 +285,17 @@ func enemyTurn():
 			specialCounter = 0
 		else:
 			specialCounter += 1
+		
+		
 		if State.t_shield:
 			print("dmg reduced")
-			State.health -= damageTaken * .85
+			State.health -= damageTaken * 0.85
+		
+		if shielded:
+			shield_absorbed += damageTaken * 0.2
+			State.health += damageTaken * 0.2
+			damageTaken *= .8
+			
 		
 		State.health -= damageTaken
 		pHealth.value = State.health
@@ -332,6 +340,7 @@ func enemyTurn():
 		casts_left = State.casts
 		if State.health < 1:
 			death.emit()
+			reset()
 
 	
 
@@ -367,7 +376,12 @@ func endgame():
 	#get_tree().change_scene_to_file((str(State.prev_scene)))
 
 
-
+func reset():
+	burning_for = 0
+	poisoned_for = 0
+	shielded = false
+	shield_absorbed = 0
+	pet.summoned = false
 
 
 func _on_combat_pressed():
@@ -393,13 +407,12 @@ func _on_return_pressed():
 func _on_onepunch_pressed():
 	if yourTurn == 1 && State.spell1 != '' and is_casting == false:
 		is_casting = true
-		if spells[State.spell1]["class"]  != "summon":
-			if spells[State.spell1]["class"]  != "field":
-				spellTexture.show()
-				spellTexture.play(State.spell1)
-				spellAnimation.play("spell cast")
-				await get_tree().create_timer(1).timeout
-				spellTexture.hide()
+		if spells[State.spell1]["class"]  == "attack":
+			spellTexture.show()
+			spellTexture.play(State.spell1)
+			spellAnimation.play("spell cast")
+			await get_tree().create_timer(1).timeout
+			spellTexture.hide()
 		is_casting = false
 		instruct.hide()
 		
@@ -421,8 +434,8 @@ func _on_spell_pressed():
 
 func _on_enemy_combat_dead():
 	combat_end.emit()
-	burning_for = 0
-	poisoned_for = 0
+	reset()
+	
 
 
 

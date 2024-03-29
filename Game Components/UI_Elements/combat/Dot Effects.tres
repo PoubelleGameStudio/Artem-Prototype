@@ -1,0 +1,101 @@
+[gd_resource type="SpriteFrames" load_steps=15 format=3 uid="uid://b4mvq8yx2t3yi"]
+
+[ext_resource type="Texture2D" uid="uid://dtg70mxrhn41l" path="res://Sprites/combat/DoT effects/burning.png" id="1_56q10"]
+[ext_resource type="Texture2D" uid="uid://dj4ugebjlc7vl" path="res://Sprites/combat/spell effects/AcidSplashAllFrames.png" id="2_fjvrh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8von"]
+atlas = ExtResource("1_56q10")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7yj4"]
+atlas = ExtResource("1_56q10")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3etu"]
+atlas = ExtResource("1_56q10")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hd2u"]
+atlas = ExtResource("1_56q10")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8eb1"]
+atlas = ExtResource("1_56q10")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deeq1"]
+atlas = ExtResource("1_56q10")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyvem"]
+atlas = ExtResource("1_56q10")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrva3"]
+atlas = ExtResource("1_56q10")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d5x3"]
+atlas = ExtResource("2_fjvrh")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvetj"]
+atlas = ExtResource("2_fjvrh")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmpic"]
+atlas = ExtResource("2_fjvrh")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxut1"]
+atlas = ExtResource("2_fjvrh")
+region = Rect2(72, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8von")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7yj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3etu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hd2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8eb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deeq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyvem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrva3")
+}],
+"loop": true,
+"name": &"burning",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d5x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvetj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmpic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxut1")
+}],
+"loop": true,
+"name": &"poisoned",
+"speed": 5.0
+}]
