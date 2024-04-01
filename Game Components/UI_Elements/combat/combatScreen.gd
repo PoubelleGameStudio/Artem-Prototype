@@ -77,6 +77,16 @@ extends Node2D
 		if shield_absorbed >= State.maxHealth/2:
 			shielded = false
 			shield_absorbed = 0
+@onready var enemy_hit_chance: float = 1.0
+@onready var hit_lowered_for: int = 0:
+	set(value):
+		hit_lowered_for = value
+		if hit_lowered_for == 0:
+			enemy_hit_chance = 1.0
+@onready var confused: bool = false
+@onready var attack_reduced_by: float = 0.0
+@onready var attack_reduced_for: int = 0
+@onready var pet_spells = $"Pet/Pet Spells"
 
 #signals
 signal combat_end
@@ -163,7 +173,7 @@ func castSpell() -> int:
 
 	# check for field spells
 	elif spells[State.spell1]["class"]=="field":
-		match spells[State.spell1]["type"]:
+		match type:
 			"blood": 
 				bloodMoon = true
 				fieldDuration = 3
@@ -174,14 +184,23 @@ func castSpell() -> int:
 	match type:
 		"Fire":
 			burning_for = 3
-			
+
 		"Poison":
 			poisoned_for = 3 
-		
+
 		"Void":
-			pass
-	
+			if State.spell1 == "Hollowed Threats":
+				attack_reduced_by -= 0.2
+				attack_reduced_for = 3
+			elif State.spell1 == "Void Sight":
+				enemy_hit_chance -= 0.2
+				hit_lowered_for = 3
+			elif State.spell1 == "Vapid Affliction":
+				confused = true
+
+		
 	# final checks 
+	
 	#roll for crit
 	var roll = rng.randf_range(0,100)
 	if roll <= crit_chance:
@@ -228,7 +247,12 @@ func castSpell() -> int:
 		else:
 			State.health += (damage * life_drain)
 
+	# handles attack up trait
 	if State.t_attack_up:
+		damage *= 1.20
+	
+	# handles the pet damage bonus
+	if pet.summoned:
 		damage *= 1.20
 	
 	statusEffect.text = burningText + poisonedText
@@ -238,7 +262,6 @@ func castSpell() -> int:
 ####################### what happens during enemy turns #######################
 func enemyTurn():
 	if enemy.health >= 0:		
-		showOptions()
 		var damageTaken = 0
 		await get_tree().create_timer(0.5).timeout
 
@@ -286,22 +309,44 @@ func enemyTurn():
 		else:
 			specialCounter += 1
 		
-		
+		# handles damage reduction trait
 		if State.t_shield:
 			print("dmg reduced")
-			State.health -= damageTaken * 0.85
-		
+			damageTaken *= 0.85
+
+		# handles sanguine shell
 		if shielded:
 			shield_absorbed += damageTaken * 0.2
 			State.health += damageTaken * 0.2
-			damageTaken *= .8
-			
+			damageTaken *= 0.8
 		
-		State.health -= damageTaken
+		# handles hollowed threats
+		if attack_reduced_for > 0:
+			damageTaken *= attack_reduced_by
+			attack_reduced_for -= 1
+			
+		# handles void sight
+		if hit_lowered_for > 0 :
+			if rng.randf_range(0.0,1.0) > enemy_hit_chance:
+				hit_lowered_for -= 1
+				print("enemy missed")
+				yourTurn = 1
+				return
+		
+		# handles vapid affliction effect 
+		if confused:
+			if rng.randf_range(1,100) < 80:
+				State.health -= damageTaken
+			else:
+				confused = false
+		else:
+			State.health -= damageTaken
+
 		pHealth.value = State.health
 		pHealth_label.text = str("HP ",State.health,"/",State.maxHealth)
-		await get_tree().create_timer(2.0).timeout
-		
+		await get_tree().create_timer(1.0).timeout
+
+		# handles burning damage
 		if burning_for > 0:
 			burning_for -= 1
 			
@@ -318,6 +363,7 @@ func enemyTurn():
 			
 			DoTEffect.hide()
 		
+		# handles poison damage
 		if poisoned_for > 0:
 			poisoned_for -= 1
 			
@@ -344,7 +390,6 @@ func enemyTurn():
 
 	
 
-
 # funcs to handle various UI elements and button presses
 func showAttacks():
 	# show the buttons we do need
@@ -352,15 +397,7 @@ func showAttacks():
 	spell_book.show()
 	#defend.show()
 
-	
 
-
-	
-func showOptions():
-	# inv.show()
-	# combat.show()
-	# show the buttons we do need
-	pass
 
 # called when enemy or you dies
 func endgame():
@@ -370,10 +407,8 @@ func endgame():
 		State.update_inventory(drop,State.enemies[enemy.enemy_type]["drops"][drop])
 		print(drop," added to inventory")
 	State.cur_xp += round(pow(State.level,1.5)+State.level*2.6)
-#	var killed = get_node(NodePath(str('../enemies/',enemy.enemy_type)))
-#	killed.set_defeat(1)
 	yourTurn = 1
-	#get_tree().change_scene_to_file((str(State.prev_scene)))
+
 
 
 func reset():
@@ -382,14 +417,13 @@ func reset():
 	shielded = false
 	shield_absorbed = 0
 	pet.summoned = false
+	hit_lowered_for = 0
 
 
 func _on_combat_pressed():
 	if yourTurn == 1:
 		# hide buttons we don't need
 		showAttacks()
-	else:
-		pass
 	
 
 func _on_inventory_pressed():
@@ -407,7 +441,16 @@ func _on_return_pressed():
 func _on_onepunch_pressed():
 	if yourTurn == 1 && State.spell1 != '' and is_casting == false:
 		is_casting = true
-		if spells[State.spell1]["class"]  == "attack":
+		if spells[State.spell1]["class"]  == "attack" and pet.summoned == true:
+			spellTexture.show()
+			pet_spells.show()
+			pet_spells.play(State.spell1)
+			spellTexture.play(State.spell1)
+			spellAnimation.play("spell cast")
+			await get_tree().create_timer(1).timeout
+			spellTexture.hide()
+			pet_spells.hide()
+		elif spells[State.spell1]["class"]  == "attack":
 			spellTexture.show()
 			spellTexture.play(State.spell1)
 			spellAnimation.play("spell cast")

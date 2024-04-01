@@ -1,0 +1,174 @@
+[gd_scene load_steps=2 format=3 uid="uid://bufs1f00doj0a"]
+
+[ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="1_5e220"]
+
+[node name="bugs\'" type="Node2D"]
+z_index = -2
+
+[node name="flies_31" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(178, -163)
+
+[node name="flies_32" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(178, -533)
+
+[node name="flies_33" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(178, -911)
+
+[node name="flies_34" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(178, 139)
+
+[node name="flies_35" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(170, 314)
+
+[node name="flies_36" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(162, 726)
+
+[node name="flies_37" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(162, 1224)
+
+[node name="flies_38" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(1189, -163)
+
+[node name="flies_39" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(1189, -533)
+
+[node name="flies_40" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(1189, -911)
+
+[node name="flies_41" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(1189, 139)
+
+[node name="flies_42" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(1181, 314)
+
+[node name="flies_43" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(1173, 726)
+
+[node name="flies_44" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(1173, 1224)
+
+[node name="flies_45" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(2227, -163)
+
+[node name="flies_46" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(2227, -533)
+
+[node name="flies_47" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(2227, -911)
+
+[node name="flies_48" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(2227, 139)
+
+[node name="flies_49" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(2219, 314)
+
+[node name="flies_50" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(2211, 726)
+
+[node name="flies_51" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(2211, 1224)
+
+[node name="flies_52" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(3246, -163)
+
+[node name="flies_53" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(3246, -533)
+
+[node name="flies_54" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(3246, -911)
+
+[node name="flies_55" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(3246, 139)
+
+[node name="flies_56" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(3238, 314)
+
+[node name="flies_57" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(3230, 726)
+
+[node name="flies_58" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(3230, 1224)
+
+[node name="flies_59" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(4258, -163)
+
+[node name="flies_60" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(4258, -533)
+
+[node name="flies_61" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(4258, -911)
+
+[node name="flies_62" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(4258, 139)
+
+[node name="flies_63" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(4250, 314)
+
+[node name="flies_64" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(4242, 726)
+
+[node name="flies_65" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(4242, 1224)
+
+[node name="flies_66" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(5262, -163)
+
+[node name="flies_67" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(5262, -533)
+
+[node name="flies_68" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(5262, -911)
+
+[node name="flies_69" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(5262, 139)
+
+[node name="flies_70" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(5254, 314)
+
+[node name="flies_71" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(5246, 726)
+
+[node name="flies_72" parent="." instance=ExtResource("1_5e220")]
+z_index = -1
+position = Vector2(5246, 1224)

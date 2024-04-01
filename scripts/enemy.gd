@@ -31,7 +31,8 @@ func _ready():
 				health = zone_enemies[type]["health"]
 				max_health = zone_enemies[type]["health"]
 	# print("from enemy ", health)
-	enemySprite.play(str(enemy_type,"_idle"))
+	if enemy_type != "":
+		enemySprite.play(str(enemy_type,"_idle"))
 	#health = State.enemies[enemy_type]["health"]
 	if emitter == 0:
 		light.hide()

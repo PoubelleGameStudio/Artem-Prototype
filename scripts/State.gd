@@ -220,8 +220,8 @@ func _on_speak():
 		"description":"Seep your opponent in void energy weakening their attack by 10%",
 		"learned":0,
 		"damage":0,
-		"class": "control",
-		"type": "void",
+		"class": "attack",
+		"type": "Void",
 		"stat_mod":{},
 	},
 	"Void Sight":{
@@ -229,8 +229,8 @@ func _on_speak():
 		"description":"Look through the void to anticipate your oppoents attacks. Increase chance to dodge by 15% for 3 turns.",
 		"learned":0,
 		"damage":0,
-		"class": "control",
-		"type": "void",
+		"class": "attack",
+		"type": "Void",
 		"stat_mod":{},
 	},
 	"Vapid Affliction":{
@@ -238,8 +238,8 @@ func _on_speak():
 		"description":"The void invades your foe's mind. Each turn they have an increasing chance to not attack on their next turn.",
 		"learned":0,
 		"damage":0,
-		"class": "control",
-		"type": "void",
+		"class": "attack",
+		"type": "Void",
 		"stat_mod":{},
 	},
 	"Curse":{
@@ -248,7 +248,7 @@ func _on_speak():
 		"learned":0,
 		"damage":15,
 		"class": "attack",
-		"type": "void",
+		"type": "Void",
 		"stat_mod":{}
 	},
 	"Poison Swamp":{
@@ -369,16 +369,11 @@ func quest_complete(quest) -> bool:
 		for item in items:			
 			if inventory.has(item):
 				if (int(quest_db[quest]["Items"][item])<=int(inventory[item])):
-					req_met = true
-					
+					req_met = true					
 				else:
-					req_met = false
-					
-					
+					req_met = false					
 			else:
-				req_met =  false
-				
-				
+				req_met =  false								
 	else:
 		req_met =  false
 	return req_met
@@ -393,6 +388,8 @@ func update_quest_status(quest,status):
 			inventory[item]-=int(quest_db[quest]["Items"][str(item)])
 		cur_xp += round(pow(State.level,1.5)+State.level*3.3)
 		level_up()
+
+
 
 func level_up():
 	while cur_xp >= xp_to_next:

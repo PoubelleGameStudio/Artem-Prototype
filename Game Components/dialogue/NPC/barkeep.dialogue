@@ -17,7 +17,9 @@ if quest_db["barkeep_1"]["Status"] == 0:
 	Artem: I don't suppose you then found out how to bring everyone back?
 	Mayor Barkeep: Unfortunately, no. Hedo was only saved by refusing the copy. Tim offered him one but he muttered something about NPCs and smashed a bottle...
 	Mayor Barkeep: Either way...I've been trying to track Tim down. If not to set him straight then to at least find out where his books sent everyone off to.
-	Artem: Well, given all of my possesions are in a nice lady's home some 300 miles from here...guess we're solving a mystery.
+	Artem: I noticed you've also got a problem with ghosts and void rodents?
+	Mayor Barkeep: They're a natural part of the valley, but without the townies roaming about in a stupor at all hours the local haunts have started claiming the outskirts. 
+	Artem: Well, given all of my possesions are in a nice lady's home some 300 miles from here...guess it's a night of ghost hunting and mystery solving.
 	Mayor Barkeep: I appreciate your help, and I apologize for how much we need it. Talk to Thorn for a drink and check in with the Old Crusty Guy at the inn. I'll gather what little info I have and you can meet me back here once you've made the rounds.
 	Artem: How resplendent...
 	do update_quest_status("barkeep_1",1)
@@ -88,7 +90,7 @@ elif quest_db["barkeep_3"]["Status"] == 1:
 	else:
 		Mayor Barkeep: You found him?
 		Artem: What was left of him at least. He found a cave in the forest to hide out in. Based the journal he left behind it sounds like he never planned on leaving it. 
-		Mayor Barkeep: God's wrath...what compelled him to choose this?
+		Mayor Barkeep: Jinkies...what compelled him to choose this?
 		Artem: He was working, at least in some capacity, with the technotheists. 
 		Mayor Barkeep: Are you sure?
 		Artem: The Witch in the forest confirmed the source of the magic on the book and his writing removed any doubt. While it's true they gave him the curses that stole away the townies and inadvertantly brought me here, he wasn't fully aware of what he was doing. They told him the books would be charmed to make anyone who read it think it was brilliant.

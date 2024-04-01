@@ -116,7 +116,7 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	resource = dialogue_resource
 	
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
-	portrait.play(character_label.text)
+	# portrait.play(character_label.text)
 	print(character_label.text)
 
 
