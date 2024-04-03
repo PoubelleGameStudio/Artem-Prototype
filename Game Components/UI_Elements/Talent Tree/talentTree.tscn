@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://c8skkvcn0ci81"]
+[gd_scene load_steps=47 format=3 uid="uid://c8skkvcn0ci81"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/Talent Tree/talentTree.gd" id="1_jmed0"]
 [ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="2_w43jx"]
 [ext_resource type="FontFile" uid="uid://i8xcwtoee0vp" path="res://Game Components/fonts/AlmendraSC-Italic.otf" id="3_f43mx"]
 [ext_resource type="LabelSettings" uid="uid://bwi74ldi25y7a" path="res://journal_text.tres" id="5_e1hj4"]
-[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="5_p3t0c"]
 [ext_resource type="Texture2D" uid="uid://d11wrjcwmffb5" path="res://Sprites/combat/spell icons/Sacred Kindling.png" id="6_e6b38"]
 [ext_resource type="Texture2D" uid="uid://c1qyxdxyd0j4h" path="res://Sprites/combat/spell icons/Extra Action.png" id="7_dsysm"]
 [ext_resource type="Texture2D" uid="uid://bo1o03unrmgk3" path="res://Sprites/combat/spell icons/Shield+.png" id="8_6sv8i"]
@@ -31,9 +30,9 @@ outline_color = Color(0, 0, 0.537255, 1)
 shadow_size = 7
 shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8n0d"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jybwg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8n0d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7txmj"]
 
@@ -73,9 +72,9 @@ shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41fsf"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rw8hg"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mcjie"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_plo78"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4idi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_miidw"]
 
@@ -158,7 +157,7 @@ label_settings = ExtResource("5_e1hj4")
 
 [node name="lvl req" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
 layout_mode = 2
-text = "Level Required: 17"
+text = "Unlocks at Level: 5"
 label_settings = ExtResource("2_t0owy")
 
 [node name="border2" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
@@ -188,20 +187,20 @@ text = "Traits"
 label_settings = ExtResource("2_t0owy")
 horizontal_alignment = 1
 
-[node name="HP+1" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_j8n0d")
-talentName = "HP+"
-description = "Increase your total health by 10"
-required_level = 10
-talentType = "Passive Buff"
-
 [node name="Extra Action" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jybwg")
 icon = ExtResource("7_dsysm")
 talentName = "Extra Action"
 description = "Perform a second cast each turn"
+required_level = 5
+talentType = "Passive Buff"
+
+[node name="HP+1" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8n0d")
+talentName = "HP+"
+description = "Increase your total health by 10"
 required_level = 10
 talentType = "Passive Buff"
 
@@ -266,7 +265,7 @@ icon = ExtResource("6_e6b38")
 icon_alignment = 1
 talentName = "Sacred Kindling"
 description = "The first kindling ever ignited by the wielders of flame increases the damage over time damage of your fire spells"
-required_level = 10
+required_level = 5
 talentType = "Passive Buff"
 
 [node name="Curse" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
@@ -276,6 +275,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_va31v")
 icon = ExtResource("8_75706")
 talentName = "Curse"
 description = "Chaos entangled matter attacks the soul directly."
+required_level = 10
 
 [node name="Poison Swamp" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -318,6 +318,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_u3vwr")
 icon = ExtResource("14_roe8q")
 talentName = "Void Sight"
 description = "Look through the void to anticipate your oppoents attacks. Increase chance to dodge by 15% for 3 turns."
+required_level = 10
 
 [node name="Vapid Affliction" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -326,6 +327,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_37wyq")
 icon = ExtResource("15_ado0h")
 talentName = "Vapid Affliction"
 description = "The void invades your foe's mind. Each turn they have an increasing chance to not attack on their next turn."
+required_level = 15
 
 [node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 visible = false
@@ -349,7 +351,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_vr8le")
 icon = ExtResource("16_nfr74")
 talentName = "Sanguinated Shell"
 description = "Coalesce your blood into a hardened shell absorbing 50% damage for 3 turns. When the shell expires you heal for half the amount absorbed."
-required_level = 1
+required_level = 5
 talentType = "Spell"
 
 [node name="Blood Clot Homunculus" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
@@ -359,7 +361,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ihux3")
 icon = ExtResource("17_pyrdo")
 talentName = "Blood Clot Homunculus"
 description = "Sacrifice 20% of your health to construct a blood clot homunculus that will copy your attacks for 20% of the damage done."
-required_level = 5
+required_level = 10
 talentType = "Spell"
 
 [node name="Blood Moon" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
@@ -383,32 +385,39 @@ text = "Blood
 label_settings = ExtResource("2_t0owy")
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="static_ability points" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
+text = "Ability Points : "
+label_settings = ExtResource("2_t0owy")
+horizontal_alignment = 1
 
-[node name="Confirm" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Confirm" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_p3t0c")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 29
-theme_override_styles/normal = SubResource("StyleBoxEmpty_rw8hg")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_plo78")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mcjie")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e4idi")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_miidw")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_g7wc8")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0kt5q")
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Confirm"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/Confirm"]
 layout_mode = 0
-offset_left = 8.0
-offset_right = 48.0
-offset_bottom = 23.0
+offset_left = 1.0
+offset_right = 109.0
+offset_bottom = 21.0
 text = "Confirm
 "
 label_settings = ExtResource("2_t0owy")
 horizontal_alignment = 1
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/HP+1" to="." method="_on_hp_1_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Extra Action" to="." method="_on_extra_action_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/HP+1" to="." method="_on_hp_1_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Shield+" to="." method="_on_shield_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Attack+" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Sacred Kindling" to="." method="_on_sacred_kindling_pressed"]
@@ -420,4 +429,4 @@ horizontal_alignment = 1
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Sanguinated Shell" to="." method="_on_sanguinated_shell_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Blood Clot Homunculus" to="." method="_on_blood_clot_homunculus_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Blood Moon" to="." method="_on_blood_moon_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/Confirm" to="." method="_on_confirm_pressed"]

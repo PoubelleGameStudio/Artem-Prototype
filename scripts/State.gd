@@ -61,6 +61,7 @@ var rVoid: int = 0
 
 # resources
 var gold: int = 100
+var ability_points: int = 0
 
 # social trackers
 var welcomed: bool = 0
@@ -395,6 +396,7 @@ func level_up():
 	while cur_xp >= xp_to_next:
 		cur_xp -= xp_to_next
 		level += 1
+		ability_points += 1
 		xp_to_next = round(pow(level,1.8) + level*4+2)
 		baseMaxHealth += 10
 

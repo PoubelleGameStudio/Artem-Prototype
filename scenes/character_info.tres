@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="1_cllav"]
 
 [resource]
-line_spacing = 0.0
+line_spacing = -20.0
 font = ExtResource("1_cllav")
 font_size = 45
 font_color = Color(0, 0, 0, 1)

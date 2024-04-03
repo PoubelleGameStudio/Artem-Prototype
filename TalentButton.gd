@@ -38,23 +38,8 @@ func _ready():
 
 ################## SIGNALS ##################
 func _on_pressed():
-	if selected_icon.visible:
-				selected_icon.hide()
-	else:
-		selected_icon.show()
-#	print("pressed button ",talentName)
-#	if get_parent() is TalentButton && State.level >= required_level:
-#		if get_parent().is_max() == true:
-#			rank = min(rank+1, maxRank)
-#			panel.show_behind_parent = true
-#
-#			line.default_color = Color(0.9026962518692, 0.48281198740005, 1)
-#	else:
-#		rank = min(rank+1, maxRank)
-#		panel.show_behind_parent = true
-#
-#		line.default_color = Color(0.9026962518692, 0.48281198740005, 1)
-	
+	if State.level >= required_level:
+		selected = true
 	
 	
 	
