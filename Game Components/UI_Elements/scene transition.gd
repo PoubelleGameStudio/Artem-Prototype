@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var player: AnimationPlayer = $AnimationPlayer
-@onready var Splash: Sprite2D = $HBoxContainer/ScreenText
+@onready var Splash: Sprite2D = $Control/HBoxContainer/ScreenText
 
 func change_scene(target: String) -> void:
 	$AnimationPlayer.play_backwards('fade in')
