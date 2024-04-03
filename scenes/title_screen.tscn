@@ -20,8 +20,8 @@ shader_parameter/base_color = Color(0.995022, 0.822996, 0.849881, 0.360784)
 frequency = 0.0063
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_da243"]
-width = 2000
-height = 2000
+width = 500
+height = 1000
 seamless = true
 noise = SubResource("FastNoiseLite_n80gp")
 
@@ -62,10 +62,9 @@ level_name = "title_screen"
 z_index = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ma6fg")
-offset_left = -1177.0
-offset_top = -54.0
-offset_right = 2972.0
-offset_bottom = 1946.0
+offset_left = -1103.0
+offset_right = 2916.0
+offset_bottom = 1090.0
 texture = SubResource("NoiseTexture2D_da243")
 
 [node name="flies" type="Node2D" parent="CanvasLayer"]

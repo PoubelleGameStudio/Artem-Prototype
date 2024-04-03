@@ -409,7 +409,7 @@ speed_scale = 0.4
 [node name="dialogue_indicator" type="AnimatedSprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(0, -43.7637)
+position = Vector2(0, -35.0109)
 scale = Vector2(0.354167, 0.354167)
 sprite_frames = SubResource("SpriteFrames_pf133")
 animation = &"quest_complete"

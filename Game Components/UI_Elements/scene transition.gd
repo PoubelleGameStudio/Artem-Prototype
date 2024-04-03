@@ -9,11 +9,11 @@ func change_scene(target: String) -> void:
 	player.play('fade in')
 	
 func fade_in() -> void:
-	player.play('RESET')
+	player.play('fade in')
 
 	
 func fade_out() -> void:
-	player.play_backwards('RESET')
+	player.play_backwards('fade in')
 	
 
 func victory() -> void:

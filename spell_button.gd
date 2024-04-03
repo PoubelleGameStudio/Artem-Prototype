@@ -12,7 +12,7 @@ class_name spell_button
 func _ready():
 	setup_button()
 
-func _process(delta):
+func _process(_delta):
 	setup_button()
 
 

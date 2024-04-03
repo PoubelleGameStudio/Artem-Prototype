@@ -1,6 +1,6 @@
 extends Control
 
-@onready var loader = $"../../../.."
+@onready var loader = $"../../../../.."
 @onready var player = $"../../../.."
 
 
