@@ -1,8 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwolc4dutryab"]
+[gd_scene load_steps=8 format=3 uid="uid://cwolc4dutryab"]
 
 [ext_resource type="Script" path="res://tutorial_screen.gd" id="1_tlwe8"]
-[ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="2_qtg1g"]
-[ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="3_g2xpm"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="4_lxvx6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xtfsr"]
@@ -44,14 +42,19 @@ layout_mode = 2
 
 [node name="title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_lxvx6")
+theme_override_font_sizes/font_size = 45
 text = "test"
-label_settings = ExtResource("2_qtg1g")
 horizontal_alignment = 1
 
 [node name="text" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
-label_settings = ExtResource("3_g2xpm")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_lxvx6")
+theme_override_font_sizes/font_size = 19
+text = "testestestest"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

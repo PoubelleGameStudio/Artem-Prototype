@@ -4,8 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="2_t0owy"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="2_w43jx"]
-[ext_resource type="FontFile" uid="uid://i8xcwtoee0vp" path="res://Game Components/fonts/AlmendraSC-Italic.otf" id="3_f43mx"]
-[ext_resource type="LabelSettings" uid="uid://bwi74ldi25y7a" path="res://journal_text.tres" id="5_e1hj4"]
+[ext_resource type="FontFile" uid="uid://bwuruoih52j0f" path="res://Game Components/fonts/Caroni-Regular.otf" id="3_wyv5h"]
 [ext_resource type="Texture2D" uid="uid://d11wrjcwmffb5" path="res://Sprites/combat/spell icons/Sacred Kindling.png" id="6_e6b38"]
 [ext_resource type="Texture2D" uid="uid://c1qyxdxyd0j4h" path="res://Sprites/combat/spell icons/Extra Action.png" id="7_dsysm"]
 [ext_resource type="Texture2D" uid="uid://bo1o03unrmgk3" path="res://Sprites/combat/spell icons/Shield+.png" id="8_6sv8i"]
@@ -22,12 +21,11 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cflig"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ba1b8"]
-font = ExtResource("3_f43mx")
-font_size = 36
-font_color = Color(0.431373, 1, 0.388235, 1)
-outline_size = 6
+font = ExtResource("3_wyv5h")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0.537255, 1)
-shadow_size = 7
+shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jybwg"]
@@ -37,6 +35,8 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7txmj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1c8s"]
+
+[sub_resource type="Theme" id="Theme_22j28"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mljab"]
 
@@ -117,8 +117,9 @@ texture = ExtResource("2_w43jx")
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+texture_filter = 4
 layout_mode = 2
-text = "FIELD                TRAINING"
+text = "FIELD       TRAINING"
 label_settings = SubResource("LabelSettings_ba1b8")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -153,7 +154,7 @@ autowrap_mode = 2
 [node name="TalentType" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
 layout_mode = 2
 text = "Type"
-label_settings = ExtResource("5_e1hj4")
+label_settings = ExtResource("2_t0owy")
 
 [node name="lvl req" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
 layout_mode = 2
@@ -254,11 +255,25 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 
-[node name="invoke_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Invoke"
+label_settings = ExtResource("2_t0owy")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(32, 105)
+layout_mode = 2
+theme = SubResource("Theme_22j28")
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="invoke_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Sacred Kindling" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
+[node name="Sacred Kindling" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mljab")
 icon = ExtResource("6_e6b38")
@@ -268,7 +283,7 @@ description = "The first kindling ever ignited by the wielders of flame increase
 required_level = 5
 talentType = "Passive Buff"
 
-[node name="Curse" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
+[node name="Curse" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_nx10a")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_va31v")
@@ -277,7 +292,7 @@ talentName = "Curse"
 description = "Chaos entangled matter attacks the soul directly."
 required_level = 10
 
-[node name="Poison Swamp" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
+[node name="Poison Swamp" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_y0tb0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uvg1d")
@@ -287,18 +302,20 @@ description = "Seep the ground beneath your foes feet in thick, poisonous sludge
 required_level = 15
 talentType = "Spell"
 
-[node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
+[node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells" instance=ExtResource("1_np83o")]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells"]
-layout_mode = 2
-text = "Invoke"
-label_settings = ExtResource("2_t0owy")
-horizontal_alignment = 1
-
 [node name="Arcane_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
+
+[node name="Void" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells"]
+layout_mode = 2
+text = "Void
+
+"
+label_settings = ExtResource("2_t0owy")
+horizontal_alignment = 1
 
 [node name="Hollowed Threats" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -333,16 +350,15 @@ required_level = 15
 visible = false
 layout_mode = 2
 
-[node name="Void" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells"]
+[node name="blood_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
-text = "Void
 
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells"]
+layout_mode = 2
+text = "Blood
 "
 label_settings = ExtResource("2_t0owy")
 horizontal_alignment = 1
-
-[node name="blood_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
 
 [node name="Sanguinated Shell" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -377,13 +393,6 @@ talentType = "Spell"
 [node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
 visible = false
 layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells"]
-layout_mode = 2
-text = "Blood
-"
-label_settings = ExtResource("2_t0owy")
-horizontal_alignment = 1
 
 [node name="static_ability points" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
@@ -420,9 +429,9 @@ layout_mode = 2
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/HP+1" to="." method="_on_hp_1_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Shield+" to="." method="_on_shield_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Attack+" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Sacred Kindling" to="." method="_on_sacred_kindling_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Curse" to="." method="_on_curse_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Poison Swamp" to="." method="_on_poison_swamp_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells/Sacred Kindling" to="." method="_on_sacred_kindling_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells/Curse" to="." method="_on_curse_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells/Poison Swamp" to="." method="_on_poison_swamp_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Hollowed Threats" to="." method="_on_hollowed_threats_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Void Sight" to="." method="_on_void_sight_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Vapid Affliction" to="." method="_on_vapid_affliction_pressed"]

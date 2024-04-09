@@ -7,7 +7,7 @@ if quest_db["barkeep_1"]["Status"] == 0:
 	=> END
 
 if quest_db["barkeep_1"]["Status"] == 1:
-	Old Old Crusty Guy: I'm going to die very soon and I'd prefer you just pick your own room and leave me be.
+	Old Old Crusty Guy: I'm going to die very soon and I'd prefer you take your own room key and leave me be.
 	do update_inventory("Grims Briar Room Key",1)
 	set talking = 0
 	=> END
@@ -20,7 +20,7 @@ if quest_db["barkeep_2"]["Status"] == 1 and given_ingredients == 0:
 	Artem: It's a work in progress
 	Old Crusty Guy: Aren't we all till we aren't
 	Artem: Narrow Scope. Ingredients please?
-	Old Crusty Guy: leaves from a black plant it's really everywhere you can't miss it. Bit of that weird shit the void critters...expel. Ground bone of a reaper.
+	Old Crusty Guy: first some berries the bushes are really everywhere you can't miss it. Bit of that weird shit from the void critters...expel. Ground bone of a reaper.
 	Artem: I have walked through a literal slice of hell, and this town is a distinctly worse experience.
 	Old Crusty Guy: That's not very narrow scope of you.
 	Artem: And in which direction should I set off?

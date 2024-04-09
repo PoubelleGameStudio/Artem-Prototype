@@ -17,8 +17,7 @@ var is_raining = 0
 
 # spell slots
 var spell1: String = 'fireball'
-var spell2: String = ''
-var spell3: String = ''
+
 
 # player gear slots
 var helm: String = 'Watcher Cowl'
@@ -46,7 +45,7 @@ var casts: int = 1
 var shield
 var cur_xp: int = 0
 var xp_to_next: int = 10
-var level: int = 1
+var level: int = 20
 var armor: int = 0 # physical resist
 var mana: int = 25  # still not sure about mana usage
 # var speed = 5
@@ -61,7 +60,7 @@ var rVoid: int = 0
 
 # resources
 var gold: int = 100
-var ability_points: int = 0
+var ability_points: int = 100
 
 # social trackers
 var welcomed: bool = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=41 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -13,10 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://b0kmobajmfp4n" path="res://Sprites/textures/rainfall.png" id="8_v2vqm"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="12_4q3lk"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="13_cjqps"]
+[ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="14_67al0"]
 [ext_resource type="PackedScene" uid="uid://5v2qsot5igdu" path="res://Game Components/UI_Elements/quest log components/quest_log.tscn" id="14_xc3j5"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="15_oq2cw"]
+[ext_resource type="PackedScene" uid="uid://75gusw7bcx3f" path="res://Game Components/UI_Elements/shopshop/shop_button.tscn" id="15_suoht"]
 [ext_resource type="PackedScene" uid="uid://c8skkvcn0ci81" path="res://Game Components/UI_Elements/Talent Tree/talentTree.tscn" id="16_unwu1"]
-[ext_resource type="Theme" uid="uid://vo18d0emeivc" path="res://themes/progress_bar.tres" id="17_ev8yw"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="18_jm848"]
 [ext_resource type="Texture2D" uid="uid://diwnan71ffp7" path="res://Game Components/UI_Elements/prompts/f.png" id="19_4cvsh"]
 
@@ -158,12 +159,6 @@ size = Vector2(24, 16)
 radius = 24.0
 height = 72.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xgl1"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkbq4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0l2v"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nw3a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5kijb"]
@@ -189,10 +184,11 @@ color = Color(1, 0.917647, 1, 0.45098)
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
-position = Vector2(16, -16)
+position = Vector2(16, -32)
 script = ExtResource("1_6vypi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_lrcab")
 animation = &"down_walk"
 
@@ -210,7 +206,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactionComponents/interactionArea"]
-position = Vector2(0, -4)
+position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_dfod3")
 
 [node name="itemLabel" type="Label" parent="interactionComponents/interactionArea"]
@@ -247,7 +243,6 @@ limit_bottom = 20000000
 editor_draw_limits = true
 
 [node name="character_info" type="Node2D" parent="HUD"]
-visible = false
 z_index = 2
 y_sort_enabled = true
 position = Vector2(43.0405, -15.7506)
@@ -317,10 +312,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="XP" type="Label" parent="HUD/character_info/cHUB"]
 layout_mode = 0
-offset_left = -236.0
-offset_top = -100.0
-offset_right = -196.0
-offset_bottom = -55.0
+offset_left = -236.04
+offset_top = -100.249
+offset_right = -196.04
+offset_bottom = -55.2494
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 38
 text = "XP"
@@ -347,24 +342,16 @@ offset_right = -40.0
 offset_bottom = -100.0
 
 [node name="Inventory_label" type="Label" parent="HUD/character_info"]
-offset_left = -243.04
+offset_left = -235.04
 offset_top = -64.2494
-offset_right = -190.04
-offset_bottom = -41.2494
+offset_right = -140.04
+offset_bottom = -40.2494
 text = "Inventory"
 label_settings = ExtResource("15_oq2cw")
 
 [node name="shop" type="Node2D" parent="HUD"]
 visible = false
 position = Vector2(4, 16)
-
-[node name="ColorRect" type="ColorRect" parent="HUD/shop"]
-visible = false
-offset_left = -160.0
-offset_top = -120.0
-offset_right = 160.0
-offset_bottom = 120.0
-color = Color(0.490196, 0, 0.490196, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="HUD/shop"]
 position = Vector2(-12.0001, -32)
@@ -374,66 +361,25 @@ texture = ExtResource("12_4q3lk")
 [node name="buy" type="Node2D" parent="HUD/shop/Sprite2D"]
 position = Vector2(-160, -120)
 
-[node name="BuyButton" type="Button" parent="HUD/shop/Sprite2D/buy"]
-offset_right = 40.0
-offset_bottom = 24.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3xgl1")
-flat = true
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/shop/Sprite2D/buy"]
+offset_left = -135.0
+offset_top = -68.0
+offset_right = 110.0
+offset_bottom = 164.0
 
-[node name="BuyLabel" type="Label" parent="HUD/shop/Sprite2D/buy/BuyButton"]
-layout_mode = 0
-offset_left = -132.571
-offset_top = -62.8571
-offset_right = -92.5714
-offset_bottom = -36.8571
-theme_override_fonts/font = ExtResource("3_8eknr")
-theme_override_font_sizes/font_size = 19
-text = "Buy"
-label_settings = ExtResource("15_oq2cw")
+[node name="Label" type="Label" parent="HUD/shop/Sprite2D/buy/VBoxContainer"]
+layout_mode = 2
+text = "Shop"
+label_settings = ExtResource("14_67al0")
 horizontal_alignment = 1
 
-[node name="BuyIndicate" type="ColorRect" parent="HUD/shop/Sprite2D/buy/BuyButton"]
-visible = false
-layout_mode = 0
-offset_top = 24.0
-offset_right = 40.0
-offset_bottom = 32.0
+[node name="GridContainer" type="GridContainer" parent="HUD/shop/Sprite2D/buy/VBoxContainer"]
+layout_mode = 2
 
-[node name="item" type="Button" parent="HUD/shop/Sprite2D/buy"]
-offset_left = 13.7143
-offset_top = -17.1429
-offset_right = 53.7143
-offset_bottom = 3.85715
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_8eknr")
-theme_override_font_sizes/font_size = 19
-theme_override_styles/normal = SubResource("StyleBoxEmpty_jkbq4")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_h0l2v")
-text = "Buy"
-
-[node name="itemlabel" type="RichTextLabel" parent="HUD/shop/Sprite2D/buy/item"]
-layout_mode = 0
-offset_left = -137.143
-offset_right = -41.1429
-offset_bottom = 16.0
-theme = ExtResource("17_ev8yw")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_8eknr")
-theme_override_font_sizes/normal_font_size = 19
-text = "Health Restore"
-scroll_active = false
-
-[node name="costLabel" type="RichTextLabel" parent="HUD/shop/Sprite2D/buy/item"]
-layout_mode = 0
-offset_left = -45.7143
-offset_right = -29.7143
-offset_bottom = 16.0
-theme = ExtResource("17_ev8yw")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_8eknr")
-theme_override_font_sizes/normal_font_size = 19
-text = "5g"
-scroll_active = false
+[node name="Health restore" parent="HUD/shop/Sprite2D/buy/VBoxContainer/GridContainer" instance=ExtResource("15_suoht")]
+layout_mode = 2
+item_name = "Health Restore"
+item_cost = 5
 
 [node name="sell" type="Node2D" parent="HUD/shop/Sprite2D"]
 position = Vector2(-160, -120)
@@ -465,7 +411,6 @@ offset_right = 40.0
 offset_bottom = 32.0
 
 [node name="TalentTree" parent="HUD" instance=ExtResource("16_unwu1")]
-visible = false
 offset_left = -80.0
 offset_top = -120.0
 offset_right = 104.0
@@ -477,7 +422,6 @@ z_index = 100
 script = ExtResource("4_wdihw")
 
 [node name="dimmer" type="ColorRect" parent="HUD/PauseController"]
-visible = false
 offset_left = -700.0
 offset_top = -336.0
 offset_right = 664.0
@@ -513,7 +457,6 @@ size_flags_stretch_ratio = 0.0
 alignment = 1
 
 [node name="MainMenu" parent="HUD/PauseController/HBoxContainer" instance=ExtResource("18_jm848")]
-visible = false
 layout_mode = 2
 
 [node name="Weather" type="GPUParticles2D" parent="."]
@@ -536,6 +479,4 @@ texture = ExtResource("19_4cvsh")
 
 [connection signal="area_entered" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_exited"]
-[connection signal="pressed" from="HUD/shop/Sprite2D/buy/BuyButton" to="." method="_on_buy_button_pressed"]
-[connection signal="pressed" from="HUD/shop/Sprite2D/buy/item" to="." method="_on_item_pressed"]
 [connection signal="pressed" from="HUD/shop/Sprite2D/sell/SellButton" to="." method="_on_sell_button_pressed"]

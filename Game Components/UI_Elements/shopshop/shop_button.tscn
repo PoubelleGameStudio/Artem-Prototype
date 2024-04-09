@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://75gusw7bcx3f"]
+
+[ext_resource type="Script" path="res://scripts/Shop Button.gd" id="1_hk6q2"]
+[ext_resource type="Texture2D" uid="uid://c1p0afttop35v" path="res://Art/inv_Art/Health Restore.png" id="2_5sosv"]
+[ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="3_65th3"]
+[ext_resource type="AudioStream" uid="uid://vsim0r354tcc" path="res://sounds/UI/683098__florianreichelt__click.mp3" id="4_5o0q4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5kfod"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xd773"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5p7nj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n5unx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8do3l"]
+
+[node name="Shop Button" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hk6q2")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5kfod")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_xd773")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5p7nj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n5unx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8do3l")
+icon = ExtResource("2_5sosv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 58.0
+text = "5g"
+label_settings = ExtResource("3_65th3")
+horizontal_alignment = 1
+
+[node name="UI_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5o0q4")
+volume_db = -6.753
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

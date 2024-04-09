@@ -15,6 +15,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ma6fg"]
 shader = ExtResource("9_pdgth")
 shader_parameter/base_color = Color(0.995022, 0.822996, 0.849881, 0.360784)
+shader_parameter/speed = null
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_n80gp"]
 frequency = 0.0063
