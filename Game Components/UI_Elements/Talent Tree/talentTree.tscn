@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c8skkvcn0ci81"]
+[gd_scene load_steps=52 format=3 uid="uid://c8skkvcn0ci81"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/Talent Tree/talentTree.gd" id="1_jmed0"]
 [ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
@@ -28,13 +28,23 @@ outline_color = Color(0, 0, 0.537255, 1)
 shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6q6j"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jybwg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vq4ym"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8n0d"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srxep"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7txmj"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kobio"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1c8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsmqw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mljab"]
 
@@ -161,6 +171,11 @@ layout_mode = 2
 text = "Unlocks at Level: 5"
 label_settings = ExtResource("2_t0owy")
 
+[node name="point_cost" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
+layout_mode = 2
+text = "Costs:"
+label_settings = ExtResource("2_t0owy")
+
 [node name="border2" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
@@ -190,38 +205,46 @@ horizontal_alignment = 1
 
 [node name="Extra Action" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c6q6j")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jybwg")
 icon = ExtResource("7_dsysm")
 talentName = "Extra Action"
 description = "Perform a second cast each turn"
 required_level = 5
 talentType = "Passive Buff"
+cost = 3
 
 [node name="HP+1" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vq4ym")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j8n0d")
 talentName = "HP+"
 description = "Increase your total health by 10"
 required_level = 10
 talentType = "Passive Buff"
+cost = 3
 
 [node name="Shield+" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_srxep")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7txmj")
 icon = ExtResource("8_6sv8i")
 talentName = "Shield+"
 description = "Decrease damange taken by 15%"
 required_level = 15
 talentType = "Passive Buff"
+cost = 3
 
 [node name="Attack+" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kobio")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q1c8s")
 icon = ExtResource("9_k7y6d")
 talentName = "Attack+"
 description = "Increase damage by 20%"
 required_level = 20
 talentType = "Passive Buff"
+cost = 3
 
 [node name="border" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -267,13 +290,14 @@ theme_override_constants/separation = 4
 
 [node name="Sacred Kindling" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dsmqw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mljab")
 icon = ExtResource("6_e6b38")
-icon_alignment = 1
 talentName = "Sacred Kindling"
 description = "The first kindling ever ignited by the wielders of flame increases the damage over time damage of your fire spells"
 required_level = 5
 talentType = "Passive Buff"
+cost = 2
 
 [node name="Curse" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -283,6 +307,7 @@ icon = ExtResource("8_75706")
 talentName = "Curse"
 description = "Chaos entangled matter attacks the soul directly."
 required_level = 10
+cost = 3
 
 [node name="Poison Swamp" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -293,6 +318,7 @@ talentName = "Poison Swamp"
 description = "Seep the ground beneath your foes feet in thick, poisonous sludge"
 required_level = 15
 talentType = "Spell"
+cost = 4
 
 [node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 visible = false
@@ -313,7 +339,6 @@ layout_mode = 2
 [node name="Void" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells"]
 layout_mode = 2
 text = "Void
-
 "
 label_settings = ExtResource("2_t0owy")
 horizontal_alignment = 1
@@ -328,6 +353,7 @@ talentName = "Hollowed Threats"
 description = "Seep your opponent in void energy weakening their attack by 10%"
 required_level = 5
 talentType = "Spell"
+cost = 2
 
 [node name="Void Sight" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -337,6 +363,7 @@ icon = ExtResource("14_roe8q")
 talentName = "Void Sight"
 description = "Look through the void to anticipate your oppoents attacks. Increase chance to dodge by 15% for 3 turns."
 required_level = 10
+cost = 3
 
 [node name="Vapid Affliction" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -346,6 +373,7 @@ icon = ExtResource("15_ado0h")
 talentName = "Vapid Affliction"
 description = "The void invades your foe's mind. Each turn they have an increasing chance to not attack on their next turn."
 required_level = 15
+cost = 4
 
 [node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 visible = false
@@ -370,6 +398,7 @@ talentName = "Sanguinated Shell"
 description = "Coalesce your blood into a hardened shell absorbing 50% damage for 3 turns. When the shell expires you heal for half the amount absorbed."
 required_level = 5
 talentType = "Spell"
+cost = 2
 
 [node name="Blood Clot Homunculus" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -380,6 +409,7 @@ talentName = "Blood Clot Homunculus"
 description = "Sacrifice 20% of your health to construct a blood clot homunculus that will copy your attacks for 20% of the damage done."
 required_level = 10
 talentType = "Spell"
+cost = 3
 
 [node name="Blood Moon" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
@@ -390,6 +420,7 @@ talentName = "Blood Moon"
 description = "Increase the effects of all blood magic by 20% for 3 turns."
 required_level = 15
 talentType = "Spell"
+cost = 4
 
 [node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
 visible = false

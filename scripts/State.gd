@@ -60,7 +60,7 @@ var rVoid: int = 0
 
 # resources
 var gold: int = 100
-var ability_points: int = 100
+var ability_points: int = 30
 
 # social trackers
 var welcomed: bool = 0

@@ -54,12 +54,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_c4bib")
 light_mask = 0
 z_index = 1
 layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 32.0
-offset_bottom = 44.0
+offset_left = -20.0
+offset_top = 16.0
+offset_right = 28.0
+offset_bottom = 42.0
 text = "
-"
+asdfasdf"
 label_settings = ExtResource("4_5223r")
 horizontal_alignment = 2
 
@@ -68,10 +68,9 @@ visible = false
 light_mask = 0
 z_index = 2
 layout_mode = 0
-offset_left = 12.6919
-offset_top = 26.3541
-offset_right = 52.6919
-offset_bottom = 68.3541
+offset_top = 32.0
+offset_right = 48.0
+offset_bottom = 74.0
 theme_override_fonts/font = ExtResource("5_dnc0k")
 theme_override_font_sizes/font_size = 19
 label_settings = ExtResource("4_5223r")

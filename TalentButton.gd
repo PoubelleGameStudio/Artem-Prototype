@@ -17,11 +17,8 @@ class_name TalentButton
 @onready var art_path: String = "res://Sprites/combat/spell icons/"
 @onready var selected_icon: Sprite2D = $select
 
-@export var rank : int = 0:
-	set(value):
-		rank = value
-		State.talents[talentName] = rank
-		displayName.text = talentName
+@export var cost : int = 0
+
 		
 
 

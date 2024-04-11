@@ -184,7 +184,7 @@ offset_bottom = 40.0
 
 [node name="Sprite2D" type="Sprite2D" parent="combatUI"]
 light_mask = 0
-position = Vector2(960, 1267)
+position = Vector2(964, 1267)
 scale = Vector2(2.84609, 2.84609)
 texture = ExtResource("4_uo8iy")
 
@@ -211,9 +211,9 @@ text = "exit"
 light_mask = 0
 
 [node name="chosen_spell_label" type="Label" parent="combatUI/combat"]
-offset_left = 427.0
+offset_left = 431.0
 offset_top = 722.0
-offset_right = 531.0
+offset_right = 535.0
 offset_bottom = 814.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_p1cl7")
@@ -221,9 +221,9 @@ theme_override_font_sizes/font_size = 63
 text = "test"
 
 [node name="chosen_spell_desc" type="Label" parent="combatUI/combat"]
-offset_left = 423.0
+offset_left = 427.0
 offset_top = 790.0
-offset_right = 771.0
+offset_right = 775.0
 offset_bottom = 1001.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -233,9 +233,9 @@ label_settings = ExtResource("5_be3fw")
 autowrap_mode = 2
 
 [node name="chosen_spell_dmg" type="Label" parent="combatUI/combat"]
-offset_left = 427.0
+offset_left = 431.0
 offset_top = 1008.0
-offset_right = 527.0
+offset_right = 531.0
 offset_bottom = 1100.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -262,10 +262,10 @@ expand_icon = true
 
 [node name="enemyHealth" type="ProgressBar" parent="combatUI"]
 layout_mode = 0
-offset_left = 1348.0
-offset_top = 75.0
-offset_right = 1828.0
-offset_bottom = 129.0
+offset_left = 1312.0
+offset_top = 572.0
+offset_right = 1792.0
+offset_bottom = 626.0
 theme = ExtResource("4_2r65i")
 
 [node name="Label" type="Label" parent="combatUI/enemyHealth"]
@@ -410,25 +410,26 @@ metadata/_edit_use_anchors_ = true
 
 [node name="EnemyName" type="Label" parent="combatUI"]
 layout_mode = 0
-offset_left = 1002.0
-offset_top = 81.0
-offset_right = 1314.0
-offset_bottom = 151.0
+offset_left = 989.0
+offset_top = 568.0
+offset_right = 1301.0
+offset_bottom = 638.0
 theme_override_fonts/font = ExtResource("6_p1cl7")
 theme_override_font_sizes/font_size = 60
 text = "Executioner"
 horizontal_alignment = 2
 
 [node name="enemyCombat" parent="." instance=ExtResource("3_6j6h7")]
-position = Vector2(1551, 227)
+position = Vector2(1559, 76)
 scale = Vector2(7, 7)
 
 [node name="inventory_ui" parent="." instance=ExtResource("7_6qudd")]
+visible = false
 z_index = 1
-offset_left = 1335.0
-offset_top = 723.0
-offset_right = 1589.0
-offset_bottom = 856.0
+offset_left = 470.0
+offset_top = 721.0
+offset_right = 724.0
+offset_bottom = 854.0
 scale = Vector2(2, 2)
 
 [node name="Label2" type="Label" parent="inventory_ui"]
@@ -453,10 +454,10 @@ label_settings = ExtResource("12_vu285")
 
 [node name="cast_lefts" type="Label" parent="."]
 z_index = 1
-offset_left = 51.0
-offset_top = 476.0
-offset_right = 319.0
-offset_bottom = 567.0
+offset_left = 54.0
+offset_top = 112.0
+offset_right = 322.0
+offset_bottom = 203.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("6_p1cl7")
@@ -501,7 +502,7 @@ flip_h = true
 
 [node name="DoT effect" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(1562, 533)
+position = Vector2(1555, 429)
 scale = Vector2(8.91666, 8.91666)
 sprite_frames = ExtResource("14_w4egx")
 animation = &"poisoned"
@@ -567,10 +568,11 @@ size_flags_vertical = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_direction = 1
-offset_left = -846.0
-offset_top = -308.0
-offset_right = 1076.0
-offset_bottom = 176.0
+layout_mode = 0
+offset_left = -843.0
+offset_top = -305.0
+offset_right = 1074.0
+offset_bottom = 179.0
 
 [node name="Label4" type="Label" parent="Control/VBoxContainer"]
 visible = false
@@ -587,15 +589,13 @@ label_settings = ExtResource("17_o1lq1")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Control/VBoxContainer"]
-modulate = Color(1, 1, 1, 0.709804)
+modulate = Color(1, 1, 1, 0.545098)
 layout_mode = 2
-text = "test"
 label_settings = ExtResource("17_o1lq1")
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "test"
 label_settings = ExtResource("17_o1lq1")
 horizontal_alignment = 1
 

@@ -164,11 +164,13 @@ func castSpell() -> int:
 	#check for attacks
 	if spells[State.spell1]["class"]=="attack":
 		damage += spells[State.spell1]["damage"]
+		combatTextUpdate(str("You cast ", State.spell1))
 		
 	# check for summon spells
 	elif spells[State.spell1]["class"] == "summon":
 		pet.summoned = true
 		pet.play(State.spell1)
+		combatTextUpdate(str("You summoned ",State.spell1))
 		
 	# check for defensive spells
 	elif spells[State.spell1]["class"]=="defend":
@@ -180,6 +182,7 @@ func castSpell() -> int:
 
 	# check for field spells
 	elif spells[State.spell1]["class"]=="field":
+		combatTextUpdate(str(State.spell1, " transforms the battlefield"))
 		match type:
 			"blood": 
 				bloodMoon = true
@@ -191,19 +194,23 @@ func castSpell() -> int:
 	match type:
 		"Fire":
 			burning_for = 3
+			combatTextUpdate(str(enemy.enemy_type," is burning"))
 
 		"Poison":
 			poisoned_for = 3 
-
+			combatTextUpdate(str(enemy.enemy_type," is poisoned"))
 		"Void":
 			if State.spell1 == "Hollowed Threats":
 				attack_reduced_by -= 0.2
 				attack_reduced_for = 3
+				combatTextUpdate(str(enemy.enemy_type,"'s strength reduced"))
 			elif State.spell1 == "Void Sight":
 				enemy_hit_chance -= 0.2
 				hit_lowered_for = 3
+				combatTextUpdate(str(enemy.enemy_type,"'s accuracy reduced"))
 			elif State.spell1 == "Vapid Affliction":
 				confused = true
+				combatTextUpdate(str(enemy.enemy_type," may forget to attack"))
 
 		
 	# final checks 
@@ -261,8 +268,6 @@ func castSpell() -> int:
 	# handles the pet damage bonus
 	if pet.summoned:
 		damage *= 1.20
-	
-	combatTextUpdate(str("You attacked for ",damage))
 	
 	statusEffect.text = burningText + poisonedText
 	return damage
@@ -345,14 +350,14 @@ func enemyTurn():
 		# handles vapid affliction effect 
 		if confused:
 			if rng.randf_range(1,100) < 80:
-				State.health -= damageTaken
+				State.health -= int(damageTaken)
 			else:
 				confused = false
 		else:
-			State.health -= damageTaken
+			State.health -= int(damageTaken)
 
 		pHealth.value = State.health
-		combatTextUpdate(str("Enemy attacked for ",damageTaken))
+		combatTextUpdate(str("Enemy attacked for ",int(damageTaken)))
 		pHealth_label.text = str("HP ",State.health,"/",State.maxHealth)
 		await get_tree().create_timer(1.0).timeout
 
