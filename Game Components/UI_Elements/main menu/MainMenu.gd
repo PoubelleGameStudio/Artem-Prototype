@@ -67,8 +67,6 @@ func save_player()-> void:
 	playerData.prev_scene = State.prev_scene
 	playerData.engaging = State.engaging
 	playerData.spell1 = State.spell1
-	playerData.spell2 = State.spell2
-	playerData.spell3 = State.spell3
 	playerData.helm = State.helm
 	playerData.chest = State.chest
 	playerData.gloves = State.gloves
@@ -117,8 +115,6 @@ func load_player() -> void:
 	State.prev_scene = playerData.prev_scene
 	State.engaging = playerData.engaging
 	State.spell1 = playerData.spell1
-	State.spell2 = playerData.spell2
-	State.spell3 = playerData.spell3
 	State.helm = playerData.helm
 	State.chest = playerData.chest
 	State.gloves = playerData.gloves

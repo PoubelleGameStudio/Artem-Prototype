@@ -63,6 +63,7 @@ extends Node2D
 		fieldDuration = value
 		if fieldDuration == 0:
 			fieldEffect.hide()
+			bloodMoon = false
 @onready var fieldEffect: AnimatedSprite2D = $field
 @onready var pet: AnimatedSprite2D = $Pet
 @onready var defend: AnimatedSprite2D = $defend
@@ -87,6 +88,12 @@ extends Node2D
 @onready var attack_reduced_by: float = 0.0
 @onready var attack_reduced_for: int = 0
 @onready var pet_spells = $"Pet/Pet Spells"
+@onready var combat_event_1 = $Control/VBoxContainer/Label
+@onready var combat_event_2 = $Control/VBoxContainer/Label2
+@onready var combat_event_3 = $Control/VBoxContainer/Label3
+@onready var combat_event_4 = $Control/VBoxContainer/Label4
+
+
 
 #signals
 signal combat_end
@@ -255,6 +262,8 @@ func castSpell() -> int:
 	if pet.summoned:
 		damage *= 1.20
 	
+	combatTextUpdate(str("You attacked for ",damage))
+	
 	statusEffect.text = burningText + poisonedText
 	return damage
 
@@ -343,6 +352,7 @@ func enemyTurn():
 			State.health -= damageTaken
 
 		pHealth.value = State.health
+		combatTextUpdate(str("Enemy attacked for ",damageTaken))
 		pHealth_label.text = str("HP ",State.health,"/",State.maxHealth)
 		await get_tree().create_timer(1.0).timeout
 
@@ -388,7 +398,20 @@ func enemyTurn():
 			death.emit()
 			reset()
 
+
+
+func combatTextUpdate(event: String) -> void:
+	combat_event_4.text = combat_event_3.text
+	combat_event_3.text = combat_event_2.text
+	combat_event_2.text = combat_event_1.text
+	combat_event_1.text = event
 	
+func clearCombatText() -> void:
+	combat_event_4.text = ""
+	combat_event_3.text = ""
+	combat_event_2.text = ""
+	combat_event_1.text = ""
+
 
 # funcs to handle various UI elements and button presses
 func showAttacks():
@@ -418,6 +441,8 @@ func reset():
 	shield_absorbed = 0
 	pet.summoned = false
 	hit_lowered_for = 0
+	clearCombatText()
+	fieldDuration = 0
 
 
 func _on_combat_pressed():

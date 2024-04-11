@@ -20,8 +20,8 @@ func _process(delta):
 func pause():
 	$pause_text.set_text("GAME PAUSED")
 	get_tree().set_deferred("paused",true)
-	dimmer.show()
-	pause_menu.show()
+	show()
+	
 	print('paused')
 	
 	
@@ -31,8 +31,7 @@ func resume():
 	if can_toggle_pause:
 		get_tree().set_deferred("paused",false)
 		$pause_text.set_text("")
-		dimmer.hide()
-		pause_menu.hide()
+		hide()
 		print('resume')
 		
 		

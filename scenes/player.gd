@@ -34,6 +34,7 @@ func _ready():
 	itemLabel.text = ""
 	$HUD/TalentTree.hide()
 	prompt.hide()
+	pause.hide()
 	
 
 

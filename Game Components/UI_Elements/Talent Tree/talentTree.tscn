@@ -36,8 +36,6 @@ shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1c8s"]
 
-[sub_resource type="Theme" id="Theme_22j28"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mljab"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nx10a"]
@@ -47,6 +45,8 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0tb0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvg1d"]
+
+[sub_resource type="Theme" id="Theme_22j28"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yld72"]
 
@@ -261,19 +261,11 @@ text = "Invoke"
 label_settings = ExtResource("2_t0owy")
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(32, 105)
-layout_mode = 2
-theme = SubResource("Theme_22j28")
-follow_focus = true
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
-
-[node name="invoke_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer"]
+[node name="invoke_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Sacred Kindling" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells" instance=ExtResource("1_np83o")]
+[node name="Sacred Kindling" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mljab")
 icon = ExtResource("6_e6b38")
@@ -283,7 +275,7 @@ description = "The first kindling ever ignited by the wielders of flame increase
 required_level = 5
 talentType = "Passive Buff"
 
-[node name="Curse" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells" instance=ExtResource("1_np83o")]
+[node name="Curse" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_nx10a")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_va31v")
@@ -292,7 +284,7 @@ talentName = "Curse"
 description = "Chaos entangled matter attacks the soul directly."
 required_level = 10
 
-[node name="Poison Swamp" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells" instance=ExtResource("1_np83o")]
+[node name="Poison Swamp" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_y0tb0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uvg1d")
@@ -302,9 +294,18 @@ description = "Seep the ground beneath your foes feet in thick, poisonous sludge
 required_level = 15
 talentType = "Spell"
 
-[node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells" instance=ExtResource("1_np83o")]
+[node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 visible = false
 layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 105)
+layout_mode = 2
+theme = SubResource("Theme_22j28")
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
 [node name="Arcane_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
@@ -429,9 +430,9 @@ layout_mode = 2
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/HP+1" to="." method="_on_hp_1_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Shield+" to="." method="_on_shield_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Attack+" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells/Sacred Kindling" to="." method="_on_sacred_kindling_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells/Curse" to="." method="_on_curse_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/ScrollContainer/invoke_spells/Poison Swamp" to="." method="_on_poison_swamp_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Sacred Kindling" to="." method="_on_sacred_kindling_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Curse" to="." method="_on_curse_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Poison Swamp" to="." method="_on_poison_swamp_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Hollowed Threats" to="." method="_on_hollowed_threats_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Void Sight" to="." method="_on_void_sight_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Vapid Affliction" to="." method="_on_vapid_affliction_pressed"]
