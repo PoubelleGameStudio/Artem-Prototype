@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://bggg174d0g1dl"]
 
 [ext_resource type="Script" path="res://Game Components/Inventory/slot_gui.gd" id="1_s1lfe"]
-[ext_resource type="Texture2D" uid="uid://b1pc1ci3rp34x" path="res://Game Components/UI_Elements/inv_components/inv_marker.png" id="2_7fbfw"]
 [ext_resource type="Texture2D" uid="uid://bsdp20j080nbf" path="res://Game Components/UI_Elements/inv_components/selected_indicator.png" id="2_bs481"]
+[ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="2_j78av"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="4_5223r"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="5_dnc0k"]
 
@@ -26,7 +26,7 @@ script = ExtResource("1_s1lfe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 0
-texture = ExtResource("2_7fbfw")
+texture = ExtResource("2_j78av")
 centered = false
 
 [node name="itemArt" type="Sprite2D" parent="."]

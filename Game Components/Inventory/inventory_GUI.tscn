@@ -56,34 +56,42 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Slot13" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+visible = false
 layout_mode = 2
 
 [node name="Slot14" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+visible = false
 layout_mode = 2
 
 [node name="Slot15" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+visible = false
 layout_mode = 2
 
 [node name="Slot16" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+visible = false
 layout_mode = 2
 
 [node name="Slot17" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+visible = false
 layout_mode = 2
 
 [node name="Slot18" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+visible = false
 layout_mode = 2
 
 [node name="Slot19" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+visible = false
 layout_mode = 2
 
 [node name="Slot20" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_top = 184.0
+offset_top = 114.0
 offset_right = 134.0
-offset_bottom = 268.0
+offset_bottom = 198.0
 theme_override_fonts/font = ExtResource("3_k1v68")
 theme_override_font_sizes/font_size = 19
 text = "E: Drop Item

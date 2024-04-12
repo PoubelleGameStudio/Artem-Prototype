@@ -187,7 +187,7 @@ noise = SubResource("FastNoiseLite_te7fs")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53752"]
 shader = ExtResource("2_j31jx")
 shader_parameter/scale = Vector2(81.5762, 2)
-shader_parameter/y_zoom = 2.51984
+shader_parameter/y_zoom = 2.66968
 shader_parameter/water_color = Color(0, 0.392157, 0, 0.847059)
 shader_parameter/distortion_scale = Vector2(0.05, 0.408)
 shader_parameter/intensity = 0.07
@@ -220,7 +220,7 @@ level_name = "GB_sewers"
 
 [node name="player" parent="." instance=ExtResource("2_b2s2p")]
 z_index = 1
-position = Vector2(190, -9)
+position = Vector2(50.5696, 0.454285)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3lg6i")

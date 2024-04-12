@@ -262,10 +262,10 @@ expand_icon = true
 
 [node name="enemyInfo" type="VBoxContainer" parent="combatUI"]
 layout_mode = 0
-offset_left = 1045.0
-offset_top = 741.0
-offset_right = 1806.0
-offset_bottom = 1077.0
+offset_left = 1384.0
+offset_top = 23.0
+offset_right = 1864.0
+offset_bottom = 178.0
 theme_override_constants/separation = -19
 
 [node name="HBoxContainer" type="HBoxContainer" parent="combatUI/enemyInfo"]
@@ -274,7 +274,7 @@ theme_override_constants/separation = 0
 
 [node name="hp" type="Label" parent="combatUI/enemyInfo/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_p1cl7")
 theme_override_font_sizes/font_size = 63
 text = "HP"
@@ -293,7 +293,7 @@ horizontal_alignment = 2
 [node name="EnemyName" type="Label" parent="combatUI/enemyInfo/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_p1cl7")
 theme_override_font_sizes/font_size = 60
 text = "Executioner"
@@ -312,7 +312,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_p1cl7")
 theme_override_font_sizes/font_size = 45
-label_settings = ExtResource("5_be3fw")
 
 [node name="playerHealth" type="ProgressBar" parent="combatUI"]
 light_mask = 0
@@ -435,19 +434,20 @@ spell_icon = "Blood Moon"
 metadata/_edit_use_anchors_ = true
 
 [node name="enemyCombat" parent="." instance=ExtResource("3_6j6h7")]
-position = Vector2(1571, 164)
+position = Vector2(1571, 198)
 scale = Vector2(7, 7)
 
 [node name="inventory_ui" parent="." instance=ExtResource("7_6qudd")]
-visible = false
 z_index = 1
-offset_left = 470.0
-offset_top = 721.0
-offset_right = 724.0
-offset_bottom = 854.0
+clip_contents = true
+offset_left = 1480.0
+offset_top = 738.0
+offset_right = 1734.0
+offset_bottom = 866.0
 scale = Vector2(2, 2)
 
 [node name="Label2" type="Label" parent="inventory_ui"]
+visible = false
 layout_mode = 0
 offset_left = 154.0
 offset_top = 18.0
@@ -594,7 +594,7 @@ layout_direction = 1
 layout_mode = 0
 offset_left = -843.0
 offset_top = -305.0
-offset_right = 594.0
+offset_right = 1076.0
 offset_bottom = 179.0
 
 [node name="Label4" type="Label" parent="Control/VBoxContainer"]
