@@ -260,33 +260,59 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="enemyHealth" type="ProgressBar" parent="combatUI"]
+[node name="enemyInfo" type="VBoxContainer" parent="combatUI"]
 layout_mode = 0
-offset_left = 1312.0
-offset_top = 572.0
-offset_right = 1792.0
-offset_bottom = 626.0
-theme = ExtResource("4_2r65i")
+offset_left = 1045.0
+offset_top = 741.0
+offset_right = 1806.0
+offset_bottom = 1077.0
+theme_override_constants/separation = -19
 
-[node name="Label" type="Label" parent="combatUI/enemyHealth"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = -62.0
-offset_right = 116.0
-offset_bottom = 25.0
+[node name="HBoxContainer" type="HBoxContainer" parent="combatUI/enemyInfo"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="hp" type="Label" parent="combatUI/enemyInfo/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_p1cl7")
-theme_override_font_sizes/font_size = 76
+theme_override_font_sizes/font_size = 63
 text = "HP"
 
-[node name="status_effect" type="Label" parent="combatUI/enemyHealth"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 55.0
-offset_right = 43.0
-offset_bottom = 97.0
+[node name="enemy" type="Label" parent="combatUI/enemyInfo/HBoxContainer"]
+visible = false
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_p1cl7")
+theme_override_font_sizes/font_size = 63
+text = "test"
+horizontal_alignment = 2
+
+[node name="EnemyName" type="Label" parent="combatUI/enemyInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_p1cl7")
+theme_override_font_sizes/font_size = 60
+text = "Executioner"
+horizontal_alignment = 2
+
+[node name="enemyHealth" type="ProgressBar" parent="combatUI/enemyInfo"]
+layout_mode = 2
+theme = ExtResource("4_2r65i")
+
+[node name="MarginContainer" type="MarginContainer" parent="combatUI/enemyInfo"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="status_effect" type="Label" parent="combatUI/enemyInfo/MarginContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_p1cl7")
 theme_override_font_sizes/font_size = 45
+label_settings = ExtResource("5_be3fw")
 
 [node name="playerHealth" type="ProgressBar" parent="combatUI"]
 light_mask = 0
@@ -408,19 +434,8 @@ layout_mode = 2
 spell_icon = "Blood Moon"
 metadata/_edit_use_anchors_ = true
 
-[node name="EnemyName" type="Label" parent="combatUI"]
-layout_mode = 0
-offset_left = 989.0
-offset_top = 568.0
-offset_right = 1301.0
-offset_bottom = 638.0
-theme_override_fonts/font = ExtResource("6_p1cl7")
-theme_override_font_sizes/font_size = 60
-text = "Executioner"
-horizontal_alignment = 2
-
 [node name="enemyCombat" parent="." instance=ExtResource("3_6j6h7")]
-position = Vector2(1559, 76)
+position = Vector2(1571, 164)
 scale = Vector2(7, 7)
 
 [node name="inventory_ui" parent="." instance=ExtResource("7_6qudd")]
@@ -502,7 +517,7 @@ flip_h = true
 
 [node name="DoT effect" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(1555, 429)
+position = Vector2(1556, 559)
 scale = Vector2(8.91666, 8.91666)
 sprite_frames = ExtResource("14_w4egx")
 animation = &"poisoned"
@@ -513,6 +528,14 @@ libraries = {
 "": SubResource("AnimationLibrary_6s30w")
 }
 
+[node name="Label" type="Label" parent="spellEffects"]
+visible = false
+offset_right = 35.0
+offset_bottom = 21.0
+text = "Invoke"
+label_settings = ExtResource("12_jwlj2")
+horizontal_alignment = 1
+
 [node name="field" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(893, 99)
@@ -521,10 +544,10 @@ sprite_frames = SubResource("SpriteFrames_mg0qq")
 animation = &"Blood Moon"
 
 [node name="ColorRect" type="ColorRect" parent="field"]
-offset_left = -497.0
-offset_top = -15.0
-offset_right = 546.0
-offset_bottom = 262.0
+offset_left = -497.044
+offset_top = -17.0763
+offset_right = 545.956
+offset_bottom = 259.924
 mouse_filter = 2
 color = Color(1, 0.0901961, 0.0901961, 0.215686)
 
@@ -571,7 +594,7 @@ layout_direction = 1
 layout_mode = 0
 offset_left = -843.0
 offset_top = -305.0
-offset_right = 1074.0
+offset_right = 594.0
 offset_bottom = 179.0
 
 [node name="Label4" type="Label" parent="Control/VBoxContainer"]

@@ -6,7 +6,7 @@ extends Node2D
 @onready var exit_inv = $combatUI/return
 @onready var inv = $combatUI/Inventory
 @onready var inv_ui = $inventory_ui
-@onready var eHealth = $combatUI/enemyHealth
+@onready var eHealth = $combatUI/enemyInfo/enemyHealth
 @onready var pHealth = $combatUI/playerHealth
 @onready var pHealth_label: Label = $combatUI/playerHealth/current_health
 @onready var spell_book = $combatUI/spellSelect
@@ -14,7 +14,7 @@ extends Node2D
 @onready var spells = State.spell_book
 @onready var specialCounter = 0
 @onready var enemyBook = State.enemies
-@onready var eNameLabel = $combatUI/EnemyName
+@onready var eNameLabel = $combatUI/enemyInfo/HBoxContainer/EnemyName
 @onready var cam = $Camera2D
 @onready var world_instance = get_tree().get_root().get_node('/root/root')
 @onready var world_level = get_tree().get_root().get_node('/root/root').level_name
@@ -55,7 +55,7 @@ extends Node2D
 @onready var spellAnimation: AnimationPlayer = $spellEffects
 @onready var spellTexture: AnimatedSprite2D = $"spell effect"
 @onready var DoTEffect: AnimatedSprite2D = $"DoT effect"
-@onready var statusEffect: Label = $combatUI/enemyHealth/status_effect
+@onready var statusEffect: Label = $combatUI/enemyInfo/MarginContainer/status_effect
 @onready var enemyAttack: AnimatedSprite2D = $"enemy attack"
 @onready var bloodMoon: bool = false
 @onready var fieldDuration: int = 0:
