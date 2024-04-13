@@ -407,6 +407,7 @@ layer_4/tile_data = PackedInt32Array(-1507080, 14, 0, -1769225, 15, 0)
 
 [node name="TileMap2" type="TileMap" parent="."]
 y_sort_enabled = true
+texture_filter = 4
 tile_set = ExtResource("34_oy3gm")
 format = 2
 layer_0/name = "bugs"

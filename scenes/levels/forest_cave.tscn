@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ctvmh6j5ftr0x"]
+[gd_scene load_steps=25 format=3 uid="uid://ctvmh6j5ftr0x"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_tyufh"]
 [ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="2_baw7g"]
@@ -184,18 +184,39 @@ shader_parameter/speed = 0.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_od5ih"]
 noise_type = 0
-seed = 42069
-frequency = 0.0064
-fractal_octaves = 10
-fractal_lacunarity = 10.0
+seed = 2
+frequency = 0.0136
+fractal_octaves = 7
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ef47t"]
-width = 2000
-height = 2000
+width = 6000
+height = 12000
 invert = true
 generate_mipmaps = false
 seamless = true
+normalize = false
 noise = SubResource("FastNoiseLite_od5ih")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f5jv4"]
+shader = ExtResource("13_ebtbu")
+shader_parameter/base_color = Color(0.968627, 0, 0, 0.486275)
+shader_parameter/speed = 0.5
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u6be7"]
+noise_type = 0
+seed = 112293
+frequency = 0.0064
+fractal_octaves = 10
+fractal_gain = 0.561
+fractal_weighted_strength = 0.08
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ichgr"]
+width = 2000
+height = 2000
+generate_mipmaps = false
+seamless = true
+noise = SubResource("FastNoiseLite_u6be7")
 
 [node name="root" type="Node2D"]
 y_sort_enabled = true
@@ -385,16 +406,29 @@ interact_label = "WitchForest.tscn"
 interact_type = "gateway"
 interact_value = "out"
 
-[node name="Fog" type="TextureRect" parent="."]
+[node name="Fog_old" type="TextureRect" parent="."]
+visible = false
 z_index = -1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_his62")
-offset_left = -5036.0
-offset_top = -1076.0
-offset_right = 1120.0
-offset_bottom = 976.0
+offset_left = -4612.0
+offset_top = -1044.0
+offset_right = 1388.0
+offset_bottom = 956.0
 mouse_filter = 2
 texture = SubResource("NoiseTexture2D_ef47t")
+
+[node name="Fog" type="TextureRect" parent="."]
+z_index = -1
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_f5jv4")
+offset_left = -4700.0
+offset_top = -1008.0
+offset_right = 1300.0
+offset_bottom = 992.0
+mouse_filter = 2
+texture = SubResource("NoiseTexture2D_ichgr")
 
 [connection signal="combat_entered" from="player" to="." method="_on_player_combat_entered"]
 [connection signal="combat_end" from="combatScreen" to="." method="_on_combat_screen_combat_end"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=45 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -159,13 +159,13 @@ size = Vector2(24, 16)
 radius = 24.0
 height = 72.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nw3a"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_5kijb"]
 font = ExtResource("3_8eknr")
 font_size = 45
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nw3a"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8mi52"]
 emission_shape = 3
@@ -181,6 +181,60 @@ angle_max = -208.6
 scale_min = 0.5
 scale_max = 0.55
 color = Color(1, 0.917647, 1, 0.45098)
+
+[sub_resource type="Animation" id="Animation_miarl"]
+resource_name = "hud_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 364), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hiohc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 364)]
+}
+
+[sub_resource type="Animation" id="Animation_ktiam"]
+resource_name = "hud_down"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 364)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6x6j"]
+_data = {
+"RESET": SubResource("Animation_hiohc"),
+"hud_down": SubResource("Animation_ktiam"),
+"hud_up": SubResource("Animation_miarl")
+}
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -222,17 +276,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="HUD" type="Control" parent="."]
-light_mask = 0
-z_index = 99
-z_as_relative = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Camera2D" type="Camera2D" parent="HUD"]
+[node name="Camera2D" type="Camera2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 8)
 zoom = Vector2(3, 3)
@@ -242,11 +286,94 @@ limit_right = 2000000
 limit_bottom = 20000000
 editor_draw_limits = true
 
+[node name="Control" type="Control" parent="."]
+z_index = 101
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -20.0
+offset_right = 320.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+
+[node name="PauseController" type="Node2D" parent="Control"]
+process_mode = 3
+z_index = 100
+position = Vector2(318.518, 24.0406)
+script = ExtResource("4_wdihw")
+
+[node name="dimmer" type="ColorRect" parent="Control/PauseController"]
+offset_left = -700.0
+offset_top = -176.0
+offset_right = 664.0
+offset_bottom = 488.0
+color = Color(0, 0, 0, 0.443137)
+
+[node name="pause_text" type="Label" parent="Control/PauseController"]
+offset_left = -284.0
+offset_top = -132.0
+offset_right = 285.0
+offset_bottom = -78.0
+label_settings = SubResource("LabelSettings_5kijb")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PauseController"]
+layout_direction = 2
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -72.0
+offset_right = -32.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.45)
+size_flags_horizontal = 0
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="MainMenu" parent="Control/PauseController/HBoxContainer" instance=ExtResource("18_jm848")]
+layout_mode = 2
+
+[node name="HUD" type="Control" parent="."]
+light_mask = 0
+z_index = 99
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 364.0
+offset_right = 40.0
+offset_bottom = 404.0
+metadata/_edit_use_anchors_ = true
+
 [node name="character_info" type="Node2D" parent="HUD"]
 z_index = 2
 y_sort_enabled = true
 position = Vector2(43.0405, -15.7506)
 script = ExtResource("5_2ad3x")
+
+[node name="book_texture" type="TextureRect" parent="HUD/character_info"]
+light_mask = 0
+offset_left = -256.0
+offset_top = -208.0
+offset_right = 384.0
+offset_bottom = 432.0
+scale = Vector2(0.644, 0.644)
+mouse_filter = 2
+texture = ExtResource("12_4q3lk")
 
 [node name="ColorRect" type="ColorRect" parent="HUD/character_info"]
 visible = false
@@ -257,15 +384,6 @@ offset_right = -152.0
 offset_bottom = 248.0
 color = Color(0.0352941, 0.145098, 0.501961, 1)
 metadata/_edit_use_anchors_ = true
-
-[node name="book_texture" type="TextureRect" parent="HUD/character_info"]
-light_mask = 0
-offset_left = -256.0
-offset_top = -208.0
-offset_right = 384.0
-offset_bottom = 432.0
-scale = Vector2(0.644, 0.644)
-texture = ExtResource("12_4q3lk")
 
 [node name="gold" type="Label" parent="HUD/character_info"]
 offset_left = -162.0
@@ -416,49 +534,6 @@ offset_top = -120.0
 offset_right = 104.0
 offset_bottom = 36.0
 
-[node name="PauseController" type="Node2D" parent="HUD"]
-process_mode = 3
-z_index = 100
-script = ExtResource("4_wdihw")
-
-[node name="dimmer" type="ColorRect" parent="HUD/PauseController"]
-offset_left = -700.0
-offset_top = -336.0
-offset_right = 664.0
-offset_bottom = 416.0
-color = Color(0, 0, 0, 0.443137)
-
-[node name="pause_text" type="Label" parent="HUD/PauseController"]
-offset_left = -284.0
-offset_top = -132.0
-offset_right = 285.0
-offset_bottom = -78.0
-label_settings = SubResource("LabelSettings_5kijb")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/PauseController"]
-layout_direction = 2
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -72.0
-offset_right = -32.0
-offset_bottom = -72.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.45, 0.45)
-size_flags_horizontal = 0
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.0
-alignment = 1
-
-[node name="MainMenu" parent="HUD/PauseController/HBoxContainer" instance=ExtResource("18_jm848")]
-layout_mode = 2
-
 [node name="Weather" type="GPUParticles2D" parent="."]
 z_index = 1
 position = Vector2(28, -252)
@@ -476,6 +551,11 @@ fixed_fps = 144
 z_index = 98
 position = Vector2(0, -48)
 texture = ExtResource("19_4cvsh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j6x6j")
+}
 
 [connection signal="area_entered" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_exited"]

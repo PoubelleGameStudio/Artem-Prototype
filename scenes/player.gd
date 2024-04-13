@@ -9,12 +9,13 @@ extends CharacterBody2D
 @onready var xp_label: Label = $HUD/character_info/cHUB/XP
 @onready var hp_label: Label = $HUD/character_info/cHUB/Health
 @onready var shop = $HUD/shop
-@onready var pause = $HUD/PauseController
+@onready var pause = $Control/PauseController
 @onready var rain: GPUParticles2D = $Weather
 @onready var talents = $HUD/TalentTree
 @onready var qBook = State.quest_db.keys()
 @onready var all_interactions = []
 @onready var prompt: Sprite2D = $prompt
+@onready var animation: AnimationPlayer = $AnimationPlayer
 
 
 
@@ -58,18 +59,28 @@ func _physics_process(delta):
 		pass
 	if Input.is_action_just_pressed("character_screen"):
 		if character_screen.visible == true:
+			animation.play("hud_down")
+			await get_tree().create_timer(0.5).timeout
 			character_screen.visible = false
 		else:
+			talents.hide()
 			character_screen.visible = true
 			update_HUD()
+			animation.play("hud_up")
+			await get_tree().create_timer(0.5).timeout
 #			inv.populate_grid()
 #			q_log.populate_log()
 	if Input.is_action_just_pressed("Talents"):
 		if talents.visible == true:
+			animation.play("hud_down")
+			await get_tree().create_timer(0.5).timeout
 			talents.visible = false
 		else:
 			talents.skill_check()
+			animation.play("hud_up")
+			character_screen.visible = false
 			talents.visible = true
+			
 		pass
 
 func player_movement(_delta):
@@ -188,8 +199,9 @@ func execute_interaction():
 					pass
 			#secret passage
 			"secret":
-				cur_interaction.set_value("0.0")
-				print("secret opened")
+				if cur_interaction.interact_value == "0":
+					cur_interaction.set_value("1")
+					print("secret opened")
 			
 			#door logic
 			"gateway":
@@ -260,7 +272,7 @@ func execute_interaction():
 
 
 func camera_current():
-	$HUD/Camera2D.make_current()
+	$Camera2D.make_current()
 
 
 
@@ -268,7 +280,7 @@ func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0,area)
 	var cur_interact = all_interactions[0]
 	
-	if cur_interact.interact_type == "portal" || "lootable" || "gateway":
+	if cur_interact.interact_type != "secret":
 		prompt.show()
 	else:
 		print(cur_interact.interact_type)

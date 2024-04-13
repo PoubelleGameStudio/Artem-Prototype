@@ -4,9 +4,9 @@ if quest_db["Trash_1"]["Status"] == 2 and quest_db["witch_1"]["Status"] == 0:
 elif quest_db["witch_1"]["Status"] == 0:
 	=> no_trash
 	
-if quest_db["witch_1"]["Status"] == 1:
+if quest_db["witch_1"]["Status"] == 1  and quest_complete("witch_1"):
 	=> witch_1_turn_in
-if quest_db["witch_1"]["Status"] == 1 and quest_complete("witch_1"):
+if quest_db["witch_1"]["Status"] == 2:
 	=> witch_1_complete
 	
 ~ trash_path
@@ -70,9 +70,7 @@ The Witch: Dead center, even. It would seem their god has stated that by placing
 Artem: They're killing them? 
 The Witch: By the dozens if not hundreds at this point. They fry them until their little light finally goes out.
 Artem: How many temples are there?
-The Witch: More than any of us would care for, but I've said enough for now. If you're still unwilling to take their lives, you'll find this useful. It's an elemental soaking stone. First it breaks the loop and absorbs the energy, then when it reaches capacity it all expels.
-Artem: So...a bomb?
-The Witch: Not always, but ideally.
+The Witch: More than any of us would care for, but I've said enough for now.
 do update_quest_status("witch_1",1)
 
 ~ witch_1_in_prog

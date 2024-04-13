@@ -109,7 +109,7 @@ func _on_combat_screen_death():
 	c_music.playing = false
 	stop_combat()
 	State.health = State.maxHealth
-	await 	await get_tree().create_timer(2).timeout
+	6
 	player.camera_current()
 	player.global_position = respawn_location
 	State.combat = 0
