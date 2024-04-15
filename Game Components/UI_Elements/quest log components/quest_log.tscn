@@ -8,7 +8,7 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1756.0
+offset_right = -1752.0
 offset_bottom = -820.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -17,7 +17,7 @@ script = ExtResource("1_quhll")
 [node name="quests" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(50, 10)
 layout_mode = 0
-offset_right = 160.0
+offset_right = 164.0
 offset_bottom = 405.0
 theme_override_constants/v_separation = 70
 

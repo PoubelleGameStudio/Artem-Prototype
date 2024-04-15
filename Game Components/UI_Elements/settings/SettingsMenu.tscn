@@ -1,0 +1,143 @@
+[gd_scene load_steps=11 format=3 uid="uid://duw1coq7pkfci"]
+
+[ext_resource type="Script" path="res://Game Components/UI_Elements/settings/Settings.gd" id="1_3l0ep"]
+[ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="2_ld3py"]
+[ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="3_2s2es"]
+[ext_resource type="Texture2D" uid="uid://b2tl23nftxkgb" path="res://Game Components/UI_Elements/main menu/buttons/checkbox - checked.png" id="4_32224"]
+[ext_resource type="Texture2D" uid="uid://b3rdvt432j3l" path="res://Game Components/UI_Elements/main menu/buttons/checkbox - unchecked.png" id="5_6sp4m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sk0y7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqa5o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8v8l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b6yr6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7qm7"]
+
+[node name="Settings" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3l0ep")
+
+[node name="background" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(184, 104.463)
+scale = Vector2(0.6125, 0.611407)
+texture = ExtResource("2_ld3py")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 368.0
+offset_bottom = 77.0
+
+[node name="list" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(171, 0)
+layout_mode = 2
+
+[node name="mute sound" type="HBoxContainer" parent="HBoxContainer/list"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/list/mute sound"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "mute sound"
+label_settings = ExtResource("3_2s2es")
+vertical_alignment = 2
+
+[node name="toggle_mute_sound" type="CheckButton" parent="HBoxContainer/list/mute sound"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_icons/checked = ExtResource("4_32224")
+theme_override_icons/unchecked = ExtResource("5_6sp4m")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sk0y7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lqa5o")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l8v8l")
+icon_alignment = 1
+
+[node name="combat music volume" type="HBoxContainer" parent="HBoxContainer/list"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/list/combat music volume"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "combat music volume"
+label_settings = ExtResource("3_2s2es")
+vertical_alignment = 2
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer/list/combat music volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="hide control hints" type="HBoxContainer" parent="HBoxContainer/list"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/list/hide control hints"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "hide control hints
+"
+label_settings = ExtResource("3_2s2es")
+vertical_alignment = 2
+
+[node name="toggle_hide_control_hints" type="CheckButton" parent="HBoxContainer/list/hide control hints"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_icons/checked = ExtResource("4_32224")
+theme_override_icons/unchecked = ExtResource("5_6sp4m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b6yr6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v7qm7")
+icon_alignment = 1
+
+[node name="list2" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(184, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="mute sound" type="HBoxContainer" parent="HBoxContainer/list2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/list2/mute sound"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "mute sound"
+label_settings = ExtResource("3_2s2es")
+vertical_alignment = 2
+
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer/list2/mute sound"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_icons/checked = ExtResource("4_32224")
+theme_override_icons/unchecked = ExtResource("5_6sp4m")
+button_pressed = true
+icon_alignment = 1
+
+[node name="control hints" type="HBoxContainer" parent="HBoxContainer/list2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/list2/control hints"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "control hints
+"
+label_settings = ExtResource("3_2s2es")
+vertical_alignment = 2
+
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer/list2/control hints"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_icons/checked = ExtResource("4_32224")
+theme_override_icons/unchecked = ExtResource("5_6sp4m")
+button_pressed = true
+icon_alignment = 1
+
+[connection signal="toggled" from="HBoxContainer/list/mute sound/toggle_mute_sound" to="." method="_on_toggle_mute_sound_toggled"]
+[connection signal="toggled" from="HBoxContainer/list/hide control hints/toggle_hide_control_hints" to="." method="_on_toggle_hide_control_hints_toggled"]

@@ -43,14 +43,16 @@ func _ready():
 func _process(delta):
 	
 	## Make sure music is looping when out of combat
-	if State.combat != 1 and music.playing == false:
-		music.playing = true
+	if Settings.mute_sound == false:	
+		if State.combat != 1 and music.playing == false:
+			music.playing = true
 
 	## makes sure music isn't playing when in dialogue
-	if State.talking == 1:
-		music.volume_db -= 10
-	else:
-		music.volume_db = -15
+	if Settings.mute_sound == false:	
+		if State.talking == 1:
+			music.volume_db -= 10
+		else:
+			music.volume_db = -15
 
 
 

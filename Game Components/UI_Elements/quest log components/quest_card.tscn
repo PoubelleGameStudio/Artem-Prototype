@@ -1,19 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cedk2s7on1gg5"]
+[gd_scene load_steps=5 format=3 uid="uid://cedk2s7on1gg5"]
 
-[ext_resource type="Texture2D" uid="uid://gp2mtifsphtl" path="res://Game Components/UI_Elements/inv_components/inv_background.png" id="1_gh22h"]
 [ext_resource type="Script" path="res://Game Components/UI_Elements/quest log components/quest_card.gd" id="1_hfsoy"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="3_5ujas"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="3_rljj1"]
-[ext_resource type="LabelSettings" uid="uid://bwi74ldi25y7a" path="res://journal_text.tres" id="4_3g46k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyxv6"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_gaskx"]
-line_spacing = 0.0
-font = ExtResource("3_rljj1")
-font_size = 18
-font_color = Color(0, 0, 0, 1)
-outline_color = Color(0, 0, 0, 1)
 
 [node name="quest_card" type="Panel"]
 light_mask = 0
@@ -21,13 +12,6 @@ offset_right = 152.0
 offset_bottom = 96.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gyxv6")
 script = ExtResource("1_hfsoy")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-light_mask = 0
-position = Vector2(-16, 12)
-scale = Vector2(0.375, 0.125)
-texture = ExtResource("1_gh22h")
-centered = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -42,20 +26,28 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 theme_override_constants/separation = -6
 
-[node name="quest_name" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="quest_name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "follow orders"
 label_settings = ExtResource("3_5ujas")
 uppercase = true
+
+[node name="quest_status" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("3_rljj1")
+theme_override_font_sizes/font_size = 19
+text = "not done"
+label_settings = ExtResource("3_5ujas")
+horizontal_alignment = 2
 
 [node name="quest_desc" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(40, 35)
 layout_mode = 2
 theme_override_constants/outline_size = 0
-label_settings = ExtResource("4_3g46k")
+text = "do stuff"
+label_settings = ExtResource("3_5ujas")
 autowrap_mode = 2
-
-[node name="quest_status" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_rljj1")
-theme_override_font_sizes/font_size = 19
-label_settings = SubResource("LabelSettings_gaskx")

@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
+class_name RainPlayer
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if self.playing == false:
+	if self.playing == false and Settings.mute_sound == false:
 		self.playing = true

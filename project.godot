@@ -13,6 +13,7 @@ config_version=5
 config/name="Prototype"
 run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
@@ -20,6 +21,7 @@ config/icon="res://icon.svg"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 State="*res://scripts/State.gd"
 SceneTransition="*res://Game Components/UI_Elements/scene transition.tscn"
+Settings="*res://Game Components/UI_Elements/settings/Settings.gd"
 
 [dialogue_manager]
 
@@ -142,7 +144,7 @@ locale/translations_pot_files=PackedStringArray("res://Game Components/dialogue/
 
 textures/canvas_textures/default_texture_filter=0
 anti_aliasing/screen_space_roughness_limiter/enabled=false
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.12549, 0.12549, 0.12549, 1)
 
 [shader_globals]
 

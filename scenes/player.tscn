@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=46 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c8skkvcn0ci81" path="res://Game Components/UI_Elements/Talent Tree/talentTree.tscn" id="16_unwu1"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="18_jm848"]
 [ext_resource type="Texture2D" uid="uid://diwnan71ffp7" path="res://Game Components/UI_Elements/prompts/f.png" id="19_4cvsh"]
+[ext_resource type="PackedScene" uid="uid://duw1coq7pkfci" path="res://Game Components/UI_Elements/settings/SettingsMenu.tscn" id="21_mnbx0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5msp"]
 atlas = ExtResource("2_he7ll")
@@ -182,22 +183,6 @@ scale_min = 0.5
 scale_max = 0.55
 color = Color(1, 0.917647, 1, 0.45098)
 
-[sub_resource type="Animation" id="Animation_miarl"]
-resource_name = "hud_up"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HUD:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 364), Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_hiohc"]
 length = 0.001
 tracks/0/type = "value"
@@ -229,6 +214,22 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, 364)]
 }
 
+[sub_resource type="Animation" id="Animation_miarl"]
+resource_name = "hud_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 364), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6x6j"]
 _data = {
 "RESET": SubResource("Animation_hiohc"),
@@ -240,6 +241,16 @@ _data = {
 y_sort_enabled = true
 position = Vector2(16, -32)
 script = ExtResource("1_6vypi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 8)
+zoom = Vector2(3, 3)
+limit_left = -20000000
+limit_top = -1863462912
+limit_right = 2000000
+limit_bottom = 20000000
+editor_draw_limits = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
@@ -275,16 +286,6 @@ label_settings = ExtResource("15_oq2cw")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-y_sort_enabled = true
-position = Vector2(0, 8)
-zoom = Vector2(3, 3)
-limit_left = -20000000
-limit_top = -1863462912
-limit_right = 2000000
-limit_bottom = 20000000
-editor_draw_limits = true
 
 [node name="Control" type="Control" parent="."]
 z_index = 101
@@ -447,16 +448,17 @@ offset_right = -183.04
 offset_bottom = 7.7506
 
 [node name="quest_log_label" type="Label" parent="HUD/character_info"]
-offset_left = -40.0
+offset_left = -50.0
 offset_top = -120.0
+offset_right = -10.0
 offset_bottom = -97.0
 text = "To Do: "
 label_settings = ExtResource("15_oq2cw")
 
 [node name="quest_log" parent="HUD/character_info" instance=ExtResource("14_xc3j5")]
-offset_left = -40.0
+offset_left = -50.0
 offset_top = -100.0
-offset_right = -40.0
+offset_right = -50.0
 offset_bottom = -100.0
 
 [node name="Inventory_label" type="Label" parent="HUD/character_info"]
@@ -529,6 +531,7 @@ offset_right = 40.0
 offset_bottom = 32.0
 
 [node name="TalentTree" parent="HUD" instance=ExtResource("16_unwu1")]
+visible = false
 offset_left = -80.0
 offset_top = -120.0
 offset_right = 104.0
@@ -556,6 +559,12 @@ texture = ExtResource("19_4cvsh")
 libraries = {
 "": SubResource("AnimationLibrary_j6x6j")
 }
+
+[node name="Settings" parent="." instance=ExtResource("21_mnbx0")]
+offset_left = -188.0
+offset_top = -120.0
+offset_right = -188.0
+offset_bottom = -120.0
 
 [connection signal="area_entered" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_exited"]
