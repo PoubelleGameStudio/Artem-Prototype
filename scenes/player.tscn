@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=47 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -160,6 +160,10 @@ size = Vector2(24, 16)
 radius = 24.0
 height = 72.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_2xnrd"]
+font = ExtResource("3_8eknr")
+font_size = 19
+
 [sub_resource type="LabelSettings" id="LabelSettings_5kijb"]
 font = ExtResource("3_8eknr")
 font_size = 45
@@ -282,7 +286,7 @@ offset_right = 283.0
 offset_bottom = -26.0
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 19
-label_settings = ExtResource("15_oq2cw")
+label_settings = SubResource("LabelSettings_2xnrd")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -359,6 +363,13 @@ offset_top = 364.0
 offset_right = 40.0
 offset_bottom = 404.0
 metadata/_edit_use_anchors_ = true
+
+[node name="Settings" parent="HUD" instance=ExtResource("21_mnbx0")]
+layout_mode = 1
+offset_left = -192.0
+offset_top = -128.0
+offset_right = -192.0
+offset_bottom = -128.0
 
 [node name="character_info" type="Node2D" parent="HUD"]
 z_index = 2
@@ -559,12 +570,6 @@ texture = ExtResource("19_4cvsh")
 libraries = {
 "": SubResource("AnimationLibrary_j6x6j")
 }
-
-[node name="Settings" parent="." instance=ExtResource("21_mnbx0")]
-offset_left = -188.0
-offset_top = -120.0
-offset_right = -188.0
-offset_bottom = -120.0
 
 [connection signal="area_entered" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_exited"]

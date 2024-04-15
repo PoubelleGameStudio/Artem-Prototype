@@ -10,6 +10,7 @@ const save_dir = "user://saves/"
 var save_file = "PlayerSave.tres"
 
 var playerData = PlayerData.new()
+var settingsConfig = SettingsConfig.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

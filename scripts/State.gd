@@ -67,6 +67,13 @@ var welcomed: bool = 0
 var witch_greeted: bool = 0
 var world: String
 
+# setting configs
+var mute_sound: bool = false
+var hide_control_hints: bool = false
+var combat_music_slider_value: int
+var world_music_slider_value: int
+	
+
 func _ready():
 	maxHealth = baseMaxHealth + bonusMaxHealth
 

@@ -16,6 +16,9 @@ class_name LevelManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	#signal
+	music.finished.connect(_on_music_finished)
 
 	if level_name != "title_screen":
 		SceneTransition.fade_in()
@@ -41,20 +44,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	## Make sure music is looping when out of combat
-	if Settings.mute_sound == false:	
-		if State.combat != 1 and music.playing == false:
-			music.playing = true
 
-	## makes sure music isn't playing when in dialogue
-	if Settings.mute_sound == false:	
+
+	# makes sure music isn't playing when in dialogue
+	if State.mute_sound == false:
 		if State.talking == 1:
-			music.volume_db -= 10
+			music.volume_db = -30
 		else:
-			music.volume_db = -15
+			music.volume_db = State.world_music_slider_value
 
 
+
+
+func _on_music_finished():
+	music.play()
 
 ########### checks that save directory exists###########
 func verify_save_directory(path:String):
@@ -73,6 +76,7 @@ func bury_the_dead():
 func setup_combat():
 	combat.show()
 	combat.process_mode = 0
+	music.playing = false
 	combat.start_turn()
 
 
@@ -80,6 +84,7 @@ func stop_combat():
 	combat.hide()
 	combat.process_mode = 4
 	bury_the_dead()
+	music.playing = true
 
 
 func _on_combat_screen_combat_end():
@@ -118,3 +123,7 @@ func _on_combat_screen_death():
 	music.playing = true
 	
 
+
+
+func _on_audio_stream_player_finished():
+	pass # Replace with function body.

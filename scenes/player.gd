@@ -16,14 +16,13 @@ extends CharacterBody2D
 @onready var all_interactions = []
 @onready var prompt: Sprite2D = $prompt
 @onready var animation: AnimationPlayer = $AnimationPlayer
-
+@onready var settings: Settings = $HUD/Settings
 
 
 var speed = 150.0
-
-
 var current_dir = "none"
 var world = ''
+
 
 signal combat_entered
 
@@ -31,9 +30,10 @@ func _ready():
 	$AnimatedSprite2D.play("idle")
 	update_HUD()
 	State.level_up()
-	character_screen.visible = false
+	character_screen.hide()
+	talents.hide()
+	settings.hide()
 	itemLabel.text = ""
-	$HUD/TalentTree.hide()
 	prompt.hide()
 	pause.hide()
 	
@@ -45,18 +45,29 @@ func _physics_process(delta):
 	else:
 		rain.emitting = State.is_raining
 		
+		
+				
 	player_movement(delta)
 	update_HUD()
+		
 	
-	if character_screen.visible == true:
-		inv.populate_grid()
-		q_log.populate_log()
 	
 	##### controls ####
+	if Input.is_action_just_pressed("settings"):
+		if settings.visible == true:
+			animation.play("hud_down")
+			await get_tree().create_timer(0.5).timeout
+			settings.hide()
+		else:
+			talents.hide()
+			character_screen.hide()
+			settings.show()
+			animation.play("hud_up")
+			await get_tree().create_timer(0.5).timeout	
+			
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
-	if Input.is_action_just_pressed("action"):
-		pass
+
 	if Input.is_action_just_pressed("character_screen"):
 		if character_screen.visible == true:
 			animation.play("hud_down")
@@ -68,8 +79,7 @@ func _physics_process(delta):
 			update_HUD()
 			animation.play("hud_up")
 			await get_tree().create_timer(0.5).timeout
-#			inv.populate_grid()
-#			q_log.populate_log()
+	
 	if Input.is_action_just_pressed("Talents"):
 		if talents.visible == true:
 			animation.play("hud_down")

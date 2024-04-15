@@ -42,17 +42,18 @@ offset_bottom = 77.0
 custom_minimum_size = Vector2(171, 0)
 layout_mode = 2
 
-[node name="mute sound" type="HBoxContainer" parent="HBoxContainer/list"]
+[node name="mute_sound" type="HBoxContainer" parent="HBoxContainer/list"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/list/mute sound"]
+[node name="Label" type="Label" parent="HBoxContainer/list/mute_sound"]
 layout_mode = 2
 size_flags_vertical = 8
-text = "mute sound"
+text = "mute all sound
+"
 label_settings = ExtResource("3_2s2es")
 vertical_alignment = 2
 
-[node name="toggle_mute_sound" type="CheckButton" parent="HBoxContainer/list/mute sound"]
+[node name="toggle_mute_sound" type="CheckButton" parent="HBoxContainer/list/mute_sound"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_icons/checked = ExtResource("4_32224")
@@ -66,15 +67,36 @@ icon_alignment = 1
 layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/list/combat music volume"]
+custom_minimum_size = Vector2(69, 0)
 layout_mode = 2
 size_flags_vertical = 8
-text = "combat music volume"
+text = "combat music"
 label_settings = ExtResource("3_2s2es")
 vertical_alignment = 2
 
-[node name="HSlider" type="HSlider" parent="HBoxContainer/list/combat music volume"]
+[node name="combat_music_slider" type="HSlider" parent="HBoxContainer/list/combat music volume"]
 layout_mode = 2
 size_flags_horizontal = 3
+min_value = -20.0
+max_value = 0.0
+value = -10.0
+
+[node name="world music volume" type="HBoxContainer" parent="HBoxContainer/list"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/list/world music volume"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "level music"
+label_settings = ExtResource("3_2s2es")
+vertical_alignment = 2
+
+[node name="world_music_slider" type="HSlider" parent="HBoxContainer/list/world music volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -20.0
+max_value = 0.0
+value = -10.0
 
 [node name="hide control hints" type="HBoxContainer" parent="HBoxContainer/list"]
 layout_mode = 2
@@ -120,24 +142,7 @@ theme_override_icons/unchecked = ExtResource("5_6sp4m")
 button_pressed = true
 icon_alignment = 1
 
-[node name="control hints" type="HBoxContainer" parent="HBoxContainer/list2"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer/list2/control hints"]
-layout_mode = 2
-size_flags_vertical = 8
-text = "control hints
-"
-label_settings = ExtResource("3_2s2es")
-vertical_alignment = 2
-
-[node name="CheckButton" type="CheckButton" parent="HBoxContainer/list2/control hints"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_icons/checked = ExtResource("4_32224")
-theme_override_icons/unchecked = ExtResource("5_6sp4m")
-button_pressed = true
-icon_alignment = 1
-
-[connection signal="toggled" from="HBoxContainer/list/mute sound/toggle_mute_sound" to="." method="_on_toggle_mute_sound_toggled"]
+[connection signal="toggled" from="HBoxContainer/list/mute_sound/toggle_mute_sound" to="." method="_on_toggle_mute_sound_toggled"]
+[connection signal="drag_ended" from="HBoxContainer/list/combat music volume/combat_music_slider" to="." method="_on_combat_music_slider_drag_ended"]
+[connection signal="drag_ended" from="HBoxContainer/list/world music volume/world_music_slider" to="." method="_on_world_music_slider_drag_ended"]
 [connection signal="toggled" from="HBoxContainer/list/hide control hints/toggle_hide_control_hints" to="." method="_on_toggle_hide_control_hints_toggled"]
