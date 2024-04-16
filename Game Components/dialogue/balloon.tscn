@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=54 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" path="res://Game Components/dialogue/balloon.gd" id="1_4u26j"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://4cjp8pme00u1" path="res://Sprites/quest givers/Witch_idle - sprite sheet.png" id="6_6ex74"]
 [ext_resource type="Texture2D" uid="uid://bvt27gyk3i662" path="res://Sprites/quest givers/raccoon.png" id="7_pah6t"]
 [ext_resource type="Texture2D" uid="uid://cd7todjajlpev" path="res://Sprites/barmaid.png" id="8_6uipw"]
+[ext_resource type="Texture2D" uid="uid://ck6lvxkbgrqml" path="res://Game Components/dialogue/art/UI_MysticWood_Banner_02a.png" id="13_jwmx6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8y7lh"]
 atlas = ExtResource("2_tfy3o")
@@ -335,9 +336,25 @@ script = ExtResource("1_4u26j")
 custom_minimum_size = Vector2(10, 10)
 offset_right = 10.0
 offset_bottom = 10.0
-color = Color(0, 0, 0.176471, 1)
+color = Color(0, 0, 0.176471, 0)
+
+[node name="scroll" type="NinePatchRect" parent="Balloon"]
+clip_contents = true
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 301.0
+offset_bottom = 141.0
+scale = Vector2(0.0729586, 0.15929)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("13_jwmx6")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="Margin" type="MarginContainer" parent="Balloon"]
+z_index = 1
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 10
@@ -351,6 +368,8 @@ theme_override_constants/margin_bottom = 10
 metadata/_edit_layout_mode = 1
 
 [node name="VBox" type="VBoxContainer" parent="Balloon/Margin"]
+z_index = 99
+z_as_relative = false
 layout_mode = 2
 theme_override_constants/separation = 10
 

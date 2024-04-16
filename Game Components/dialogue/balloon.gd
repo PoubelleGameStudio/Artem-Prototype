@@ -100,7 +100,8 @@ func _ready() -> void:
 	response_template.hide()
 	balloon.hide()
 	balloon.custom_minimum_size.x = 1920 # balloon.get_viewport_rect().size.x
-	
+	$Balloon/scroll.custom_minimum_size.x = 1920
+	$Balloon/scroll.position = balloon.position
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
 
@@ -175,12 +176,13 @@ func handle_resize() -> void:
 	if not is_instance_valid(margin):
 		call_deferred("handle_resize")
 		return
-		
+	$Balloon/scroll.custom_minimum_size.y = margin.size.y	
 	balloon.custom_minimum_size.y = margin.size.y
 	# Force a resize on only the height
 	balloon.size.y = 0
 	var viewport_size = balloon.get_viewport_rect().size
 	balloon.global_position = Vector2((viewport_size.x - balloon.size.x) * 0.5, viewport_size.y - balloon.size.y)
+	$Balloon/scroll.global_position = Vector2((viewport_size.x - balloon.size.x) * 0.5, viewport_size.y - balloon.size.y)
 
 
 ### Signals
@@ -229,7 +231,7 @@ func _on_margin_resized() -> void:
 
 
 func _on_dialogue_label_spoke(letter, letter_index, speed):
-	if letter_index%3 == 0 || letter_index == 0:
+	if letter_index%3 == 0 || letter_index == 1:
 		if character_label.text != "Artem":
 			if not letter in ["."," ","*"]:
 				if  letter in ["a","e","i","o","u","y"]:

@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwolc4dutryab"]
+[gd_scene load_steps=10 format=3 uid="uid://cwolc4dutryab"]
 
 [ext_resource type="Script" path="res://tutorial_screen.gd" id="1_tlwe8"]
+[ext_resource type="Texture2D" uid="uid://bnei5qwvolm54" path="res://Game Components/tutorials/UI_Paper_Frame_02_Standard.png" id="2_oobxb"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="4_lxvx6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_imhmk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xtfsr"]
 
@@ -27,14 +30,20 @@ script = ExtResource("1_tlwe8")
 layout_mode = 0
 offset_right = 371.0
 offset_bottom = 242.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_imhmk")
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_oobxb")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 13
 theme_override_constants/margin_right = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
@@ -42,16 +51,22 @@ layout_mode = 2
 
 [node name="title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_lxvx6")
 theme_override_font_sizes/font_size = 45
 text = "test"
 horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
 
 [node name="text" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_lxvx6")
 theme_override_font_sizes/font_size = 19
 text = "testestestest"
@@ -63,6 +78,8 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_lxvx6")
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxEmpty_xtfsr")

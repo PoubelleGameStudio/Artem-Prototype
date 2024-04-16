@@ -174,7 +174,7 @@ func _on_speak():
 
 @onready var tutorials: Dictionary = {
 	"Basics":{
-		"text":str("Welcome to The Watcher's Curse! Move with W,A,S,D and", 
+		"text":str("Welcome to The Watcher's Curse! Move with W,A,S,D and ", 
 					"interact with objects or people using the F key! ",
 					"As you level, you'll be able to unlock new spells and",
 					" traits. These are found in the the 'Field Training' ",
