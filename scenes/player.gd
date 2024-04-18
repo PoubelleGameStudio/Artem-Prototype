@@ -88,8 +88,9 @@ func _physics_process(delta):
 		else:
 			talents.skill_check()
 			animation.play("hud_up")
-			character_screen.visible = false
-			talents.visible = true
+			character_screen.hide()
+			settings.hide()
+			talents.show()
 			
 		pass
 
@@ -188,7 +189,11 @@ func execute_interaction():
 			"vendor":
 				cur_interaction.talk(str("res://Game Components/dialogue/NPC/",
 					cur_interaction.get_parent().sprite,".dialogue"))
+				settings.hide()
+				talents.hide()
+				character_screen.hide()
 				shop.show()
+				animation.play("hud_up")
 				pass
 			"dialogue":
 				if State.talking == 0:
@@ -322,12 +327,14 @@ func _on_interaction_area_area_entered(area):
 func _on_interaction_area_area_exited(area):
 	var cur_interact = all_interactions[0]
 	cur_interact.talk_end()
-	shop.hide()
+	if cur_interact.interact_type == "vendor" and shop.visible:
+		animation.play("hud_down")
 	prompt.hide()
 	State.talking = 0
 	all_interactions.erase(area)
 	await get_tree().create_timer(.5).timeout
 	itemLabel.text = ""
+	shop.hide()
 	
 	
 

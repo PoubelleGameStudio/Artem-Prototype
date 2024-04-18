@@ -336,10 +336,12 @@ script = ExtResource("1_4u26j")
 custom_minimum_size = Vector2(10, 10)
 offset_right = 10.0
 offset_bottom = 10.0
-color = Color(0, 0, 0.176471, 0)
+color = Color(0, 0, 0.176471, 1)
 
 [node name="scroll" type="NinePatchRect" parent="Balloon"]
+visible = false
 clip_contents = true
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 301.0

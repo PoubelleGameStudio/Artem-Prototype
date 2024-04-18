@@ -63,15 +63,15 @@ var gold: int = 100
 var ability_points: int = 30
 
 # social trackers
-var welcomed: bool = 0
+var welcomed: bool = false
 var witch_greeted: bool = 0
 var world: String
 
 # setting configs
 var mute_sound: bool = false
 var hide_control_hints: bool = false
-var combat_music_slider_value: int
-var world_music_slider_value: int
+var combat_music_slider_value: int = -15
+var world_music_slider_value: int = -15
 	
 
 func _ready():
@@ -340,7 +340,7 @@ var quest_db ={
 		"Status":0,
 		"Items":{
 			"Void Goop":1,
-			"berry":1,
+			"berries":1,
 			"Bone Dust":1
 		},
 		"description":"You're in bat country."
@@ -376,11 +376,13 @@ func quest_complete(quest) -> bool:
 		for item in items:			
 			if inventory.has(item):
 				if (int(quest_db[quest]["Items"][item])<=int(inventory[item])):
-					req_met = true					
+					req_met = true				
 				else:
-					req_met = false					
+					req_met = false
+				
 			else:
-				req_met =  false								
+				req_met =  false
+							
 	else:
 		req_met =  false
 	return req_met

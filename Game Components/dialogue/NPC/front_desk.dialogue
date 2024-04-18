@@ -40,6 +40,7 @@ if quest_db["homebrewed"]["Status"] == 1:
 		do update_quest_status("homebrewed",2)
 		set talking = 0
 		=> END
-		
+	
+Old Crusty Guy: you're still bad at coding
 set talking = 0
 => END

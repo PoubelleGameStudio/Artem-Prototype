@@ -9,13 +9,13 @@ extends Panel
 func _ready():
 	$MarginContainer/VBoxContainer/HBoxContainer/quest_name.text = quest_name
 	$MarginContainer/VBoxContainer/quest_desc.text = quest_desc
-	$MarginContainer/VBoxContainer/HBoxContainer/quest_status.text = str("Progress: ",status)
+	$MarginContainer/VBoxContainer/quest_status.text = str("Progress: ",status)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$MarginContainer/VBoxContainer/HBoxContainer/quest_name.text = quest_name
 	$MarginContainer/VBoxContainer/quest_desc.text = quest_desc
-	$MarginContainer/VBoxContainer/HBoxContainer/quest_status.text = str(status)
+	$MarginContainer/VBoxContainer/quest_status.text = str(status)
 
 

@@ -25,6 +25,7 @@ if quest_db["Trash_1"]["Status"] == 0:
 		Artem: Yeah why not.
 		Trash God: Make haste valorous one!
 		do update_quest_status("Trash_1",1)
+		=> END
 	- Refuse
 		Trash God: Pray you change your mind before my true wrath becomes known 
 		=> END

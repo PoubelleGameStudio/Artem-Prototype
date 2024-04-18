@@ -1,108 +1,137 @@
 ~ start
-=> Barkeep_welcome
+if quest_db["barkeep_1"]["Status"] == 0:
+	if State.welcomed == true:
+		=> Barkeep_welcome
+	else
+		=> no_welcome
+elif quest_db["barkeep_1"]["Status"] == 1:
+	=> in_prog
+elif quest_db["barkeep_1"]["Status"] == 2 and quest_db["barkeep_2"]["Status"] == 0:
+	=> next
+elif quest_db["barkeep_2"]["Status"] == 1:
+	=> next_prog
+elif quest_db["barkeep_3"]["Status"] == 0:
+	=> tim
+elif quest_db["barkeep_3"]["Status"] == 1:
+	=> tim_progress
+elif quest_db["barkeep_3"]["Status"] == 2:
+	=> all_done
+
+
 
 ~ Barkeep_welcome
-if quest_db["barkeep_1"]["Status"] == 0:
-	Mayor Barkeep: Hello there.
-	Artem: Please tell me you aren't also drunk.
-	Mayor Barkeep: Sounds like you met Hedo. I'm not drunk but I am Mayor Barkeep of Grim's Briar, so that makes Hedo's state a bit my fault. Got a name, friend?
-	Artem: Artem. He mentioned Grim's Briar. Where, geographically, are we right now?
-	Mayor Barkeep: You share a couple rounds with Hedo?
-	Artem: Quickly begining to feel as though I did...
-	Mayor Barkeep: Grim's Briar is nested in the ever-dreary valley of the Noctemura Mountains.
-	Artem: That's closer to The Needle than I prefer.
-	Mayor Barkeep: Yeah those technotheists don't care much for the arts, but we stay tucked away into our corner and they stay in their buzzing, sterile monolith.
-	Artem: Do you recognize this book? I touched it and now I'm here.
-	Mayor Barkeep: *sigh*...yep that's one of Tim's. He had a bad review in the local magazine recently and got upset saying they hadn't even read his book. Not long after everyone he gave a copy to went missing all at once.
-	Artem: I don't suppose you then found out how to bring everyone back?
-	Mayor Barkeep: Unfortunately, no. Hedo was only saved by refusing the copy. Tim offered him one but he muttered something about NPCs and smashed a bottle...
-	Mayor Barkeep: Either way...I've been trying to track Tim down. If not to set him straight then to at least find out where his books sent everyone off to.
-	Artem: I noticed you've also got a problem with ghosts and void rodents?
-	Mayor Barkeep: They're a natural part of the valley, but without the townies roaming about in a stupor at all hours the local haunts have started claiming the outskirts. 
-	Artem: Well, given all of my possesions are in a nice lady's home some 300 miles from here...guess it's a night of ghost hunting and mystery solving.
-	Mayor Barkeep: I appreciate your help, and I apologize for how much we need it. Talk to Thorn for a drink and check in with the Old Crusty Guy at the inn. I'll gather what little info I have and you can meet me back here once you've made the rounds.
-	Artem: How resplendent...
-	do update_quest_status("barkeep_1",1)
-	set talking = 0
-	=> END
-elif quest_db["barkeep_1"]["Status"] == 1:
-	if quest_complete("barkeep_1") == false:
-		Mayor Barkeep: You can get a drink in the northwest side of town. For a bed you'll need to head to the north east side.
-		set talking = 0
-		=> END
-	else:
-		Mayor Barkeep: It's healthy to meet new people. Here's a little something from the tourism grant. Make sure to patron your local artists!
-		set gold += 10
-		set cur_xp += 10
-		do level_up()
-		do update_quest_status("barkeep_1",2)
-		do update_quest_status("barkeep_2",0)
-		set talking = 0
-		=> END
-		
-elif quest_db["barkeep_1"]["Status"] == 2 and quest_db["barkeep_2"]["Status"] == 0:
-	Artem: Your architecture is deeply unorthodox
-	Mayor Barkeep: Most of our residents' favorite establishments are hole in the walls, so we figured yeh, why not?
-	Artem: And they just stay perpetually suspended like that?
-	Mayor Barkeep: What?
-	Artem: What?
-	Mayor Barkeep: Oh, right...the air here is psychoactive. 
-	Mayor Barkeep: Locals develop a tolerance to it for the most part, but we do keep some of those rad plague doctor masks. Those...probably help?
-	Artem: This is the opposite of rest.
-	Mayor Barkeep: Okay, it's totally fine. You're going to be absolutley totally fine for sure. No doubt.
-	Mayor Barkeep: . . .However.
-	Mayor Barkeep: You also have a few hours before you peak, and the crusty guy at the inn knows how make what we call the "Get Me Down Potion".
-	Artem: And that will make it so [wave amp=25 freq=5]hallucinations[/wave] are not a side effect of breathing?
-	Mayor Barkeep: Usually.
-	Artem: Then off I go. . .
-	do update_quest_status("barkeep_2",1)
-	set talking = 0
-	=> END
+Mayor Barkeep: Hello there. Haven't had any newcomers in a while now.
+Artem: Please tell me you aren't also drunk.
+Mayor Barkeep: Sounds like you met Hedo out on the trails, but no I'm not drunk. Though, I am Mayor Barkeep of Grim's Briar, so that makes Hedo's state a bit my fault. Got a name, friend?
+Artem: Artem. He mentioned Grim's Briar. Where, geographically, are we right now?
+Mayor Barkeep: You share a couple rounds with Hedo?
+Artem: Quickly begining to feel as though I did...
+=> main_path
 	
-elif quest_db["barkeep_2"]["Status"] == 1:
-	if quest_complete("barkeep_2") == false:
-		Mayor Barkeep: You're gonna be just fine, but you should probably start gathering those ingredients immediately.
-		set talking = 0
-		=> END
-	else:
-		Mayor Barkeep: I knew you'd sort it all out! Had zero doubts about that since we last spoke. Highly confident.
-		Artem: With my challenged sobriety sorted. Let's get to work on the Tim situation.
-		do update_quest_status("barkeep_2",2)
-		set talking = 0
-		=> END
+~ no_welcome	
+Mayor Barkeep: Would ya look at that! A new face in town! What can we do ya for?
+Artem: Hi, I'm Artem, a member of the Eye. Would you kindly tell me where exactly we are?
+Mayor Barkeep: You feelin' alright? Folks usually don't end up here without meaning to.
+Artem: Ever the exception I suppose...
+=> main_path
+	
+~ main_path
+Mayor Barkeep: Grim's Briar is nested in the ever-dreary valley of the Noctemura Mountains.
+Artem: That's a bit closer to the Needle than I'd prefer.
+Mayor Barkeep: We stay tucked away in our corner of the valley and they stay in their buzzing, sterile monolith.
+Artem: If you don't mind, do you recognize this book? Seemingly it's the reason I'm here.
+Mayor Barkeep: *sigh*...yep that's one of Tim's. He had a bad review in the local magazine recently and got upset saying they hadn't even read his book. Not long after that, everyone he gave a copy to went missing. Just all at once.
+Artem: I don't suppose you found out how to bring everyone back?
+Mayor Barkeep: Unfortunately, no. Hedo was only saved by refusing a copy. Tim offered him one but he muttered something about NPCs and smashed a bottle...
+Mayor Barkeep: Either way...I've been trying to track Tim down. If not to set him straight then to at least find out where his books sent everyone off to.
+Artem: I noticed you've also got a problem with ghosts and void rodents?
+Mayor Barkeep: They're a natural part of the valley, but, without the townies roaming about in a stupor at all hours, the local haunts have started claiming the outskirts. 
+Artem: Well, given all of my possesions are some 300 miles from here...guess it's a night of ghost hunting and mystery solving.
+Mayor Barkeep: I appreciate your help, and I apologize for how much we need it. Talk to Thorn for a drink and check in with the Old Crusty Guy at the inn. I'll gather what little info I have and you can meet me back here once you've made the rounds.
+Artem: How resplendent...
+do update_quest_status("barkeep_1",1)
+set talking = 0
+=> END
 
-elif quest_db["barkeep_3"]["Status"] == 0:
-	Mayor Barkeep: I've been pouring through his recent works, and to be honest I'm with the critic on this one, but nothing in the themes stands out. 
-	Artem: Don't see a lot of houses around. Where'd he sleep? Maybe he left some notes lying around...
-	Mayor Barkeep: Most of the locals spend their days at the Tavern and shamble over to the Inn once they're out of ink. 
-	Mayor Barkeep: Thorn's mentioned they saw him taking some late night strolls recently, which is odd given no one here cares much for their health..
-	Artem: Did Thorne mention where exactly he was walking towards?
-	Mayor Barkeep: We stay pretty busy slinging drinks, but they noticed him heading towards the cemetary south of here.
-	Artem: Hiding out in a mausoleum maybe?
-	Mayor Barkeep: You're really good at this. You know that?
-	Artem: Painfully aware...
-	do update_quest_status("barkeep_3",1)
+~ in_prog
+if quest_complete("barkeep_1") == false:
+	Mayor Barkeep: You can get a drink in the northwest side of town. For a bed you'll need to head to the north east side.
+	set talking = 0
+	=> END
+else:
+	Mayor Barkeep: It's healthy to meet new people. Here's a little something from the tourism grant. Make sure to patron your local artists!
+	set gold += 10
+	set cur_xp += 10
+	do level_up()
+	do update_quest_status("barkeep_1",2)
+	do update_quest_status("barkeep_2",0)
+	set talking = 0
 	=> END
 
-elif quest_db["barkeep_3"]["Status"] == 1:
-	if quest_complete("barkeep_3") == false:
-		Mayor Barkeep: Stay safe out there. Hard to know who and what to trust right now.
-	else:
-		Mayor Barkeep: You found him?
-		Artem: What was left of him at least. He found a cave in the forest to hide out in. Based the journal he left behind it sounds like he never planned on leaving it. 
-		Mayor Barkeep: Jinkies...what compelled him to choose this?
-		Artem: He was working, at least in some capacity, with the technotheists. 
-		Mayor Barkeep: Are you sure?
-		Artem: The Witch in the forest confirmed the source of the magic on the book and his writing removed any doubt. While it's true they gave him the curses that stole away the townies and inadvertantly brought me here, he wasn't fully aware of what he was doing. They told him the books would be charmed to make anyone who read it think it was brilliant.
-		Mayor Barkeep: So, he was right that the critic didn't even read the book...
-		Artem: It would appear so, but that brings me to the townies. The Needle has been constructing what they're calling energy temples, but they're nothing more than glorified torture chambers. Unfortunately, that's where the books took them.
-		Artem: Once he realized what he'd done, he couldn't live with the guilt and let himself waste away alone in that cave.
-		Mayor Barkeep: Those bastards. They have to be held accountable for what they've done. For what they're doing...
-		Artem: They will be. I had a long talk with The Witch in the forest and she helped me to destroy the temple. This trip had far more revelations that I ever would have expected for a dreary artist's village hidden away in the mountains.
-		Mayor Barkeep: I can't think you enough for your help with everything. Here, take this runestone. Speak the location you wish to be, and break the stone under your foot. Don't worry, it's not sturdy as it looks, but know it's a one way trip.
-		Artem: Thank you. I can't say it's been a relaxing or very enjoyable time, but it's clear I was meant to find myself here. I hope you never need my help again, but don't hestiate if you do.
-		do update_quest_status("barkeep_3",2)
+~ next
+Artem: Your architecture is deeply unorthodox
+Mayor Barkeep: Most of our residents' favorite establishments are hole in the walls, so we figured yeh, why not?
+Artem: And they just stay perpetually suspended like that?
+Mayor Barkeep: What?
+Artem: What?
+Mayor Barkeep: Oh, right...the air here is psychoactive. 
+Mayor Barkeep: Locals develop a tolerance to it for the most part, but we do keep some of those rad plague doctor masks. Those...probably help?
+Artem: This is the opposite of rest.
+Mayor Barkeep: Okay, it's totally fine. You're going to be absolutley totally fine for sure. No doubt.
+Mayor Barkeep: . . .However.
+Mayor Barkeep: You also have a few hours before you peak, and the crusty guy at the inn knows how make what we call the "Get Me Down Potion".
+Artem: And that will make it so [wave amp=25 freq=5]hallucinations[/wave] are not a side effect of breathing?
+Mayor Barkeep: Usually.
+Artem: Then off I go. . .
+do update_quest_status("barkeep_2",1)
+set talking = 0
+=> END
 
-elif quest_db["barkeep_3"]["Status"] == 2:
-	Mayor Barkeep: You're welcome back anytime, but there's not much for you right now.
+
+~ next_prog
+if quest_complete("barkeep_2") == false:
+	Mayor Barkeep: You're gonna be just fine, but you should probably start gathering those ingredients immediately.
+	set talking = 0
+	=> END
+else:
+	Mayor Barkeep: I knew you'd sort it all out! Had zero doubts about that since we last spoke. Highly confident.
+	Artem: With my challenged sobriety sorted. Let's get to work on the Tim situation.
+	do update_quest_status("barkeep_2",2)
+	set talking = 0
+	=> END
+
+~ tim
+Mayor Barkeep: I've been pouring through his recent works, and to be honest I'm with the critic on this one, but nothing in the themes stands out. 
+Artem: Don't see a lot of houses around. Where'd he sleep? Maybe he left some notes lying around...
+Mayor Barkeep: Most of the locals spend their days at the Tavern and shamble over to the Inn once they're out of ink. 
+Mayor Barkeep: Thorn's mentioned they saw him taking some late night strolls recently, which is odd given no one here cares much for their health..
+Artem: Did Thorne mention where exactly he was walking towards?
+Mayor Barkeep: We stay pretty busy slinging drinks, but they noticed him heading towards the cemetary south of here.
+Artem: Hiding out in a mausoleum maybe?
+Mayor Barkeep: You're really good at this. You know that?
+Artem: Painfully aware...
+do update_quest_status("barkeep_3",1)
+=> END
+
+~ tim_progress
+if quest_complete("barkeep_3") == false:
+	Mayor Barkeep: Stay safe out there. Hard to know who and what to trust right now.
+else:
+	Mayor Barkeep: You found him?
+	Artem: What was left of him at least. He found a cave in the forest to hide out in. Based the journal he left behind it sounds like he never planned on leaving it. 
+	Mayor Barkeep: Jinkies...what compelled him to choose this?
+	Artem: He was working, at least in some capacity, with the technotheists. 
+	Mayor Barkeep: Are you sure?
+	Artem: The Witch in the forest confirmed the source of the magic on the book and his writing removed any doubt. While it's true they gave him the curses that stole away the townies and inadvertantly brought me here, he wasn't fully aware of what he was doing. They told him the books would be charmed to make anyone who read it think it was brilliant.
+	Mayor Barkeep: So, he was right that the critic didn't even read the book...
+	Artem: It would appear so, but that brings me to the townies. The Needle has been constructing what they're calling energy temples, but they're nothing more than glorified torture chambers. Unfortunately, that's where the books took them.
+	Artem: Once he realized what he'd done, he couldn't live with the guilt and let himself waste away alone in that cave.
+	Mayor Barkeep: Those bastards. They have to be held accountable for what they've done. For what they're doing...
+	Artem: They will be. I had a long talk with The Witch in the forest and she helped me to destroy the temple. This trip had far more revelations that I ever would have expected for a dreary artist's village hidden away in the mountains.
+	Mayor Barkeep: I can't think you enough for your help with everything. Here, take this runestone. Speak the location you wish to be, and break the stone under your foot. Don't worry, it's not sturdy as it looks, but know it's a one way trip.
+	Artem: Thank you. I can't say it's been a relaxing or very enjoyable time, but it's clear I was meant to find myself here. I hope you never need my help again, but don't hestiate if you do.
+	do update_quest_status("barkeep_3",2)
+
+~ all_done
+Mayor Barkeep: You're welcome back anytime, but there's not much for you right now.
 => END

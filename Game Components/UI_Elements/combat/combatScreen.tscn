@@ -480,7 +480,6 @@ theme_override_font_sizes/font_size = 40
 text = "Casts Left:"
 
 [node name="instruct" type="Label" parent="."]
-visible = false
 offset_left = 537.0
 offset_top = 486.0
 offset_right = 1270.0
@@ -517,7 +516,7 @@ flip_h = true
 
 [node name="DoT effect" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(1556, 559)
+position = Vector2(1541, 493)
 scale = Vector2(8.91666, 8.91666)
 sprite_frames = ExtResource("14_w4egx")
 animation = &"poisoned"
