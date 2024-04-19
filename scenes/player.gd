@@ -30,12 +30,13 @@ func _ready():
 	$AnimatedSprite2D.play("idle")
 	update_HUD()
 	State.level_up()
-	character_screen.hide()
+	character_screen.visible = false
 	talents.hide()
 	settings.hide()
 	itemLabel.text = ""
 	prompt.hide()
 	pause.hide()
+	shop.hide()
 	
 
 
@@ -53,7 +54,7 @@ func _physics_process(delta):
 	
 	
 	##### controls ####
-	if Input.is_action_just_pressed("settings"):
+	if Input.is_action_just_pressed("pause"):
 		if settings.visible == true:
 			animation.play("hud_down")
 			await get_tree().create_timer(0.5).timeout

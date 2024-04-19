@@ -28,6 +28,8 @@ var will_hide_balloon: bool = false
 
 ## CUSTOM FUNCS
 func set_character_label_color(color):
+	if State.hide_control_hints:
+		$Balloon/hints.hide()
 	character_label.add_theme_color_override("default_color",color)
 	
 func talk_end():
@@ -103,6 +105,7 @@ func _ready() -> void:
 	$Balloon/scroll.custom_minimum_size.x = 1920
 	$Balloon/scroll.position = balloon.position
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+	
 
 
 func _unhandled_input(_event: InputEvent) -> void:

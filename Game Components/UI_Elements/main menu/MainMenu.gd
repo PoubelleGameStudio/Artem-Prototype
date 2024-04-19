@@ -1,7 +1,7 @@
 extends Control
 
-@onready var loader = $"../../../../.."
-@onready var player = $"../../../.."
+@onready var loader = get_node('/root/root')
+@onready var player = get_node('/root/root/player')
 
 
 
@@ -109,7 +109,6 @@ func save_player()-> void:
 	playerData.t_blood_moon = State.t_blood_moon
 	playerData.world = loader.level_name
 	playerData.pos = player.get_global_position()
-	$"../..".resume()
 	
 func load_player() -> void:
 	State.welcomed = playerData.welcomed
@@ -124,7 +123,6 @@ func load_player() -> void:
 	State.weapon = playerData.weapon
 	State.health = playerData.health
 	State.maxHealth = playerData.maxHealth
-	print(playerData.maxHealth)
 	State.bonusMaxHealth = playerData.bonusMaxHealth
 	State.baseMaxHealth = playerData.baseMaxHealth
 	State.cur_xp = playerData.cur_xp
@@ -163,13 +161,11 @@ func load_player() -> void:
 		if State.p_locs.has(get_tree().get_root().get_node("root").level_name):
 			player.global_position = State.p_locs[loader.level_name]
 		player.camera_current()
-		$"../..".resume()
-	print("save loaded")
+
 
 func toggle_focus_mark(node) -> void:
 	if node.visible:
 		node.hide()
-		print("node hid")
 	else:
 		node.show()
 
@@ -178,7 +174,7 @@ func _on_new_game_focus_entered():
 
 
 func _on_new_game_focus_exited():
-	toggle_focus_mark($"MarginContainer/VBoxContainer/New Game/ColorRect") # Replace with function body.
+	toggle_focus_mark($"MarginContainer/VBoxContainer/New Game/ColorRect")
 
 
 func _on_new_game_mouse_entered():

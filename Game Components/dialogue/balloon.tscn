@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=57 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" path="res://Game Components/dialogue/balloon.gd" id="1_4u26j"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://4cjp8pme00u1" path="res://Sprites/quest givers/Witch_idle - sprite sheet.png" id="6_6ex74"]
 [ext_resource type="Texture2D" uid="uid://bvt27gyk3i662" path="res://Sprites/quest givers/raccoon.png" id="7_pah6t"]
 [ext_resource type="Texture2D" uid="uid://cd7todjajlpev" path="res://Sprites/barmaid.png" id="8_6uipw"]
+[ext_resource type="Texture2D" uid="uid://bmjgsasn3uavk" path="res://Game Components/UI_Elements/prompts/tile_0077.png" id="12_gv2qj"]
 [ext_resource type="Texture2D" uid="uid://ck6lvxkbgrqml" path="res://Game Components/dialogue/art/UI_MysticWood_Banner_02a.png" id="13_jwmx6"]
+[ext_resource type="Texture2D" uid="uid://bbc2gqex5wwfi" path="res://Game Components/UI_Elements/prompts/spacebar.png" id="13_skwbx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8y7lh"]
 atlas = ExtResource("2_tfy3o")
@@ -328,6 +330,10 @@ content_margin_right = 5.0
 content_margin_bottom = 5.0
 draw_center = false
 
+[sub_resource type="LabelSettings" id="LabelSettings_c0elf"]
+font = ExtResource("2_panfk")
+font_size = 38
+
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_4u26j")
@@ -429,6 +435,47 @@ scroll_active = false
 shortcut_keys_enabled = false
 meta_underlined = false
 hint_underlined = false
+
+[node name="hints" type="HBoxContainer" parent="Balloon"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -46.0
+offset_right = 311.0
+offset_bottom = -1.0
+
+[node name="Label" type="Label" parent="Balloon/hints"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "press
+"
+label_settings = SubResource("LabelSettings_c0elf")
+
+[node name="TextureRect" type="TextureRect" parent="Balloon/hints"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_gv2qj")
+
+[node name="Label2" type="Label" parent="Balloon/hints"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "or"
+label_settings = SubResource("LabelSettings_c0elf")
+
+[node name="TextureRect2" type="TextureRect" parent="Balloon/hints"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("13_skwbx")
+stretch_mode = 2
+
+[node name="Label3" type="Label" parent="Balloon/hints"]
+layout_mode = 2
+size_flags_vertical = 8
+text = " to progress dialogue"
+label_settings = SubResource("LabelSettings_c0elf")
 
 [node name="Talk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tfwi0")
