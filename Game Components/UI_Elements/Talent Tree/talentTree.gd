@@ -10,7 +10,11 @@ class_name TalentTree
 @onready var ability_points_label: Label = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/static_ability points"
 @onready var ability_points: int = State.ability_points:
 	set(value):
-		ability_points = value
+		if value < 0:
+			ability_points = 0
+		else:
+			ability_points = value
+			
 		ability_points_label.text = str("Ability Points: ",ability_points)
 		
 
@@ -107,43 +111,43 @@ func skill_check():
 
 
 func commit_skills() -> void:
-	if hp_pressed && State.level >= hp.required_level:
+	if hp_pressed && State.level >= hp.required_level && (totalSpent+hp.cost) <= ability_points:
 		State.t_HP = true
 		totalSpent += hp.cost
-	if attack_pressed && State.level >= attack.required_level:
+	if attack_pressed && State.level >= attack.required_level && (totalSpent+attack.cost) <= ability_points:
 		State.t_attack_up = true
 		totalSpent += attack.cost
-	if extra_pressed && State.level >= extra_cast.required_level:
+	if extra_pressed && State.level >= extra_cast.required_level && (totalSpent+extra_cast.cost) <= ability_points:
 		State.t_extra_cast = true
 		totalSpent += extra_cast.cost
-	if shield_pressed && State.level >= shield.required_level:
+	if shield_pressed && State.level >= shield.required_level && (totalSpent+ shield.cost) <= ability_points:
 		State.t_shield = true
 		totalSpent += shield.cost
-	if kindling_pressed && State.level >= kindling.required_level:
+	if kindling_pressed && State.level >= kindling.required_level && (totalSpent+ kindling.cost) <= ability_points:
 		State.t_kindling = true
 		totalSpent += kindling.cost
-	if curse_pressed && State.level >= curse.required_level:
+	if curse_pressed && State.level >= curse.required_level && (totalSpent+ curse.cost) <= ability_points:
 		State.t_curse = true
 		totalSpent += curse.cost
-	if poison_swamp_pressed && State.level >= poison_swamp.required_level:
+	if poison_swamp_pressed && State.level >= poison_swamp.required_level && (totalSpent+poison_swamp.cost) <= ability_points:
 		State.t_poison_swamp = true
 		totalSpent += poison_swamp.cost
-	if hollowed_threats_pressed && State.level >= hollowed_threats.required_level:
+	if hollowed_threats_pressed && State.level >= hollowed_threats.required_level && (totalSpent+hollowed_threats.cost) <= ability_points:
 		State.t_hollowed_threats = true
 		totalSpent += hollowed_threats.cost
-	if void_sight_pressed && State.level >= void_sight.required_level:
+	if void_sight_pressed && State.level >= void_sight.required_level && (totalSpent+void_sight.cost) <= ability_points:
 		State.t_void_sight = true
 		totalSpent += void_sight.cost
-	if vapid_affliction_pressed && State.level >= vapid_affliction.required_level:
+	if vapid_affliction_pressed && State.level >= vapid_affliction.required_level && (totalSpent+vapid_affliction.cost) <= ability_points:
 		State.t_vapid_affliction = true
 		totalSpent += vapid_affliction.cost
-	if sanguinated_shell_pressed && State.level >= sanguinated_shell.required_level:
+	if sanguinated_shell_pressed && State.level >= sanguinated_shell.required_level && (totalSpent+sanguinated_shell.cost) <= ability_points:
 		State.t_sanguinated_shell = true
 		totalSpent += sanguinated_shell.cost
-	if blood_clot_homunculus_pressed && State.level >= blood_clot_homunculus.required_level:
+	if blood_clot_homunculus_pressed && State.level >= blood_clot_homunculus.required_level && (totalSpent+blood_clot_homunculus.cost) <= ability_points:
 		State.t_blood_clot_homunculus = true
 		totalSpent += blood_clot_homunculus.cost
-	if blood_moon_pressed && State.level >= blood_moon.required_level:
+	if blood_moon_pressed && State.level >= blood_moon.required_level && (totalSpent+blood_moon.cost) <= ability_points:
 		State.t_blood_moon = true
 		totalSpent += blood_moon.cost
 

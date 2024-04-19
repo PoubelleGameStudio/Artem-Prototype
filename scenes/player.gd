@@ -97,6 +97,7 @@ func _physics_process(delta):
 
 func player_movement(_delta):
 	
+
 	if State.can_walk:
 		if Input.is_action_pressed("MOVE_RIGHT"):
 			current_dir = "right"
