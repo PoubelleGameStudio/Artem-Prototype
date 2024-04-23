@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u6k2c8vj3vbp"
-path="res://.godot/imported/graveyard - sprite sheet-export.png-ef060699d2c99581566b3c7eea7584bc.ctex"
+uid="uid://cdxksfjebr6bo"
+path="res://.godot/imported/kitchen_v1.png-f9ab00ed1f0cb4c0fd479b25d97cadfd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/object sheets/graveyard - sprite sheet-export.png"
-dest_files=["res://.godot/imported/graveyard - sprite sheet-export.png-ef060699d2c99581566b3c7eea7584bc.ctex"]
+source_file="res://Art/object sheets/kitchen_v1.png"
+dest_files=["res://.godot/imported/kitchen_v1.png-f9ab00ed1f0cb4c0fd479b25d97cadfd.ctex"]
 
 [params]
 

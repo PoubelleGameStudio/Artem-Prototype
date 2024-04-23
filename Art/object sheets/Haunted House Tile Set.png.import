@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u6k2c8vj3vbp"
-path="res://.godot/imported/graveyard - sprite sheet-export.png-ef060699d2c99581566b3c7eea7584bc.ctex"
+uid="uid://clter1cdkwqrs"
+path="res://.godot/imported/Haunted House Tile Set.png-266ac85ea8d4cebf29315d96b2ccc9f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/object sheets/graveyard - sprite sheet-export.png"
-dest_files=["res://.godot/imported/graveyard - sprite sheet-export.png-ef060699d2c99581566b3c7eea7584bc.ctex"]
+source_file="res://Art/object sheets/Haunted House Tile Set.png"
+dest_files=["res://.godot/imported/Haunted House Tile Set.png-266ac85ea8d4cebf29315d96b2ccc9f6.ctex"]
 
 [params]
 
