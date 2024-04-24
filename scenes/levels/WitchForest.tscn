@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://drfmrbkjx66t8"]
+[gd_scene load_steps=71 format=3 uid="uid://drfmrbkjx66t8"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_74c0b"]
 [ext_resource type="Environment" uid="uid://bsxawlioltobo" path="res://themes/base_worldenv.tres" id="2_454ue"]
@@ -30,7 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://c4413mjnloa68" path="res://Art/ground/bugs_night01_spritesheet.png" id="14_tw8th"]
 [ext_resource type="Texture2D" uid="uid://0btbate3axq1" path="res://Art/foliage&trees/spooky_tree_02_leaves.png" id="15_q42vv"]
 [ext_resource type="Texture2D" uid="uid://dwj5qi3kpbupt" path="res://Art/foliage&trees/spooky_tree_leaves.png" id="16_78enf"]
-[ext_resource type="Texture2D" uid="uid://dm05foi04h1xs" path="res://Art/doors/door_001.png" id="27_s1fca"]
+[ext_resource type="Texture2D" uid="uid://navy7caj7p5o" path="res://Art/object sheets/medieval buildings spritesheet.png" id="18_nku48"]
+[ext_resource type="Texture2D" uid="uid://cern1eh4anulq" path="res://Art/object sheets/witchForest.png" id="19_04ayd"]
 [ext_resource type="Texture2D" uid="uid://dcj4b1jwt0t3t" path="res://Art/starting_village/chest.png" id="28_kbs45"]
 [ext_resource type="Shader" path="res://shaders/fog.gdshader" id="29_q7g8q"]
 [ext_resource type="AudioStream" uid="uid://dk4rbq3qappgy" path="res://sounds/ambient/Rain.mp3" id="30_arh7t"]
@@ -211,6 +212,140 @@ texture = ExtResource("5_8bspx")
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(10, 27, 15.5, 38, 15.5, 51, 23.5, 58.5, 38.5, 64, -42.5, 66, -26.5, 57, -15, 56, -11, 49, -11.5, 33.5, -15, 24.5)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oo6j1"]
+texture = ExtResource("18_nku48")
+21:55/size_in_atlas = Vector2i(13, 17)
+21:55/0 = 0
+21:55/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+21:55/0/physics_layer_0/angular_velocity = 0.0
+19:41/size_in_atlas = Vector2i(9, 11)
+19:41/0 = 0
+19:41/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+19:41/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y4c26"]
+texture = ExtResource("19_04ayd")
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/size_in_atlas = Vector2i(8, 8)
+2:0/0 = 0
+2:0/0/y_sort_origin = 30
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(10, 27, 15.5, 38, 15.5, 51, 23.5, 58.5, 38.5, 64, -42.5, 66, -26.5, 57, -15, 56, -11, 49, -11.5, 33.5, -15, 24.5)
+10:0/size_in_atlas = Vector2i(8, 8)
+10:0/0 = 0
+10:0/0/y_sort_origin = 20
+10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:0/0/physics_layer_0/angular_velocity = 0.0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, 33, 14.5, 32.5, 16, 51.5, 18, 56, 35, 62, -38, 61.5, -12, 54.5)
+18:0/size_in_atlas = Vector2i(2, 2)
+18:0/0 = 0
+18:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+18:0/0/physics_layer_0/angular_velocity = 0.0
+18:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.5, 4.5, 15, 4, 15, 16.5, -14, 16)
+20:0/size_in_atlas = Vector2i(10, 21)
+20:0/0 = 0
+20:0/0/y_sort_origin = 80
+20:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+20:0/0/physics_layer_0/angular_velocity = 0.0
+20:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.5, 156.5, 3, 90.5, -5.5, 89.5, -5.5, 157)
+0:21/size_in_atlas = Vector2i(12, 12)
+0:21/0 = 0
+0:21/0/y_sort_origin = 90
+0:21/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:21/0/physics_layer_0/angular_velocity = 0.0
+0:21/0/physics_layer_0/polygon_0/points = PackedVector2Array(96.5, 95, 72.5, 34.5, -72, 37, -96.5, 97)
+12:21/size_in_atlas = Vector2i(2, 2)
+12:21/0 = 0
+12:21/0/y_sort_origin = -20
+12:21/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:21/0/physics_layer_0/angular_velocity = 0.0
+12:23/size_in_atlas = Vector2i(2, 2)
+12:23/0 = 0
+12:23/0/y_sort_origin = -20
+12:23/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:23/0/physics_layer_0/angular_velocity = 0.0
+14:21/size_in_atlas = Vector2i(2, 2)
+14:21/0 = 0
+14:21/0/y_sort_origin = -20
+14:21/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+14:21/0/physics_layer_0/angular_velocity = 0.0
+14:23/size_in_atlas = Vector2i(2, 2)
+14:23/0 = 0
+14:23/0/y_sort_origin = -20
+14:23/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+14:23/0/physics_layer_0/angular_velocity = 0.0
+16:21/size_in_atlas = Vector2i(20, 20)
+16:21/0 = 0
+16:21/0/y_sort_origin = 80
+16:21/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+16:21/0/physics_layer_0/angular_velocity = 0.0
+16:21/0/physics_layer_0/polygon_0/points = PackedVector2Array(-101, 38, 107, 37, 155.5, 128.5, 160.5, 159.5, -158.5, 160)
+0:41/size_in_atlas = Vector2i(8, 4)
+0:41/0 = 0
+0:41/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:41/0/physics_layer_0/angular_velocity = 0.0
+0:41/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 4, -64, -10.5, -47.5, -10, -47.5, 5.5, 47, 5, 47, -11, 63.5, -10.5, 63.5, 5, 63.5, 26.5, -63.5, 25.5)
+8:41/size_in_atlas = Vector2i(8, 4)
+8:41/0 = 0
+8:41/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:41/0/physics_layer_0/angular_velocity = 0.0
+16:43/size_in_atlas = Vector2i(2, 4)
+16:43/0 = 0
+16:43/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+16:43/0/physics_layer_0/angular_velocity = 0.0
+16:43/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.5, -32, -8.5, -33, -9.5, 27, -15.5, 32)
+18:43/size_in_atlas = Vector2i(2, 4)
+18:43/0 = 0
+18:43/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+18:43/0/physics_layer_0/angular_velocity = 0.0
+18:43/0/physics_layer_0/polygon_0/points = PackedVector2Array(14.5, -32, 17, -32, 16.5, 31.5, 11.5, 32.5)
+20:44/size_in_atlas = Vector2i(4, 2)
+20:44/0 = 0
+20:44/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+20:44/0/physics_layer_0/angular_velocity = 0.0
+20:44/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.5, -15, 30, -16.5, 30, -6.5, -29, -7)
+20:46/size_in_atlas = Vector2i(4, 2)
+20:46/0 = 0
+20:46/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+20:46/0/physics_layer_0/angular_velocity = 0.0
+20:46/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.5, 6, 26, 12.5, 31.5, 15, -31.5, 17.5)
+24:43/size_in_atlas = Vector2i(2, 2)
+24:43/0 = 0
+24:43/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+24:43/0/physics_layer_0/angular_velocity = 0.0
+24:45/size_in_atlas = Vector2i(2, 2)
+24:45/0 = 0
+24:45/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+24:45/0/physics_layer_0/angular_velocity = 0.0
+26:43/size_in_atlas = Vector2i(2, 2)
+26:43/0 = 0
+26:43/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+26:43/0/physics_layer_0/angular_velocity = 0.0
+26:45/size_in_atlas = Vector2i(2, 2)
+26:45/0 = 0
+26:45/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+26:45/0/physics_layer_0/angular_velocity = 0.0
+28:41/0 = 0
+28:41/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+28:41/0/physics_layer_0/angular_velocity = 0.0
+29:41/size_in_atlas = Vector2i(8, 8)
+29:41/0 = 0
+29:41/0/y_sort_origin = 20
+29:41/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+29:41/0/physics_layer_0/angular_velocity = 0.0
+29:41/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.5, 31.5, 15, 37.5, 15.5, 58, 41, 63, -36, 64.5, -11.5, 49)
+0:49/size_in_atlas = Vector2i(8, 8)
+0:49/0 = 0
+0:49/0/y_sort_origin = 20
+0:49/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:49/0/physics_layer_0/angular_velocity = 0.0
+0:49/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.5, 31.5, 15, 37.5, 19.5, 55.5, 41, 63, -36, 64.5, -11.5, 49)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rn3pp"]
 texture = ExtResource("6_orjx5")
 0:0/size_in_atlas = Vector2i(8, 8)
@@ -286,6 +421,8 @@ sources/15 = SubResource("TileSetAtlasSource_ntlyb")
 sources/16 = SubResource("TileSetAtlasSource_pxgj3")
 sources/17 = SubResource("TileSetAtlasSource_u4ep3")
 sources/18 = SubResource("TileSetAtlasSource_iuwaq")
+sources/20 = SubResource("TileSetAtlasSource_oo6j1")
+sources/21 = SubResource("TileSetAtlasSource_y4c26")
 sources/19 = SubResource("TileSetAtlasSource_5gjdj")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynfvo"]
@@ -389,14 +526,14 @@ layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = -20
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(720945, 131083, 2, 655407, 131083, 0, 720942, 11, 2, 655400, 131083, 0, 655404, 11, 0, 1114163, 11, 2, 1114178, 11, 2, 589841, 11, 0, 458771, 11, 0, 458774, 11, 0, 589847, 11, 0, 720918, 11, 0, 720915, 11, 0, 655377, 11, 2, 524306, 11, 2, 458772, 11, 2, 524310, 11, 2, 655382, 11, 2, 720917, 11, 2, 589861, 11, 0, 983097, 131083, 0, 851980, 131083, 2, 524301, 131083, 2, 1507339, 11, 2, 524344, 11, 2, 2490648, 2, 0, 3342656, 2, 0, 3408162, 3, 0, 2163016, 3, 0, 3014828, 18, 0, 1835152, 19, 0, 786525, 18, 0, 786513, 19, 0, 786445, 18, 0, 524329, 19, 0, 2883810, 18, 0, 2883827, 18, 0, 2490611, 19, 0, 2425058, 19, 0, 2031842, 18, 0, 1638626, 19, 0, 1245410, 18, 0, 1245427, 3, 0, 2031859, 3, 0, 1638643, 2, 0, 983312, 2, 0, 983335, 3, 0, 65592, 18, 0, 1179906, 5, 0, 2293817, 2, 0, 786499, 3, 0, 3997937, 2, 0, 4128988, 18, 0, 2752702, 19, 0, 2097321, 2, 0, 655515, 19, 0, 1769582, 19, 0, 1769556, 3, 0, -262098, 18, 0, -65526, 2, 0, 3080473, 2, 0, -1834903, 18, 0, -2883498, 3, 0, -2883511, 3, 0, -2293713, 18, 0, -3014599, 3, 0, -2818008, 2, 0, -2228152, 19, 0, -327583, 19, 0, -1965840, 19, 0, -1769234, 4, 0, -1769216, 4, 0, -1965826, 19, 0, 1179810, 4, 0, 983055, 4, 0, 589866, 4, 0, 262202, 4, 0, 1835051, 19, 0, -2424772, 11, 2, -2555838, 131083, 2, -2228145, 11, 2, -2490283, 131083, 0, -2293669, 131083, 2, -2228126, 11, 2, -1572770, 11, 2, -1310620, 11, 2, -786339, 11, 0, -262052, 131083, 0, -130975, 11, 2, -130976, 131083, 0, -917419, 11, 2, -917418, 131083, 2, 983120, 131083, 0, 983122, 11, 0, 983132, 11, 2, 983134, 131083, 0, 983107, 11, 2, 983105, 11, 0, 262201, 11, 0, 262199, 131083, 0, -65491, 11, 0, -65488, 131083, 2, 131082, 11, 2, 131081, 131083, 0, 983054, 131083, 2, 983053, 131083, 2, 1703995, 11, 2, 1310801, 11, 0, 1638478, 11, 0, 1638505, 11, 2, 917605, 131083, 0, 1310835, 131083, 0, 1048718, 11, 2, 1704065, 11, 0, 1573022, 11, 0, 852125, 131083, 0, 1114274, 11, 2, 1179812, 11, 0, 2818209, 11, 2, 2621622, 131083, 0, 3866802, 131083, 2, 2752719, 11, 2, 3408069, 11, 2, 3866822, 11, 2, 3277028, 131083, 0, 3539159, 11, 2, 2687214, 11, 0, 2228455, 131083, 2, 1769707, 11, 2, 983273, 131083, 0, 721144, 11, 0, -589586, 11, 0, 196846, 131083, 2, 254, 11, 2, 253, 131083, 2, -1310479, 11, 0, -1113865, 11, 2, -1572608, 131083, 2, -1179388, 131083, 0, -1113843, 131083, 0, -524022, 131083, 0, -655104, 11, 2, 327950, 131083, 2, 590086, 131083, 0, 655637, 131083, 2, 1245473, 131083, 2, 1769750, 131083, 0, 1179920, 11, 0, 1179945, 131083, 2, 2687256, 131083, 2, 2687258, 11, 2, 2818353, 131083, 2, 2818352, 131083, 2, 655409, 131083, 0, 589871, 11, 2, -3145683, 131083, 2, -3145682, 131083, 2, -3145681, 11, 2, -3145680, 11, 0, -3145679, 131083, 2, -3145677, 131083, 0, -3145676, 11, 0, -3145675, 131083, 0, -3145674, 11, 2, -3145673, 131083, 0)
+layer_2/tile_data = PackedInt32Array(720945, 131083, 2, 655407, 131083, 0, 720942, 11, 2, 655400, 131083, 0, 655404, 11, 0, 1114163, 11, 2, 1114178, 11, 2, 589841, 11, 0, 458771, 11, 0, 458774, 11, 0, 589847, 11, 0, 720918, 11, 0, 720915, 11, 0, 655377, 11, 2, 524306, 11, 2, 458772, 11, 2, 524310, 11, 2, 655382, 11, 2, 720917, 11, 2, 589861, 11, 0, 983097, 131083, 0, 851980, 131083, 2, 524301, 131083, 2, 1507339, 11, 2, 524344, 11, 2, 2490648, 2, 0, 3342656, 2, 0, 3408162, 3, 0, 2163016, 3, 0, 3014828, 18, 0, 1835152, 19, 0, 786525, 18, 0, 786513, 19, 0, 786445, 18, 0, 524329, 19, 0, 2883810, 18, 0, 2883827, 18, 0, 2490611, 19, 0, 2425058, 19, 0, 2031842, 18, 0, 1638626, 19, 0, 1245410, 18, 0, 1245427, 3, 0, 2031859, 3, 0, 1638643, 2, 0, 983312, 2, 0, 983335, 3, 0, 65592, 18, 0, 1179906, 5, 0, 2293817, 2, 0, 786499, 3, 0, 3997937, 2, 0, 4128988, 18, 0, 2752702, 19, 0, 2097321, 2, 0, 655515, 19, 0, 1769582, 19, 0, 1769556, 3, 0, -65526, 2, 0, 3080473, 2, 0, -1834903, 18, 0, -2883498, 3, 0, -2883511, 3, 0, -2293713, 18, 0, -3014599, 3, 0, -2818008, 2, 0, -2228152, 19, 0, -327583, 19, 0, -1965840, 19, 0, -1769234, 4, 0, -1769216, 4, 0, -1965826, 19, 0, 1179810, 4, 0, 983055, 4, 0, 589866, 4, 0, 262202, 4, 0, 1835051, 19, 0, -2424772, 11, 2, -2555838, 131083, 2, -2228145, 11, 2, -2490283, 131083, 0, -2293669, 131083, 2, -2228126, 11, 2, -1572770, 11, 2, -1310620, 11, 2, -786339, 11, 0, -262052, 131083, 0, -130975, 11, 2, -130976, 131083, 0, -917419, 11, 2, -917418, 131083, 2, 983120, 131083, 0, 983122, 11, 0, 983132, 11, 2, 983134, 131083, 0, 983107, 11, 2, 983105, 11, 0, 262201, 11, 0, 262199, 131083, 0, -65491, 11, 0, -65488, 131083, 2, 131082, 11, 2, 131081, 131083, 0, 983054, 131083, 2, 983053, 131083, 2, 1703995, 11, 2, 1310801, 11, 0, 1638478, 11, 0, 1638505, 11, 2, 917605, 131083, 0, 1310835, 131083, 0, 1048718, 11, 2, 1704065, 11, 0, 1573022, 11, 0, 852125, 131083, 0, 1114274, 11, 2, 1179812, 11, 0, 2818209, 11, 2, 2621622, 131083, 0, 3866802, 131083, 2, 2752719, 11, 2, 3408069, 11, 2, 3866822, 11, 2, 3277028, 131083, 0, 3539159, 11, 2, 2687214, 11, 0, 2228455, 131083, 2, 1769707, 11, 2, 983273, 131083, 0, 721144, 11, 0, -589586, 11, 0, 196846, 131083, 2, 254, 11, 2, 253, 131083, 2, -1310479, 11, 0, -1113865, 11, 2, -1572608, 131083, 2, -1179388, 131083, 0, -1113843, 131083, 0, -524022, 131083, 0, -655104, 11, 2, 327950, 131083, 2, 590086, 131083, 0, 655637, 131083, 2, 1245473, 131083, 2, 1769750, 131083, 0, 1179920, 11, 0, 1179945, 131083, 2, 2687256, 131083, 2, 2687258, 11, 2, 2818353, 131083, 2, 2818352, 131083, 2, 655409, 131083, 0, 589871, 11, 2, -3145683, 131083, 2, -3145682, 131083, 2, -3145681, 11, 2, -3145680, 11, 0, -3145679, 131083, 2, -3145677, 131083, 0, -3145676, 11, 0, -3145675, 131083, 0, -3145674, 11, 2, -3145673, 131083, 0, 327700, 1245204, 41)
 layer_3/name = "buildings"
 layer_3/enabled = true
 layer_3/modulate = Color(0.843137, 0, 0.843137, 1)
 layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(589987, 5, 0, 3801293, 4, 0, 3735765, 4, 0, 2228532, 13, 0, 2294077, 5, 0, 2294060, 5, 0, 2490580, 5, 0, 458800, 1, 0, 655412, 4, 0, 1966394, 5, 0, 1966383, 5, 0)
+layer_3/tile_data = PackedInt32Array(589987, 5, 0, 3801293, 4, 0, 3735765, 4, 0, 2228532, 13, 0, 2294077, 5, 0, 2294060, 5, 0, 2490580, 5, 0, 655412, 4, 0, 1966394, 5, 0, 1966383, 5, 0, 196657, 1376276, 55)
 layer_4/name = "vendor nonsense"
 layer_4/enabled = true
 layer_4/modulate = Color(1, 1, 1, 1)
@@ -624,7 +761,6 @@ interact_value = "in"
 
 [node name="Sprite2D" type="Sprite2D" parent="gateways"]
 position = Vector2(-208, 254.4)
-texture = ExtResource("27_s1fca")
 
 [node name="InteractArea2" parent="gateways/Sprite2D" instance=ExtResource("6_d8wmu")]
 position = Vector2(-4, 25.6)
