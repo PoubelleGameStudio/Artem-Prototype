@@ -1492,7 +1492,7 @@ environment = ExtResource("6_oafss")
 [node name="sewer_door" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(44, -22)
-animation = &"door"
+animation = &""
 
 [node name="InteractArea" parent="sewer_door" instance=ExtResource("4_gydm5")]
 z_index = 1

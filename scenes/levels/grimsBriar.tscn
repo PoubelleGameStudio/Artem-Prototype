@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://q5ywfy1ec1ow"]
+[gd_scene load_steps=96 format=3 uid="uid://q5ywfy1ec1ow"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_a3bhj"]
 [ext_resource type="Environment" uid="uid://bsxawlioltobo" path="res://themes/base_worldenv.tres" id="2_05bvd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cajwxlip58ygf" path="res://Art/walls/ironFence_night02.png" id="2_uirp8"]
 [ext_resource type="Texture2D" uid="uid://bhx6u3r52bon6" path="res://Sprites/Artem/artem_v1_front_idle-spritesheet.png" id="3_7wnry"]
 [ext_resource type="Texture2D" uid="uid://h8joxnvt8lrh" path="res://Art/ground/grass_night_down01.png" id="3_qik86"]
+[ext_resource type="Texture2D" uid="uid://navy7caj7p5o" path="res://Art/object sheets/medieval buildings spritesheet.png" id="4_fwm2g"]
 [ext_resource type="Texture2D" uid="uid://dgq7eniigpsyl" path="res://Art/walls/cobblestone_wall_vines002.png" id="4_yukyy"]
 [ext_resource type="Texture2D" uid="uid://degr8n3kge2a5" path="res://Art/walls/cobblestone_wall_vines003.png" id="5_br54c"]
 [ext_resource type="Texture2D" uid="uid://cbooikvj3j2m8" path="res://Art/object sheets/Dungeon.png" id="6_ikkaj"]
@@ -34,7 +35,6 @@
 [ext_resource type="PackedScene" uid="uid://cxwgljlj2pfk1" path="res://scenes/beggar.tscn" id="19_w08lc"]
 [ext_resource type="Texture2D" uid="uid://c5h4ltd4oxpla" path="res://Art/ground/basic03 - spooky.png" id="19_xgyv5"]
 [ext_resource type="Texture2D" uid="uid://cv1geiwpd66th" path="res://Art/buildings/vendor banner.png" id="20_7otdj"]
-[ext_resource type="Texture2D" uid="uid://dm05foi04h1xs" path="res://Art/doors/door_001.png" id="20_23yu5"]
 [ext_resource type="Texture2D" uid="uid://ctdywkq0bc0f3" path="res://Art/foliage&trees/spooky_tree.png" id="22_ch3wu"]
 [ext_resource type="AudioStream" uid="uid://ugqmeknu43n7" path="res://sounds/levelMusic/grimsBriar.wav" id="22_rmce2"]
 [ext_resource type="Texture2D" uid="uid://2fq022fqawh3" path="res://Art/foliage&trees/spooky_tree_02.png" id="24_dw6ce"]
@@ -73,6 +73,53 @@ height = 2000
 generate_mipmaps = false
 seamless = true
 noise = SubResource("FastNoiseLite_ku8wu")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5fh0"]
+texture = ExtResource("4_fwm2g")
+4:7/size_in_atlas = Vector2i(24, 34)
+4:7/0 = 0
+4:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:7/0/physics_layer_0/angular_velocity = 0.0
+31:18/size_in_atlas = Vector2i(16, 12)
+31:18/0 = 0
+31:18/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+31:18/0/physics_layer_0/angular_velocity = 0.0
+31:4/size_in_atlas = Vector2i(11, 9)
+31:4/0 = 0
+31:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+31:4/0/physics_layer_0/angular_velocity = 0.0
+49:1/size_in_atlas = Vector2i(16, 15)
+49:1/0 = 0
+49:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+49:1/0/physics_layer_0/angular_velocity = 0.0
+50:17/size_in_atlas = Vector2i(12, 9)
+50:17/0 = 0
+50:17/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+50:17/0/physics_layer_0/angular_velocity = 0.0
+50:28/size_in_atlas = Vector2i(14, 11)
+50:28/0 = 0
+50:28/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+50:28/0/physics_layer_0/angular_velocity = 0.0
+31:31/size_in_atlas = Vector2i(14, 11)
+31:31/0 = 0
+31:31/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+31:31/0/physics_layer_0/angular_velocity = 0.0
+19:41/size_in_atlas = Vector2i(9, 11)
+19:41/0 = 0
+19:41/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+19:41/0/physics_layer_0/angular_velocity = 0.0
+5:41/size_in_atlas = Vector2i(11, 10)
+5:41/0 = 0
+5:41/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:41/0/physics_layer_0/angular_velocity = 0.0
+4:54/size_in_atlas = Vector2i(14, 18)
+4:54/0 = 0
+4:54/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:54/0/physics_layer_0/angular_velocity = 0.0
+21:56/size_in_atlas = Vector2i(13, 16)
+21:56/0 = 0
+21:56/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+21:56/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ak7qy"]
 texture = ExtResource("2_uirp8")
@@ -463,6 +510,7 @@ sources/29 = SubResource("TileSetAtlasSource_jrgex")
 sources/30 = SubResource("TileSetAtlasSource_ejhr4")
 sources/31 = SubResource("TileSetAtlasSource_fhkad")
 sources/34 = SubResource("TileSetAtlasSource_q0vda")
+sources/0 = SubResource("TileSetAtlasSource_u5fh0")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6nsd3"]
 atlas = ExtResource("3_7wnry")
@@ -519,25 +567,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_18bxi"]
-atlas = ExtResource("20_23yu5")
-region = Rect2(0, 0, 46, 46)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_b2d8u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_18bxi")
-}],
-"loop": true,
-"name": &"door",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_44gfg"]
-radius = 17.1824
-height = 41.6624
-
 [node name="root" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(279, 163)
@@ -589,7 +618,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(-65517, 131101, 2, -65495, 131101, 2, 393279, 131101, 2, -262049, 131101, 2, 458933, 131101, 2, -524107, 131101, 2, -1769260, 131101, 2, -2555708, 131101, 2, -2752303, 131101, 2, -1769280, 131101, 2, -1834814, 29, 2, -982841, 29, 2, -982812, 29, 2, 590051, 29, 2, 1573104, 29, 2, 1507539, 29, 2, 1638589, 29, 2, 1769716, 131101, 2, 458988, 131101, 2, -130828, 131101, 2, -1834789, 131101, 2, -2817853, 131101, 2, -2555711, 131101, 0, -2752321, 131101, 0, -1834791, 131101, 0, -1048366, 131101, 0, -1048363, 131101, 0, -982824, 131101, 0, 786636, 131101, 0, 262346, 131101, 0, -327481, 29, 2, 65727, 29, 2, -655140, 29, 2, 1310956, 131101, 0, -917317, 131101, 0, -917322, 131101, 0, -786246, 29, 2, -65518, 131101, 0, -65494, 29, 0, -65515, 29, 0, -65535, 29, 0, 131070, 131101, 2, 393214, 131101, 0, 393297, 131101, 0, -65534, 29, 2, -1245227, 5, 0, 983123, 262170, 6, 917594, 1245210, 11, 917597, 1245210, 11, 917600, 1245210, 11, 1245279, 1245210, 11, 1245276, 1245210, 11, 1245273, 1245210, 11)
+layer_3/tile_data = PackedInt32Array(-65517, 131101, 2, -65495, 131101, 2, 393279, 131101, 2, -262049, 131101, 2, 458933, 131101, 2, -524107, 131101, 2, -1769260, 131101, 2, -2555708, 131101, 2, -2752303, 131101, 2, -1769280, 131101, 2, -1834814, 29, 2, -982841, 29, 2, -982812, 29, 2, 590051, 29, 2, 1573104, 29, 2, 1507539, 29, 2, 1638589, 29, 2, 1769716, 131101, 2, 458988, 131101, 2, -130828, 131101, 2, -1834789, 131101, 2, -2817853, 131101, 2, -2555711, 131101, 0, -2752321, 131101, 0, -1834791, 131101, 0, -1048366, 131101, 0, -1048363, 131101, 0, -982824, 131101, 0, 786636, 131101, 0, 262346, 131101, 0, -327481, 29, 2, 65727, 29, 2, -655140, 29, 2, 1310956, 131101, 0, -917317, 131101, 0, -917322, 131101, 0, -786246, 29, 2, -65518, 131101, 0, -65494, 29, 0, -65515, 29, 0, -65535, 29, 0, 131070, 131101, 2, 393214, 131101, 0, 393297, 131101, 0, -65534, 29, 2, -1245227, 5, 0, 983123, 262170, 6, 917594, 1245210, 11, 917597, 1245210, 11, 917600, 1245210, 11, 1245279, 1245210, 11, 1245276, 1245210, 11, 1245273, 1245210, 11, -524250, 3211264, 1, -589797, 262144, 54, -262126, 327680, 41)
 layer_4/name = "fence_bot"
 layer_4/enabled = true
 layer_4/modulate = Color(1, 1, 1, 1)
@@ -689,7 +718,7 @@ scale = Vector2(1, 0.937)
 model = " "
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
-position = Vector2(-1049.45, -649.674)
+position = Vector2(742.888, -153.356)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
 visible = false
@@ -1020,36 +1049,26 @@ y_sort_enabled = true
 [node name="bar_door" type="AnimatedSprite2D" parent="Gateways"]
 y_sort_enabled = true
 position = Vector2(713, -307)
-sprite_frames = SubResource("SpriteFrames_b2d8u")
 animation = &"door"
 
 [node name="InteractArea" parent="Gateways/bar_door" instance=ExtResource("18_a2bs0")]
 z_index = 1
-position = Vector2(-8, 6)
+position = Vector2(-33, 88)
 interact_label = "GB_tavern.tscn"
 interact_type = "gateway"
 interact_value = "in"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gateways/bar_door"]
-position = Vector2(-6.18243, 11.1688)
-shape = SubResource("CapsuleShape2D_44gfg")
-
 [node name="inn_door" type="AnimatedSprite2D" parent="Gateways"]
 y_sort_enabled = true
-position = Vector2(937, -307)
-sprite_frames = SubResource("SpriteFrames_b2d8u")
+position = Vector2(677.201, -205.213)
 animation = &"door"
 
 [node name="InteractArea" parent="Gateways/inn_door" instance=ExtResource("18_a2bs0")]
 z_index = 1
-position = Vector2(-8, 6)
+position = Vector2(354.799, -6.78683)
 interact_label = "GB_inn.tscn"
 interact_type = "gateway"
 interact_value = "in"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gateways/inn_door"]
-position = Vector2(-6.46289, 12.9526)
-shape = SubResource("CapsuleShape2D_44gfg")
 
 [node name="locked_door" parent="Gateways" instance=ExtResource("18_a2bs0")]
 z_index = 1

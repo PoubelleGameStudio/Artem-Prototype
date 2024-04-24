@@ -311,11 +311,13 @@ mouse_filter = 2
 
 [node name="PauseController" type="Node2D" parent="Control"]
 process_mode = 3
+visible = false
 z_index = 100
 position = Vector2(318.518, 24.0406)
 script = ExtResource("4_wdihw")
 
 [node name="dimmer" type="ColorRect" parent="Control/PauseController"]
+visible = false
 offset_left = -700.0
 offset_top = -176.0
 offset_right = 664.0
@@ -333,6 +335,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/PauseController"]
+visible = false
 layout_direction = 2
 anchors_preset = 13
 anchor_left = 0.5
@@ -351,6 +354,7 @@ size_flags_stretch_ratio = 0.0
 alignment = 1
 
 [node name="MainMenu" parent="Control/PauseController/HBoxContainer" instance=ExtResource("18_jm848")]
+visible = false
 layout_mode = 2
 
 [node name="HUD" type="Control" parent="."]

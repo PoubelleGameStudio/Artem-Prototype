@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b0exi3nylln3u" path="res://Sprites/combat/spell effects/DarkShieldAllFrames.png" id="3_ma2dc"]
 [ext_resource type="Texture2D" uid="uid://dj4ugebjlc7vl" path="res://Sprites/combat/spell effects/AcidSplashAllFrames.png" id="3_x8r2o"]
 [ext_resource type="Texture2D" uid="uid://drlnkdxf1enic" path="res://Sprites/combat/spell effects/Sanguinated Shell - Sprite Sheet.png" id="4_077ab"]
-[ext_resource type="Texture2D" uid="uid://7ulmawr4kvyq" path="res://Art/object sheets/graveyard - sprite sheet-export.png" id="5_j6l4v"]
+[ext_resource type="Texture2D" uid="uid://u6k2c8vj3vbp" path="res://Art/object sheets/graveyard - sprite sheet-export.png" id="5_j6l4v"]
 [ext_resource type="Texture2D" uid="uid://cbiid034h0hbe" path="res://Sprites/combat/spell effects/DisruptingRayAllFrames.png" id="6_s37fm"]
 [ext_resource type="Texture2D" uid="uid://doqupixaaacfy" path="res://Sprites/combat/spell effects/DarkExplosionAllFrames-export.png" id="7_vmy7y"]
 [ext_resource type="Texture2D" uid="uid://crrdu7srkj2sd" path="res://Sprites/combat/spell effects/Void Sight - sprite sheet.png" id="8_qxluj"]
