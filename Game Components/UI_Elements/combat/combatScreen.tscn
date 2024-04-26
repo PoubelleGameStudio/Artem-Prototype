@@ -438,6 +438,7 @@ position = Vector2(1571, 198)
 scale = Vector2(7, 7)
 
 [node name="inventory_ui" parent="." instance=ExtResource("7_6qudd")]
+visible = false
 z_index = 1
 clip_contents = true
 offset_left = 1480.0
@@ -620,6 +621,46 @@ horizontal_alignment = 1
 layout_mode = 2
 label_settings = ExtResource("17_o1lq1")
 horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
+z_index = 99
+layout_direction = 1
+layout_mode = 0
+offset_left = 199.0
+offset_top = 423.0
+offset_right = 969.0
+offset_bottom = 753.0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer2"]
+layout_mode = 2
+text = "Enemy Type: "
+label_settings = ExtResource("5_be3fw")
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer2"]
+layout_mode = 2
+text = "Enemy Weakness: "
+label_settings = ExtResource("5_be3fw")
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer2"]
+layout_mode = 2
+text = "Next Attack: "
+label_settings = ExtResource("5_be3fw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 0
+
+[node name="Label4" type="Label" parent="Control/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Observations: "
+label_settings = ExtResource("5_be3fw")
+vertical_alignment = 2
+autowrap_mode = 2
 
 [connection signal="pressed" from="combatUI/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="combatUI/return" to="." method="_on_return_pressed"]
