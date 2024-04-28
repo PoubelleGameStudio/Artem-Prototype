@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=31 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="3_6j6h7"]
@@ -16,6 +16,7 @@
 [ext_resource type="TileSet" uid="uid://cib8xlrw1dmg5" path="res://themes/bug_tiles.tres" id="16_i3vrl"]
 [ext_resource type="LabelSettings" uid="uid://d5s87duu30n6" path="res://combat_text.tres" id="17_o1lq1"]
 [ext_resource type="Script" path="res://scripts/Pet.gd" id="18_dsuyw"]
+[ext_resource type="SpriteFrames" uid="uid://6qj5grt6fv4i" path="res://scenes/enemy sprites.tres" id="18_f7f8g"]
 [ext_resource type="Texture2D" uid="uid://bcranc40bjctv" path="res://Sprites/combat/spell icons/Blood Moon - talent.png" id="19_v8xaj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
@@ -631,22 +632,41 @@ offset_top = 423.0
 offset_right = 969.0
 offset_bottom = 753.0
 
-[node name="Label" type="Label" parent="Control/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="enemyType" type="Label" parent="Control/VBoxContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Enemy Type: "
 label_settings = ExtResource("5_be3fw")
 
-[node name="Label3" type="Label" parent="Control/VBoxContainer2"]
+[node name="enemyWeakness" type="Label" parent="Control/VBoxContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Enemy Weakness: "
 label_settings = ExtResource("5_be3fw")
 
-[node name="Label2" type="Label" parent="Control/VBoxContainer2"]
+[node name="nextAttack" type="Label" parent="Control/VBoxContainer2/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Next Attack: "
 label_settings = ExtResource("5_be3fw")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer2"]
+[node name="Control" type="Control" parent="Control/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/VBoxContainer2/HBoxContainer/Control"]
+position = Vector2(322, -22)
+scale = Vector2(2.59375, 2.59375)
+sprite_frames = ExtResource("18_f7f8g")
+animation = &"Sorrow Shade_idle"
+centered = false
+
+[node name="observationContainer" type="MarginContainer" parent="Control/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 1
@@ -654,7 +674,7 @@ theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 0
 
-[node name="Label4" type="Label" parent="Control/VBoxContainer2/MarginContainer"]
+[node name="observations" type="Label" parent="Control/VBoxContainer2/observationContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Observations: "

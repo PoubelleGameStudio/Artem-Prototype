@@ -88,10 +88,18 @@ extends Node2D
 @onready var attack_reduced_by: float = 0.0
 @onready var attack_reduced_for: int = 0
 @onready var pet_spells = $"Pet/Pet Spells"
-@onready var combat_event_1 = $Control/VBoxContainer/Label
-@onready var combat_event_2 = $Control/VBoxContainer/Label2
-@onready var combat_event_3 = $Control/VBoxContainer/Label3
-@onready var combat_event_4 = $Control/VBoxContainer/Label4
+@onready var combat_event_1: Label = $Control/VBoxContainer/Label
+@onready var combat_event_2: Label = $Control/VBoxContainer/Label2
+@onready var combat_event_3: Label = $Control/VBoxContainer/Label3
+@onready var combat_event_4: Label = $Control/VBoxContainer/Label4
+
+@onready var enemy_info_enemy_type: Label = $Control/VBoxContainer2/HBoxContainer/VBoxContainer/enemyType
+@onready var enemy_info_enemy_resist: Label = $Control/VBoxContainer2/HBoxContainer/VBoxContainer/enemyWeakness
+@onready var enemy_info_next_attack: Label = $Control/VBoxContainer2/HBoxContainer/VBoxContainer/nextAttack
+@onready var enemy_info_observations: Label = $Control/VBoxContainer2/observationContainer/observations
+@onready var enemy_info_animation: AnimatedSprite2D = $Control/VBoxContainer2/HBoxContainer/Control/AnimatedSprite2D
+
+
 
 
 
@@ -147,10 +155,12 @@ func combat_data():
 	eHealth.max_value = enemy.max_health
 	inv_ui.populate_grid()
 	
-
-# assign spells
-func add_spells():
-	pass
+	enemy_info_enemy_type.text = str("Enemy Type: ",enemy.enemy_type)
+	enemy_info_enemy_resist.text = str("Enemy Weakness: ",enemyBook[enemy.enemy_type]["resists"])
+	enemy_info_next_attack.text = str("Next Attack: ", )
+	enemy_info_observations.text = str("Observations: ",enemyBook[enemy.enemy_type]["lore"])
+	enemy_info_animation.play(str(enemy.enemy_type,"_idle"))
+	
 
 
 #handles all damage modification for casting combined spells
@@ -195,7 +205,6 @@ func castSpell() -> int:
 		"Fire":
 			burning_for = 3
 			combatTextUpdate(str(enemy.enemy_type," is burning"))
-
 		"Poison":
 			poisoned_for = 3 
 			combatTextUpdate(str(enemy.enemy_type," is poisoned"))
@@ -219,40 +228,24 @@ func castSpell() -> int:
 	var roll = rng.randf_range(0,100)
 	if roll <= crit_chance:
 		damage *= 2
-		pass
+		
 
 	#handle spell resist
 	if enemyBook[enemy.enemy_type]["resists"]:
 		
 		preResists = damage
-		var resists = enemyBook[enemy.enemy_type]["resists"].keys()
 		
-		for resist in resists:
-			match resist:
-				"void":
-						if type == "void": 
-							var reduce = (100 - enemyBook[enemy.enemy_type]["resists"]["void"]) * .01
-							damage *= reduce
-
-				"fire":
-						if type == "fire": 
-							var reduce = (100 - enemyBook[enemy.enemy_type]["resists"]["fire"]) * .01
-							damage *= reduce
-
-				"frost":
-						if type == "frost": 
-							var reduce = (100 - enemyBook[enemy.enemy_type]["resists"]["frost"]) * .01
-							damage *= reduce
-
-				"arcane":
-						if type == "arcane": 
-							var reduce = (100 - enemyBook[enemy.enemy_type]["resists"]["frost"]) * .01
-							damage *= reduce
-
-				"blood":
-						if type == "blood": 
-							var reduce = (100 - enemyBook[enemy.enemy_type]["resists"]["blood"]) * .01
-							damage *= reduce
+		match enemyBook[enemy.enemy_type]["resists"]:
+			"void":
+					damage *= 0.5
+			"fire":
+					damage *= 0.5
+			"frost":
+					damage *= 0.5
+			"arcane": 
+					damage *= 0.5
+			"blood":
+					damage *= 0.5
 
 	#handle life_drain after all damage calcs are done
 	if life_drain > 0.0:

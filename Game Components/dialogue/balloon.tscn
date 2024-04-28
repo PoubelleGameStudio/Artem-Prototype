@@ -446,11 +446,11 @@ offset_bottom = -1.0
 [node name="Label" type="Label" parent="Balloon/hints"]
 layout_mode = 2
 size_flags_vertical = 8
-text = "press
-"
+text = "press "
 label_settings = SubResource("LabelSettings_c0elf")
 
 [node name="TextureRect" type="TextureRect" parent="Balloon/hints"]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -458,6 +458,7 @@ size_flags_vertical = 4
 texture = ExtResource("12_gv2qj")
 
 [node name="Label2" type="Label" parent="Balloon/hints"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 8
 text = "or"
@@ -474,7 +475,7 @@ stretch_mode = 2
 [node name="Label3" type="Label" parent="Balloon/hints"]
 layout_mode = 2
 size_flags_vertical = 8
-text = " to progress dialogue"
+text = " (spacebar) to progress or select dialogue"
 label_settings = SubResource("LabelSettings_c0elf")
 
 [node name="Talk" type="AudioStreamPlayer" parent="."]

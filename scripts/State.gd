@@ -466,16 +466,15 @@ var enemies = {
 		"defeated":0,
 		"armor":0,
 		"type": "void",
-		"resists":{
-			"blood":10
-		},
+		"resists":"blood",
 		"moves":{
 			"basic":10,
 			"special":25
 		},
 		"drops":{
 			"Bone Dust":1
-		}
+		},
+		"lore":"Executioners are no common, rage filled spirit. They are summoned from the voidand bound to kingdoms. When the kingdom falls, the executioners roam the land cutting down all in their path."
 	},
 	# the highly volatile void squirrel. Best to kill it before it attacks
 	"Void Squirrel":{
@@ -484,16 +483,15 @@ var enemies = {
 		"defeated":0,
 		"armor":0,
 		"type": "void",
-		"resists":{
-			"void":100
-		},
+		"resists":"void",
 		"moves":{
 			"basic":10,
 			"special":75
 		},
 		"drops":{
 			"Void Goop":1
-		}
+		},
+		"lore":"A small critter that at some point came into contact with a source of void energy. They're still just a rodent, but now occasionally they lash out dealing near fatal damage."
 	},
 	"ghost":{
 		"health":45,
@@ -501,16 +499,15 @@ var enemies = {
 		"defeated":0,
 		"armor":0,
 		"type": "void",
-		"resists":{
-			"void":100
-		},
+		"resists":"void",
 		"moves":{
 			"basic":20,
 			"special":45
 		},
 		"drops":{
 			"Health Restore":1
-		}
+		},
+		"lore":"By all accounts ghosts are your run of the mill spirits. Often tied to the land or structure by some emotion. If they weren't so violent you could just leave them be."
 	},
 	"Technotheist Grunt":{
 		"health":55,
@@ -518,16 +515,15 @@ var enemies = {
 		"defeated":0,
 		"armor":0,
 		"type": "void",
-		"resists":{
-			"void":100
-		},
+		"resists":"void",
 		"moves":{
 			"basic":20,
 			"special":45
 		},
 		"drops":{
 			"Health Restore":1
-		}
+		},
+		"lore":"A radicalized citizen of the Needle now warped by technotheological propaganda. Their quest for purity in the eye of their god has lead them to commit attrocities against their own."
 	},
 	"Sorrow Shade":{
 		"health":40,
@@ -535,14 +531,15 @@ var enemies = {
 		"defeated":0,
 		"armor":0,
 		"type": "void",
-		"resists":{},
+		"resists":"Curse",
 		"moves":{
 			"basic":20,
 			"special":20,
 		},
 		"drops":{
 			"Health Restore":2
-		}
+		},
+		"Lore":"Created when a living being dies a truly horrific death. In their final moments, realizing their fate, the soul turns vengeful and fills with hatred. They also tends to attract nearby shades."
 	}
 }
 # all vendors and what they sell
