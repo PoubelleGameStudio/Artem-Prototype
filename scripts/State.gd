@@ -47,7 +47,7 @@ var cur_xp: int = 0
 var xp_to_next: int = 10
 var level: int = 20
 var armor: int = 0 # physical resist
-var mana: int = 25  # still not sure about mana usage
+var mana: int = 1  # still not sure about mana usage
 # var speed = 5
 var crit_chance = 0 + (level/2+1)
 
@@ -72,15 +72,17 @@ var mute_sound: bool = false
 var hide_control_hints: bool = false
 var combat_music_slider_value: int = -15
 var world_music_slider_value: int = -15
-	
+
 
 func _ready():
 	maxHealth = baseMaxHealth + bonusMaxHealth
+	check_for_new_spells()
+	check_for_new_traits()
 
 
 #connected signals
-func _on_speak():
-	pass
+#func _on_speak():
+#	pass
 	
 
 # talents
@@ -190,6 +192,7 @@ func _on_speak():
 		"name":"Sanguinated Shell",
 		"description":"Coalesce your blood into a hardened shell absorbing 50% damage for 3 turns. When the shell expires you heal for half the amount absorbed.",
 		"learned":0,
+		"level":15,
 		"damage":0,
 		"class": "defend",
 		"type":"blood",
@@ -199,6 +202,7 @@ func _on_speak():
 		"name":"Blood Clot Homunculus",
 		"description":"Sacrifice 20% of your health to construct a blood clot homunculus that will copy your attacks for 20% of the damage done.",
 		"learned":0,
+		"level":10,
 		"damage":0,
 		"class": "summon",
 		"type": "blood",
@@ -208,6 +212,7 @@ func _on_speak():
 		"name":"Blood Moon",
 		"description":"Increase the effects of all blood magic by 20% for 3 turns.",
 		"learned":0,
+		"level":5,
 		"damage":0,
 		"class": "field",
 		"type": "blood",
@@ -217,6 +222,7 @@ func _on_speak():
 		"name":"Fireball",
 		"description":"A technique, taught to you by a bearded flamethrower, that blasts your opponent with concentrated fire.",
 		"learned":1,
+		"level":0,
 		"damage":15,
 		"class": "attack",
 		"type": "Fire",
@@ -226,6 +232,7 @@ func _on_speak():
 		"name":"Hollowed Threats",
 		"description":"Seep your opponent in void energy weakening their attack by 10%",
 		"learned":0,
+		"level":5,
 		"damage":0,
 		"class": "attack",
 		"type": "Void",
@@ -235,6 +242,7 @@ func _on_speak():
 		"name":"Void Sight",
 		"description":"Look through the void to anticipate your oppoents attacks. Increase chance to dodge by 15% for 3 turns.",
 		"learned":0,
+		"level":10,
 		"damage":0,
 		"class": "attack",
 		"type": "Void",
@@ -244,6 +252,7 @@ func _on_speak():
 		"name":"Vapid Affliction",
 		"description":"The void invades your foe's mind. Each turn they have an increasing chance to not attack on their next turn.",
 		"learned":0,
+		"level":5,
 		"damage":0,
 		"class": "attack",
 		"type": "Void",
@@ -253,6 +262,7 @@ func _on_speak():
 		"name":"Curse",
 		"description":"Chaos entangled matter attacks the soul directly.",
 		"learned":0,
+		"level":10,
 		"damage":15,
 		"class": "attack",
 		"type": "Void",
@@ -262,11 +272,40 @@ func _on_speak():
 		"name":"Poison Swamp",
 		"description":"Seep the ground beneath your foes feet in thick, poisonous sludge",
 		"learned":0,
+		"level":15,
 		"damage":10,
 		"class": "attack",
 		"type": "Poison",
 		"stat_mod":{}
 	},
+}
+
+#traits
+@onready var traits = {
+	"HP+":{
+		"name":"HP+",
+		"description":"Seep the ground beneath your foes feet in thick, poisonous sludge",
+		"learned":0,
+		"level":15,
+		},
+	"Attack+":
+		{"name":"Attack+",
+		"description":"Seep the ground beneath your foes feet in thick, poisonous sludge",
+		"learned":0,
+		"level":15,
+		},
+	"Extra Action":
+		{"name":"Extra Action",
+		"description":"Through experience and training you're able to attack twice before foes react.",
+		"learned":0,
+		"level":10,
+		},
+	"Shield+":
+		{"name":"Shield+",
+		"description":"Could it's calluses, ",
+		"learned":0,
+		"level":15
+		},
 }
 
 func learn_spell(spell,cost,damage,stat_mod,stat_mod_amt,stat_req,stat_req_amt):
@@ -389,7 +428,7 @@ func quest_complete(quest) -> bool:
 
 	
 
-func update_quest_status(quest,status):
+func update_quest_status(quest,status) -> void:
 	quest_db[quest]["Status"]=status
 	var items = quest_db[quest]["Items"]
 	if status == 2:
@@ -404,11 +443,27 @@ func level_up():
 	while cur_xp >= xp_to_next:
 		cur_xp -= xp_to_next
 		level += 1
+		mana += 1
 		ability_points += 1
 		xp_to_next = round(pow(level,1.8) + level*4+2)
 		baseMaxHealth += 10
+		if level % 5 == 0:
+			check_for_new_spells()
+			check_for_new_traits()
 
 
+func check_for_new_spells() -> void:
+	# check for any spells that can be unlocked
+	for spell in spell_book:
+		if spell_book[spell]["level"] <= level and spell_book[spell]["learned"] == 0:
+			spell_book[spell]["learned"] = 1
+			print("learned ",spell_book[spell])
+
+func check_for_new_traits() -> void:
+	for t in traits:
+		if traits[t]["level"] <= level and traits[t]["learned"] == 0:
+			traits[t]["learned"] = 1
+	
 
 #control what enemies in what zone have been defeated
 var area_enemies = {

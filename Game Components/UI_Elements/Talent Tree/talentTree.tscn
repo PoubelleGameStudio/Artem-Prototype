@@ -172,6 +172,7 @@ text = "Unlocks at Level: 5"
 label_settings = ExtResource("2_t0owy")
 
 [node name="point_cost" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
+visible = false
 layout_mode = 2
 text = "Costs:"
 label_settings = ExtResource("2_t0owy")
@@ -427,12 +428,14 @@ visible = false
 layout_mode = 2
 
 [node name="static_ability points" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
+visible = false
 layout_mode = 2
 text = "Ability Points : "
 label_settings = ExtResource("2_t0owy")
 horizontal_alignment = 1
 
 [node name="Confirm" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
+visible = false
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

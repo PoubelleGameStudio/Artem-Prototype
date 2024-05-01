@@ -5,11 +5,11 @@ class_name TalentButton
 @export var description : String = ""
 @export var required_level : int
 @export var talentType: String = ""
-@export var selected: bool:
-	set(value):
-		selected = value
-		if value:
-			selected_icon.show()
+@export var selected: bool
+#	set(value):
+#		selected = value
+#		if value:
+#			selected_icon.show()
 
 @onready var line = $Line2D
 @onready var displayName: Label = $name
@@ -31,6 +31,8 @@ func _ready():
 		if !self.icon:
 			self.icon = load(str(art_path,talentName,".png"))
 	
+	if State.level >= required_level:
+		selected_icon.show()
 
 
 ################## SIGNALS ##################
