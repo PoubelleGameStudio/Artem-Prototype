@@ -349,7 +349,6 @@ layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_yld72")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r4m4g")
 icon = ExtResource("13_dfx5d")
-icon_alignment = 1
 talentName = "Hollowed Threats"
 description = "Seep your opponent in void energy weakening their attack by 10%"
 required_level = 5

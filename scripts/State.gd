@@ -280,6 +280,15 @@ func _ready():
 	},
 }
 
+func check_for_new_traits() -> void:
+	for t in traits:
+		if traits[t]["level"] <= level and traits[t]["learned"] == 0:
+			traits[t]["learned"] = 1
+			match t:
+				"HP+": t_HP = true
+				"Attack+": t_attack_up = true
+				"Extra Action": t_extra_cast = true
+				"Shield+": t_shield = true
 #traits
 @onready var traits = {
 	"HP+":{
@@ -459,10 +468,6 @@ func check_for_new_spells() -> void:
 			spell_book[spell]["learned"] = 1
 			print("learned ",spell_book[spell])
 
-func check_for_new_traits() -> void:
-	for t in traits:
-		if traits[t]["level"] <= level and traits[t]["learned"] == 0:
-			traits[t]["learned"] = 1
 	
 
 #control what enemies in what zone have been defeated
@@ -594,7 +599,7 @@ var enemies = {
 		"drops":{
 			"Health Restore":2
 		},
-		"Lore":"Created when a living being dies a truly horrific death. In their final moments, realizing their fate, the soul turns vengeful and fills with hatred. They also tends to attract nearby shades."
+		"lore":"Created when a living being dies a truly horrific death. In their final moments, realizing their fate, the soul turns vengeful and fills with hatred. They also tends to attract nearby shades."
 	}
 }
 # all vendors and what they sell

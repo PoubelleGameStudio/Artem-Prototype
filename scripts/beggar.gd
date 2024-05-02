@@ -7,7 +7,7 @@ class_name quest_giver extends CharacterBody2D
 
 
 
-@onready var quest = $quest_interaction
+@onready var quest: Interactable = $quest_interaction
 
 
 

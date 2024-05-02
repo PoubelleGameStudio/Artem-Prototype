@@ -87,7 +87,6 @@ func _physics_process(delta):
 			await get_tree().create_timer(0.5).timeout
 			talents.visible = false
 		else:
-			talents.skill_check()
 			animation.play("hud_up")
 			character_screen.hide()
 			settings.hide()

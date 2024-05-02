@@ -17,7 +17,7 @@ func _process(delta):
 		$barkeep.show()
 		$barkeep2.hide()
 		$barkeep3.hide()
-	elif State.quest_db["barkeep_1"]["Status"] == 2 and State.quest_db["barkeep_1"]["Status"] < 2 :
+	elif State.quest_db["barkeep_1"]["Status"] == 2 and State.quest_db["barkeep_2"]["Status"] < 2 :
 		$barkeep.hide()
 		$barkeep2.show()
 		$barkeep3.hide()
