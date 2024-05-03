@@ -157,8 +157,8 @@ func load_player() -> void:
 	State.tutorials = playerData.tutorials
 	get_tree().change_scene_to_file((str("res://scenes/levels/",playerData.world,".tscn")))
 
-	if get_tree().get_root().get_node("root").level_name != "title_screen":
-		if State.p_locs.has(get_tree().get_root().get_node("root").level_name):
+	if loader.level_name != "title_screen":
+		if State.p_locs.has(loader.level_name):
 			player.global_position = State.p_locs[loader.level_name]
 		player.camera_current()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=45 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -13,11 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://b0kmobajmfp4n" path="res://Sprites/textures/rainfall.png" id="8_v2vqm"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="12_4q3lk"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="13_cjqps"]
-[ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="14_67al0"]
 [ext_resource type="PackedScene" uid="uid://5v2qsot5igdu" path="res://Game Components/UI_Elements/quest log components/quest_log.tscn" id="14_xc3j5"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="15_oq2cw"]
-[ext_resource type="PackedScene" uid="uid://75gusw7bcx3f" path="res://Game Components/UI_Elements/shopshop/shop_button.tscn" id="15_suoht"]
 [ext_resource type="PackedScene" uid="uid://c8skkvcn0ci81" path="res://Game Components/UI_Elements/Talent Tree/talentTree.tscn" id="16_unwu1"]
+[ext_resource type="PackedScene" uid="uid://d010sb0bdrwv5" path="res://Game Components/Shop/shop.tscn" id="17_3neu2"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="18_jm848"]
 [ext_resource type="Texture2D" uid="uid://diwnan71ffp7" path="res://Game Components/UI_Elements/prompts/f.png" id="19_4cvsh"]
 [ext_resource type="PackedScene" uid="uid://duw1coq7pkfci" path="res://Game Components/UI_Elements/settings/SettingsMenu.tscn" id="21_mnbx0"]
@@ -170,19 +169,15 @@ font_size = 45
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nw3a"]
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8mi52"]
-emission_shape = 3
-emission_box_extents = Vector3(800, 1, 1)
 particle_flag_align_y = true
 particle_flag_disable_z = true
-spread = 69.27
-gravity = Vector3(-30, 200, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+emission_shape = 3
+emission_box_extents = Vector3(800, 1, 1)
 angle_min = -229.5
 angle_max = -208.6
+spread = 69.27
+gravity = Vector3(-30, 200, 0)
 scale_min = 0.5
 scale_max = 0.55
 color = Color(1, 0.917647, 1, 0.45098)
@@ -484,65 +479,7 @@ offset_bottom = -40.2494
 text = "Inventory"
 label_settings = ExtResource("15_oq2cw")
 
-[node name="shop" type="Node2D" parent="HUD"]
-position = Vector2(4, 16)
-
-[node name="Sprite2D" type="Sprite2D" parent="HUD/shop"]
-position = Vector2(-12.0001, -32)
-scale = Vector2(0.6375, 0.6375)
-texture = ExtResource("12_4q3lk")
-
-[node name="buy" type="Node2D" parent="HUD/shop/Sprite2D"]
-position = Vector2(-160, -120)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/shop/Sprite2D/buy"]
-offset_left = -135.0
-offset_top = -68.0
-offset_right = 110.0
-offset_bottom = 164.0
-
-[node name="Label" type="Label" parent="HUD/shop/Sprite2D/buy/VBoxContainer"]
-layout_mode = 2
-text = "Shop"
-label_settings = ExtResource("14_67al0")
-horizontal_alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="HUD/shop/Sprite2D/buy/VBoxContainer"]
-layout_mode = 2
-
-[node name="Health restore" parent="HUD/shop/Sprite2D/buy/VBoxContainer/GridContainer" instance=ExtResource("15_suoht")]
-layout_mode = 2
-item_name = "Health Restore"
-item_cost = 5
-
-[node name="sell" type="Node2D" parent="HUD/shop/Sprite2D"]
-position = Vector2(-160, -120)
-
-[node name="SellButton" type="Button" parent="HUD/shop/Sprite2D/sell"]
-offset_left = 40.0
-offset_right = 80.0
-offset_bottom = 24.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5nw3a")
-flat = true
-
-[node name="SellLabel" type="Label" parent="HUD/shop/Sprite2D/sell/SellButton"]
-layout_mode = 0
-offset_left = 138.286
-offset_top = -62.8571
-offset_right = 178.286
-offset_bottom = -36.8571
-theme_override_fonts/font = ExtResource("3_8eknr")
-theme_override_font_sizes/font_size = 19
-text = "Sell"
-label_settings = ExtResource("15_oq2cw")
-horizontal_alignment = 1
-
-[node name="SellIndicate" type="ColorRect" parent="HUD/shop/Sprite2D/sell/SellButton"]
-visible = false
-layout_mode = 0
-offset_top = 24.0
-offset_right = 40.0
-offset_bottom = 32.0
+[node name="shop" parent="HUD" instance=ExtResource("17_3neu2")]
 
 [node name="TalentTree" parent="HUD" instance=ExtResource("16_unwu1")]
 offset_left = -80.0
@@ -575,4 +512,3 @@ libraries = {
 
 [connection signal="area_entered" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_exited"]
-[connection signal="pressed" from="HUD/shop/Sprite2D/sell/SellButton" to="." method="_on_sell_button_pressed"]

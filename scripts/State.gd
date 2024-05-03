@@ -398,7 +398,7 @@ var quest_db ={
 		"quest_name":"Trash for the Trash God",
 		"Status":0,
 		"Items":{
-			"trash food":4
+			"Trash Food":4
 		},
 		"description":"Kindly bring Trash to the Trash God."
 	},

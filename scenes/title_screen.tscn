@@ -27,15 +27,13 @@ seamless = true
 noise = SubResource("FastNoiseLite_n80gp")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tln6c"]
-emission_shape = 3
-emission_box_extents = Vector3(700, 1, 1)
 particle_flag_align_y = true
 particle_flag_disable_z = true
-gravity = Vector3(-30, 200, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+emission_shape = 3
+emission_box_extents = Vector3(700, 1, 1)
 angle_min = -229.5
 angle_max = -208.6
+gravity = Vector3(-30, 200, 0)
 scale_min = 0.5
 scale_max = 0.55
 color = Color(1, 0.917647, 1, 0.45098)

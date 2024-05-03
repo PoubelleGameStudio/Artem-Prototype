@@ -7,6 +7,10 @@ class_name ShopButton
 @onready var button: Button = $Button
 @onready var label: Label = $Label
 @onready var UI_click: AudioStreamPlayer = $UI_click
+@onready var UI_purchase: AudioStreamPlayer = $UI_purchase
+
+# signal
+signal updateGold
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,9 +22,10 @@ func _ready():
 func _on_button_pressed():
 	if State.gold >= item_cost:
 		#play purchase sound
-		UI_click.play()
+		UI_purchase.play()
 		#subtract gold
 		State.gold -= item_cost
+		updateGold.emit()
 		#add item
 		State.update_inventory(item_name,1)
 	else:
