@@ -48,8 +48,11 @@ Artem: I noticed you've also got a problem with ghosts and void rodents?
 Mayor Barkeep: They're a natural part of the valley, but, without the townies roaming about in a stupor at all hours, the local haunts have started claiming the outskirts. 
 Artem: Well, given all of my possesions are some 300 miles from here...guess it's a night of ghost hunting and mystery solving.
 Mayor Barkeep: I appreciate your help, and I apologize for how much we need it. Talk to Thorn for a drink and check in with the Old Crusty Guy at the inn. I'll gather what little info I have and you can meet me back here once you've made the rounds.
-Artem: How resplendent...
-do update_quest_status("barkeep_1",1)
+- How resplendent...
+	Artem: How resplendent...
+	do update_quest_status("barkeep_1",1)
+- Let me mull this over, new friend.
+	=> END
 set talking = 0
 => END
 

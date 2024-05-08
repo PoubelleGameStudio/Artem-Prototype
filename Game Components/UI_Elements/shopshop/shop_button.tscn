@@ -47,11 +47,12 @@ horizontal_alignment = 1
 
 [node name="UI_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_5o0q4")
-volume_db = -6.753
+volume_db = -80.0
+pitch_scale = 0.6
 
 [node name="UI_purchase" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1rp2e")
-volume_db = -6.753
+volume_db = -10.702
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="2_t0owy"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="2_w43jx"]
-[ext_resource type="FontFile" uid="uid://bwuruoih52j0f" path="res://Game Components/fonts/Caroni-Regular.otf" id="3_wyv5h"]
+[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="3_bb1tu"]
 [ext_resource type="Texture2D" uid="uid://d11wrjcwmffb5" path="res://Sprites/combat/spell icons/Sacred Kindling.png" id="6_e6b38"]
 [ext_resource type="Texture2D" uid="uid://c1qyxdxyd0j4h" path="res://Sprites/combat/spell icons/Extra Action.png" id="7_dsysm"]
 [ext_resource type="Texture2D" uid="uid://bo1o03unrmgk3" path="res://Sprites/combat/spell icons/Shield+.png" id="8_6sv8i"]
@@ -21,7 +21,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cflig"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ba1b8"]
-font = ExtResource("3_wyv5h")
+font = ExtResource("3_bb1tu")
 font_size = 42
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0.537255, 1)
@@ -127,7 +127,6 @@ texture = ExtResource("2_w43jx")
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
-texture_filter = 4
 layout_mode = 2
 text = "FIELD       TRAINING"
 label_settings = SubResource("LabelSettings_ba1b8")

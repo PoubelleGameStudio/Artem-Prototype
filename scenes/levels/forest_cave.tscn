@@ -207,7 +207,7 @@ level_name = "forest_cave"
 position = Vector2(-208, -288)
 
 [node name="player" parent="." instance=ExtResource("3_o024g")]
-position = Vector2(-4.05493, -104.945)
+position = Vector2(-151.687, -901.062)
 
 [node name="combatScreen" parent="." instance=ExtResource("4_sn0qy")]
 position = Vector2(-11890.3, 20.936)

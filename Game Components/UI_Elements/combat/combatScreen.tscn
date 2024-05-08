@@ -660,6 +660,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/VBoxContainer2/HBoxContainer/Control"]
+visible = false
 position = Vector2(255, -22)
 scale = Vector2(2.59375, 2.59375)
 sprite_frames = ExtResource("18_f7f8g")

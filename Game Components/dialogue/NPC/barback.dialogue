@@ -1,6 +1,18 @@
 ~ start
+=> greeting
 
-Barback: The correct term is mixologist. Here's your beer.
-do update_inventory("beer",1)
+~ greeting
+Thorne: Don't piss on the walls. What can I get ya?
+- Is that a common problem?
+	Thorne: You wouldn't believe the fluids in this place. Took us a week once to find where someone took a shit.
+	Artem: That's disgusting
+	Thorne: Had to replace a load bearing wall. Couldn't get the smell out.
+	Artem: Have you considered security of some kind?
+	Thorne: Tried that. Everyone just got them shit housed. Ever tried convincing a blackout half-giant to stop railing feral pixie dust?
+	Artem: Can't say I've experienced such conditions.
+	=> greeting
+- A drink, please.
+	Thorne: Mind you it's stronger than your common swill.
+	do update_inventory("beer",1)
 
 => END

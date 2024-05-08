@@ -29,6 +29,7 @@ func _ready():
 	State.is_raining = is_raining
 	State.world = level_name
 	
+	
 	add_child(c_music)
 	c_music.stream = load("res://sounds/levelMusic/to battle so that we may die.wav")
 	
