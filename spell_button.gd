@@ -1,3 +1,4 @@
+@tool
 extends Panel
 class_name spell_button
 
@@ -34,10 +35,16 @@ func _on_button_pressed():
 		
 
 
-func _on_button_mouse_entered():
-	# selected.show()
-	pass
-
-func _on_button_mouse_exited():
+#func _on_button_mouse_entered():
+	#selected.show()
+#
+#func _on_button_mouse_exited():
 	#selected.hide()
-	pass
+
+
+func _on_focus_entered():
+	selected.show()
+
+
+func _on_focus_exited():
+	selected.hide()

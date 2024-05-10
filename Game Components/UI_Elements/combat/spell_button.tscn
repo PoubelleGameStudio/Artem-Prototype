@@ -15,13 +15,15 @@
 custom_minimum_size = Vector2(64, 64)
 offset_right = 103.0
 offset_bottom = 89.0
+focus_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8t3q7")
 script = ExtResource("1_6wj0f")
 
 [node name="selected" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(28, 27)
-scale = Vector2(1.75, 1.6875)
+z_index = 1
+position = Vector2(53, 44.25)
+scale = Vector2(3.0625, 2.95312)
 texture = ExtResource("2_a4len")
 
 [node name="Button" type="Button" parent="."]
@@ -48,4 +50,6 @@ theme_override_font_sizes/font_size = 48
 text = "test"
 label_settings = ExtResource("4_f2866")
 
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

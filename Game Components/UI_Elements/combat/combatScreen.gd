@@ -122,7 +122,6 @@ func _ready():
 	yourTurn = 1
 	DoTEffect.hide()
 	enemyAttack.hide()
-	fight.grab_focus()
 	pHealth_label.text = str("HP ",State.health)
 	statusEffect.text = burningText + poisonedText
 
@@ -154,6 +153,7 @@ func combat_data():
 	eHealth.value = enemy.health
 	eHealth.max_value = enemy.max_health
 	inv_ui.populate_grid()
+	$combatUI/spellSelect/Control/VBoxContainer/Invoke/Fireball.grab_focus()
 	
 	enemy_info_enemy_type.text = str("Enemy Type: ",enemy.enemy_type)
 	enemy_info_enemy_resist.text = str("Enemy Weakness: ",enemyBook[enemy.enemy_type]["resists"])

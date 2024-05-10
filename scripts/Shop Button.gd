@@ -36,3 +36,11 @@ func _on_button_pressed():
 func _on_button_mouse_entered():
 	UI_click.play()
 	#play tick kinda sound
+
+
+func _on_focus_entered():
+	$Button/Sprite2D.show()
+
+
+func _on_focus_exited():
+	$Button/Sprite2D.hide()

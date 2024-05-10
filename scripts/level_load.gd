@@ -16,7 +16,6 @@ class_name LevelManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	#signal
 	music.finished.connect(_on_music_finished)
 
@@ -117,7 +116,6 @@ func _on_combat_screen_death():
 	c_music.playing = false
 	stop_combat()
 	State.health = State.maxHealth
-	6
 	player.camera_current()
 	player.global_position = respawn_location
 	State.combat = 0

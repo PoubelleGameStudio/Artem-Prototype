@@ -28,7 +28,7 @@ func verify_save_directory(path: String):
 	
 
 func focus() -> void:
-	$"MarginContainer/VBoxContainer/New Game".grab_focus()
+	$"MarginContainer/VBoxContainer/Load".grab_focus()
 
 
 

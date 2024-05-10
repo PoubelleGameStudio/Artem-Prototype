@@ -54,46 +54,49 @@ func _physics_process(delta):
 	
 	
 	##### controls ####
-	if Input.is_action_just_pressed("pause"):
-		if settings.visible == true:
-			animation.play("hud_down")
-			await get_tree().create_timer(0.5).timeout
-			settings.hide()
-		else:
-			talents.hide()
-			character_screen.hide()
-			settings.show()
-			animation.play("hud_up")
-			await get_tree().create_timer(0.5).timeout	
-			
-	if Input.is_action_just_pressed("interact"):
-		execute_interaction()
+	if State.combat == 0:
+		if Input.is_action_just_pressed("pause"):
+			if settings.visible == true:
+				animation.play("hud_down")
+				await get_tree().create_timer(0.5).timeout
+				settings.hide()
+			else:
+				talents.hide()
+				character_screen.hide()
+				settings._ready()
+				settings.show()
+				animation.play("hud_up")
+				await get_tree().create_timer(0.5).timeout	
+				
+		if Input.is_action_just_pressed("interact"):
+			execute_interaction()
 
-	if Input.is_action_just_pressed("character_screen"):
-		if character_screen.visible == true:
-			animation.play("hud_down")
-			await get_tree().create_timer(0.5).timeout
-			character_screen.visible = false
-		else:
-			talents.hide()
-			character_screen.visible = true
-			update_HUD()
-			animation.play("hud_up")
-			await get_tree().create_timer(0.5).timeout
-	
-	if Input.is_action_just_pressed("Talents"):
-		if talents.visible == true:
-			animation.play("hud_down")
-			await get_tree().create_timer(0.5).timeout
-			talents.visible = false
-		else:
-			animation.play("hud_up")
-			character_screen.hide()
-			settings.hide()
-			talents.set_focus()
-			talents.show()
-			
-		pass
+		if Input.is_action_just_pressed("character_screen"):
+			if character_screen.visible == true:
+				animation.play("hud_down")
+				await get_tree().create_timer(0.5).timeout
+				character_screen.visible = false
+			else:
+				talents.hide()
+				settings.hide()
+				character_screen.visible = true
+				update_HUD()
+				$HUD/character_info/Inventory.set_focus()
+				animation.play("hud_up")
+				await get_tree().create_timer(0.5).timeout
+		
+		if Input.is_action_just_pressed("Talents"):
+			if talents.visible == true:
+				animation.play("hud_down")
+				await get_tree().create_timer(0.5).timeout
+				talents.visible = false
+			else:
+				animation.play("hud_up")
+				character_screen.hide()
+				settings.hide()
+				talents.set_focus()
+				talents.show()
+
 
 func player_movement(_delta):
 	
@@ -196,7 +199,7 @@ func execute_interaction():
 				character_screen.hide()
 				shop.show()
 				animation.play("hud_up")
-				pass
+				shop.set_focus()
 			"dialogue":
 				if State.talking == 0:
 					State.talking = 1

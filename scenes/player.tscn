@@ -451,7 +451,7 @@ text = "XP"
 label_settings = ExtResource("15_oq2cw")
 
 [node name="Inventory" parent="HUD/character_info" instance=ExtResource("13_cjqps")]
-z_index = 100
+z_index = 99
 offset_left = -239.04
 offset_top = -32.2494
 offset_right = -183.04

@@ -10,6 +10,7 @@ signal item_used
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	populate_grid()
+	$grid/Slot1.grab_focus()	
 	pass # Replace with function body.
 
 
@@ -18,8 +19,7 @@ func _process(delta):
 	pass
 	
 	
-func populate_grid():
-	# print("populating inventory")
+func populate_grid() -> void:
 	var inv = State.inventory
 	var slots = get_node("grid").get_children()
 	var current_inv = inv.keys()
@@ -28,8 +28,9 @@ func populate_grid():
 		slots[step].item_name = item
 		slots[step].amount = inv[item]
 		step += 1
+	
+func set_focus() -> void:
 	$grid/Slot1.grab_focus()
-
 		
 			
 

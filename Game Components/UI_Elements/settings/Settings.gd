@@ -7,7 +7,8 @@ class_name Settings
 @onready var combat_music_slider: HSlider = $"HBoxContainer/list/combat music volume/combat_music_slider"
 @onready var world_music_slider: HSlider = $"HBoxContainer/list/world music volume/world_music_slider"
 
-
+func _ready():
+	$MainMenu.focus()
 
 
 # signal funcs

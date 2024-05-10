@@ -50,19 +50,18 @@ func _process(delta):
 
 
 func _on_button_mouse_entered():
-	#$indicator.show()
 	$hoverName.show()
+	
 	
 
 func _on_button_mouse_exited():
-	#$indicator.hide()
 	$hoverName.hide()
 
 
 
 
 func hover_check():
-	if $Button.is_hovered():
+	if $Button.is_hovered() or has_focus():
 		if Input.is_action_pressed("drop_inv_item"):
 			inv.erase(item_name)
 			$hoverName.text = ""
@@ -92,7 +91,11 @@ func hover_check():
 
 func _on_focus_entered():
 	$indicator.show()
+	$hoverName.show()
+	print(has_focus())
+	print(get_viewport().gui_get_focus_owner())
 
 
 func _on_focus_exited():
 	$indicator.hide()
+	$hoverName.hide()

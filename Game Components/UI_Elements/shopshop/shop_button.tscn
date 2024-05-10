@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://75gusw7bcx3f"]
+[gd_scene load_steps=12 format=3 uid="uid://75gusw7bcx3f"]
 
 [ext_resource type="Script" path="res://scripts/Shop Button.gd" id="1_hk6q2"]
 [ext_resource type="Texture2D" uid="uid://c1p0afttop35v" path="res://Art/inv_Art/Health Restore.png" id="2_5sosv"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="3_65th3"]
+[ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="3_e7ode"]
 [ext_resource type="AudioStream" uid="uid://vsim0r354tcc" path="res://sounds/UI/683098__florianreichelt__click.mp3" id="4_5o0q4"]
 [ext_resource type="AudioStream" uid="uid://ci8s2vnqwqegj" path="res://sounds/UI/270401__littlerobotsoundfactory__menu_select_00.wav" id="5_1rp2e"]
 
@@ -36,6 +37,11 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_n5unx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8do3l")
 icon = ExtResource("2_5sosv")
 
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+visible = false
+position = Vector2(16, 16)
+texture = ExtResource("3_e7ode")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_top = 32.0
@@ -54,5 +60,7 @@ pitch_scale = 0.6
 stream = ExtResource("5_1rp2e")
 volume_db = -10.702
 
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

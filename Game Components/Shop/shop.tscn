@@ -63,6 +63,7 @@ item_cost = 15
 position = Vector2(-160, -120)
 
 [node name="SellButton" type="Button" parent="Sprite2D/sell"]
+visible = false
 offset_left = 40.0
 offset_right = 80.0
 offset_bottom = 24.0
@@ -70,6 +71,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_5nw3a")
 flat = true
 
 [node name="SellLabel" type="Label" parent="Sprite2D/sell/SellButton"]
+visible = false
 layout_mode = 0
 offset_left = 138.286
 offset_top = -62.8571
