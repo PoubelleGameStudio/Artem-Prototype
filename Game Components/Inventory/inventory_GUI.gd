@@ -28,6 +28,7 @@ func populate_grid():
 		slots[step].item_name = item
 		slots[step].amount = inv[item]
 		step += 1
+	$grid/Slot1.grab_focus()
 
 		
 			

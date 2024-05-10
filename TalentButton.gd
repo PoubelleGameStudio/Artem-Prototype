@@ -41,13 +41,9 @@ func _on_pressed():
 		selected = true
 	
 	
-	
-func _on_mouse_entered():
-	pass
-	
-func _on_mouse_exited():
-	pass
-	
+func _on_focus_entered():
+	$Panel.show()
 
 
-
+func _on_focus_exited():
+	$Panel.hide()

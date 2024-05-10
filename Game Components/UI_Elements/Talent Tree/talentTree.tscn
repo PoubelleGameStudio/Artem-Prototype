@@ -205,6 +205,7 @@ horizontal_alignment = 1
 
 [node name="Extra Action" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../HP+1")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_c6q6j")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jybwg")
 icon = ExtResource("7_dsysm")
@@ -216,6 +217,9 @@ cost = 3
 
 [node name="HP+1" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Extra Action")
+focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Sacred Kindling")
+focus_neighbor_bottom = NodePath("../Shield+")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vq4ym")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j8n0d")
 talentName = "HP+"
@@ -226,6 +230,9 @@ cost = 3
 
 [node name="Shield+" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../HP+1")
+focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Curse")
+focus_neighbor_bottom = NodePath("../Attack+")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_srxep")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7txmj")
 icon = ExtResource("8_6sv8i")
@@ -237,6 +244,8 @@ cost = 3
 
 [node name="Attack+" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Shield+")
+focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Poison Swamp")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kobio")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q1c8s")
 icon = ExtResource("9_k7y6d")
@@ -290,6 +299,9 @@ theme_override_constants/separation = 4
 
 [node name="Sacred Kindling" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../../../../char_talents/VBoxContainer/HP+1")
+focus_neighbor_right = NodePath("../../../Arcane_spells/Hollowed Threats")
+focus_neighbor_bottom = NodePath("../Curse")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_dsmqw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mljab")
 icon = ExtResource("6_e6b38")
@@ -301,6 +313,10 @@ cost = 2
 
 [node name="Curse" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../../../../char_talents/VBoxContainer/Shield+")
+focus_neighbor_top = NodePath("../Sacred Kindling")
+focus_neighbor_right = NodePath("../../../Arcane_spells/Void Sight")
+focus_neighbor_bottom = NodePath("../Poison Swamp")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_nx10a")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_va31v")
 icon = ExtResource("8_75706")
@@ -311,6 +327,9 @@ cost = 3
 
 [node name="Poison Swamp" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../../../../char_talents/VBoxContainer/Attack+")
+focus_neighbor_top = NodePath("../Curse")
+focus_neighbor_right = NodePath("../../../Arcane_spells/Vapid Affliction")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_y0tb0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uvg1d")
 icon = ExtResource("12_86fet")
@@ -345,6 +364,9 @@ horizontal_alignment = 1
 
 [node name="Hollowed Threats" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../VBoxContainer/invoke_spells/Sacred Kindling")
+focus_neighbor_right = NodePath("../../blood_spells/Sanguinated Shell")
+focus_neighbor_bottom = NodePath("../Void Sight")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_yld72")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r4m4g")
 icon = ExtResource("13_dfx5d")
@@ -356,6 +378,10 @@ cost = 2
 
 [node name="Void Sight" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../VBoxContainer/invoke_spells/Curse")
+focus_neighbor_top = NodePath("../Hollowed Threats")
+focus_neighbor_right = NodePath("../../blood_spells/Blood Clot Homunculus")
+focus_neighbor_bottom = NodePath("../Vapid Affliction")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_rmea8")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u3vwr")
 icon = ExtResource("14_roe8q")
@@ -366,6 +392,9 @@ cost = 3
 
 [node name="Vapid Affliction" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../VBoxContainer/invoke_spells/Poison Swamp")
+focus_neighbor_top = NodePath("../Void Sight")
+focus_neighbor_right = NodePath("../../blood_spells/Blood Moon")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_7tupi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37wyq")
 icon = ExtResource("15_ado0h")
@@ -390,6 +419,8 @@ horizontal_alignment = 1
 
 [node name="Sanguinated Shell" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../Arcane_spells/Hollowed Threats")
+focus_neighbor_bottom = NodePath("../Blood Clot Homunculus")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ud3x2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vr8le")
 icon = ExtResource("16_nfr74")
@@ -401,6 +432,9 @@ cost = 2
 
 [node name="Blood Clot Homunculus" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../Arcane_spells/Void Sight")
+focus_neighbor_top = NodePath("../Sanguinated Shell")
+focus_neighbor_bottom = NodePath("../Blood Moon")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_0bxbq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ihux3")
 icon = ExtResource("17_pyrdo")
@@ -412,6 +446,8 @@ cost = 3
 
 [node name="Blood Moon" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../Arcane_spells/Vapid Affliction")
+focus_neighbor_top = NodePath("../Blood Clot Homunculus")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vsrlo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_41fsf")
 icon = ExtResource("18_blfk6")

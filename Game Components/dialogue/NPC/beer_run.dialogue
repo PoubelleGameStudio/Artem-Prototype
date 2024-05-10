@@ -17,11 +17,12 @@ Artem: Are you able to recognize this book?
 	[wave amp=25 freq=5]Hedo[/wave]: Welcome to Grim's Briar
 	set State.welcomed = true
 	set State.talking = 0
+	=> beer_run
 - Move along
 	Artem: Well, glad we've set expecations.
 	set State.welcomed = true
 	set State.talking = 0
-=> END
+	=> END
 
 ~ beer_run
 if quest_db["beer_run"]["Status"] == 0

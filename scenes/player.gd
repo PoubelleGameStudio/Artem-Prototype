@@ -90,6 +90,7 @@ func _physics_process(delta):
 			animation.play("hud_up")
 			character_screen.hide()
 			settings.hide()
+			talents.set_focus()
 			talents.show()
 			
 		pass

@@ -59,6 +59,8 @@ func _on_button_mouse_exited():
 	$hoverName.hide()
 
 
+
+
 func hover_check():
 	if $Button.is_hovered():
 		if Input.is_action_pressed("drop_inv_item"):
@@ -86,3 +88,11 @@ func hover_check():
 
 
 	
+
+
+func _on_focus_entered():
+	$indicator.show()
+
+
+func _on_focus_exited():
+	$indicator.hide()

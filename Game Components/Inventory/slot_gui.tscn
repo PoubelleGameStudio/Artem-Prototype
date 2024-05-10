@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bggg174d0g1dl"]
+[gd_scene load_steps=10 format=3 uid="uid://bggg174d0g1dl"]
 
 [ext_resource type="Script" path="res://Game Components/Inventory/slot_gui.gd" id="1_s1lfe"]
-[ext_resource type="Texture2D" uid="uid://bsdp20j080nbf" path="res://Game Components/UI_Elements/inv_components/selected_indicator.png" id="2_bs481"]
 [ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="2_j78av"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="4_5223r"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="5_dnc0k"]
@@ -44,7 +43,7 @@ position = Vector2(16, 12)
 [node name="indicator" type="Sprite2D" parent="."]
 visible = false
 light_mask = 0
-texture = ExtResource("2_bs481")
+texture = ExtResource("2_j78av")
 centered = false
 
 [node name="Button" type="Button" parent="."]
@@ -85,6 +84,8 @@ label_settings = ExtResource("4_5223r")
 
 [node name="Node2D" type="Node2D" parent="."]
 
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

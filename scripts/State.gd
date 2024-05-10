@@ -192,7 +192,7 @@ func _ready():
 		"name":"Sanguinated Shell",
 		"description":"Coalesce your blood into a hardened shell absorbing 50% damage for 3 turns. When the shell expires you heal for half the amount absorbed.",
 		"learned":0,
-		"level":15,
+		"level":5,
 		"damage":0,
 		"class": "defend",
 		"type":"blood",
@@ -212,7 +212,7 @@ func _ready():
 		"name":"Blood Moon",
 		"description":"Increase the effects of all blood magic by 20% for 3 turns.",
 		"learned":0,
-		"level":5,
+		"level":15,
 		"damage":0,
 		"class": "field",
 		"type": "blood",
@@ -252,7 +252,7 @@ func _ready():
 		"name":"Vapid Affliction",
 		"description":"The void invades your foe's mind. Each turn they have an increasing chance to not attack on their next turn.",
 		"learned":0,
-		"level":5,
+		"level":15,
 		"damage":0,
 		"class": "attack",
 		"type": "Void",
@@ -285,21 +285,26 @@ func check_for_new_traits() -> void:
 		if traits[t]["level"] <= level and traits[t]["learned"] == 0:
 			traits[t]["learned"] = 1
 			match t:
-				"HP+": t_HP = true
-				"Attack+": t_attack_up = true
-				"Extra Action": t_extra_cast = true
-				"Shield+": t_shield = true
+				"HP+": 
+					t_HP = true
+				"Attack+": 
+					t_attack_up = true
+				"Extra Action": 
+					t_extra_cast = true
+					casts = 2
+				"Shield+": 
+					t_shield = true
 #traits
 @onready var traits = {
 	"HP+":{
 		"name":"HP+",
-		"description":"Seep the ground beneath your foes feet in thick, poisonous sludge",
+		"description":"Your fortitude has never been so powerful.",
 		"learned":0,
 		"level":15,
 		},
 	"Attack+":
 		{"name":"Attack+",
-		"description":"Seep the ground beneath your foes feet in thick, poisonous sludge",
+		"description":"Increase your damage output even further.",
 		"learned":0,
 		"level":15,
 		},
@@ -307,11 +312,11 @@ func check_for_new_traits() -> void:
 		{"name":"Extra Action",
 		"description":"Through experience and training you're able to attack twice before foes react.",
 		"learned":0,
-		"level":10,
+		"level":5,
 		},
 	"Shield+":
 		{"name":"Shield+",
-		"description":"Could it's calluses, ",
+		"description":"Could be callouses, could be nerve damage, but you can take more hits.",
 		"learned":0,
 		"level":15
 		},
@@ -398,7 +403,7 @@ var quest_db ={
 		"quest_name":"Trash for the Trash God",
 		"Status":0,
 		"Items":{
-			"Trash Food":4
+			"trash food":4
 		},
 		"description":"Kindly bring Trash to the Trash God."
 	},
