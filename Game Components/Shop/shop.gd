@@ -5,7 +5,6 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentGold.text = str(State.gold,"g")
-	#$"Sprite2D/buy/VBoxContainer/GridContainer/Health restore".grab_focus()
 
 func set_focus() -> void:
 	$"Sprite2D/buy/VBoxContainer/GridContainer/Health restore".grab_focus()

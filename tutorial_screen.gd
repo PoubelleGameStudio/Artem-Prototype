@@ -15,12 +15,8 @@ func _ready():
 		title_label.text = title
 		text_label.text = State.tutorials[title]["text"]
 		State.tutorials[title]["seen"] = 1
+		$PanelContainer/MarginContainer/VBoxContainer/Button.grab_focus()
 		show()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	$PanelContainer/MarginContainer/VBoxContainer/Button.grab_focus()
 
 
 func _on_button_pressed():

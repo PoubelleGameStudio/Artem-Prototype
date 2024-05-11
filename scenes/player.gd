@@ -37,8 +37,6 @@ func _ready():
 	prompt.hide()
 	pause.hide()
 	shop.hide()
-	
-
 
 func _physics_process(delta):
 	if State.is_raining == 0:

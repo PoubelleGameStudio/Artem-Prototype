@@ -14,7 +14,6 @@ var settingsConfig = SettingsConfig.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_focus()
 	verify_save_directory(save_dir)
 
 
@@ -152,6 +151,8 @@ func load_player() -> void:
 	State.quest_db = playerData.quest_db 
 	State.area_enemies = playerData.area_enemies
 	State.Vendor_wares = playerData.Vendor_wares
+	State.talking = 0
+	State.combat = 0
 
 	State.tutorials = playerData.tutorials
 	get_tree().change_scene_to_file((str("res://scenes/levels/",playerData.world,".tscn")))
