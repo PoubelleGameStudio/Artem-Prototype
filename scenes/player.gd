@@ -54,6 +54,9 @@ func _physics_process(delta):
 	
 	
 	##### controls ####
+	if Input.is_action_just_pressed("interact"):
+		execute_interaction()
+	
 	if State.combat == 0:
 		if Input.is_action_just_pressed("pause"):
 			if settings.visible == true:
@@ -63,13 +66,10 @@ func _physics_process(delta):
 			else:
 				talents.hide()
 				character_screen.hide()
-				settings._ready()
+				settings.set_focus()
 				settings.show()
 				animation.play("hud_up")
 				await get_tree().create_timer(0.5).timeout	
-				
-		if Input.is_action_just_pressed("interact"):
-			execute_interaction()
 
 		if Input.is_action_just_pressed("character_screen"):
 			if character_screen.visible == true:

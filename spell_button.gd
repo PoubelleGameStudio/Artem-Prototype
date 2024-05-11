@@ -1,9 +1,8 @@
-@tool
-extends Panel
+extends Button
 class_name spell_button
 
 @onready var selected: Sprite2D = $selected
-@onready var button: Button = $Button
+@onready var button: Button = $"."
 @onready var spell_label: Label = $spell_name
 
 
@@ -26,13 +25,9 @@ func setup_button() -> void:
 		hide()
 
 
-func _on_button_pressed():
-	State.spell1 = spell_icon
-#	if selected.visible:
-#		selected.hide()
-#	else:
-#		selected.show()
-		
+#func _on_button_pressed():
+
+
 
 
 #func _on_button_mouse_entered():
@@ -48,3 +43,7 @@ func _on_focus_entered():
 
 func _on_focus_exited():
 	selected.hide()
+
+
+func _on_pressed():
+	State.spell1 = spell_icon

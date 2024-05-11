@@ -1,55 +1,46 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpv6cisbc7uye"]
+[gd_scene load_steps=7 format=3 uid="uid://dpv6cisbc7uye"]
 
 [ext_resource type="Script" path="res://spell_button.gd" id="1_6wj0f"]
 [ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="2_a4len"]
 [ext_resource type="Texture2D" uid="uid://bdmndm760hohn" path="res://Sprites/combat/spell icons/fireball.png" id="2_tg7fk"]
 [ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="4_f2866"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8t3q7"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xy7do"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_833re"]
 
-[node name="Panel" type="Panel"]
+[node name="Button" type="Button"]
 custom_minimum_size = Vector2(64, 64)
-offset_right = 103.0
-offset_bottom = 89.0
-focus_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_8t3q7")
-script = ExtResource("1_6wj0f")
-
-[node name="selected" type="Sprite2D" parent="."]
-visible = false
-z_index = 1
-position = Vector2(53, 44.25)
-scale = Vector2(3.0625, 2.95312)
-texture = ExtResource("2_a4len")
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 2
-offset_top = 1.0
-offset_right = 106.0
-offset_bottom = 92.0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_xy7do")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_833re")
 icon = ExtResource("2_tg7fk")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("1_6wj0f")
+
+[node name="selected" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(46, 43)
+scale = Vector2(2.875, 2.875)
+texture = ExtResource("2_a4len")
 
 [node name="spell_name" type="Label" parent="."]
 visible = false
 z_index = 1
 layout_mode = 2
 offset_left = 24.0
-offset_top = 88.0
+offset_top = 89.0
 offset_right = 84.0
-offset_bottom = 142.0
+offset_bottom = 143.0
 theme_override_font_sizes/font_size = 48
 text = "test"
 label_settings = ExtResource("4_f2866")
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

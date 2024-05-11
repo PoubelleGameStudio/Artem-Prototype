@@ -8,8 +8,11 @@ class_name Settings
 @onready var world_music_slider: HSlider = $"HBoxContainer/list/world music volume/world_music_slider"
 
 func _ready():
-	$MainMenu.focus()
+	set_focus()
 
+
+func set_focus():
+	$MainMenu.set_focus()
 
 # signal funcs
 func _on_toggle_mute_sound_toggled(button_pressed):

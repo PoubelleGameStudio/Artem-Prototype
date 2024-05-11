@@ -14,21 +14,20 @@ var settingsConfig = SettingsConfig.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"MarginContainer/VBoxContainer/New Game".grab_focus()
+	set_focus()
 	verify_save_directory(save_dir)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	pass
 
 func verify_save_directory(path: String):
 	DirAccess.make_dir_absolute(path)
 	
 
-func focus() -> void:
-	$"MarginContainer/VBoxContainer/Load".grab_focus()
+func set_focus() -> void:
+	$MarginContainer/VBoxContainer/Load.grab_focus()
 
 
 

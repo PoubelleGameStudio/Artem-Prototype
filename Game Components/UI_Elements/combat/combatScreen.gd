@@ -139,8 +139,6 @@ func start_turn():
 func camera_current():
 	cam.make_current()
 
-	pass
-
 #set up on combat start
 func combat_data():
 	_ready()
