@@ -180,7 +180,13 @@ func update_HUD():
 	
 
 		
-		
+func shop_handler() -> void:
+	settings.hide()
+	talents.hide()
+	character_screen.hide()
+	shop.show()
+	animation.play("hud_up")
+	shop.set_focus()
 
 
 func get_world():
@@ -192,14 +198,10 @@ func execute_interaction():
 		var cur_interaction = all_interactions[0]
 		match cur_interaction.interact_type:
 			"vendor":
-				cur_interaction.talk(str("res://Game Components/dialogue/NPC/",
+				if State.talking == 0:
+					State.talking = 1
+					cur_interaction.talk(str("res://Game Components/dialogue/NPC/",
 					cur_interaction.get_parent().sprite,".dialogue"))
-				settings.hide()
-				talents.hide()
-				character_screen.hide()
-				shop.show()
-				animation.play("hud_up")
-				shop.set_focus()
 			"dialogue":
 				if State.talking == 0:
 					State.talking = 1
@@ -324,10 +326,6 @@ func _on_interaction_area_area_entered(area):
 		pass
 		
 	
-	
-	
-
-
 
 func _on_interaction_area_area_exited(area):
 	var cur_interact = all_interactions[0]
@@ -341,19 +339,6 @@ func _on_interaction_area_area_exited(area):
 	itemLabel.text = ""
 	shop.hide()
 	
-	
-
-func _on_buy_button_pressed():
-	$HUD/shop/ColorRect/buy/BuyButton/BuyIndicate.show()
-	$HUD/shop/ColorRect/sell/SellButton/SellIndicate.hide()
-	pass # Replace with function body.
-
-
-func _on_sell_button_pressed():
-	$HUD/shop/ColorRect/sell/SellButton/SellIndicate.show()
-	$HUD/shop/ColorRect/buy/BuyButton/BuyIndicate.hide()
-	pass # Replace with function body.
-
 
 func _on_item_pressed():
 	if int($HUD/shop/Sprite2D/buy/item/costLabel.text) < State.gold:

@@ -1,8 +1,6 @@
 extends Node2D
 class_name LevelManager
 
-
-
 @onready var music = $AudioStreamPlayer
 @onready var c_music: AudioStreamPlayer = AudioStreamPlayer.new()
 @export var is_raining: int 

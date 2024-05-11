@@ -41,25 +41,31 @@ horizontal_alignment = 2
 [node name="GridContainer" type="GridContainer" parent="Sprite2D/buy/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/h_separation = 48
-theme_override_constants/v_separation = 64
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 32
 columns = 4
 
 [node name="Health restore" parent="Sprite2D/buy/VBoxContainer/GridContainer" instance=ExtResource("3_2mlms")]
 layout_mode = 2
+focus_neighbor_right = NodePath("../Health restore2")
 item_name = "Health Restore"
 item_cost = 5
 
 [node name="Health restore2" parent="Sprite2D/buy/VBoxContainer/GridContainer" instance=ExtResource("3_2mlms")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Health restore")
+focus_neighbor_right = NodePath("../Health restore3")
 item_name = "Bottle"
+item_cost = 5
 
 [node name="Health restore3" parent="Sprite2D/buy/VBoxContainer/GridContainer" instance=ExtResource("3_2mlms")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Health restore2")
 item_name = "Trash Food"
 item_cost = 15
 
 [node name="sell" type="Node2D" parent="Sprite2D"]
+visible = false
 position = Vector2(-160, -120)
 
 [node name="SellButton" type="Button" parent="Sprite2D/sell"]
@@ -91,5 +97,5 @@ offset_right = 40.0
 offset_bottom = 32.0
 
 [connection signal="updateGold" from="Sprite2D/buy/VBoxContainer/GridContainer/Health restore" to="." method="_on_health_restore_update_gold"]
-[connection signal="updateGold" from="Sprite2D/buy/VBoxContainer/GridContainer/Health restore2" to="." method="_on_health_restore_2_update_gold"]
+[connection signal="updateGold" from="Sprite2D/buy/VBoxContainer/GridContainer/Health restore2" to="." method="_on_health_restore_update_gold"]
 [connection signal="updateGold" from="Sprite2D/buy/VBoxContainer/GridContainer/Health restore3" to="." method="_on_health_restore_3_update_gold"]

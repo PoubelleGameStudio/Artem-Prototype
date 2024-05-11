@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cm8e5ypkdprm2" path="res://Sprites/world objects/foliage/berry bush - spooky.png" id="13_lbcpy"]
 [ext_resource type="Texture2D" uid="uid://dp4erypen783e" path="res://Art/ground/wheel grooved end right- spooky.png" id="15_a4vc8"]
 [ext_resource type="PackedScene" uid="uid://b5vowrw45hndi" path="res://scenes/player.tscn" id="15_bf3il"]
-[ext_resource type="Texture2D" uid="uid://dfcmdrqt3crhf" path="res://Sprites/glass_corked001.png" id="16_2vpii"]
+[ext_resource type="Texture2D" uid="uid://b5qf51xs0esvt" path="res://Sprites/glass_corked001.png" id="16_2vpii"]
 [ext_resource type="Texture2D" uid="uid://dfixx1mpl1eth" path="res://Art/walls/ironFence__vertical_left_night02.png" id="16_o4avx"]
 [ext_resource type="Texture2D" uid="uid://bfqpgw368ayv1" path="res://Art/buildings/vendor stand.png" id="17_3tr1x"]
 [ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="17_dt21t"]

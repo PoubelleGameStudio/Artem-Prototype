@@ -80,10 +80,8 @@ func _ready():
 	check_for_new_traits()
 
 
-#connected signals
-#func _on_speak():
-#	pass
-	
+func shop_handler() -> void:
+	get_node("/root/root/player").shop_handler()
 
 # talents
 @onready var t_HP: bool = false: #increase HP by 10%

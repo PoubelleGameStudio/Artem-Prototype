@@ -1,10 +1,10 @@
-extends Control
+extends Button
 class_name ShopButton
 
 @export var item_name: String
 @export var item_cost: int
 
-@onready var button: Button = $Button
+@onready var button: Button = $"."
 @onready var label: Label = $Label
 @onready var UI_click: AudioStreamPlayer = $UI_click
 @onready var UI_purchase: AudioStreamPlayer = $UI_purchase
@@ -19,7 +19,15 @@ func _ready():
 	label.text = str(item_cost," g")
 
 
-func _on_button_pressed():
+func _on_focus_entered():
+	$Sprite2D.show()
+
+
+func _on_focus_exited():
+	$Sprite2D.hide()
+
+
+func _on_pressed():
 	if State.gold >= item_cost:
 		#play purchase sound
 		UI_purchase.play()
@@ -31,16 +39,3 @@ func _on_button_pressed():
 	else:
 		pass
 		#play poor sound
-
-
-func _on_button_mouse_entered():
-	UI_click.play()
-	#play tick kinda sound
-
-
-func _on_focus_entered():
-	$Button/Sprite2D.show()
-
-
-func _on_focus_exited():
-	$Button/Sprite2D.hide()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://75gusw7bcx3f"]
 
 [ext_resource type="Script" path="res://scripts/Shop Button.gd" id="1_hk6q2"]
-[ext_resource type="Texture2D" uid="uid://c1p0afttop35v" path="res://Art/inv_Art/Health Restore.png" id="2_5sosv"]
+[ext_resource type="Texture2D" uid="uid://b5qf51xs0esvt" path="res://Sprites/glass_corked001.png" id="2_kl1nh"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="3_65th3"]
 [ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="3_e7ode"]
 [ext_resource type="AudioStream" uid="uid://vsim0r354tcc" path="res://sounds/UI/683098__florianreichelt__click.mp3" id="4_5o0q4"]
@@ -17,17 +17,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8do3l"]
 
-[node name="Shop Button" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_hk6q2")
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
+[node name="Button" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5kfod")
@@ -35,9 +25,10 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_xd773")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5p7nj")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_n5unx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8do3l")
-icon = ExtResource("2_5sosv")
+icon = ExtResource("2_kl1nh")
+script = ExtResource("1_hk6q2")
 
-[node name="Sprite2D" type="Sprite2D" parent="Button"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(16, 16)
 texture = ExtResource("3_e7ode")
@@ -62,5 +53,4 @@ volume_db = -10.702
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
-[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
