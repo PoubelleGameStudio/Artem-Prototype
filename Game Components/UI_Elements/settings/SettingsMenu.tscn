@@ -1,11 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://duw1coq7pkfci"]
+[gd_scene load_steps=24 format=3 uid="uid://duw1coq7pkfci"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/settings/Settings.gd" id="1_3l0ep"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="2_ld3py"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="3_2s2es"]
 [ext_resource type="Texture2D" uid="uid://b2tl23nftxkgb" path="res://Game Components/UI_Elements/main menu/buttons/checkbox - checked.png" id="4_32224"]
 [ext_resource type="Texture2D" uid="uid://b3rdvt432j3l" path="res://Game Components/UI_Elements/main menu/buttons/checkbox - unchecked.png" id="5_6sp4m"]
+[ext_resource type="Texture2D" uid="uid://dim72gaqj6ggi" path="res://Game Components/UI_Elements/prompts/tile_0416.png" id="6_14qk0"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="6_aavd5"]
+[ext_resource type="Texture2D" uid="uid://diwnan71ffp7" path="res://Game Components/UI_Elements/prompts/f.png" id="7_b31cx"]
+[ext_resource type="Texture2D" uid="uid://yfl18841n3fc" path="res://Game Components/UI_Elements/prompts/tile_0308.png" id="8_0akgj"]
+[ext_resource type="Texture2D" uid="uid://dfsa5hkj1tfrv" path="res://Game Components/UI_Elements/prompts/tile_0051.png" id="8_bmvyp"]
+[ext_resource type="Texture2D" uid="uid://ddvwr4xiw1acq" path="res://Game Components/UI_Elements/prompts/tile_0017.png" id="8_ruu6i"]
+[ext_resource type="Texture2D" uid="uid://dml0ug4t2woco" path="res://Game Components/UI_Elements/prompts/d_pad.png" id="9_mnqee"]
+[ext_resource type="Texture2D" uid="uid://dbhsmrh1rawj7" path="res://Game Components/UI_Elements/prompts/tile_0052.png" id="9_vdt7c"]
+[ext_resource type="Texture2D" uid="uid://bmjgsasn3uavk" path="res://Game Components/UI_Elements/prompts/tile_0077.png" id="10_8bd3w"]
+[ext_resource type="Texture2D" uid="uid://baln24rcrphbp" path="res://Game Components/UI_Elements/prompts/tile_0651.png" id="10_r3v2t"]
+[ext_resource type="Texture2D" uid="uid://u1o4y3myupms" path="res://Game Components/UI_Elements/prompts/tile_0553.png" id="11_oee24"]
+[ext_resource type="Texture2D" uid="uid://bjeg8thrf28g8" path="res://Game Components/UI_Elements/prompts/tile_0554.png" id="12_vt1uf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sk0y7"]
 
@@ -16,6 +27,8 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b6yr6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7qm7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_06m15"]
 
 [node name="Settings" type="Control"]
 z_index = 100
@@ -37,7 +50,7 @@ texture = ExtResource("2_ld3py")
 layout_mode = 0
 offset_left = 180.0
 offset_right = 368.0
-offset_bottom = 99.0
+offset_bottom = 274.0
 
 [node name="list" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(171, 0)
@@ -118,6 +131,167 @@ theme_override_icons/unchecked = ExtResource("5_6sp4m")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_b6yr6")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_v7qm7")
 icon_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/list"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/list/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+label_settings = ExtResource("3_2s2es")
+
+[node name="Label2" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Move
+"
+label_settings = ExtResource("3_2s2es")
+
+[node name="Label3" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Interact
+"
+label_settings = ExtResource("3_2s2es")
+
+[node name="Label4" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+label_settings = ExtResource("3_2s2es")
+
+[node name="Label5" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Journal"
+label_settings = ExtResource("3_2s2es")
+
+[node name="Label6" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Skills"
+label_settings = ExtResource("3_2s2es")
+
+[node name="Label7" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Navigate UI"
+label_settings = ExtResource("3_2s2es")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/list/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MKB" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "M/KB"
+label_settings = ExtResource("3_2s2es")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "W,A,S,D"
+label_settings = ExtResource("3_2s2es")
+horizontal_alignment = 1
+
+[node name="TextureRect7" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("7_b31cx")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_ruu6i")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_bmvyp")
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("9_vdt7c")
+stretch_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("10_8bd3w")
+stretch_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/list/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Controller
+"
+label_settings = ExtResource("3_2s2es")
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_14qk0")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_06m15")
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_0akgj")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_06m15")
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("10_r3v2t")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_06m15")
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("11_oee24")
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_06m15")
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("12_vt1uf")
+stretch_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_06m15")
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("9_mnqee")
+stretch_mode = 2
 
 [node name="list2" type="VBoxContainer" parent="HBoxContainer"]
 visible = false
