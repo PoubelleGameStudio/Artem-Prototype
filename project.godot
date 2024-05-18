@@ -22,6 +22,7 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 State="*res://scripts/State.gd"
 SceneTransition="*res://Game Components/UI_Elements/scene transition.tscn"
 SettingsData="*res://Game Components/UI_Elements/settings/SettingsConfig.gd"
+SteamFeatures="*res://Game Components/Steam/SteamFeatures.gd"
 
 [dialogue_manager]
 

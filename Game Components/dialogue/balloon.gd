@@ -11,6 +11,7 @@ extends CanvasLayer
 @onready var talk: AudioStreamPlayer = $Talk
 @onready var artem_talk: AudioStreamPlayer = $artem_talk
 @onready var portrait: AnimatedSprite2D = $Balloon/Margin/VBox/MarginContainer/portrait
+@onready var prompt: TextureRect = $Balloon/hints/prompt
 
 
 ## The dialogue resource
@@ -105,6 +106,17 @@ func _ready() -> void:
 	$Balloon/scroll.custom_minimum_size.x = 1920
 	$Balloon/scroll.position = balloon.position
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+
+
+
+func _process(_delta):
+	if State.control_schema == "mkb":
+		prompt.texture = load("res://Game Components/UI_Elements/prompts/spacebar.png")
+		prompt.scale = Vector2(1,1)
+	elif State.control_schema == "gamepad":
+		prompt.texture = load("res://Game Components/UI_Elements/prompts/tile_0308.png")
+		prompt.scale = Vector2(2,2)
+		
 	
 
 
@@ -122,6 +134,7 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
 	# portrait.play(character_label.text)
 	print(character_label.text)
+
 
 
 ## Go to the next line

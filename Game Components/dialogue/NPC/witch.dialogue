@@ -99,9 +99,10 @@ Artem: You're insane
 The Witch: There is a way forward to harmony, little watcher. You will see horrors beyond anything you could ever conceive. You will face spawns of chaos that level kingdoms. You will find victory. Then you will die.
 Artem: You want me to kill a god then [wave amp=25 freq=5]DIE[/wave]?
 The Witch: I don't deal in wants. I'm compelled, by a force beyond even my sight, to witness the curse of existence. It will be your compulsion to carry this curse.
-Artem: What do you even expect me to do? Demand an audience with the 3 Eso and tell them we've a received a request to assassinate one of the god of gods?
+Artem: What do you even expect me to do? Demand an audience with the 3 Eso and tell them we've a received a request to assassinate one of the oldest known gods?
 The Witch: Yes, my Watcher.
 do update_quest_status("witch_1",2)
+do SteamFeature.setAchievement("ACH_Witch")
 
 ~ witch_1_complete
 The Witch: Carry on, Artem. We'll find our paths entwined soon enough.

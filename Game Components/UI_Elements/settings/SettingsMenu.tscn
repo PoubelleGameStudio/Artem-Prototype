@@ -48,7 +48,7 @@ texture = ExtResource("2_ld3py")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 180.0
+offset_left = 192.0
 offset_right = 368.0
 offset_bottom = 274.0
 
@@ -62,7 +62,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="HBoxContainer/list/mute_sound"]
 layout_mode = 2
 size_flags_vertical = 8
-text = "mute all sound
+text = "mute sound
 "
 label_settings = ExtResource("3_2s2es")
 vertical_alignment = 2
@@ -99,6 +99,7 @@ value = -10.0
 layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/list/world music volume"]
+custom_minimum_size = Vector2(69, 0)
 layout_mode = 2
 size_flags_vertical = 8
 text = "level music"
@@ -323,9 +324,11 @@ layout_mode = 2
 anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
-offset_left = 52.0
-offset_right = 52.0
-scale = Vector2(0.4, 0.4)
+offset_left = 32.0
+offset_top = 56.0
+offset_right = 32.0
+offset_bottom = 56.0
+scale = Vector2(0.75, 0.75)
 size_flags_horizontal = 0
 size_flags_vertical = 2
 

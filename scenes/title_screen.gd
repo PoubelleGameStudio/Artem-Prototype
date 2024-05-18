@@ -18,7 +18,6 @@ func _ready():
 	SceneTransition.fade_in()
 	$"CanvasLayer/HBoxContainer2/New Game".grab_focus()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass

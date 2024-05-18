@@ -134,6 +134,7 @@ else:
 	Mayor Barkeep: I can't think you enough for your help with everything. Here, take this runestone. Speak the location you wish to be, and break the stone under your foot. Don't worry, it's not sturdy as it looks, but know it's a one way trip.
 	Artem: Thank you. I can't say it's been a relaxing or very enjoyable time, but it's clear I was meant to find myself here. I hope you never need my help again, but don't hestiate if you do.
 	do update_quest_status("barkeep_3",2)
+	do SteamFeatures.setAchievement("ACH_Mayor")
 
 ~ all_done
 Mayor Barkeep: You're welcome back anytime, but there's not much for you right now.

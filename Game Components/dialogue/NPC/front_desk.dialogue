@@ -38,6 +38,7 @@ if quest_db["homebrewed"]["Status"] == 1:
 		Old Crusty Guy: Well go on and take your baby juice then...
 		do update_inventory("get me down potion",1)
 		do update_quest_status("homebrewed",2)
+		do SteamFeatures.setAchievement("ACH_Innkeeper")
 		set talking = 0
 		=> END
 	

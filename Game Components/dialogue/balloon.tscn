@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=58 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" path="res://Game Components/dialogue/balloon.gd" id="1_4u26j"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cd7todjajlpev" path="res://Sprites/barmaid.png" id="8_6uipw"]
 [ext_resource type="Texture2D" uid="uid://bmjgsasn3uavk" path="res://Game Components/UI_Elements/prompts/tile_0077.png" id="12_gv2qj"]
 [ext_resource type="Texture2D" uid="uid://ck6lvxkbgrqml" path="res://Game Components/dialogue/art/UI_MysticWood_Banner_02a.png" id="13_jwmx6"]
+[ext_resource type="Texture2D" uid="uid://yfl18841n3fc" path="res://Game Components/UI_Elements/prompts/tile_0308.png" id="13_k2dok"]
 [ext_resource type="Texture2D" uid="uid://bbc2gqex5wwfi" path="res://Game Components/UI_Elements/prompts/spacebar.png" id="13_skwbx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8y7lh"]
@@ -464,7 +465,16 @@ size_flags_vertical = 8
 text = "or"
 label_settings = SubResource("LabelSettings_c0elf")
 
-[node name="TextureRect2" type="TextureRect" parent="Balloon/hints"]
+[node name="prompt" type="TextureRect" parent="Balloon/hints"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("13_k2dok")
+stretch_mode = 2
+
+[node name="prompt2" type="TextureRect" parent="Balloon/hints"]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -472,10 +482,19 @@ size_flags_vertical = 4
 texture = ExtResource("13_skwbx")
 stretch_mode = 2
 
-[node name="Label3" type="Label" parent="Balloon/hints"]
+[node name="Label3" type="Label" parent="Balloon/hints/prompt2"]
+layout_mode = 2
+offset_top = -3.0
+offset_right = 126.0
+offset_bottom = 39.0
+size_flags_vertical = 8
+text = " (spacebar)"
+label_settings = SubResource("LabelSettings_c0elf")
+
+[node name="Label4" type="Label" parent="Balloon/hints"]
 layout_mode = 2
 size_flags_vertical = 8
-text = " (spacebar) to progress or select dialogue"
+text = " to progress or select dialogue"
 label_settings = SubResource("LabelSettings_c0elf")
 
 [node name="Talk" type="AudioStreamPlayer" parent="."]

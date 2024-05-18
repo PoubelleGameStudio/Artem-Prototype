@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Game Components/Shop/shop.gd" id="1_tntft"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="1_uo7i2"]
-[ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="2_wfsaw"]
 [ext_resource type="PackedScene" uid="uid://75gusw7bcx3f" path="res://Game Components/UI_Elements/shopshop/shop_button.tscn" id="3_2mlms"]
+[ext_resource type="LabelSettings" uid="uid://bflt1vxoyo7lt" path="res://combat_instruct.tres" id="3_nucau"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="4_livgh"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="5_km8cl"]
 
@@ -30,7 +30,7 @@ offset_bottom = 164.0
 [node name="Label" type="Label" parent="Sprite2D/buy/VBoxContainer"]
 layout_mode = 2
 text = "Shop"
-label_settings = ExtResource("2_wfsaw")
+label_settings = ExtResource("3_nucau")
 horizontal_alignment = 1
 
 [node name="current_gold" type="Label" parent="Sprite2D/buy/VBoxContainer"]

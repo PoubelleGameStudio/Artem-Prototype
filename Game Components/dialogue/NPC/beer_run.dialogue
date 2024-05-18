@@ -16,12 +16,11 @@ Artem: Are you able to recognize this book?
 	Artem: Terribly sorry. I prefer a first printing myself, though not quite as passionately.
 	[wave amp=25 freq=5]Hedo[/wave]: Welcome to Grim's Briar
 	set State.welcomed = true
-	set State.talking = 0
 	=> beer_run
 - Move along
 	Artem: Well, glad we've set expecations.
 	set State.welcomed = true
-	set State.talking = 0
+
 	=> END
 
 ~ beer_run
@@ -44,7 +43,7 @@ elif quest_db["beer_run"]["Status"] == 1
 	elif quest_complete("beer_run") == true:
 		set gold += 10
 		do update_quest_status("beer_run",2)
-		#set State.inventory["bottle"]-=1
+		do SteamFeatures.setAchievement("ACH_Hedo")
 		[wave amp=25 freq=5]Hedo[/wave]: filled my flask you did. The creative juices flow. The gold is all yours. *You receive 10 Gold*
 		set State.talking = 0
 	=> END

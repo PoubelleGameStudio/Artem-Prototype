@@ -39,6 +39,7 @@ func setup_button() -> void:
 
 func _on_focus_entered():
 	selected.show()
+	Input.start_joy_vibration(0,0.0,0.3,0.1)
 
 
 func _on_focus_exited():

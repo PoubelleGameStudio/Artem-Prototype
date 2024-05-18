@@ -17,11 +17,14 @@ extends CharacterBody2D
 @onready var prompt: Sprite2D = $prompt
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var settings: Settings = $HUD/Settings
+@onready var pad_prompt: Resource = load("res://Game Components/UI_Elements/prompts/tile_0308.png")
+@onready var mkb_prompt: Resource = load("res://Game Components/UI_Elements/prompts/f.png")
 
 
 var speed = 150.0
 var current_dir = "none"
 var world = ''
+
 
 
 signal combat_entered
@@ -38,12 +41,20 @@ func _ready():
 	pause.hide()
 	shop.hide()
 
+
+func _unhandled_input(event):
+	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
+		prompt.texture = pad_prompt
+		State.control_schema = "gamepad"
+	elif event is InputEventKey or event is InputEventMouseButton or event is InputEventMouseMotion:
+		prompt.texture = mkb_prompt
+		State.control_schema = "mkb"
+
 func _physics_process(delta):
 	if State.is_raining == 0:
 		rain.hide()
 	else:
 		rain.emitting = State.is_raining
-		
 		
 				
 	player_movement(delta)
@@ -179,12 +190,13 @@ func update_HUD():
 
 		
 func shop_handler() -> void:
-	settings.hide()
-	talents.hide()
-	character_screen.hide()
-	shop.show()
-	animation.play("hud_up")
-	shop.set_focus()
+		settings.hide()
+		talents.hide()
+		character_screen.hide()
+		shop.show()
+		animation.play("hud_up")
+		shop.set_focus()
+
 
 
 func get_world():

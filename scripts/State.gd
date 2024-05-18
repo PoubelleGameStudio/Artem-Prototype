@@ -72,6 +72,7 @@ var mute_sound: bool = false
 var hide_control_hints: bool = false
 var combat_music_slider_value: int = -15
 var world_music_slider_value: int = -15
+var control_schema: String = ""
 
 
 func _ready():
@@ -174,13 +175,12 @@ func shop_handler() -> void:
 
 @onready var tutorials: Dictionary = {
 	"Basics":{
-		"text":str("Welcome to The Watcher's Curse! Move with W,A,S,D and ", 
-					"interact with objects or people using the F key! ",
-					"As you level, you'll be able to unlock new spells and",
-					" traits. These are found in the the 'Field Training' ",
-					"portion of your Watcher's journal by pressing 'T'. Enjoy!"
+		"text":str("Welcome to The Watcher's Curse demo! Pres ESC on your keyboard",
+					" or START on your gamepad to see controls. In this demo you'll play through",
+					" one of the many quest narratives from the full version of the game. Take your",
+					" time exploring and reveal the true evil closing in on Artem. Enjoy :)"
 				)
-		,"seen":0
+		,"seen":1
 		}
 }
 

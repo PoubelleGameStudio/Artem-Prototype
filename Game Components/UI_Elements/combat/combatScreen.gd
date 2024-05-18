@@ -461,6 +461,7 @@ func _on_return_pressed():
 
 func _on_onepunch_pressed():
 	if yourTurn == 1 && State.spell1 != '' and is_casting == false:
+		Input.start_joy_vibration(0,0.0,0.3,0.1)
 		is_casting = true
 		if spells[State.spell1]["class"]  == "attack" and pet.summoned == true:
 			spellTexture.show()
@@ -498,6 +499,7 @@ func _on_spell_pressed():
 
 func _on_enemy_combat_dead():
 	combat_end.emit()
+	SteamFeatures.setAchievement("ACH_Kill")
 	reset()
 	
 

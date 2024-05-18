@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="7_81yjc"]
 [ext_resource type="PackedScene" uid="uid://dpv6cisbc7uye" path="res://Game Components/UI_Elements/combat/spell_button.tscn" id="8_16ejo"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="12_jwlj2"]
-[ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="12_vu285"]
+[ext_resource type="LabelSettings" uid="uid://bflt1vxoyo7lt" path="res://combat_instruct.tres" id="13_1dd1r"]
 [ext_resource type="SpriteFrames" uid="uid://ftaerve5ta27" path="res://Game Components/UI_Elements/combat/spell_animations.tres" id="14_cb2l5"]
 [ext_resource type="SpriteFrames" uid="uid://b4mvq8yx2t3yi" path="res://Game Components/UI_Elements/combat/Dot Effects.tres" id="14_w4egx"]
 [ext_resource type="TileSet" uid="uid://cib8xlrw1dmg5" path="res://themes/bug_tiles.tres" id="16_i3vrl"]
@@ -507,7 +507,7 @@ offset_top = 42.0
 offset_right = 294.0
 offset_bottom = 134.0
 text = "Your Turn"
-label_settings = ExtResource("12_vu285")
+label_settings = ExtResource("13_1dd1r")
 
 [node name="cast_lefts" type="Label" parent="."]
 z_index = 1
@@ -528,7 +528,7 @@ offset_right = 1270.0
 offset_bottom = 570.0
 theme_override_font_sizes/font_size = 9
 text = "Select a spell and then click cast!"
-label_settings = ExtResource("12_vu285")
+label_settings = ExtResource("13_1dd1r")
 
 [node name="spell effect" type="AnimatedSprite2D" parent="."]
 light_mask = 0

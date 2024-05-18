@@ -47,4 +47,5 @@ Trash God: Now, the graveyard just down the path that way holds more than only c
 Artem: Thank you, I guess?
 Trash God: I hope our paths cross again, and that you carry the scent of my beloved trash in your heart wherever you roam.
 do update_quest_status("Trash_1",2)
+do SteamFeatures.setAchievement("ACH_Trash")
 => END
