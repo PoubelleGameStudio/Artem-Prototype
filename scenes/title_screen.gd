@@ -3,6 +3,9 @@ class_name title_screen
 
 
 @onready var intro_level: PackedScene = preload("res://scenes/levels/grimsBriar.tscn")
+@onready var confirm: AudioStream = preload("res://sounds/UI/movement_1.wav")
+@onready var focus_sound: AudioStream = preload("res://sounds/UI/block_1.wav")
+@onready var sound: AudioStreamPlayer = $AudioStreamPlayer
 
 
 @export var level_name: String = ''
@@ -24,10 +27,14 @@ func _process(_delta):
 
 
 func _on_new_game_pressed():
+	sound.set_stream(confirm)
+	sound.play()
 	SceneTransition.fade_out()
 	get_tree().change_scene_to_packed(intro_level)
 	
 func _on_new_game_focus_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($"CanvasLayer/HBoxContainer2/New Game/ColorRect")
 
 
@@ -36,6 +43,8 @@ func _on_new_game_focus_exited():
 
 
 func _on_new_game_mouse_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($"CanvasLayer/HBoxContainer2/New Game/ColorRect")
 
 
@@ -45,16 +54,22 @@ func _on_new_game_mouse_exited():
 
 
 func _on_load_pressed():
+	sound.set_stream(confirm)
+	sound.play()
 	SceneTransition.fade_out()
 	playerData = ResourceLoader.load(SAVE_DIR + save_file).duplicate(true)
 	load_player()
 
 
 func _on_exit_pressed():
+	sound.set_stream(confirm)
+	sound.play()
 	get_tree().quit()
 
 
 func _on_exit_focus_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($CanvasLayer/HBoxContainer2/Exit/ColorRect4)
 
 
@@ -63,6 +78,8 @@ func _on_exit_focus_exited():
 
 
 func _on_exit_mouse_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($CanvasLayer/HBoxContainer2/Exit/ColorRect4)
 
 
@@ -71,6 +88,8 @@ func _on_exit_mouse_exited():
 
 
 func _on_load_focus_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($CanvasLayer/HBoxContainer2/Load/ColorRect2)
 
 
@@ -79,6 +98,8 @@ func _on_load_focus_exited():
 
 
 func _on_load_mouse_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($CanvasLayer/HBoxContainer2/Load/ColorRect2)
 
 

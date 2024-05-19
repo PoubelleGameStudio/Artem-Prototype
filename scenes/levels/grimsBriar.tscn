@@ -36,7 +36,6 @@
 [ext_resource type="Texture2D" uid="uid://c5h4ltd4oxpla" path="res://Art/ground/basic03 - spooky.png" id="19_xgyv5"]
 [ext_resource type="Texture2D" uid="uid://cv1geiwpd66th" path="res://Art/buildings/vendor banner.png" id="20_7otdj"]
 [ext_resource type="Texture2D" uid="uid://ctdywkq0bc0f3" path="res://Art/foliage&trees/spooky_tree.png" id="22_ch3wu"]
-[ext_resource type="AudioStream" uid="uid://ugqmeknu43n7" path="res://sounds/levelMusic/grimsBriar.wav" id="22_rmce2"]
 [ext_resource type="Texture2D" uid="uid://2fq022fqawh3" path="res://Art/foliage&trees/spooky_tree_02.png" id="24_dw6ce"]
 [ext_resource type="Texture2D" uid="uid://bpv0vcgkr4gfn" path="res://Art/ground/grass_BORDER.png" id="25_asbej"]
 [ext_resource type="PackedScene" uid="uid://dkpx766v6jtwo" path="res://scenes/world objects/lights/lamp Post.tscn" id="25_qgex0"]
@@ -49,6 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://cwolc4dutryab" path="res://Game Components/tutorials/tutorials pop up.tscn" id="35_mit16"]
 [ext_resource type="PackedScene" uid="uid://dc6twae4gpv87" path="res://Game Components/UI_Elements/combat/combatScreen.tscn" id="36_v2jdf"]
 [ext_resource type="LabelSettings" uid="uid://bflt1vxoyo7lt" path="res://combat_instruct.tres" id="38_bw4b2"]
+[ext_resource type="AudioStream" uid="uid://c1the7xm11jps" path="res://sounds/levelMusic/grimsBriarV2.wav" id="50_iuo0a"]
 [ext_resource type="AudioStream" uid="uid://dk4rbq3qappgy" path="res://sounds/ambient/Rain.mp3" id="51_iu4o1"]
 [ext_resource type="TileSet" uid="uid://cib8xlrw1dmg5" path="res://themes/bug_tiles.tres" id="52_c7x4g"]
 [ext_resource type="Script" path="res://scripts/autoplay_sound.gd" id="52_fstjm"]
@@ -1082,7 +1082,7 @@ interact_type = "locked_door"
 interact_value = "in"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("22_rmce2")
+stream = ExtResource("50_iuo0a")
 volume_db = -25.413
 autoplay = true
 

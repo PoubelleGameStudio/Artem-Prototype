@@ -312,7 +312,10 @@ func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0,area)
 	var cur_interact = all_interactions[0]
 	
-	if cur_interact.interact_type != "secret":
+	if cur_interact.interact_type == "ach":
+		SteamFeatures.setAchievement(cur_interact.interact_label)
+	
+	if cur_interact.interact_type != "secret" and cur_interact.interact_type != "ach":
 		prompt.show()
 	else:
 		print(cur_interact.interact_type)

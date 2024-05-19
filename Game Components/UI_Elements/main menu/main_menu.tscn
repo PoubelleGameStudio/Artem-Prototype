@@ -133,6 +133,9 @@ offset_right = 149.0
 offset_bottom = 21.0
 color = Color(0.431373, 1, 0.388235, 1)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
 [connection signal="focus_entered" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_focus_entered"]
 [connection signal="focus_exited" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_focus_exited"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_mouse_entered"]

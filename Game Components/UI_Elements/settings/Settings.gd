@@ -39,3 +39,13 @@ func _on_world_music_slider_drag_ended(value_changed):
 func _on_combat_music_slider_drag_ended(value_changed):
 	State.combat_music_slider_value = combat_music_slider.value
 	print(combat_music_slider.value)
+
+
+func _on_combat_music_slider_value_changed(value):
+	State.combat_music_slider_value = value
+	print(value)
+
+
+func _on_world_music_slider_value_changed(value):
+	State.world_music_slider_value = value
+	print(value)

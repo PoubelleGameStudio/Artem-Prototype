@@ -250,7 +250,7 @@ offset_left = 116.0
 offset_top = 713.0
 offset_right = 385.0
 offset_bottom = 802.0
-focus_neighbor_bottom = NodePath("../../spellSelect/Control/VBoxContainer/Invoke/Fireball")
+focus_neighbor_bottom = NodePath("../../spellSelect/Control/VBoxContainer/Invoke/Curse")
 focus_next = NodePath("../../spellSelect/Control/VBoxContainer/Invoke/Fireball")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
@@ -553,7 +553,7 @@ z_index = -1
 position = Vector2(1421, 366)
 scale = Vector2(4.5, 4.5)
 sprite_frames = ExtResource("14_cb2l5")
-animation = &"ghost"
+animation = &"Sorrow Shade"
 flip_h = true
 
 [node name="DoT effect" type="AnimatedSprite2D" parent="."]

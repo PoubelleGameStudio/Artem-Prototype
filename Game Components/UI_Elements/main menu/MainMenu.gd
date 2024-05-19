@@ -4,6 +4,10 @@ extends Control
 @onready var player = get_node('/root/root/player')
 
 
+@onready var confirm: AudioStream = preload("res://sounds/UI/movement_1.wav")
+@onready var focus_sound: AudioStream = preload("res://sounds/UI/block_1.wav")
+@onready var sound: AudioStreamPlayer = $AudioStreamPlayer
+
 
 
 const save_dir = "user://saves/"
@@ -31,30 +35,33 @@ func set_focus() -> void:
 
 
 func _on_new_game_pressed():
+	sound.set_stream(confirm)
+	sound.play()
 	SceneTransition.fade_out()
 	get_tree().change_scene_to_file("res://scenes/levels/grimsBriar.tscn")
 
 
 
 func _on_load_pressed():
+	sound.set_stream(confirm)
+	sound.play()
 	SceneTransition.fade_out()
 	playerData = ResourceLoader.load(save_dir + save_file).duplicate(true)
 	load_player()
 	
 
 func _on_save_pressed():
+	sound.set_stream(confirm)
+	sound.play()
 	save_player()
 	ResourceSaver.save(playerData, save_dir + save_file)
 	print(PlayerData)
 	print("game saved")
 
 
-
-func _on_options_pressed():
-	pass # Replace with function body.
-
-
 func _on_exit_pressed():
+	sound.set_stream(confirm)
+	sound.play()
 	get_tree().quit()
 	pass # Replace with function body.
 	
@@ -170,6 +177,8 @@ func toggle_focus_mark(node) -> void:
 		node.show()
 
 func _on_new_game_focus_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($"MarginContainer/VBoxContainer/New Game/ColorRect")
 
 
@@ -178,6 +187,8 @@ func _on_new_game_focus_exited():
 
 
 func _on_new_game_mouse_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($"MarginContainer/VBoxContainer/New Game/ColorRect")
 
 
@@ -187,6 +198,8 @@ func _on_new_game_mouse_exited():
 
 
 func _on_load_focus_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($MarginContainer/VBoxContainer/Load/ColorRect2)
 
 
@@ -195,6 +208,8 @@ func _on_load_focus_exited():
 
 
 func _on_load_mouse_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($MarginContainer/VBoxContainer/Load/ColorRect2)
 
 
@@ -204,6 +219,8 @@ func _on_load_mouse_exited():
 	
 
 func _on_save_focus_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($MarginContainer/VBoxContainer/Save/ColorRect3)
 
 
@@ -212,6 +229,8 @@ func _on_save_focus_exited():
 
 
 func _on_save_mouse_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($MarginContainer/VBoxContainer/Save/ColorRect3)
 
 
@@ -221,6 +240,8 @@ func _on_save_mouse_exited():
 
 
 func _on_exit_mouse_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($MarginContainer/VBoxContainer/Exit/ColorRect4)
 
 
@@ -230,6 +251,8 @@ func _on_exit_mouse_exited():
 
 
 func _on_exit_focus_entered():
+	sound.set_stream(focus_sound)
+	sound.play()
 	toggle_focus_mark($MarginContainer/VBoxContainer/Exit/ColorRect4)
 
 

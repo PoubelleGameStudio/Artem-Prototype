@@ -1,7 +1,7 @@
 extends Node2D
 class_name LevelManager
 
-@onready var music = $AudioStreamPlayer
+@onready var music = $AudioStreamPlayer2D
 @onready var c_music: AudioStreamPlayer = AudioStreamPlayer.new()
 @export var is_raining: int 
 @export var level_name: String
@@ -29,6 +29,7 @@ func _ready():
 	
 	add_child(c_music)
 	c_music.stream = load("res://sounds/levelMusic/to battle so that we may die.wav")
+	c_music.volume_db = -10
 	
 	player.camera_current()
 	

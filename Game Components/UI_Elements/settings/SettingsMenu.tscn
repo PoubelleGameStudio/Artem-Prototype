@@ -60,6 +60,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/list/mute_sound"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 8
 text = "mute sound
@@ -68,6 +69,7 @@ label_settings = ExtResource("3_2s2es")
 vertical_alignment = 2
 
 [node name="toggle_mute_sound" type="CheckButton" parent="HBoxContainer/list/mute_sound"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_icons/checked = ExtResource("4_32224")
@@ -333,6 +335,9 @@ size_flags_horizontal = 0
 size_flags_vertical = 2
 
 [connection signal="toggled" from="HBoxContainer/list/mute_sound/toggle_mute_sound" to="." method="_on_toggle_mute_sound_toggled"]
+[connection signal="changed" from="HBoxContainer/list/combat music volume/combat_music_slider" to="." method="_on_combat_music_slider_changed"]
 [connection signal="drag_ended" from="HBoxContainer/list/combat music volume/combat_music_slider" to="." method="_on_combat_music_slider_drag_ended"]
+[connection signal="value_changed" from="HBoxContainer/list/combat music volume/combat_music_slider" to="." method="_on_combat_music_slider_value_changed"]
 [connection signal="drag_ended" from="HBoxContainer/list/world music volume/world_music_slider" to="." method="_on_world_music_slider_drag_ended"]
+[connection signal="value_changed" from="HBoxContainer/list/world music volume/world_music_slider" to="." method="_on_world_music_slider_value_changed"]
 [connection signal="toggled" from="HBoxContainer/list/hide control hints/toggle_hide_control_hints" to="." method="_on_toggle_hide_control_hints_toggled"]

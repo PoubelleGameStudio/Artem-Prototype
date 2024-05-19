@@ -4,6 +4,9 @@ class_name spell_button
 @onready var selected: Sprite2D = $selected
 @onready var button: Button = $"."
 @onready var spell_label: Label = $spell_name
+@onready var sound: AudioStreamPlayer = $AudioStreamPlayer
+@onready var confirm: AudioStream = preload("res://sounds/UI/movement_1.wav")
+@onready var focus_sound: AudioStream = preload("res://sounds/UI/block_1.wav")
 
 
 @export var spell_icon: String = ""
@@ -38,8 +41,11 @@ func setup_button() -> void:
 
 
 func _on_focus_entered():
+	if State.control_schema == 'gamepad':
+		sound.set_stream(focus_sound)
+		sound.play()
 	selected.show()
-	Input.start_joy_vibration(0,0.0,0.3,0.1)
+	Input.start_joy_vibration(0,0.9,0.5,0.1)
 
 
 func _on_focus_exited():
@@ -47,4 +53,10 @@ func _on_focus_exited():
 
 
 func _on_pressed():
+	sound.set_stream(confirm)
+	sound.play()
 	State.spell1 = spell_icon
+
+
+func _on_mouse_entered():
+	grab_focus()

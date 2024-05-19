@@ -259,6 +259,8 @@ volume_db = -22.962
 autoplay = true
 script = ExtResource("11_u6mv1")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="focus_entered" from="CanvasLayer/HBoxContainer2/New Game" to="." method="_on_new_game_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/HBoxContainer2/New Game" to="." method="_on_new_game_focus_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/HBoxContainer2/New Game" to="." method="_on_new_game_mouse_entered"]

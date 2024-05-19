@@ -14,7 +14,8 @@ config/name="Prototype"
 run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="res://icon.svg"
+config/icon="res://Art/TWC_community_icon.png"
+config/windows_native_icon="res://Art/TWC_community_icon.ico"
 
 [autoload]
 

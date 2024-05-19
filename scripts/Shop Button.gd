@@ -3,6 +3,7 @@ class_name ShopButton
 
 @export var item_name: String
 @export var item_cost: int
+@export var item_desc: String
 
 @onready var button: Button = $"."
 @onready var label: Label = $Label

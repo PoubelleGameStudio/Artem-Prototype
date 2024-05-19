@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=71 format=3 uid="uid://ftaerve5ta27"]
+[gd_resource type="SpriteFrames" load_steps=72 format=3 uid="uid://ftaerve5ta27"]
 
 [ext_resource type="Texture2D" uid="uid://iad6p5sw447b" path="res://Sprites/combat/spell effects/BloodClotHomunculus - Sprite Sheet.png" id="1_1grbb"]
 [ext_resource type="Texture2D" uid="uid://81doju5tfqyi" path="res://Sprites/combat/spell effects/CurseAllFrames.png" id="2_btrst"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dj4ugebjlc7vl" path="res://Sprites/combat/spell effects/AcidSplashAllFrames.png" id="3_x8r2o"]
 [ext_resource type="Texture2D" uid="uid://drlnkdxf1enic" path="res://Sprites/combat/spell effects/Sanguinated Shell - Sprite Sheet.png" id="4_077ab"]
 [ext_resource type="Texture2D" uid="uid://u6k2c8vj3vbp" path="res://Art/object sheets/graveyard - sprite sheet-export.png" id="5_j6l4v"]
+[ext_resource type="Texture2D" uid="uid://dj5ikldhow0y4" path="res://Sprites/combat/enemies/sorrow_shade_attack.png" id="6_0g2ot"]
 [ext_resource type="Texture2D" uid="uid://cbiid034h0hbe" path="res://Sprites/combat/spell effects/DisruptingRayAllFrames.png" id="6_s37fm"]
 [ext_resource type="Texture2D" uid="uid://doqupixaaacfy" path="res://Sprites/combat/spell effects/DarkExplosionAllFrames-export.png" id="7_vmy7y"]
 [ext_resource type="Texture2D" uid="uid://crrdu7srkj2sd" path="res://Sprites/combat/spell effects/Void Sight - sprite sheet.png" id="8_qxluj"]
@@ -123,9 +124,9 @@ region = Rect2(48, 0, 24, 24)
 atlas = ExtResource("4_077ab")
 region = Rect2(72, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gpvet"]
-atlas = ExtResource("5_j6l4v")
-region = Rect2(358, 149, 168, 106)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wmvr"]
+atlas = ExtResource("6_0g2ot")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4onp"]
 atlas = ExtResource("6_s37fm")
@@ -364,7 +365,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gpvet")
+"texture": SubResource("AtlasTexture_3wmvr")
 }],
 "loop": true,
 "name": &"Sorrow Shade",
