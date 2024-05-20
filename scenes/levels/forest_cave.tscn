@@ -295,7 +295,6 @@ interact_value = "1"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-3781.19, -566.412)
-stream = ExtResource("5_qntw2")
 autoplay = true
 max_distance = 4300.0
 attenuation = 0.482968
@@ -392,6 +391,9 @@ offset_right = 1480.0
 offset_bottom = 248.0
 mouse_filter = 2
 texture = SubResource("NoiseTexture2D_ichgr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qntw2")
 
 [connection signal="combat_entered" from="player" to="." method="_on_player_combat_entered"]
 [connection signal="combat_end" from="combatScreen" to="." method="_on_combat_screen_combat_end"]

@@ -63,7 +63,7 @@ var gold: int = 100
 var ability_points: int = 30
 
 # social trackers
-var welcomed: bool = false
+var welcomed: bool = true
 var witch_greeted: bool = 0
 var world: String
 
@@ -359,7 +359,7 @@ var quest_db ={
 	"barkeep_1":{
 		"giver":"barkeep",
 		"quest_name":"Make Some Friends",
-		"Status":0,
+		"Status":2,
 		"Items":{
 			"beer"=1,
 			"Grims Briar Room Key"=1
@@ -369,7 +369,7 @@ var quest_db ={
 	"barkeep_2":{
 		"giver":"barkeep",
 		"quest_name":"Harsh the buzz",
-		"Status":0,
+		"Status":2,
 		"Items":{
 			"get me down potion":1
 			},
@@ -378,7 +378,7 @@ var quest_db ={
 	"barkeep_3":{
 		"giver":"barkeep",
 		"quest_name":"Violent Delights",
-		"Status":0,
+		"Status":2,
 		"Items":{
 			"Tim's Lament":1,
 			"Evidence":1
@@ -388,7 +388,7 @@ var quest_db ={
 	"homebrewed":{
 		"Giver":"front_desk",
 		"quest_name":"Homebrewed",
-		"Status":0,
+		"Status":2,
 		"Items":{
 			"Void Goop":1,
 			"berries":1,

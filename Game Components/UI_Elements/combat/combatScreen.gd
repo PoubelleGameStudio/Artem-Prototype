@@ -99,6 +99,9 @@ extends Node2D
 @onready var enemy_info_observations: Label = $Control/VBoxContainer2/observationContainer/observations
 @onready var enemy_info_animation: AnimatedSprite2D = $Control/VBoxContainer2/HBoxContainer/Control/AnimatedSprite2D
 
+@onready var sound: AudioStreamPlayer = $AudioStreamPlayer
+@onready var confirm: AudioStream = preload("res://sounds/UI/movement_1.wav")
+
 
 
 
@@ -460,7 +463,10 @@ func _on_return_pressed():
 	exit_inv.hide()
 
 func _on_onepunch_pressed():
+
 	if yourTurn == 1 && State.spell1 != '' and is_casting == false:
+		sound.set_stream(confirm)
+		sound.play()
 		Input.start_joy_vibration(0,0.9,0.5,0.1)
 		is_casting = true
 		if spells[State.spell1]["class"]  == "attack" and pet.summoned == true:

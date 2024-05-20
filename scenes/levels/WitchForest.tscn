@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://dc6twae4gpv87" path="res://Game Components/UI_Elements/combat/combatScreen.tscn" id="8_ac38p"]
 [ext_resource type="Texture2D" uid="uid://dgv5apurlf6fb" path="res://Art/foliage&trees/forest_flowers.png" id="9_7vfuu"]
 [ext_resource type="PackedScene" uid="uid://cxwgljlj2pfk1" path="res://scenes/beggar.tscn" id="9_siaec"]
-[ext_resource type="AudioStream" uid="uid://dny2xui00wd45" path="res://sounds/levelMusic/the stars want you dead.wav" id="10_3ibxv"]
 [ext_resource type="Texture2D" uid="uid://0k4hs5h6wfpo" path="res://Art/ground/backgrounds/cliff_wall.png" id="10_7w8cm"]
 [ext_resource type="Texture2D" uid="uid://dtmryham4d20b" path="res://Art/buildings/energy_temple01.png" id="11_jmoxe"]
 [ext_resource type="Texture2D" uid="uid://jf326go3qori" path="res://Art/ground/stepping_stone001.png" id="11_myklg"]
@@ -37,6 +36,7 @@
 [ext_resource type="Shader" path="res://shaders/fog.gdshader" id="29_q7g8q"]
 [ext_resource type="AudioStream" uid="uid://dk4rbq3qappgy" path="res://sounds/ambient/Rain.mp3" id="30_arh7t"]
 [ext_resource type="Script" path="res://scripts/autoplay_sound.gd" id="31_ij33q"]
+[ext_resource type="AudioStream" uid="uid://nnfmrsjyjx30" path="res://sounds/levelMusic/the stars want you dead_v2.wav" id="32_b22h3"]
 [ext_resource type="TileSet" uid="uid://cib8xlrw1dmg5" path="res://themes/bug_tiles.tres" id="34_oy3gm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pqx84"]
@@ -657,7 +657,7 @@ interact_type = "respawn"
 interact_value = "1"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_3ibxv")
+stream = ExtResource("32_b22h3")
 volume_db = -25.0
 autoplay = true
 

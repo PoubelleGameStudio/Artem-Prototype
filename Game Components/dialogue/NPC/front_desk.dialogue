@@ -2,12 +2,12 @@
 
 
 if quest_db["barkeep_1"]["Status"] == 0:
-	Old Old Crusty Guy: I don't have to talk to you yet.
+	Old Crusty Guy: I don't have to talk to you yet.
 	set talking = 0
 	=> END
 
 if quest_db["barkeep_1"]["Status"] == 1:
-	Old Old Crusty Guy: I'm going to die very soon and I'd prefer you take your own room key and leave me be.
+	Old Crusty Guy: I'm going to die very soon and I'd prefer you take your own room key and leave me be.
 	do update_inventory("Grims Briar Room Key",1)
 	set talking = 0
 	=> END
@@ -41,7 +41,17 @@ if quest_db["homebrewed"]["Status"] == 1:
 		do SteamFeatures.setAchievement("ACH_Innkeeper")
 		set talking = 0
 		=> END
+
+if quest_db["homebrewed"]["Status"] == 2:
+	Artem: How did you find yourself here?
+	Old Crusty Guy: I had a small inn far from where we are now. No children, but I married the love of my life.
+	Old Crusty Guy: In all fairness I'd not had many days worth a complaint. Our land was peaceful and patrons kind.
+	Old Crusty Guy: There's a cruel beauty in bliss that only reveals itself in reflection. A loan of joy that you hope to never repay.
+	Old Crusty Guy: One spring my wife developed her usual hay cough. As always we readied the sauna to ease her burden.
+	Old Crusty Guy: Then spring gave way to the harsh summer, but her cough remained. Fall and winter saw no change.
+	Old Crusty Guy: Come spring, I no longer heard her cough. I no longer heard her laughter, her sweet hum as she ate her favorite meal.
+	Old Crusty Guy: I no longer heard her cries and pleas for the pain to cease.
+	Old Crusty Guy: I would never spit on her grave by taking my life, but there is a not a second that has passed without my notice.
+	Old Crusty Guy: Soon I will die. Soon my loan will be paid.
 	
-Old Crusty Guy: you're still bad at coding
-set talking = 0
-=> END
+	=> END

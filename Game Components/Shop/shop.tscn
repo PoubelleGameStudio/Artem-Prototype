@@ -81,7 +81,7 @@ item_desc = "Perhaps someone would want this?"
 layout_mode = 2
 focus_neighbor_left = NodePath("../Health restore2")
 item_name = "Trash Food"
-item_cost = 15
+item_cost = 5
 item_desc = "A morsel fit for a grandiose critter"
 
 [node name="sell" type="Node2D" parent="Sprite2D"]

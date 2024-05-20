@@ -47,7 +47,29 @@ elif quest_db["beer_run"]["Status"] == 1
 		[wave amp=25 freq=5]Hedo[/wave]: filled my flask you did. The creative juices flow. The gold is all yours. *You receive 10 Gold*
 		set State.talking = 0
 	=> END
-elif quest_db["beer_run"]["Status"] == 2
+elif quest_db["beer_run"]["Status"] == 2 and quest_db["barkeep_3"]["Status"] == 2:
+	Artem: How did you find yourself here?
+	Hedo: I was to be a celebrated sculptor.
+	Hedo: As soon as I could hold a chisel and mallet I started shaping my world.
+	Hedo: My family found it enjoyable to watch me work, but soon decided I should receive tutelage to nurture my passion and skill.
+	Hedo: I look at you and see a spirit of kind. You too have seen the look upon your master's face when they realize you've hopelessly outpaced them.
+	Hedo: I was sent off to live among a royal family in their monolith of self-indulgence they called a home.
+	Hedo: It was fine in the sense I lived without my true comforts of home, but never had I been more prolific 
+	Hedo: This continued for some years and as long as the royal's received the work they wanted, I was free to create and sell as I pleased.
+	Hedo: I think if anything my success outside of their castle only furthered their self-grandeur.
+	Hedo: I would send my family most of the money, and kept a small amount to eventually afford my own land and studio.
+	Hedo: It was the day I turned 18 that I lost feeling in my left hand.
+	Hedo: I hadn't been sent to live with royals.
+	Hedo: My family had sold me to them. The royals told me as much as well the reason for my ailment.
+	Hedo: Have you ever lived among vampires, Artem? Vultures in silk. They don't drink your blood, not all of them, anway.
+	Hedo: The ones who have been here before man walked, they crave something much more decadent.
+	Hedo: They want to steal the joy from their food. They want to watch as any sense of fulfillmet is ripped from your heart.
+	Hedo: Only then will they let you taste the only freedom you have left.
+	Hedo: I escaped before then. To be truthful, I flung myself from the window of my room hoping the fall would end me before they could.
+	Hedo: Turns out death would wait. Several cracked ribs and a misplaced shoulder, but slowly I floated down the river I had landed in.
+	Hedo: I turned up not far from here, and stumbled into the tavern. 
+	Hedo: Never got much feeling back in my hands, but mayor and Thorne have treated me like family since.
+elif quest_db["beer_run"]["Status"] == 2:
 	[wave amp=25 freq=5]Hedo[/wave]: leave me to my methods and head east now, muse
 	- Goodbye
 	set State.talking = 0
