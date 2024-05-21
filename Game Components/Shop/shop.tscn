@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d010sb0bdrwv5"]
+[gd_scene load_steps=9 format=3 uid="uid://d010sb0bdrwv5"]
 
 [ext_resource type="Script" path="res://Game Components/Shop/shop.gd" id="1_tntft"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="1_uo7i2"]
@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="3_bjrjc"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="4_livgh"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="5_km8cl"]
+[ext_resource type="AudioStream" uid="uid://dmvxux2ekuqrs" path="res://sounds/UI/book_open_1.wav" id="7_kkgox"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nw3a"]
 
@@ -80,7 +81,7 @@ item_desc = "Perhaps someone would want this?"
 [node name="Health restore3" parent="Sprite2D/buy/VBoxContainer/GridContainer" instance=ExtResource("3_2mlms")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../Health restore2")
-item_name = "Trash Food"
+item_name = "trash food"
 item_cost = 5
 item_desc = "A morsel fit for a grandiose critter"
 
@@ -115,6 +116,9 @@ layout_mode = 0
 offset_top = 24.0
 offset_right = 40.0
 offset_bottom = 32.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_kkgox")
 
 [connection signal="focus_entered" from="Sprite2D/buy/VBoxContainer/GridContainer/Health restore" to="." method="_on_health_restore_focus_entered"]
 [connection signal="mouse_entered" from="Sprite2D/buy/VBoxContainer/GridContainer/Health restore" to="." method="_on_health_restore_mouse_entered"]

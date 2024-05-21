@@ -76,7 +76,7 @@ interact_type = "gateway"
 interact_value = "out"
 
 [node name="player" parent="." instance=ExtResource("5_lcr0j")]
-position = Vector2(64, 104)
+position = Vector2(16, 118)
 
 [node name="mapBorders" type="Node2D" parent="."]
 
@@ -89,3 +89,8 @@ autoplay = true
 position = Vector2(64, 120)
 interact_type = "respawn"
 interact_value = "1"
+
+[node name="InteractArea" parent="." instance=ExtResource("3_3le5n")]
+position = Vector2(14.25, 152)
+scale = Vector2(2, 2)
+interact_type = "heal"

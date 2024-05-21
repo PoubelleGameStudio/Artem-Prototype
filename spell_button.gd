@@ -5,7 +5,7 @@ class_name spell_button
 @onready var button: Button = $"."
 @onready var spell_label: Label = $spell_name
 @onready var sound: AudioStreamPlayer = $AudioStreamPlayer
-@onready var confirm: AudioStream = preload("res://sounds/UI/movement_1.wav")
+@onready var confirm: AudioStream = preload("res://sounds/UI/pluck_REVERB_2.wav")
 @onready var focus_sound: AudioStream = preload("res://sounds/UI/block_1.wav")
 
 

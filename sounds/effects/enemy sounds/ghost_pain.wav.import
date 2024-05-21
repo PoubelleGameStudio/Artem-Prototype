@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b3m0a2wp0ac7i"
+path="res://.godot/imported/ghost_pain.wav-86758f43e0799fe57e3b66a40dbef31b.sample"
+
+[deps]
+
+source_file="res://sounds/effects/enemy sounds/ghost_pain.wav"
+dest_files=["res://.godot/imported/ghost_pain.wav-86758f43e0799fe57e3b66a40dbef31b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

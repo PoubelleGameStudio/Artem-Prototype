@@ -19,7 +19,9 @@ extends CharacterBody2D
 @onready var settings: Settings = $HUD/Settings
 @onready var pad_prompt: Resource = load("res://Game Components/UI_Elements/prompts/tile_0308.png")
 @onready var mkb_prompt: Resource = load("res://Game Components/UI_Elements/prompts/f.png")
-
+@onready var sound: AudioStreamPlayer = $AudioStreamPlayer
+@onready var open_book: AudioStream = preload("res://sounds/UI/book_open_1.wav")
+@onready var close_book: AudioStream = preload("res://sounds/UI/book_close_1.wav")
 
 var speed = 150.0
 var current_dir = "none"
@@ -70,6 +72,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("pause"):
 			if settings.visible == true:
 				animation.play("hud_down")
+				sound.set_stream(close_book)
+				sound.play()
 				await get_tree().create_timer(0.5).timeout
 				settings.hide()
 			else:
@@ -78,11 +82,15 @@ func _physics_process(delta):
 				settings.set_focus()
 				settings.show()
 				animation.play("hud_up")
+				sound.set_stream(open_book)
+				sound.play()
 				await get_tree().create_timer(0.5).timeout	
 
 		if Input.is_action_just_pressed("character_screen"):
 			if character_screen.visible == true:
 				animation.play("hud_down")
+				sound.set_stream(close_book)
+				sound.play()
 				await get_tree().create_timer(0.5).timeout
 				character_screen.visible = false
 			else:
@@ -92,15 +100,21 @@ func _physics_process(delta):
 				update_HUD()
 				$HUD/character_info/Inventory.set_focus()
 				animation.play("hud_up")
+				sound.set_stream(open_book)
+				sound.play()
 				await get_tree().create_timer(0.5).timeout
 		
 		if Input.is_action_just_pressed("Talents"):
 			if talents.visible == true:
 				animation.play("hud_down")
+				sound.set_stream(close_book)
+				sound.play()
 				await get_tree().create_timer(0.5).timeout
 				talents.visible = false
 			else:
 				animation.play("hud_up")
+				sound.set_stream(open_book)
+				sound.play()
 				character_screen.hide()
 				settings.hide()
 				talents.set_focus()
@@ -195,6 +209,7 @@ func shop_handler() -> void:
 		character_screen.hide()
 		shop.show()
 		animation.play("hud_up")
+		shop.doorbell()
 		shop.set_focus()
 
 
@@ -315,7 +330,11 @@ func _on_interaction_area_area_entered(area):
 	if cur_interact.interact_type == "ach":
 		SteamFeatures.setAchievement(cur_interact.interact_label)
 	
-	if cur_interact.interact_type != "secret" and cur_interact.interact_type != "ach":
+	if cur_interact.interact_type == "heal":
+		State.health = State.maxHealth
+		itemLabel.text = "Fully Healed!!"
+	
+	if cur_interact.interact_type != "secret" and cur_interact.interact_type != "ach" and cur_interact.interact_type != "heal":
 		prompt.show()
 	else:
 		print(cur_interact.interact_type)

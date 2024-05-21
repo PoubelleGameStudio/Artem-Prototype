@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=45 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c8skkvcn0ci81" path="res://Game Components/UI_Elements/Talent Tree/talentTree.tscn" id="16_unwu1"]
 [ext_resource type="PackedScene" uid="uid://d010sb0bdrwv5" path="res://Game Components/Shop/shop.tscn" id="17_3neu2"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="18_jm848"]
+[ext_resource type="AudioStream" uid="uid://dmvxux2ekuqrs" path="res://sounds/UI/book_open_1.wav" id="20_53s8o"]
 [ext_resource type="PackedScene" uid="uid://duw1coq7pkfci" path="res://Game Components/UI_Elements/settings/SettingsMenu.tscn" id="21_mnbx0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5msp"]
@@ -507,6 +508,10 @@ position = Vector2(0, -48)
 libraries = {
 "": SubResource("AnimationLibrary_j6x6j")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_53s8o")
+volume_db = -10.0
 
 [connection signal="area_entered" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_exited"]

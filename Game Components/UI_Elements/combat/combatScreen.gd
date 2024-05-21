@@ -100,7 +100,11 @@ extends Node2D
 @onready var enemy_info_animation: AnimatedSprite2D = $Control/VBoxContainer2/HBoxContainer/Control/AnimatedSprite2D
 
 @onready var sound: AudioStreamPlayer = $AudioStreamPlayer
-@onready var confirm: AudioStream = preload("res://sounds/UI/movement_1.wav")
+@onready var enemy_sounds: AudioStreamPlayer = $enemySounds
+@onready var player_damage_sound: AudioStream = preload("res://sounds/UI/combat_1.wav")
+@onready var confirm: AudioStream = preload("res://sounds/UI/pluck_REVERB_2.wav")
+@onready var ghost_pain: AudioStream = preload("res://sounds/effects/enemy sounds/ghost_pain.wav")
+@onready var techno_pain: AudioStream = preload("res://sounds/effects/enemy sounds/techno_pain.wav")
 
 
 
@@ -278,7 +282,9 @@ func enemyTurn():
 		enemyAttack.play(enemy.enemy_type)
 		enemyAttack.show()
 		spellAnimation.play("enemy cast")
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1).timeout
+		sound.set_stream(player_damage_sound)
+		sound.play()
 		if specialCounter < 5:
 			damageTaken = (enemyBook[enemy.enemy_type]["moves"]["basic"] * rng.randf_range(1,1.1))
 		else:
@@ -432,6 +438,18 @@ func endgame():
 	yourTurn = 1
 
 
+func enemy_damage_sound_player() -> void :
+	match enemy.enemy_type:
+		"ghost" : 
+			enemy_sounds.set_stream(ghost_pain)
+			enemy_sounds.volume_db = -10
+			enemy_sounds.play()
+		"Technotheist Grunt" : 
+			enemy_sounds.set_stream(techno_pain)
+			enemy_sounds.volume_db = 0
+			enemy_sounds.play()
+
+
 
 func reset():
 	burning_for = 0
@@ -469,6 +487,7 @@ func _on_onepunch_pressed():
 		sound.play()
 		Input.start_joy_vibration(0,0.9,0.5,0.1)
 		is_casting = true
+		
 		if spells[State.spell1]["class"]  == "attack" and pet.summoned == true:
 			spellTexture.show()
 			pet_spells.show()
@@ -476,14 +495,17 @@ func _on_onepunch_pressed():
 			spellTexture.play(State.spell1)
 			spellAnimation.play("spell cast")
 			await get_tree().create_timer(1).timeout
+			enemy_damage_sound_player() 
 			spellTexture.hide()
 			pet_spells.hide()
 		elif spells[State.spell1]["class"]  == "attack":
 			spellTexture.show()
 			spellTexture.play(State.spell1)
 			spellAnimation.play("spell cast")
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer(1).timeout		
+			enemy_damage_sound_player() 
 			spellTexture.hide()
+
 		is_casting = false
 		instruct.hide()
 		
@@ -495,21 +517,12 @@ func _on_onepunch_pressed():
 				yourTurn = 0
 				turn_sign.text = "Enemy Turn"
 				enemyTurn()
-	
-
-
-func _on_spell_pressed():
-	pass # Replace with function body.
-
-
 
 func _on_enemy_combat_dead():
 	combat_end.emit()
 	SteamFeatures.setAchievement("ACH_Kill")
 	reset()
 	
-
-
 
 
 func _on_inventory_ui_item_used():

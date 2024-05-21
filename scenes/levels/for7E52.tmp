@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ctvmh6j5ftr0x"]
+[gd_scene load_steps=22 format=3 uid="uid://ctvmh6j5ftr0x"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_tyufh"]
 [ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="2_baw7g"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dq881nfs51m71" path="res://Art/ground/dungeons/temple_tiles.png" id="8_rgn1j"]
 [ext_resource type="Script" path="res://scripts/autoloop music.gd" id="11_47602"]
 [ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="11_xhgop"]
-[ext_resource type="Texture2D" uid="uid://h327qqofyagm" path="res://Art/doors/cave door.png" id="12_gtu0l"]
 [ext_resource type="Shader" path="res://shaders/fog.gdshader" id="13_ebtbu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_msrwj"]
@@ -376,16 +375,12 @@ interact_value = "0"
 
 [node name="InteractArea" parent="Gateways" instance=ExtResource("2_baw7g")]
 position = Vector2(4, -68)
+monitorable = false
 interact_label = "WitchForest.tscn"
 interact_type = "gateway"
 interact_value = "out"
 
-[node name="Sprite2D" type="Sprite2D" parent="Gateways/InteractArea"]
-position = Vector2(0, -4)
-texture = ExtResource("12_gtu0l")
-
 [node name="Fog" type="TextureRect" parent="."]
-visible = false
 z_index = -1
 texture_filter = 2
 texture_repeat = 2

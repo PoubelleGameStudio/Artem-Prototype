@@ -14,6 +14,9 @@ func set_focus() -> void:
 	print(get_viewport().gui_get_focus_owner(),"shop focus")
 	
 	
+func doorbell() -> void:
+	$AudioStreamPlayer.play()
+	
 func _on_health_restore_update_gold():
 	currentGold.text = str(State.gold,"g")
 

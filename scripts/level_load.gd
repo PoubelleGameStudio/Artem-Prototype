@@ -14,6 +14,7 @@ class_name LevelManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	#signal
 	music.finished.connect(_on_music_finished)
 
@@ -29,7 +30,7 @@ func _ready():
 	
 	add_child(c_music)
 	c_music.stream = load("res://sounds/levelMusic/to battle so that we may die.wav")
-	c_music.volume_db = -10
+	c_music.volume_db = -5
 	
 	player.camera_current()
 	

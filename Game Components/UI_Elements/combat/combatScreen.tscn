@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=34 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="3_6j6h7"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://scripts/Pet.gd" id="18_dsuyw"]
 [ext_resource type="SpriteFrames" uid="uid://6qj5grt6fv4i" path="res://scenes/enemy sprites.tres" id="18_f7f8g"]
 [ext_resource type="Texture2D" uid="uid://bcranc40bjctv" path="res://Sprites/combat/spell icons/Blood Moon - talent.png" id="19_v8xaj"]
+[ext_resource type="AudioStream" uid="uid://4kj77c85j117" path="res://sounds/UI/pluck_REVERB.wav" id="21_xvpy8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
 atlas = ExtResource("4_43trn")
@@ -724,6 +725,10 @@ vertical_alignment = 2
 autowrap_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_xvpy8")
+volume_db = -15.0
+
+[node name="enemySounds" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="combatUI/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="combatUI/return" to="." method="_on_return_pressed"]

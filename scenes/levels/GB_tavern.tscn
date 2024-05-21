@@ -100,7 +100,7 @@ script = ExtResource("13_2h1p4")
 
 [node name="interaction" parent="Trashcan3" instance=ExtResource("4_7241g")]
 position = Vector2(2.11896, 2.64867)
-interact_label = "Trash Food"
+interact_label = "trash food"
 interact_type = "lootable"
 interact_value = "1"
 

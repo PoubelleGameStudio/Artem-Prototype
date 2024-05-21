@@ -722,7 +722,7 @@ scale = Vector2(1, 0.937)
 model = " "
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
-position = Vector2(626.933, -84.1793)
+position = Vector2(2811.88, -46.8696)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
 visible = false
