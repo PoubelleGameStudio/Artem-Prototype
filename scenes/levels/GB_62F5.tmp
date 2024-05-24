@@ -81,8 +81,8 @@ noise = SubResource("FastNoiseLite_te7fs")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53752"]
 shader = ExtResource("2_j31jx")
 shader_parameter/scale = Vector2(106.904, 2.54688)
-shader_parameter/y_zoom = 2.37841
-shader_parameter/water_color = Color(0, 0.392157, 0, 0.607843)
+shader_parameter/y_zoom = 0.793701
+shader_parameter/water_color = Color(0, 0.392157, 0, 0.847059)
 shader_parameter/distortion_scale = Vector2(0.05, 0.408)
 shader_parameter/intensity = 0.07
 shader_parameter/speed = 0.009
@@ -114,7 +114,7 @@ level_name = "GB_sewers"
 
 [node name="player" parent="." instance=ExtResource("2_b2s2p")]
 z_index = 1
-position = Vector2(46, -9.31165)
+position = Vector2(3617.91, 12.512)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("3_k5wee")
@@ -188,7 +188,7 @@ interact_type = "gateway"
 interact_value = "out"
 
 [node name="torch2" parent="." instance=ExtResource("9_jh4dl")]
-position = Vector2(84, -45)
+position = Vector2(84, -41)
 model = "Torch"
 
 [node name="torch3" parent="." instance=ExtResource("9_jh4dl")]
@@ -212,7 +212,7 @@ position = Vector2(3362, -41)
 model = "Torch"
 
 [node name="respawn" parent="." instance=ExtResource("4_gydm5")]
-position = Vector2(17, 9)
+position = Vector2(33, 15)
 monitorable = false
 interact_type = "respawn"
 interact_value = "1"
@@ -235,10 +235,10 @@ script = ExtResource("14_ycylw")
 z_index = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_v5t7l")
-offset_left = -1556.0
+offset_left = -1559.0
 offset_top = 32.0
-offset_right = 5752.0
-offset_bottom = 2032.0
+offset_right = 5749.0
+offset_bottom = 2435.0
 texture = SubResource("NoiseTexture2D_11tu6")
 
 [connection signal="toggled" from="secret" to="secret_tile" method="_on_secret_toggled"]

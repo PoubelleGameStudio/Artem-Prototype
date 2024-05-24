@@ -648,7 +648,7 @@ sprite_frames = SubResource("SpriteFrames_5u345")
 script = ExtResource("3_7k25k")
 
 [node name="player" parent="." instance=ExtResource("3_x4lny")]
-position = Vector2(551.092, 235.643)
+position = Vector2(325, 198)
 
 [node name="respawn" parent="." instance=ExtResource("6_d8wmu")]
 position = Vector2(413, 161)
@@ -691,6 +691,34 @@ emitter = 1
 id = "1"
 
 [node name="test_dummy" parent="enemies/ghost1" instance=ExtResource("6_d8wmu")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "ghost"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="ghost2" parent="enemies" groups=["enemies"] instance=ExtResource("13_d00uf")]
+z_index = 1
+position = Vector2(2560.1, 589.58)
+enemy_type = "ghost"
+emitter = 1
+id = "6"
+
+[node name="test_dummy" parent="enemies/ghost2" instance=ExtResource("6_d8wmu")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "ghost"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="ghost3" parent="enemies" groups=["enemies"] instance=ExtResource("13_d00uf")]
+z_index = 1
+position = Vector2(4504.26, 203.109)
+enemy_type = "ghost"
+emitter = 1
+id = "8"
+
+[node name="test_dummy" parent="enemies/ghost3" instance=ExtResource("6_d8wmu")]
 position = Vector2(8, 41)
 scale = Vector2(3, 3)
 interact_label = "ghost"
@@ -747,6 +775,20 @@ emitter = 1
 id = "5"
 
 [node name="test_dummy" parent="enemies/Technotheist Grunt2" instance=ExtResource("6_d8wmu")]
+position = Vector2(8, 41)
+scale = Vector2(3, 3)
+interact_label = "Void Squirrel"
+interact_type = "enemy"
+interact_value = "0"
+
+[node name="Technotheist Grunt3" parent="enemies" groups=["enemies"] instance=ExtResource("13_d00uf")]
+z_index = 1
+position = Vector2(3701.2, 416.697)
+enemy_type = "Technotheist Grunt"
+emitter = 1
+id = "7"
+
+[node name="test_dummy" parent="enemies/Technotheist Grunt3" instance=ExtResource("6_d8wmu")]
 position = Vector2(8, 41)
 scale = Vector2(3, 3)
 interact_label = "Void Squirrel"

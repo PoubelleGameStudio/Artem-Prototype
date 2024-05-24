@@ -252,13 +252,15 @@ func execute_interaction():
 			
 			#door logic
 			"gateway":
-				if cur_interaction.interact_value == "in":
-					State.p_locs[get_parent().level_name] = get_node("../player").global_position
-					SceneTransition.change_scene((str("res://scenes/levels/",
+				#if cur_interaction.interact_value == "in":
+				State.p_locs[get_parent().level_name] = global_position
+				SceneTransition.change_scene((str("res://scenes/levels/",
 							cur_interaction.interact_label)))
-				elif cur_interaction.interact_value == "out":
-					SceneTransition.change_scene((str("res://scenes/levels/",
-															cur_interaction.interact_label)))
+				#elif cur_interaction.interact_value == "out":
+					#SceneTransition.change_scene((str("res://scenes/levels/",
+															#cur_interaction.interact_label)))
+				if State.p_locs.has(get_parent().level_name):
+						global_position = Vector2(State.p_locs[get_parent().level_name])
 			
 			#locked door
 			"locked_door":

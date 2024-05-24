@@ -105,6 +105,7 @@ extends Node2D
 @onready var confirm: AudioStream = preload("res://sounds/UI/pluck_REVERB_2.wav")
 @onready var ghost_pain: AudioStream = preload("res://sounds/effects/enemy sounds/ghost_pain.wav")
 @onready var techno_pain: AudioStream = preload("res://sounds/effects/enemy sounds/techno_pain.wav")
+@onready var burning_sound: AudioStream = preload("res://sounds/effects/enemy sounds/fire-sound-effect-designed-fire-short-swoosh-120589.mp3")
 
 
 
@@ -366,6 +367,8 @@ func enemyTurn():
 			burning_for -= 1
 			
 			DoTEffect.show()
+			enemy_sounds.set_stream(burning_sound)
+			enemy_sounds.play()
 			DoTEffect.play("burning")
 			await get_tree().create_timer(2.0).timeout
 			
@@ -442,11 +445,23 @@ func enemy_damage_sound_player() -> void :
 	match enemy.enemy_type:
 		"ghost" : 
 			enemy_sounds.set_stream(ghost_pain)
-			enemy_sounds.volume_db = -10
+			enemy_sounds.volume_db = -15
 			enemy_sounds.play()
 		"Technotheist Grunt" : 
 			enemy_sounds.set_stream(techno_pain)
 			enemy_sounds.volume_db = 0
+			enemy_sounds.play()
+		"Void Squirrel" :
+			enemy_sounds.set_stream(ghost_pain)
+			enemy_sounds.volume_db = -15
+			enemy_sounds.play()
+		"executioner" : 
+			enemy_sounds.set_stream(ghost_pain)
+			enemy_sounds.volume_db = -15
+			enemy_sounds.play()
+		"Sorrow Shade" : 
+			enemy_sounds.set_stream(ghost_pain)
+			enemy_sounds.volume_db = -15
 			enemy_sounds.play()
 
 
@@ -462,11 +477,6 @@ func reset():
 	fieldDuration = 0
 
 
-func _on_combat_pressed():
-	if yourTurn == 1:
-		# hide buttons we don't need
-		showAttacks()
-	
 
 func _on_inventory_pressed():
 	if yourTurn == 1:
@@ -487,7 +497,6 @@ func _on_onepunch_pressed():
 		sound.play()
 		Input.start_joy_vibration(0,0.9,0.5,0.1)
 		is_casting = true
-		
 		if spells[State.spell1]["class"]  == "attack" and pet.summoned == true:
 			spellTexture.show()
 			pet_spells.show()
@@ -505,10 +514,8 @@ func _on_onepunch_pressed():
 			await get_tree().create_timer(1).timeout		
 			enemy_damage_sound_player() 
 			spellTexture.hide()
-
 		is_casting = false
 		instruct.hide()
-		
 		if casts_left > 0:
 			enemy.updateHealth(castSpell())
 			eHealth.value = enemy.health

@@ -21,8 +21,8 @@ func _ready():
 	if level_name != "title_screen":
 		SceneTransition.fade_in()
 
-	if State.p_locs.has(level_name):
-		get_node("player").global_position = State.p_locs[level_name]
+	#if State.p_locs.has(level_name):
+		#get_node("player").global_position = State.p_locs[level_name]
 
 	State.is_raining = is_raining
 	State.world = level_name
@@ -30,7 +30,7 @@ func _ready():
 	
 	add_child(c_music)
 	c_music.stream = load("res://sounds/levelMusic/to battle so that we may die.wav")
-	c_music.volume_db = -5
+	c_music.volume_db = -15
 	
 	player.camera_current()
 	

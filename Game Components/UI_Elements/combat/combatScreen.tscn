@@ -726,7 +726,7 @@ autowrap_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_xvpy8")
-volume_db = -15.0
+volume_db = -20.0
 
 [node name="enemySounds" type="AudioStreamPlayer" parent="."]
 

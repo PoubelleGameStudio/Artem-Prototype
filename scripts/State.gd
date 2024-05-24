@@ -45,7 +45,7 @@ var casts: int = 1
 var shield
 var cur_xp: int = 0
 var xp_to_next: int = 10
-var level: int = 15
+var level: int = 1
 var armor: int = 0 # physical resist
 var mana: int = 1  # still not sure about mana usage
 # var speed = 5
@@ -63,7 +63,7 @@ var gold: int = 100
 var ability_points: int = 30
 
 # social trackers
-var welcomed: bool = true
+var welcomed: bool = false
 var witch_greeted: bool = 0
 var world: String
 
@@ -359,7 +359,7 @@ var quest_db ={
 	"barkeep_1":{
 		"giver":"barkeep",
 		"quest_name":"Make Some Friends",
-		"Status":2,
+		"Status":0,
 		"Items":{
 			"beer"=1,
 			"Grims Briar Room Key"=1
@@ -369,7 +369,7 @@ var quest_db ={
 	"barkeep_2":{
 		"giver":"barkeep",
 		"quest_name":"Harsh the buzz",
-		"Status":2,
+		"Status":0,
 		"Items":{
 			"get me down potion":1
 			},
@@ -378,7 +378,7 @@ var quest_db ={
 	"barkeep_3":{
 		"giver":"barkeep",
 		"quest_name":"Violent Delights",
-		"Status":2,
+		"Status":0,
 		"Items":{
 			"Tim's Lament":1,
 			"Evidence":1
@@ -388,7 +388,7 @@ var quest_db ={
 	"homebrewed":{
 		"Giver":"front_desk",
 		"quest_name":"Homebrewed",
-		"Status":2,
+		"Status":0,
 		"Items":{
 			"Void Goop":1,
 			"berries":1,
@@ -495,7 +495,10 @@ var area_enemies = {
 		"2":0,
 		"3":0,
 		"4":0,
-		"5":0
+		"5":0,
+		"6":0,
+		"7":0,
+		"8":0
 	},
 	"energy_temple":{
 		"1":0,

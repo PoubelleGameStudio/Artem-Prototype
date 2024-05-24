@@ -29,8 +29,8 @@ set State.witch_greeted = 1
 ~ no_trash
 The Witch: Well you're a fresh face. Tell me why I shouldn't add it to the wall?
 Artem: I don't suppose you're a friend of the bartending mayor?
-The Witch: He's never caused me trouble. Will I get to say the same of you?
-Artem: Ideally. I'm Artem, a watcher.
+The Witch: He's never caused me trouble. Not sure if I'll come to say the same of you yet.
+Artem: I'm Artem, a watcher.
 The Witch: A real mixed bag, you lot. Doesn't seem you want my head, so what's brought you to my door?
 Artem: I've found myself in Grim's briar after touching this book. It apparently belongs to a local man named Tim, who distributed copies to the townies and now they've all gone missing.
 => main_path
@@ -42,7 +42,7 @@ The Witch: At least have common ground there. Do you still have it?
 Artem: *Artem hands the book over* Only folks left are a couple workers and some drunk named Hedo.
 The Witch: That misguided fool wouldn't touch anything short of first edition hardback. Helped him this time though.
 Artem: He did mention something of the sort...
-The Witch: *The witch tosses the book into a nearby cauldron*
+*The witch tosses the book into a nearby cauldron*
 Artem: Is that a productive action?
 The Witch: Quickest way to find out where it came from is to get rid of it.
 Artem: and?
@@ -79,15 +79,15 @@ The Witch: You've all you need to find your answers.
 
 ~ witch_1_turn_in
 The Witch: Was it everything you dreamed of?
-Artem: The piles of corpses...their own people.
+Artem: The corpses...their own people.
 The Witch: Horrors of flesh in the name of fielty
-Artem: How many?
-The Witch: Precisely nine. Arranged and connected in quite the peculiar manner.
+Artem: How many temples are they doing this at?
+The Witch: Nine. Arranged and connected in quite the peculiar manner.
 Artem: Peculiar?
 The Witch: The nine temples encircle their precious needle, which isn't terribly surprising, however tracing the powerlines connecting each temple etches quite the symbol.
 Artem: Their needle and everything on it runs off the power their core generates. What good would a rune do them?
-The Witch: Curious, isn't it? Like giving gills to a paper bag. 
-Artem: Whose rune is it?
+The Witch: Curious, isn't it? Like gills on a paper bag. 
+Artem: What does the rune invoke?
 The Witch: That is [wave amp=25 freq=5]truly[/wave] the best part, my duty burdened Watcher. I can feel the oscilations of the universe. I can feel them and they have fallen from harmony. I'd wondered what could have happened to create such a reaction and it appears the source has revealed itself. The owner of this rune, this etching, this [shake rate=20 level=10]greeting[/shake]...is none other than a cosmic founding father. Chaos has made their first move.
 Artem: Unprecedented clarity...
 The Witch: A precarious coincidence, is it not? A creator of existence once again speaks the same time these hardwired pscyhopaths start wiring up runes?
@@ -95,11 +95,11 @@ Artem: If you already knew all of this, then why not do something yourself?
 The Witch: I don't make it a habit to wage war with a cosmic fundamental.
 Artem: Did you orchestrate my arrival just to show me what they've built?
 The Witch: I took no action to influence your journey. I watched this moment of time and space through the infinite. I exhaled and dispersed myself atom by atom like a river across every universal instance until I found you [shake rate=20 level=10]here[/shake] in this moment. So here I am, just a witch...standing in front of a watcher...asking him to kill a god.
-Artem: You're insane
+Artem: You're insane.
 The Witch: There is a way forward to harmony, little watcher. You will see horrors beyond anything you could ever conceive. You will face spawns of chaos that level kingdoms. You will find victory. Then you will die.
 Artem: You want me to kill a god then [wave amp=25 freq=5]DIE[/wave]?
 The Witch: I don't deal in wants. I'm compelled, by a force beyond even my sight, to witness the curse of existence. It will be your compulsion to carry this curse.
-Artem: What do you even expect me to do? Demand an audience with the 3 Eso and tell them we've a received a request to assassinate one of the oldest known gods?
+Artem: What do you even expect me to do? Demand an audience with the 3 Eso and tell them we've a received a request to assassinate one of the two oldest known gods?
 The Witch: Yes, my Watcher.
 do update_quest_status("witch_1",2)
 do SteamFeature.setAchievement("ACH_Witch")

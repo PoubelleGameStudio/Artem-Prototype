@@ -205,11 +205,11 @@ script = ExtResource("1_tyufh")
 level_name = "forest_cave"
 
 [node name="respawn" parent="." instance=ExtResource("2_baw7g")]
-position = Vector2(-208, -288)
+position = Vector2(-188, -336)
 monitorable = false
 
 [node name="player" parent="." instance=ExtResource("3_o024g")]
-position = Vector2(-151.687, -901.062)
+position = Vector2(4.15942, -120.745)
 
 [node name="combatScreen" parent="." instance=ExtResource("4_sn0qy")]
 position = Vector2(-11890.3, 20.936)
@@ -385,20 +385,20 @@ position = Vector2(0, -4)
 texture = ExtResource("12_gtu0l")
 
 [node name="Fog" type="TextureRect" parent="."]
-visible = false
 z_index = -1
 texture_filter = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_f5jv4")
-offset_left = -4496.0
-offset_top = -1160.0
-offset_right = 1480.0
-offset_bottom = 248.0
+offset_left = -4492.0
+offset_top = -1180.0
+offset_right = 1484.0
+offset_bottom = 228.0
 mouse_filter = 2
 texture = SubResource("NoiseTexture2D_ichgr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qntw2")
+autoplay = true
 
 [connection signal="combat_entered" from="player" to="." method="_on_player_combat_entered"]
 [connection signal="combat_end" from="combatScreen" to="." method="_on_combat_screen_combat_end"]
