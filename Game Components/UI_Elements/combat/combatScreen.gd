@@ -72,12 +72,12 @@ extends Node2D
 		shielded = value
 		if shielded == false:
 			defend.hide()
-@onready var shield_absorbed: int = 0:
+@onready var shield_for: int = 0:
 	set(value):
-		shield_absorbed = value
-		if shield_absorbed >= State.maxHealth/2:
+		shield_for = value
+		if shield_for < 1:
 			shielded = false
-			shield_absorbed = 0
+			defend.hide()
 @onready var enemy_hit_chance: float = 1.0
 @onready var hit_lowered_for: int = 0:
 	set(value):
@@ -331,7 +331,7 @@ func enemyTurn():
 
 		# handles sanguine shell
 		if shielded:
-			shield_absorbed += damageTaken * 0.2
+			shield_for -= 1
 			State.health += damageTaken * 0.2
 			damageTaken *= 0.8
 		
@@ -470,7 +470,7 @@ func reset():
 	burning_for = 0
 	poisoned_for = 0
 	shielded = false
-	shield_absorbed = 0
+	shield_for = 0
 	pet.summoned = false
 	hit_lowered_for = 0
 	clearCombatText()

@@ -45,7 +45,7 @@ var casts: int = 1
 var shield
 var cur_xp: int = 0
 var xp_to_next: int = 10
-var level: int = 1
+var level: int = 10
 var armor: int = 0 # physical resist
 var mana: int = 1  # still not sure about mana usage
 # var speed = 5
@@ -540,7 +540,7 @@ var enemies = {
 		"drops":{
 			"Bone Dust":1
 		},
-		"lore":"Executioners are no common, rage filled spirit. They are summoned from the voidand bound to kingdoms. When the kingdom falls, the executioners roam the land cutting down all in their path."
+		"lore":"Executioners are no common, rage filled spirit. They are summoned from the void and bound to kingdoms. When the kingdom falls, the executioners roam the land cutting down all in their path."
 	},
 	# the highly volatile void squirrel. Best to kill it before it attacks
 	"Void Squirrel":{
