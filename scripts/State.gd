@@ -611,7 +611,7 @@ var enemies = {
 # all vendors and what they sell
 var Vendor_wares = {
 	"GrimsBriar":{
-		"Health Restore":{
+		"health restore":{
 			"inStock":99,
 			"cost":5
 		}
@@ -620,7 +620,7 @@ var Vendor_wares = {
 
 # item rolodex
 var items = {
-	"Health Restore":{
+	"health restore":{
 		"type":"Potion",
 		"effect":{
 			"HP":60

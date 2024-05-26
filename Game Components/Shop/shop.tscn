@@ -66,7 +66,7 @@ columns = 4
 [node name="Health restore" parent="Sprite2D/buy/VBoxContainer/GridContainer" instance=ExtResource("3_2mlms")]
 layout_mode = 2
 focus_neighbor_right = NodePath("../Health restore2")
-item_name = "Health Restore"
+item_name = "health restore"
 item_cost = 5
 item_desc = "Heals for a large amount of health"
 
@@ -74,7 +74,7 @@ item_desc = "Heals for a large amount of health"
 layout_mode = 2
 focus_neighbor_left = NodePath("../Health restore")
 focus_neighbor_right = NodePath("../Health restore3")
-item_name = "Bottle"
+item_name = "bottle"
 item_cost = 5
 item_desc = "Perhaps someone would want this?"
 

@@ -2,7 +2,11 @@ extends Control
 
 
 
-@onready var capacity = 21
+@onready var capacity: int = 21
+@onready var use_instruct: Label = $VBoxContainer/use_container/use_instruct
+@onready var drop_instruct: Label = $VBoxContainer/drop_container/drop_instruct
+@onready var use_prompt: TextureRect = $VBoxContainer/use_container/TextureRect
+@onready var drop_prompt: TextureRect = $VBoxContainer/drop_container/TextureRect
 
 #signal
 signal item_used
@@ -17,7 +21,21 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+		
 	
+func update_input_prompt() -> void:
+	if State.control_schema == "mkb":
+		use_instruct.text = "E: Drop Item"
+		drop_instruct.text = "Q: Use Item"
+		drop_prompt.hide()
+		use_prompt.hide()
+	else:
+		use_instruct.text = ": Drop Item"
+		drop_instruct.text = ": Use Item"
+		drop_prompt.show()
+		use_prompt.show()
+
+
 	
 func populate_grid() -> void:
 	var inv = State.inventory
@@ -31,6 +49,7 @@ func populate_grid() -> void:
 	
 func set_focus() -> void:
 	$grid/Slot1.grab_focus()
+	
 		
 			
 

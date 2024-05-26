@@ -648,7 +648,7 @@ sprite_frames = SubResource("SpriteFrames_5u345")
 script = ExtResource("3_7k25k")
 
 [node name="player" parent="." instance=ExtResource("3_x4lny")]
-position = Vector2(325, 198)
+position = Vector2(1361.89, 96.9782)
 
 [node name="respawn" parent="." instance=ExtResource("6_d8wmu")]
 position = Vector2(413, 161)

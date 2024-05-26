@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://2of3o36sd6rq"]
+[gd_scene load_steps=7 format=3 uid="uid://2of3o36sd6rq"]
 
 [ext_resource type="Script" path="res://Game Components/Inventory/inventory_GUI.gd" id="1_8i475"]
 [ext_resource type="PackedScene" uid="uid://bggg174d0g1dl" path="res://Game Components/Inventory/slot_gui.tscn" id="2_p73rp"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="3_k1v68"]
+[ext_resource type="Texture2D" uid="uid://d1t4je0end326" path="res://Game Components/UI_Elements/prompts/tile_0306.png" id="3_rc6tg"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="4_5qyxi"]
+[ext_resource type="Texture2D" uid="uid://c8oyx3v0etlc8" path="res://Game Components/UI_Elements/prompts/tile_0307.png" id="6_1smh8"]
 
 [node name="inventory" type="Control"]
 light_mask = 0
@@ -104,15 +106,49 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = -2
 layout_mode = 0
-offset_top = 114.0
-offset_right = 134.0
-offset_bottom = 198.0
+offset_left = 16.0
+offset_top = 74.0
+offset_right = 244.0
+offset_bottom = 310.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 71.0
+offset_bottom = 166.0
+
+[node name="use_container" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/use_container"]
+layout_mode = 2
+texture = ExtResource("3_rc6tg")
+stretch_mode = 2
+
+[node name="use_instruct" type="Label" parent="VBoxContainer/use_container"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_k1v68")
 theme_override_font_sizes/font_size = 19
-text = "E: Drop Item
-Q: Use Item"
+text = "E: Drop Item"
+label_settings = ExtResource("4_5qyxi")
+
+[node name="drop_container" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/drop_container"]
+layout_mode = 2
+texture = ExtResource("6_1smh8")
+stretch_mode = 2
+
+[node name="drop_instruct" type="Label" parent="VBoxContainer/drop_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k1v68")
+theme_override_font_sizes/font_size = 19
+text = "Q: Use Item"
 label_settings = ExtResource("4_5qyxi")
 
 [connection signal="item_used" from="grid/Slot1" to="." method="_on_slot_1_item_used"]

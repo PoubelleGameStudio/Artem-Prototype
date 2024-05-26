@@ -21,7 +21,3 @@ func setAchievement(ach) -> void:
 		Steam.setAchievement(ach)
 		print(ach, " unlocked")
 
-
-	
-#	var INIT: Dictionary = Steam.steamInit(false)
-#	print("Did Steam initialize?: "+str(INIT))
