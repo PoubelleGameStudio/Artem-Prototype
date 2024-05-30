@@ -64,7 +64,6 @@ func hover_check():
 	if $Button.is_hovered() or has_focus():
 		if Input.is_action_pressed("drop_inv_item"):
 			inv.erase(item_name)
-			$hoverName.text = ""
 			item_name = ""
 			amount -= 1
 			amountLabel.text = ""

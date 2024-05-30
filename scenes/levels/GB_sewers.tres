@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://c1t4kl645ilpj"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://c1t4kl645ilpj"]
 
 [ext_resource type="Texture2D" uid="uid://dpjgj04tynlp3" path="res://Art/object sheets/sewer - sprite sheet.png" id="1_e3od7"]
 [ext_resource type="Texture2D" uid="uid://cbooikvj3j2m8" path="res://Art/object sheets/Dungeon.png" id="2_x1oet"]
 [ext_resource type="Texture2D" uid="uid://clter1cdkwqrs" path="res://Art/object sheets/Haunted House Tile Set.png" id="3_vio7t"]
 [ext_resource type="Texture2D" uid="uid://bkv7vukehcskx" path="res://Art/object sheets/Water16x16-export.png" id="4_dwmqw"]
+[ext_resource type="Texture2D" uid="uid://c5fqqx81m1ws0" path="res://Art/object sheets/cauldron_bubbling_outline.png" id="5_d8pte"]
 [ext_resource type="Texture2D" uid="uid://cdxksfjebr6bo" path="res://Art/object sheets/kitchen_v1.png" id="5_imwu7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p8scs"]
@@ -355,6 +356,24 @@ texture_region_size = Vector2i(32, 32)
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nrq0x"]
+texture = ExtResource("5_d8pte")
+texture_region_size = Vector2i(33, 64)
+0:0/animation_columns = 9
+0:0/animation_frame_0/duration = 0.3
+0:0/animation_frame_1/duration = 0.3
+0:0/animation_frame_2/duration = 0.3
+0:0/animation_frame_3/duration = 0.3
+0:0/animation_frame_4/duration = 0.3
+0:0/animation_frame_5/duration = 0.3
+0:0/animation_frame_6/duration = 0.3
+0:0/animation_frame_7/duration = 0.3
+0:0/animation_frame_8/duration = 0.3
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.5862, 12.918, 13.75, 13.25, 10.5, 29.75, -12.25, 30.25)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rc6k"]
 texture = ExtResource("5_imwu7")
@@ -1374,3 +1393,4 @@ sources/3 = SubResource("TileSetAtlasSource_fg8mk")
 sources/1 = SubResource("TileSetAtlasSource_28v7t")
 sources/2 = SubResource("TileSetAtlasSource_inv72")
 sources/5 = SubResource("TileSetAtlasSource_8rc6k")
+sources/4 = SubResource("TileSetAtlasSource_nrq0x")

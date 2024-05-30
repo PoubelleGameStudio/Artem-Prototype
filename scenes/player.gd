@@ -340,12 +340,7 @@ func _on_interaction_area_area_entered(area):
 	if cur_interact.interact_type != "secret" and cur_interact.interact_type != "ach" and cur_interact.interact_type != "heal":
 		prompt.show()
 	else:
-		print(cur_interact.interact_type)
 		prompt.hide()
-	
-	# portal logic
-#	if cur_interact.interact_type == "portal":
-#		itemLabel.text = cur_interact.interact_label
 	
 	#sets up the combat vars and launching combatScene
 	if cur_interact.interact_type == "enemy" and State.combat == 0:
@@ -357,9 +352,6 @@ func _on_interaction_area_area_entered(area):
 		State.talking = 1
 		combat_entered.emit()
 		State.combat = 1
-	else:
-		pass
-		
 	
 
 func _on_interaction_area_area_exited(area):

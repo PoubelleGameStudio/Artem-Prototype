@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cm3xb7d5ciskp"
+path="res://.godot/imported/stw.dialogue-958efeb1e417aa61afb4bd5d2eb0b82e.tres"
+
+[deps]
+
+source_file="res://Game Components/dialogue/NPC/stw.dialogue"
+dest_files=["res://.godot/imported/stw.dialogue-958efeb1e417aa61afb4bd5d2eb0b82e.tres"]
+
+[params]
+
+defaults=true

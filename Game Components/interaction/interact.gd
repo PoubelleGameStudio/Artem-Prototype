@@ -23,7 +23,7 @@ func talk(resource) -> void:
 	var balloon: Node = Balloon.instantiate()
 	get_tree().current_scene.add_child(balloon)
 	balloon.add_to_group("chats")
-	balloon.set_character_label_color("#FF00FF")
+	balloon.set_character_label_color("d0da91")
 	balloon.start(load(resource),"start")
 	
 func talk_end():

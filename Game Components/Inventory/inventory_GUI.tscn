@@ -122,6 +122,7 @@ offset_right = 71.0
 offset_bottom = 166.0
 
 [node name="use_container" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/use_container"]

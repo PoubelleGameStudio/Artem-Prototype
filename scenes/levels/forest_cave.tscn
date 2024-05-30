@@ -209,7 +209,7 @@ position = Vector2(-188, -336)
 monitorable = false
 
 [node name="player" parent="." instance=ExtResource("3_o024g")]
-position = Vector2(-155.57, -894.036)
+position = Vector2(-2.7146, -114.304)
 
 [node name="combatScreen" parent="." instance=ExtResource("4_sn0qy")]
 position = Vector2(-11890.3, 20.936)

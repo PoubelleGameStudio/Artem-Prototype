@@ -74,7 +74,7 @@ interact_value = "no"
 
 [node name="player" parent="." instance=ExtResource("2_n50p3")]
 z_index = 1
-position = Vector2(66.1639, 106.138)
+position = Vector2(16.9545, 106.138)
 
 [node name="Gateways" type="Node2D" parent="."]
 

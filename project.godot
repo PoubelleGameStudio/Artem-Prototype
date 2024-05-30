@@ -143,7 +143,7 @@ settings={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Game Components/dialogue/main.dialogue", "res://Game Components/dialogue/quests.dialogue", "res://Game Components/dialogue/NPC/beer_run.dialogue", "res://Game Components/dialogue/NPC/barkeep.dialogue", "res://Game Components/dialogue/NPC/front_desk.dialogue", "res://Game Components/dialogue/NPC/barback.dialogue", "res://Game Components/dialogue/NPC/pretty_lady.dialogue", "res://TrashBoy.dialogue", "res://Game Components/dialogue/NPC/TrashBoy.dialogue", "res://Game Components/dialogue/NPC/witch.dialogue", "res://Game Components/dialogue/NPC/vendor.dialogue", "res://Game Components/dialogue/NPC/tim_journal.dialogue", "res://Game Components/dialogue/NPC/energy_temple_destroy.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Game Components/dialogue/main.dialogue", "res://Game Components/dialogue/quests.dialogue", "res://Game Components/dialogue/NPC/beer_run.dialogue", "res://Game Components/dialogue/NPC/barkeep.dialogue", "res://Game Components/dialogue/NPC/front_desk.dialogue", "res://Game Components/dialogue/NPC/barback.dialogue", "res://Game Components/dialogue/NPC/pretty_lady.dialogue", "res://TrashBoy.dialogue", "res://Game Components/dialogue/NPC/TrashBoy.dialogue", "res://Game Components/dialogue/NPC/witch.dialogue", "res://Game Components/dialogue/NPC/vendor.dialogue", "res://Game Components/dialogue/NPC/tim_journal.dialogue", "res://Game Components/dialogue/NPC/energy_temple_destroy.dialogue", "res://Game Components/dialogue/NPC/stw.dialogue")
 
 [layer_names]
 

@@ -1,0 +1,49 @@
+~ start
+A bubbling cauldron that seems to maintain a perpetual temperature with no clear heat source.
+- Grab a ladle
+	do SteamFeatures.setAchievement("ACH_Stw")
+	=> stw_lore
+- Best to just leave this be
+	=> END
+
+~ stw_lore
+STW: Hello There
+Artem: Of course it talks...
+STW: Of course HE talks, thank you very much
+Artem: Yes, my apologies the sentience caught me off guard
+STW: I'm not a monster
+Artem: Are you food?
+STW: You may have noticed that I am a cauldron of stew. Please refrain from consuming me.
+Artem: Yeah that seems easy enough.
+STW: Can you tell me of the outside world?
+Artem: Can you tell me why you're soup?
+STW: Again, I am stew. The heartiest of liquid meals. Would you call a masterpiece a mere painting?
+Artem: Can you tell me why you're stew?
+STW: You're not an author, are you?
+Artem: No, I'm with the Eye.
+STW: Oof a reader, but at least you merely enable those scribbling bastards.
+Artem: Are you stew because of an author?
+STW: That would be ridiculous. They can't even get to a plot beat in 80 pages you think they could transform me into the mightiest of wet meals?
+STW: Obviously the answer is no. I have chosen the peak form, this flawlessly refined recipe, so as to hide from those typing vultures. Those ink stained narcissists.
+Artem: How long have you been down here?
+STW: Hard to say. My only concept of time to measure here are the bubbles emminating from my simmering self.
+Artem: Right.
+STW: Much like sharing your name to a demon, I obviously can't share my recipe with you, however I am happy to explain how I became so robustly flavored.
+STW: You see, I cannot stand reading. It's just word after word after word. If you're lucky they put an illustration at the start of the chapter. Of course, not Grim's Briar's finest.
+STW: We used to be a wonderful visual arts community. Paintings, charcoals, even tapestries. Then there was the wonderful musical renaissance. Everyone was picking up an instrument.
+Artem: I'm not much for jam bands.
+STW: Oh we were the finest. We'd noodle a major scale until the sun came up.
+Artem: And then the authors attacked?
+STW: They're incessant. Every new chapter they write they want you to reread the whole novel. They release a sequel? You better start from book 1. IT WAS NEVER ENDING.
+Artem: Did you offend one of them? I'm actually dealing with a similar case now.
+STW: I hope I offended every single one of them that shoved one of their glued spines into my face. However, if you're implying one of them cursed me to this luxurious form, no.
+Artem: I'm getting the idea this was by choice.
+STW: Now you're cooking with stew!
+STW: There's a witch out of in the forest. She looks kinda scary, but she's actually super chill. I asked her to help me escape from the endless assault of alleged literature.
+STW: I think she was just bored that day. She complained about how all she does is wait around for a watch or something?
+Artem: So she cursed you to stew?
+STW: She BLESSED me to stew. I don't know how you keep getting that mixed up. I get to simmer all day. If I'm looking to space out I put that heat on high and just [wave amp=25 freq=5]reduce[/wave] for a bit.
+Artem: That doesn't kill you?
+STW: Nah, I'm endless big dawg.
+do State.gold += 50
+=> END
