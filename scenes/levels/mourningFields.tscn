@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://nrjh3pnyrqby"]
+
+[ext_resource type="Script" path="res://scripts/level_load.gd" id="1_np6is"]
+[ext_resource type="PackedScene" uid="uid://b5vowrw45hndi" path="res://scenes/player.tscn" id="2_kjssl"]
+[ext_resource type="PackedScene" uid="uid://dc6twae4gpv87" path="res://Game Components/UI_Elements/combat/combatScreen.tscn" id="3_emxit"]
+[ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="4_cilgt"]
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_np6is")
+
+[node name="player" parent="." instance=ExtResource("2_kjssl")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="combatScreen" parent="." instance=ExtResource("3_emxit")]
+position = Vector2(-23979.5, -3444.41)
+
+[node name="respawn" parent="." instance=ExtResource("4_cilgt")]
+position = Vector2(17, 9)
+monitorable = false
+interact_type = "respawn"
+interact_value = "1"

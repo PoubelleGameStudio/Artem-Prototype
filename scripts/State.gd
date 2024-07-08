@@ -403,7 +403,7 @@ var quest_db ={
 		"Items":{
 			"trash food":4
 		},
-		"description":"Kindly bring Trash to the Trash God."
+		"description":"Kindly bring 4 servings trash foods to the Trash God."
 	},
 	"witch_1":{
 		"Giver":"witch",

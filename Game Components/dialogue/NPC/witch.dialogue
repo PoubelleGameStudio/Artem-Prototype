@@ -78,6 +78,7 @@ The Witch: You've all you need to find your answers.
 => END
 
 ~ witch_1_turn_in
+do SteamFeature.setAchievement("ACH_Witch")
 The Witch: Was it everything you dreamed of?
 Artem: The corpses...their own people.
 The Witch: Horrors of flesh in the name of fielty
@@ -102,9 +103,10 @@ The Witch: I don't deal in wants. I'm compelled, by a force beyond even my sight
 Artem: What do you even expect me to do? Demand an audience with the 3 Eso and tell them we've a received a request to assassinate one of the two oldest known gods?
 The Witch: Yes, my Watcher.
 do update_quest_status("witch_1",2)
-do SteamFeature.setAchievement("ACH_Witch")
+
 
 ~ witch_1_complete
 The Witch: Carry on, Artem. We'll find our paths entwined soon enough.
+do SteamFeature.setAchievement("ACH_Witch")
 
 => END
