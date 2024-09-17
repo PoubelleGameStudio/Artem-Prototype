@@ -3,7 +3,9 @@ if quest_db["Trash_1"]["Status"] == 2 and quest_db["witch_1"]["Status"] == 0:
 	=> trash_path
 elif quest_db["witch_1"]["Status"] == 0:
 	=> no_trash
-	
+
+if quest_db["witch_1"]["Status"] == 1 and quest_complete("witch_1") == false:
+	=> main_path_2
 if quest_db["witch_1"]["Status"] == 1  and quest_complete("witch_1"):
 	=> witch_1_turn_in
 if quest_db["witch_1"]["Status"] == 2:
@@ -11,67 +13,65 @@ if quest_db["witch_1"]["Status"] == 2:
 	
 ~ trash_path
 The Witch: Well you're a fresh face. Is there a reason I shouldn't add it to the wall?
-Artem: A uniquely cognizant raccoon sent me your way.
+Artem: Something between a raccoon and a god said you could help.
 The Witch: That furry little shit never takes a day off from ruining my focus.
 Artem: Is he your familiar?
 The Witch: No more than the shit I took this morning is.
 Artem: ...
-The Witch: If ever given the chance, do not partake in a relationship with a god. Even a lower one such as a god of rot.
+The Witch: Never date among the gods.
 Artem: Can't imagine I'll ever need to make that call.
-The Witch: Should you falter in my wisdom then even moreso I implore you to not expect loyalty displayed via manogomy.
+The Witch: Even by my standards they're never faithful
 Artem: I should clarify I really have no allegiance to the raccoon.
-The Witch: And should you falter once more then you're as much of a fool as I expect. Speaking of...why are you following the directions of a verbal woodland critter so as to find yourself at the stoop of a witch's home.
-Artem: Admittedly your phrasing doesn't leave much merit for me to grasp, but I'm Artem. A watcher. I was previously very far from this valley and touched a book. Now I'm here and helping the mayor find the missing locals.
-set State.witch_greeted = 1
-
+The Witch: Yet you let him send you to a witch's house in a strange forest?
+Artem: Really still in the discovery phase of things. All the same, I don't suppose you'd give this book a glance since I made the trip?
 => main_path 
 
 ~ no_trash
 The Witch: Well you're a fresh face. Tell me why I shouldn't add it to the wall?
 Artem: I don't suppose you're a friend of the bartending mayor?
-The Witch: He's never caused me trouble. Not sure if I'll come to say the same of you yet.
+The Witch: He's never caused me trouble. Will I say the same of you?
 Artem: I'm Artem, a watcher.
-The Witch: A real mixed bag, you lot. Doesn't seem you want my head, so what's brought you to my door?
+The Witch: Bit of a mixed bag, they are. What's brought you to my door?
 Artem: I've found myself in Grim's briar after touching this book. It apparently belongs to a local man named Tim, who distributed copies to the townies and now they've all gone missing.
 => main_path
 
 ~ main_path
 The Witch: Make a habit of touching strange books?
-Artem: Only the enticing ones.
-The Witch: At least have common ground there. Do you still have it?
-Artem: *Artem hands the book over* Only folks left are a couple workers and some drunk named Hedo.
-The Witch: That misguided fool wouldn't touch anything short of first edition hardback. Helped him this time though.
-Artem: He did mention something of the sort...
-*The witch tosses the book into a nearby cauldron*
-Artem: Is that a productive action?
+Artem: Just the interesting ones.
+Artem hands the book over
+Artem:Copies in Grims Briar were charmed with relocation. Only folks left are a couple workers and some drunk named Hedo.
+The Witch: That misguided fool wouldn't touch anything short of hand-bound, first edition hardback.
+The witch tosses the book into a nearby cauldron
+Artem: Is that productive?
 The Witch: Quickest way to find out where it came from is to get rid of it.
-Artem: and?
-The Witch: It seems you're finally in the right place at the right time.
-Artem: That's an evasive answer.
-The Witch: I take it you didn't notice how uniform the page cuts and binding were?
-Artem: A town full of artists can't produce a well made book?
-The Witch: That town full of artists would never call this a well made book. They live for rough edges and pulled stitches. Perfection is the only flaw they refuse; it's what makes their art truly theirs. It seems Tim's publisher was none other than our infamous techies.
-Artem: Tim was in contact with The Needle...but how were either of them able to enchant it?
-The Witch: Far from an enchantment, burdened one. This was a curse, and no ordinary one...
-Artem: I'm concerned at what you would consider extraordinary
+A plume of purple and red smoke twists unnaturally from the cauldron
+The Witch: The page cuts and binding gave it away. The townies would never make this.
+Artem: They can't put a book together?
+The Witch: Those townies live for rough edges and pulled stitches. Perfection is the only flaw they refuse; it's what makes their art truly theirs. This is a product of those rodents in their spire.
+Artem: Tim was in contact with The Needle, but the mayor didn't mention he could cast charms.
+The Witch: Far from a charm, burdened one. This was a curse. A curse that reeks.
+Artem: Reeks of what?
 The Witch: I have a theory. However, I'd like you to do something for me that will benefit the both of us.
-Artem: ...and what would that be?
-The Witch: As a watcher I'm sure you're aware of how painfully close we are to the Needle. That wasn't always the case, but as time marches forward so do their perceived property lines.
+Artem: ...What would that be?
+The Witch: As a watcher, I'm sure you're aware of how painfully close we are to the Needle. As time marches forward so do their perceived property lines.
 Artem: You want me to settle a land dispute?
-The Witch: No. I want you to find those walking circuit boards and kill them. Then you'll make sure their precious energy temple will never generate an ounce of power again.
+The Witch: No. I want you to find those walking circuit boards, kill them, and desecrate their corpses. Then you'll make sure their precious energy temple will never generate an ounce of power again.
 Artem: I'm not a mercenary
-The Witch: Then don't kill them if you haven't the stomach, though they likley won't share your sentiment. Regardless, until they're no longer a nuisance to my home, and my work, you won't find me lifting a finger for you.
+The Witch: Fine. Then don't kill them if you haven't the stomach, though they won't share your sentiment. Regardless, until they're no longer a nuisance to my home, and my work, you won't find me lifting a finger for you.
+do update_quest_status("witch_1",1)
+=> main_path_2
+
+~ main_path_2
 Artem: Is this temple something new of theirs?
-The Witch: I found one of their lackey's poking around my garden and we had a truly delightful chat...
-Artem: And then you let him be on his way?
-The Witch: Whatever sets your heart straight, dear. It would appear, though, they've had a breakthrough communicating with their god and are receiving direction with unprecedented clarity. Among that direction is to construct these temples. They route their power through them and at the center of their grand circuitry is a sinner.
+The Witch: I found one of their lackey's poking around my garden and we had a truly englightening chat...
+Artem: I don't suppose you then sent him on his way?
+The Witch: In so many words, yes. It told me they've had a breakthrough communicating with their god and are receiving direction with unprecedented clarity. Among that direction is to construct these temples. They route their power through them and at the center of their grand circuitry is a sinner.
 Artem: At the center?
 The Witch: Dead center, even. It would seem their god has stated that by placing these sinners into the energy's path it both purifies their vessel and strengthens the energy that passes through. Something about it challenging their sin.
 Artem: They're killing them? 
 The Witch: By the dozens if not hundreds at this point. They fry them until their little light finally goes out.
 Artem: How many temples are there?
 The Witch: More than any of us would care for, but I've said enough for now.
-do update_quest_status("witch_1",1)
 
 ~ witch_1_in_prog
 The Witch: You've all you need to find your answers.
@@ -106,7 +106,7 @@ do update_quest_status("witch_1",2)
 
 
 ~ witch_1_complete
-The Witch: Carry on, Artem. We'll find our paths entwined soon enough.
 do SteamFeature.setAchievement("ACH_Witch")
+The Witch: Carry on, Artem. We'll find our paths entwined soon enough.
 
 => END

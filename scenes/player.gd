@@ -23,7 +23,7 @@ extends CharacterBody2D
 @onready var open_book: AudioStream = preload("res://sounds/UI/book_open_1.wav")
 @onready var close_book: AudioStream = preload("res://sounds/UI/book_close_1.wav")
 
-var speed = 150.0
+var speed = 110.0
 var current_dir = "none"
 var world = ''
 
@@ -334,8 +334,9 @@ func _on_interaction_area_area_entered(area):
 		SteamFeatures.setAchievement(cur_interact.interact_label)
 	
 	if cur_interact.interact_type == "heal":
-		State.health = State.maxHealth
-		itemLabel.text = "Fully Healed!!"
+		if State.health < State.maxHealth:
+			State.health = State.maxHealth
+			itemLabel.text = "Fully Healed!!"
 	
 	if cur_interact.interact_type != "secret" and cur_interact.interact_type != "ach" and cur_interact.interact_type != "heal":
 		prompt.show()

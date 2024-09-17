@@ -502,6 +502,7 @@ fixed_fps = 144
 [node name="voice" type="AudioStreamPlayer" parent="."]
 
 [node name="prompt" type="Sprite2D" parent="."]
+visible = false
 z_index = 98
 position = Vector2(0, -48)
 

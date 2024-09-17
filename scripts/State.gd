@@ -45,7 +45,7 @@ var casts: int = 1
 var shield
 var cur_xp: int = 0
 var xp_to_next: int = 10
-var level: int = 1
+var level: int = 20
 var armor: int = 0 # physical resist
 var mana: int = 1  # still not sure about mana usage
 # var speed = 5
@@ -520,6 +520,9 @@ var area_enemies = {
 		"5":0,
 		"6":0,
 		"7":0
+	},
+	"mourning_fields":{
+		"1":0
 	}
 }
 
