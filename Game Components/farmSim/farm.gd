@@ -14,8 +14,11 @@ func _process(delta):
 
 func next_day() -> void:
 	day += 1
-	pass
+	grow_crops()
+
 	
 func grow_crops() -> void:
 	var crops: Array = get_children()
-	pass
+	
+	for crop in crops:
+		crop.grow_crop()

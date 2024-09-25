@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://Game Components/farmSim/farm.gd" id="1_556bo"]
 
-[node name="Node2D" type="Node2D"]
+[node name="farm_system" type="Node2D"]
 script = ExtResource("1_556bo")
