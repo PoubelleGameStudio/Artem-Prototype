@@ -265,4 +265,3 @@ func _on_blood_moon_pressed():
 	TalentDesc.text = blood_moon.description
 	TalentType.text = str("Type: ",blood_moon.talentType)
 	lvl_req.text = str("Unlock at level: ",blood_moon.required_level)
-

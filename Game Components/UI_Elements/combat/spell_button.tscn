@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpv6cisbc7uye"]
+[gd_scene load_steps=7 format=3 uid="uid://dpv6cisbc7uye"]
 
 [ext_resource type="Script" path="res://spell_button.gd" id="1_6wj0f"]
 [ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="2_a4len"]
 [ext_resource type="Texture2D" uid="uid://bdmndm760hohn" path="res://Sprites/combat/spell icons/fireball.png" id="2_tg7fk"]
 [ext_resource type="LabelSettings" uid="uid://b8gkxf5wk0pdu" path="res://scenes/character_info.tres" id="4_f2866"]
 [ext_resource type="AudioStream" uid="uid://fgyevrk0kddx" path="res://sounds/UI/block_1.wav" id="5_sa8xo"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xy7do"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_833re"]
 
@@ -15,7 +13,6 @@ custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0
 size_flags_horizontal = 4
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_xy7do")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_833re")
 icon = ExtResource("2_tg7fk")
 flat = true
@@ -44,7 +41,7 @@ label_settings = ExtResource("4_f2866")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_sa8xo")
-volume_db = -10.0
+volume_db = -25.0
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

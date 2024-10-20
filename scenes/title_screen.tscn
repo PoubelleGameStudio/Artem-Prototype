@@ -38,17 +38,17 @@ scale_min = 0.5
 scale_max = 0.55
 color = Color(1, 0.917647, 1, 0.45098)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wr5ty"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cthy1"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0kpnj"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wr5ty"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5v1nd"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_43dif"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0kpnj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btbyn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_43dif"]
 
 [node name="root" type="Node2D"]
 position = Vector2(0.144531, -4.02728)
@@ -194,8 +194,8 @@ metadata/_edit_use_anchors_ = true
 [node name="New Game" type="Button" parent="CanvasLayer/HBoxContainer2"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Load")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_wr5ty")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cthy1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wr5ty")
 icon = ExtResource("7_knn8c")
 flat = true
 
@@ -219,8 +219,8 @@ color = Color(0.431373, 1, 0.388235, 1)
 layout_mode = 2
 focus_neighbor_top = NodePath("../New Game")
 focus_neighbor_bottom = NodePath("../Save")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0kpnj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5v1nd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0kpnj")
 icon = ExtResource("8_m5rxt")
 flat = true
 
@@ -236,8 +236,8 @@ color = Color(0.431373, 1, 0.388235, 1)
 [node name="Exit" type="Button" parent="CanvasLayer/HBoxContainer2"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Save")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_43dif")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_btbyn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_43dif")
 text = "
 "
 icon = ExtResource("9_ljm66")

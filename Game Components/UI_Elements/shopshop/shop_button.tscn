@@ -7,24 +7,24 @@
 [ext_resource type="AudioStream" uid="uid://vsim0r354tcc" path="res://sounds/UI/683098__florianreichelt__click.mp3" id="4_5o0q4"]
 [ext_resource type="AudioStream" uid="uid://ci8s2vnqwqegj" path="res://sounds/UI/270401__littlerobotsoundfactory__menu_select_00.wav" id="5_1rp2e"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5kfod"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8do3l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n5unx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xd773"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5p7nj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n5unx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8do3l"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5kfod"]
 
 [node name="Button" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5kfod")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8do3l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n5unx")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_xd773")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5p7nj")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_n5unx")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8do3l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5kfod")
 icon = ExtResource("2_kl1nh")
 script = ExtResource("1_hk6q2")
 

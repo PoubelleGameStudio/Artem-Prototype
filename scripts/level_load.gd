@@ -45,13 +45,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
+	if combat && !c_music.playing:
+		c_music.play()
 
 	# makes sure music isn't playing when in dialogue
-	if State.mute_sound == false:
-		if State.talking == 1:
-			music.volume_db = -30
-		else:
-			music.volume_db = State.world_music_slider_value
+	if State.mute_sound == false && State.talking == 1:
+		music.volume_db = -30
+	else:
+		music.volume_db = State.world_music_slider_value
 
 
 

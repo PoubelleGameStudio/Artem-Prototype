@@ -18,15 +18,15 @@
 [ext_resource type="Texture2D" uid="uid://u1o4y3myupms" path="res://Game Components/UI_Elements/prompts/tile_0553.png" id="11_oee24"]
 [ext_resource type="Texture2D" uid="uid://bjeg8thrf28g8" path="res://Game Components/UI_Elements/prompts/tile_0554.png" id="12_vt1uf"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sk0y7"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8v8l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqa5o"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8v8l"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b6yr6"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sk0y7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7qm7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b6yr6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_06m15"]
 
@@ -47,6 +47,7 @@ scale = Vector2(0.6125, 0.611407)
 texture = ExtResource("2_ld3py")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+texture_filter = 4
 layout_mode = 0
 offset_left = 192.0
 offset_right = 368.0
@@ -72,11 +73,11 @@ vertical_alignment = 2
 visible = false
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l8v8l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lqa5o")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sk0y7")
 theme_override_icons/checked = ExtResource("4_32224")
 theme_override_icons/unchecked = ExtResource("5_6sp4m")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_sk0y7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_lqa5o")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_l8v8l")
 icon_alignment = 1
 
 [node name="combat music volume" type="HBoxContainer" parent="HBoxContainer/list"]
@@ -129,10 +130,10 @@ vertical_alignment = 2
 [node name="toggle_hide_control_hints" type="CheckButton" parent="HBoxContainer/list/hide control hints"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v7qm7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b6yr6")
 theme_override_icons/checked = ExtResource("4_32224")
 theme_override_icons/unchecked = ExtResource("5_6sp4m")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_b6yr6")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_v7qm7")
 icon_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/list"]

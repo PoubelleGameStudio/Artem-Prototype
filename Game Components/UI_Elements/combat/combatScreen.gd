@@ -156,8 +156,8 @@ func combat_data():
 	eNameLabel.text = enemy.enemy_type
 	enemy.enemyHealth()
 	enemy.enemySprite.play(str(enemy.enemy_type,"_idle"))
-	eHealth.value = enemy.health
 	eHealth.max_value = enemy.max_health
+	eHealth.value = enemy.health
 	inv_ui.populate_grid()
 	$combatUI/spellSelect/Control/VBoxContainer/Invoke/Fireball.grab_focus()
 	
@@ -216,7 +216,7 @@ func castSpell() -> int:
 			combatTextUpdate(str(enemy.enemy_type," is poisoned"))
 		"Void":
 			if State.spell1 == "Hollowed Threats":
-				attack_reduced_by -= 0.2
+				attack_reduced_by = 0.2
 				attack_reduced_for = 3
 				combatTextUpdate(str(enemy.enemy_type,"'s strength reduced"))
 			elif State.spell1 == "Void Sight":
@@ -283,7 +283,7 @@ func enemyTurn():
 		enemyAttack.play(enemy.enemy_type)
 		enemyAttack.show()
 		spellAnimation.play("enemy cast")
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(1).timeout # let the below trigger off animation played?
 		sound.set_stream(player_damage_sound)
 		sound.play()
 		if specialCounter < 5:
@@ -299,16 +299,8 @@ func enemyTurn():
 				var reduce = (100 - State.rVoid) * .01
 				damageTaken *= reduce
 
-			"void":
+			"fire":
 				var reduce = (100 - State.rFire) * .01
-				damageTaken *= reduce
-
-			"frost":
-				var reduce = (100 - State.rFrost) * .01
-				damageTaken *= reduce
-
-			"arcane":
-				var reduce = (100 - State.rArcane) * .01
 				damageTaken *= reduce
 
 			"blood":
@@ -319,33 +311,35 @@ func enemyTurn():
 				var reduce = (100 - State.armor) * .01
 				damageTaken *= reduce
 
-		if specialCounter == 5:
-			specialCounter = 0
+		if specialCounter == 5: # TODO add set func to handle reset instead
+			specialCounter = 0  #  if specialCounter is > 5 then = 0
 		else:
 			specialCounter += 1
 		
 		# handles damage reduction trait
 		if State.t_shield:
 			print("dmg reduced")
-			damageTaken *= 0.85
+			damageTaken *= 0.75
 
 		# handles sanguine shell
 		if shielded:
+			print(str("pre shield damage taken: ",damageTaken))
 			shield_for -= 1
 			State.health += damageTaken * 0.2
 			damageTaken *= 0.8
+			print(str("adjusted damage taken: ",damageTaken))
 		
 		# handles hollowed threats
 		if attack_reduced_for > 0:
-			damageTaken *= attack_reduced_by
+			damageTaken *= (1.0 - attack_reduced_by)
 			attack_reduced_for -= 1
 			
 		# handles void sight
 		if hit_lowered_for > 0 :
 			if rng.randf_range(0.0,1.0) > enemy_hit_chance:
 				hit_lowered_for -= 1
-				print("enemy missed")
 				yourTurn = 1
+				casts_left = State.casts
 				return
 		
 		# handles vapid affliction effect 
@@ -397,11 +391,11 @@ func enemyTurn():
 		
 		
 		statusEffect.text = burningText + poisonedText
-		yourTurn = 1
 		if fieldDuration > 0:
 			fieldDuration -= 1
 		turn_sign.text = "Your Turn"
 		casts_left = State.casts
+		yourTurn = 1
 		if State.health < 1:
 			death.emit()
 			reset()
@@ -491,39 +485,40 @@ func _on_return_pressed():
 	exit_inv.hide()
 
 func _on_onepunch_pressed():
-
-	if yourTurn == 1 && State.spell1 != '' and is_casting == false:
-		sound.set_stream(confirm)
-		sound.play()
-		Input.start_joy_vibration(0,0.9,0.5,0.1)
-		is_casting = true
-		if spells[State.spell1]["class"]  == "attack" and pet.summoned == true:
-			spellTexture.show()
-			pet_spells.show()
-			pet_spells.play(State.spell1)
-			spellTexture.play(State.spell1)
-			spellAnimation.play("spell cast")
-			await get_tree().create_timer(1).timeout
-			enemy_damage_sound_player() 
-			spellTexture.hide()
-			pet_spells.hide()
-		elif spells[State.spell1]["class"]  == "attack":
-			spellTexture.show()
-			spellTexture.play(State.spell1)
-			spellAnimation.play("spell cast")
-			await get_tree().create_timer(1).timeout		
-			enemy_damage_sound_player() 
-			spellTexture.hide()
-		is_casting = false
-		instruct.hide()
-		if casts_left > 0:
-			enemy.updateHealth(castSpell())
-			eHealth.value = enemy.health
-			casts_left -= 1
-			if casts_left == 0:
-				yourTurn = 0
-				turn_sign.text = "Enemy Turn"
-				enemyTurn()
+	
+	if casts_left > 0 :
+		if yourTurn == 1 && State.spell1 != '' && is_casting == false:
+			sound.set_stream(confirm)
+			sound.play()
+			Input.start_joy_vibration(0,0.9,0.5,0.1)
+			is_casting = true
+			if spells[State.spell1]["class"]  == "attack" and pet.summoned == true:
+				spellTexture.show()
+				pet_spells.show()
+				pet_spells.play(State.spell1)
+				spellTexture.play(State.spell1)
+				spellAnimation.play("spell cast")
+				await get_tree().create_timer(1).timeout
+				enemy_damage_sound_player() 
+				spellTexture.hide()
+				pet_spells.hide()
+			elif spells[State.spell1]["class"]  == "attack":
+				spellTexture.show()
+				spellTexture.play(State.spell1)
+				spellAnimation.play("spell cast")
+				await get_tree().create_timer(1).timeout		
+				enemy_damage_sound_player() 
+				spellTexture.hide()
+			is_casting = false
+			instruct.hide()
+			if casts_left > 0:
+				enemy.updateHealth(castSpell())
+				eHealth.value = enemy.health
+				casts_left -= 1
+				if casts_left == 0:
+					yourTurn = 0
+					turn_sign.text = "Enemy Turn"
+					enemyTurn()
 
 func _on_enemy_combat_dead():
 	combat_end.emit()

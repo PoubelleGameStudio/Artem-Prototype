@@ -59,4 +59,4 @@ func _on_pressed():
 
 
 func _on_mouse_entered():
-	grab_focus()
+	pass # grab_focus()

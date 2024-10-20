@@ -1,4 +1,2 @@
 extends Resource
 class_name SettingsConfig
-
-

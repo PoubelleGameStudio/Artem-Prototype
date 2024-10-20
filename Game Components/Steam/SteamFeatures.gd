@@ -20,4 +20,3 @@ func setAchievement(ach) -> void:
 	else:
 		Steam.setAchievement(ach)
 		print(ach, " unlocked")
-

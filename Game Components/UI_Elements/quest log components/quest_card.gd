@@ -17,5 +17,3 @@ func _process(delta):
 	$MarginContainer/VBoxContainer/HBoxContainer/quest_name.text = quest_name
 	$MarginContainer/VBoxContainer/quest_desc.text = quest_desc
 	$MarginContainer/VBoxContainer/quest_status.text = str(status)
-
-

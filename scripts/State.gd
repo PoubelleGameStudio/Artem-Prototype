@@ -31,16 +31,16 @@ var weapon: String = 'dagger of belonging'
 
 
 # stats
-var maxHealth: int = 100
+var maxHealth: int = 200
 var bonusMaxHealth: float = 1.0:
 	set(value):
 		bonusMaxHealth = value
 		maxHealth = (bonusMaxHealth) * baseMaxHealth
-var baseMaxHealth: int = 100:
+var baseMaxHealth: int = 200:
 	set(value):
 		baseMaxHealth = value
 		maxHealth = (bonusMaxHealth) * baseMaxHealth
-var health: int = 100
+var health: int = 200
 var casts: int = 1
 var shield
 var cur_xp: int = 0
@@ -180,7 +180,7 @@ func shop_handler() -> void:
 					" one of the many quest narratives from the full version of the game. Take your",
 					" time exploring and reveal the true evil closing in on Artem. Enjoy :)"
 				)
-		,"seen":1
+		,"seen":0
 		}
 }
 
@@ -228,7 +228,7 @@ func shop_handler() -> void:
 	},
 	"Hollowed Threats":{
 		"name":"Hollowed Threats",
-		"description":"Seep your opponent in void energy weakening their attack by 10%",
+		"description":"Seep your opponent in void energy weakening their attack by 20%",
 		"learned":0,
 		"level":5,
 		"damage":0,
@@ -298,13 +298,13 @@ func check_for_new_traits() -> void:
 		"name":"HP+",
 		"description":"Your fortitude has never been so powerful.",
 		"learned":0,
-		"level":15,
+		"level":10,
 		},
 	"Attack+":
 		{"name":"Attack+",
 		"description":"Increase your damage output even further.",
 		"learned":0,
-		"level":15,
+		"level":20,
 		},
 	"Extra Action":
 		{"name":"Extra Action",
@@ -446,7 +446,7 @@ func update_quest_status(quest,status) -> void:
 	if status == 2:
 		for item in items:
 			inventory[item]-=int(quest_db[quest]["Items"][str(item)])
-		cur_xp += round(pow(State.level,1.5)+State.level*3.3)
+		cur_xp += round(pow(State.level,2.5)+State.level*3.3)
 		level_up()
 
 
@@ -574,7 +574,7 @@ var enemies = {
 			"special":45
 		},
 		"drops":{
-			"Health Restore":1
+			"health restore":1
 		},
 		"lore":"By all accounts ghosts are your run of the mill spirits. Often tied to the land or structure by some emotion. If they weren't so violent you could just leave them be."
 	},
@@ -590,9 +590,25 @@ var enemies = {
 			"special":45
 		},
 		"drops":{
-			"Health Restore":1
+			"health restore":1
 		},
 		"lore":"A radicalized citizen of the Needle now warped by technotheological propaganda. Their quest for purity in the eye of their god has lead them to commit attrocities against their own."
+	},
+	"Ascended Technotheist":{
+		"health":200,
+		"speed":5,
+		"defeated":0,
+		"armor":0,
+		"type": "void",
+		"resists":"void",
+		"moves":{
+			"basic":25,
+			"special":55
+		},
+		"drops":{
+			"health restore":5
+		},
+		"lore":"A high ranking member of the technotheist theocratic structure. Having reached a form of pure technology the ascended no longer resemble any form of human."
 	},
 	"Sorrow Shade":{
 		"health":40,
@@ -606,7 +622,7 @@ var enemies = {
 			"special":20,
 		},
 		"drops":{
-			"Health Restore":2
+			"health restore":2
 		},
 		"lore":"Created when a living being dies a truly horrific death. In their final moments, realizing their fate, the soul turns vengeful and fills with hatred. They also tends to attract nearby shades."
 	}
@@ -649,5 +665,3 @@ var gear = {
 		"type": "dagger"
 	}
 }
-
-

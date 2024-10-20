@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://du58gfnyy5wpj"
-path="res://.godot/imported/Silver.ttf-c95dd6a20fc94d2052b97bd94862e88e.fontdata"
+uid="uid://tdovc51bifn8"
+path="res://.godot/imported/CRUMPLED.ttf-9cc602cbd16c6d340f37f2dd1a1c0822.fontdata"
 
 [deps]
 
-source_file="res://Game Components/fonts/Silver.ttf"
-dest_files=["res://.godot/imported/Silver.ttf-c95dd6a20fc94d2052b97bd94862e88e.fontdata"]
+source_file="res://Game Components/fonts/CRUMPLED.ttf"
+dest_files=["res://.godot/imported/CRUMPLED.ttf-9cc602cbd16c6d340f37f2dd1a1c0822.fontdata"]
 
 [params]
 
@@ -20,8 +20,8 @@ multichannel_signed_distance_field=true
 msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
-force_autohinter=false
-hinting=2
+force_autohinter=true
+hinting=0
 subpixel_positioning=0
 oversampling=0.0
 Fallbacks=null

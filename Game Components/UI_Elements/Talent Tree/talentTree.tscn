@@ -1,10 +1,10 @@
-[gd_scene load_steps=52 format=3 uid="uid://c8skkvcn0ci81"]
+[gd_scene load_steps=51 format=3 uid="uid://c8skkvcn0ci81"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/Talent Tree/talentTree.gd" id="1_jmed0"]
 [ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="2_t0owy"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="2_w43jx"]
-[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="3_bb1tu"]
+[ext_resource type="FontFile" uid="uid://tdovc51bifn8" path="res://Game Components/fonts/CRUMPLED.ttf" id="3_hcpoh"]
 [ext_resource type="Texture2D" uid="uid://d11wrjcwmffb5" path="res://Sprites/combat/spell icons/Sacred Kindling.png" id="6_e6b38"]
 [ext_resource type="Texture2D" uid="uid://c1qyxdxyd0j4h" path="res://Sprites/combat/spell icons/Extra Action.png" id="7_dsysm"]
 [ext_resource type="Texture2D" uid="uid://bo1o03unrmgk3" path="res://Sprites/combat/spell icons/Shield+.png" id="8_6sv8i"]
@@ -21,76 +21,72 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cflig"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ba1b8"]
-font = ExtResource("3_bb1tu")
-font_size = 42
+font = ExtResource("3_hcpoh")
+font_size = 25
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0.537255, 1)
-shadow_size = 0
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6q6j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jybwg"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6q6j"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vq4ym"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8n0d"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srxep"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7txmj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kobio"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_srxep"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1c8s"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsmqw"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kobio"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mljab"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nx10a"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsmqw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_va31v"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0tb0"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nx10a"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvg1d"]
 
-[sub_resource type="Theme" id="Theme_22j28"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0tb0"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yld72"]
+[sub_resource type="Theme" id="Theme_22j28"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4m4g"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmea8"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yld72"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3vwr"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7tupi"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmea8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37wyq"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ud3x2"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7tupi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vr8le"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bxbq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ud3x2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihux3"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsrlo"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bxbq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41fsf"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mcjie"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsrlo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0kt5q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7wc8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4idi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_miidw"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7wc8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0kt5q"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mcjie"]
 
 [node name="TalentTree" type="Control"]
 light_mask = 0
@@ -103,7 +99,7 @@ script = ExtResource("1_jmed0")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
-offset_left = -112.0
+offset_left = -95.0
 offset_right = 260.0
 offset_bottom = 272.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_cflig")
@@ -119,19 +115,12 @@ layout_mode = 2
 
 [node name="background" type="Sprite2D" parent="PanelContainer"]
 light_mask = 0
-position = Vector2(184, 104.463)
-scale = Vector2(0.6125, 0.611407)
+position = Vector2(163, 104)
+scale = Vector2(0.562255, 0.561252)
 texture = ExtResource("2_w43jx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "FIELD       TRAINING"
-label_settings = SubResource("LabelSettings_ba1b8")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -141,19 +130,30 @@ custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 5
 
 [node name="info_vbox" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin"]
 custom_minimum_size = Vector2(135, 0)
 layout_mode = 2
 
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
+texture_filter = 4
+layout_mode = 2
+theme_override_constants/line_spacing = 2
+text = "FIELD TRAINING"
+label_settings = SubResource("LabelSettings_ba1b8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TalentName" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
+texture_filter = 4
 layout_mode = 2
 text = "Name:"
 label_settings = ExtResource("2_t0owy")
 
 [node name="TalentDescription" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
+texture_filter = 3
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Welcome to the Field Training section of your Watcher's Journal! Select a trait or spell to learn more."
@@ -206,8 +206,8 @@ horizontal_alignment = 1
 [node name="Extra Action" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../HP+1")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_c6q6j")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jybwg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c6q6j")
 icon = ExtResource("7_dsysm")
 talentName = "Extra Action"
 description = "Perform a second cast each turn"
@@ -221,7 +221,6 @@ focus_neighbor_top = NodePath("../Extra Action")
 focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Sacred Kindling")
 focus_neighbor_bottom = NodePath("../Shield+")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vq4ym")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_j8n0d")
 talentName = "HP+"
 description = "Increase your total health by 10"
 required_level = 10
@@ -233,8 +232,8 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../HP+1")
 focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Curse")
 focus_neighbor_bottom = NodePath("../Attack+")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_srxep")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7txmj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_srxep")
 icon = ExtResource("8_6sv8i")
 talentName = "Shield+"
 description = "Decrease damange taken by 15%"
@@ -246,8 +245,8 @@ cost = 3
 layout_mode = 2
 focus_neighbor_top = NodePath("../Shield+")
 focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Poison Swamp")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_kobio")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q1c8s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kobio")
 icon = ExtResource("9_k7y6d")
 talentName = "Attack+"
 description = "Increase damage by 20%"
@@ -302,8 +301,8 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../../../../../../char_talents/VBoxContainer/HP+1")
 focus_neighbor_right = NodePath("../../../Arcane_spells/Hollowed Threats")
 focus_neighbor_bottom = NodePath("../Curse")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_dsmqw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mljab")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dsmqw")
 icon = ExtResource("6_e6b38")
 talentName = "Sacred Kindling"
 description = "The first kindling ignited by the wielders of flame increases the damage over time damage of your fire spells"
@@ -317,8 +316,8 @@ focus_neighbor_left = NodePath("../../../../../../char_talents/VBoxContainer/Shi
 focus_neighbor_top = NodePath("../Sacred Kindling")
 focus_neighbor_right = NodePath("../../../Arcane_spells/Void Sight")
 focus_neighbor_bottom = NodePath("../Poison Swamp")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_nx10a")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_va31v")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nx10a")
 icon = ExtResource("8_75706")
 talentName = "Curse"
 description = "Chaos entangled matter attacks the soul directly."
@@ -330,8 +329,8 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../../../../../../char_talents/VBoxContainer/Attack+")
 focus_neighbor_top = NodePath("../Curse")
 focus_neighbor_right = NodePath("../../../Arcane_spells/Vapid Affliction")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_y0tb0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uvg1d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y0tb0")
 icon = ExtResource("12_86fet")
 talentName = "Poison Swamp"
 description = "Seep the ground beneath your foes feet in thick, poisonous sludge"
@@ -367,8 +366,8 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../../VBoxContainer/invoke_spells/Sacred Kindling")
 focus_neighbor_right = NodePath("../../blood_spells/Sanguinated Shell")
 focus_neighbor_bottom = NodePath("../Void Sight")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_yld72")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r4m4g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yld72")
 icon = ExtResource("13_dfx5d")
 talentName = "Hollowed Threats"
 description = "Seep your opponent in void energy weakening their attack by 10%"
@@ -382,8 +381,8 @@ focus_neighbor_left = NodePath("../../VBoxContainer/invoke_spells/Curse")
 focus_neighbor_top = NodePath("../Hollowed Threats")
 focus_neighbor_right = NodePath("../../blood_spells/Blood Clot Homunculus")
 focus_neighbor_bottom = NodePath("../Vapid Affliction")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_rmea8")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u3vwr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rmea8")
 icon = ExtResource("14_roe8q")
 talentName = "Void Sight"
 description = "Look through the void to anticipate your oppoents attacks. Increase chance to dodge by 15% for 3 turns."
@@ -395,8 +394,8 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../../VBoxContainer/invoke_spells/Poison Swamp")
 focus_neighbor_top = NodePath("../Void Sight")
 focus_neighbor_right = NodePath("../../blood_spells/Blood Moon")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_7tupi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37wyq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7tupi")
 icon = ExtResource("15_ado0h")
 talentName = "Vapid Affliction"
 description = "The void invades your foe's mind. Each turn they have an increasing chance to not attack on their next turn."
@@ -421,8 +420,8 @@ horizontal_alignment = 1
 layout_mode = 2
 focus_neighbor_left = NodePath("../../Arcane_spells/Hollowed Threats")
 focus_neighbor_bottom = NodePath("../Blood Clot Homunculus")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ud3x2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vr8le")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ud3x2")
 icon = ExtResource("16_nfr74")
 talentName = "Sanguinated Shell"
 description = "Coalesce your blood into a hardened shell absorbing 50% damage for 3 turns. When the shell expires you heal for half the amount absorbed."
@@ -435,8 +434,8 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../../Arcane_spells/Void Sight")
 focus_neighbor_top = NodePath("../Sanguinated Shell")
 focus_neighbor_bottom = NodePath("../Blood Moon")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0bxbq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ihux3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0bxbq")
 icon = ExtResource("17_pyrdo")
 talentName = "Blood Clot Homunculus"
 description = "Sacrifice 20% of your health to construct a blood clot homunculus that will copy your attacks for 20% of the damage done."
@@ -448,8 +447,8 @@ cost = 3
 layout_mode = 2
 focus_neighbor_left = NodePath("../../Arcane_spells/Vapid Affliction")
 focus_neighbor_top = NodePath("../Blood Clot Homunculus")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_vsrlo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_41fsf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vsrlo")
 icon = ExtResource("18_blfk6")
 talentName = "Blood Moon"
 description = "Increase the effects of all blood magic by 20% for 3 turns."
@@ -475,11 +474,11 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 29
-theme_override_styles/normal = SubResource("StyleBoxEmpty_mcjie")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0kt5q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g7wc8")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_e4idi")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_miidw")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_g7wc8")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0kt5q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mcjie")
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/Confirm"]
 layout_mode = 0

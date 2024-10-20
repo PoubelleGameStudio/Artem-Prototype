@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cwoq1agu7nh4w"]
+
+[ext_resource type="FontFile" uid="uid://tdovc51bifn8" path="res://Game Components/fonts/CRUMPLED.ttf" id="1_rc46r"]
+
+[resource]
+font = ExtResource("1_rc46r")
+font_size = 75

@@ -23,11 +23,9 @@ extends CharacterBody2D
 @onready var open_book: AudioStream = preload("res://sounds/UI/book_open_1.wav")
 @onready var close_book: AudioStream = preload("res://sounds/UI/book_close_1.wav")
 
-var speed = 110.0
+var speed = 120.0
 var current_dir = "none"
 var world = ''
-
-
 
 signal combat_entered
 
@@ -42,7 +40,6 @@ func _ready():
 	prompt.hide()
 	pause.hide()
 	shop.hide()
-
 
 func _unhandled_input(event):
 	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
@@ -123,36 +120,15 @@ func _physics_process(delta):
 
 
 func player_movement(_delta):
-	
-
+# setup direction of movement
 	if State.can_walk:
-		if Input.is_action_pressed("MOVE_RIGHT"):
-			current_dir = "right"
-			play_anim(1)
-			velocity.x = speed
-			velocity.y = 0
-		elif Input.is_action_pressed("MOVE_LEFT"):
-			current_dir = "left"
-			play_anim(1)
-			velocity.x = -speed
-			velocity.y = 0
-		elif Input.is_action_pressed("MOVE_DOWN"):
-			current_dir = "down"
-			play_anim(1)
-			velocity.x = 0
-			velocity.y = speed
-		elif Input.is_action_pressed("MOVE_UP"):
-			current_dir = "up"
-			play_anim(1)
-			velocity.x = 0
-			velocity.y = -speed
-		else:
-			play_anim(0)
-			velocity.x = 0
-			velocity.y = 0
-	
-	move_and_slide()
-	
+		var direction = Input.get_vector("MOVE_LEFT", "MOVE_RIGHT", "MOVE_UP", "MOVE_DOWN")
+		
+		
+		direction = direction.normalized()	
+		velocity = direction * speed	
+		move_and_slide()
+		
 
 func play_anim(movement):
 	var dir = current_dir
@@ -183,7 +159,7 @@ func play_anim(movement):
 			anim.play("down_walk")
 		elif movement == 0:
 			anim.play("idle")
-			
+		
 ######################UI Element Data#################################
 func update_HUD():
 	xp_label.text = str("XP: ",State.cur_xp,"/",State.xp_to_next," (",int((float(State.cur_xp)/State.xp_to_next)*100),"%)")
@@ -376,4 +352,3 @@ func _on_item_pressed():
 	else:
 		# play poor sound 
 		pass
-

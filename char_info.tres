@@ -1,11 +1,11 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://rpr4y5q5ktko"]
 
-[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="1_rr7dq"]
+[ext_resource type="FontFile" uid="uid://tdovc51bifn8" path="res://Game Components/fonts/CRUMPLED.ttf" id="1_8dfor"]
 
 [resource]
 line_spacing = -8.0
-font = ExtResource("1_rr7dq")
-font_size = 19
+font = ExtResource("1_8dfor")
+font_size = 18
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 0

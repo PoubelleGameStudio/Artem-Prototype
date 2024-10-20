@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://du58gfnyy5wpj"
-path="res://.godot/imported/Silver.ttf-c95dd6a20fc94d2052b97bd94862e88e.fontdata"
+uid="uid://cn8h0j1rg426y"
+path="res://.godot/imported/GhoulFriAOE.ttf-c8ac3e54550453a132b879de3b8714f1.fontdata"
 
 [deps]
 
-source_file="res://Game Components/fonts/Silver.ttf"
-dest_files=["res://.godot/imported/Silver.ttf-c95dd6a20fc94d2052b97bd94862e88e.fontdata"]
+source_file="res://Game Components/fonts/GhoulFriAOE.ttf"
+dest_files=["res://.godot/imported/GhoulFriAOE.ttf-c8ac3e54550453a132b879de3b8714f1.fontdata"]
 
 [params]
 
@@ -16,13 +16,13 @@ Rendering=null
 antialiasing=1
 generate_mipmaps=false
 disable_embedded_bitmaps=true
-multichannel_signed_distance_field=true
+multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
-hinting=2
-subpixel_positioning=0
+hinting=1
+subpixel_positioning=1
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]

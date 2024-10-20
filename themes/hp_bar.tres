@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=4 format=3 uid="uid://c1pntnyw8t772"]
 
-[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="1_ffiin"]
+[ext_resource type="FontFile" uid="uid://tdovc51bifn8" path="res://Game Components/fonts/CRUMPLED.ttf" id="1_01jri"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx1qr"]
 bg_color = Color(0, 0, 0, 0.133333)
@@ -9,13 +9,13 @@ bg_color = Color(0, 0, 0, 0.133333)
 bg_color = Color(0.658824, 0.290196, 0.368627, 1)
 
 [resource]
-default_font = ExtResource("1_ffiin")
+default_font = ExtResource("1_01jri")
 default_font_size = 19
 ProgressBar/colors/font_color = Color(1, 0, 1, 1)
 ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/colors/font_shadow_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 9
 ProgressBar/font_sizes/font_size = 48
-ProgressBar/fonts/font = ExtResource("1_ffiin")
+ProgressBar/fonts/font = ExtResource("1_01jri")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_hx1qr")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_do3m4")

@@ -1,17 +1,17 @@
 extends Node
 
-@export var health:int
-@export var max_health:int
-@export var speed = 5
-@export var enemy_type = ''
+@export var health : int
+@export var max_health : int
+@export var speed : int = 5
+@export var enemy_type : String = ''
 @export var emitter = 0
 @export var defeated = 0
 @export var world = ""
-@export var id:String
+@export var id : String
 
-@onready var level = ""
-@onready var enemySprite = $enemySprite
-@onready var animation = str(enemy_type)
+@onready var level : String = ""
+@onready var enemySprite : AnimatedSprite2D = $enemySprite
+@onready var animation : String = str(enemy_type)
 @onready var light = $PointLight2D
 @onready var zone_fights = State.area_enemies
 @onready var zone_enemies = State.enemies

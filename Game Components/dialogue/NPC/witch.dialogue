@@ -39,7 +39,7 @@ Artem: I've found myself in Grim's briar after touching this book. It apparently
 The Witch: Make a habit of touching strange books?
 Artem: Just the interesting ones.
 Artem hands the book over
-Artem:Copies in Grims Briar were charmed with relocation. Only folks left are a couple workers and some drunk named Hedo.
+Artem: Copies in Grims Briar were charmed with relocation. Only folks left are a couple workers and some drunk named Hedo.
 The Witch: That misguided fool wouldn't touch anything short of hand-bound, first edition hardback.
 The witch tosses the book into a nearby cauldron
 Artem: Is that productive?
@@ -48,7 +48,7 @@ A plume of purple and red smoke twists unnaturally from the cauldron
 The Witch: The page cuts and binding gave it away. The townies would never make this.
 Artem: They can't put a book together?
 The Witch: Those townies live for rough edges and pulled stitches. Perfection is the only flaw they refuse; it's what makes their art truly theirs. This is a product of those rodents in their spire.
-Artem: Tim was in contact with The Needle, but the mayor didn't mention he could cast charms.
+Artem: Tim's publisher was the Needle? That still doesn't explain the charms placed on the books, though.
 The Witch: Far from a charm, burdened one. This was a curse. A curse that reeks.
 Artem: Reeks of what?
 The Witch: I have a theory. However, I'd like you to do something for me that will benefit the both of us.
@@ -56,7 +56,7 @@ Artem: ...What would that be?
 The Witch: As a watcher, I'm sure you're aware of how painfully close we are to the Needle. As time marches forward so do their perceived property lines.
 Artem: You want me to settle a land dispute?
 The Witch: No. I want you to find those walking circuit boards, kill them, and desecrate their corpses. Then you'll make sure their precious energy temple will never generate an ounce of power again.
-Artem: I'm not a mercenary
+Artem: I'm not a mercenary.
 The Witch: Fine. Then don't kill them if you haven't the stomach, though they won't share your sentiment. Regardless, until they're no longer a nuisance to my home, and my work, you won't find me lifting a finger for you.
 do update_quest_status("witch_1",1)
 => main_path_2
@@ -78,7 +78,7 @@ The Witch: You've all you need to find your answers.
 => END
 
 ~ witch_1_turn_in
-do SteamFeature.setAchievement("ACH_Witch")
+do SteamFeatures.setAchievement("ACH_Witch")
 The Witch: Was it everything you dreamed of?
 Artem: The corpses...their own people.
 The Witch: Horrors of flesh in the name of fielty
@@ -106,7 +106,7 @@ do update_quest_status("witch_1",2)
 
 
 ~ witch_1_complete
-do SteamFeature.setAchievement("ACH_Witch")
+do SteamFeatures.setAchievement("ACH_Witch")
 The Witch: Carry on, Artem. We'll find our paths entwined soon enough.
 
 => END

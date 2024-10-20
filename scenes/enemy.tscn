@@ -24,7 +24,7 @@ script = ExtResource("1_eqi02")
 y_sort_enabled = true
 position = Vector2(2, 25)
 sprite_frames = ExtResource("2_j37ek")
-animation = &"executioner_attack"
+animation = &"Ascended Technotheist_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true

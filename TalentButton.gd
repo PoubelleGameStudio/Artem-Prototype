@@ -13,7 +13,6 @@ class_name TalentButton
 
 @onready var line = $Line2D
 @onready var displayName: Label = $name
-@onready var panel = $Panel
 @onready var art_path: String = "res://Sprites/combat/spell icons/"
 @onready var selected_icon: Sprite2D = $select
 
@@ -42,8 +41,8 @@ func _on_pressed():
 	
 	
 func _on_focus_entered():
-	$Panel.show()
+	pass#$Panel.show()
 
 
 func _on_focus_exited():
-	$Panel.hide()
+	pass#$Panel.hide()

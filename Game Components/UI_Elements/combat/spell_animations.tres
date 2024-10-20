@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=72 format=3 uid="uid://ftaerve5ta27"]
+[gd_resource type="SpriteFrames" load_steps=74 format=3 uid="uid://ftaerve5ta27"]
 
 [ext_resource type="Texture2D" uid="uid://iad6p5sw447b" path="res://Sprites/combat/spell effects/BloodClotHomunculus - Sprite Sheet.png" id="1_1grbb"]
+[ext_resource type="Texture2D" uid="uid://bros36pg0hefq" path="res://Sprites/combat/spell effects/Ascended Technotheist.png" id="1_3q60j"]
 [ext_resource type="Texture2D" uid="uid://81doju5tfqyi" path="res://Sprites/combat/spell effects/CurseAllFrames.png" id="2_btrst"]
 [ext_resource type="Texture2D" uid="uid://b0exi3nylln3u" path="res://Sprites/combat/spell effects/DarkShieldAllFrames.png" id="3_ma2dc"]
 [ext_resource type="Texture2D" uid="uid://dj4ugebjlc7vl" path="res://Sprites/combat/spell effects/AcidSplashAllFrames.png" id="3_x8r2o"]
@@ -11,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://doqupixaaacfy" path="res://Sprites/combat/spell effects/DarkExplosionAllFrames-export.png" id="7_vmy7y"]
 [ext_resource type="Texture2D" uid="uid://crrdu7srkj2sd" path="res://Sprites/combat/spell effects/Void Sight - sprite sheet.png" id="8_qxluj"]
 [ext_resource type="Texture2D" uid="uid://dfqt46pkyp73t" path="res://Sprites/combat/spell effects/FireBallAllFrames.png" id="9_8i6fv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eiqh2"]
+atlas = ExtResource("1_3q60j")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ks8sa"]
 atlas = ExtResource("1_1grbb")
@@ -254,6 +259,14 @@ region = Rect2(287, 179, 83, 54)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eiqh2")
+}],
+"loop": true,
+"name": &"Ascended Technotheist",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ks8sa")

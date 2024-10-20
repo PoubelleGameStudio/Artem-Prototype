@@ -8,4 +8,3 @@ class_name Pet
 			show()
 		else:
 			hide()
-

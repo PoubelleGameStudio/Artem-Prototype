@@ -30,6 +30,3 @@ func talk_end():
 	var chats = get_tree().get_nodes_in_group("chats")
 	for chat in chats:
 		chat.queue_free()
-
-
-
