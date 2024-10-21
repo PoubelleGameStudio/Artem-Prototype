@@ -7,5 +7,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if State.combat != 1 and self.playing == false:
+	if !State.combat and self.playing == false:
 		self.playing = true

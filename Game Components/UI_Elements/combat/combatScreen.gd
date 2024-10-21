@@ -6,7 +6,7 @@ extends Node2D
 @onready var exit_inv = $combatUI/return
 @onready var inv = $combatUI/Inventory
 @onready var inv_ui = $inventory_ui
-@onready var eHealth = $combatUI/enemyInfo/enemyHealth
+@onready var eHealth = $combatUI/enemyHealth
 @onready var pHealth : TextureProgressBar = $combatUI/playerHealth
 @onready var pHealth_label: Label = $combatUI/current_health
 @onready var spell_book = $combatUI/spellSelect
@@ -85,6 +85,12 @@ extends Node2D
 		if hit_lowered_for == 0:
 			enemy_hit_chance = 1.0
 @onready var confused: bool = false
+@onready var confused_pity = 80 :
+	set(value):
+		if value <= 0:
+			confused_pity = 0
+		else :
+			confused_pity = value
 @onready var attack_reduced_by: float = 0.0
 @onready var attack_reduced_for: int = 0
 @onready var pet_spells = $"Pet/Pet Spells"
@@ -132,12 +138,15 @@ func _ready():
 	enemyAttack.hide()
 	pHealth_label.text = str("HP ",State.health)
 	statusEffect.text = burningText + poisonedText
+	chosen_spell_desc.visible_characters = -1
 
 
 func _process(delta):	
 	chosen_spell.text = State.spell1
 	chosen_spell_desc.text = State["spell_book"][State.spell1]["description"]
 	chosen_spell_dmg.text = str("Damage: ",State["spell_book"][State.spell1]["damage"])
+	if chosen_spell_desc.visible_characters > -1:
+		chosen_spell_desc.visible_characters = -1
 	
 
 func start_turn():
@@ -344,10 +353,14 @@ func enemyTurn():
 		
 		# handles vapid affliction effect 
 		if confused:
-			if rng.randf_range(1,100) < 80:
+			if rng.randf_range(1,100) < confused_pity:
+				print("attacked through confusion")
 				State.health -= int(damageTaken)
+				confused_pity -= 20
 			else:
+				print("Confused and didn't attack")
 				confused = false
+				confused_pity = 80
 		else:
 			State.health -= int(damageTaken)
 

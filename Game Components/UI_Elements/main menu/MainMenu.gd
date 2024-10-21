@@ -159,7 +159,7 @@ func load_player() -> void:
 	State.area_enemies = playerData.area_enemies
 	State.Vendor_wares = playerData.Vendor_wares
 	State.talking = 0
-	State.combat = 0
+	State.combat = false
 
 	State.tutorials = playerData.tutorials
 	get_tree().change_scene_to_file((str("res://scenes/levels/",playerData.world,".tscn")))

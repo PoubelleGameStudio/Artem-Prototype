@@ -65,7 +65,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 	
-	if State.combat == 0:
+	if !State.combat:
 		if Input.is_action_just_pressed("pause"):
 			if settings.visible == true:
 				animation.play("hud_down")
@@ -320,7 +320,7 @@ func _on_interaction_area_area_entered(area):
 		prompt.hide()
 	
 	#sets up the combat vars and launching combatScene
-	if cur_interact.interact_type == "enemy" and State.combat == 0:
+	if cur_interact.interact_type == "enemy" and !State.combat:
 		State.p_locs[get_parent().level_name] = get_node("../player").global_position
 		State.engaging.insert(0,cur_interact.interact_label)	
 		State.enemyID = cur_interact.get_parent().id
@@ -328,7 +328,7 @@ func _on_interaction_area_area_entered(area):
 		State.engaging.insert(0,cur_interact.interact_label)
 		State.talking = 1
 		combat_entered.emit()
-		State.combat = 1
+		State.combat = true
 	
 
 func _on_interaction_area_area_exited(area):

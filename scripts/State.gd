@@ -6,7 +6,7 @@ var prev_scene: NodePath
 var engaging = []
 var talking = 0
 var p_locs = {}
-var combat = 0
+var combat : bool = false
 var enemyID:String
 var can_walk: bool = true
 var can_use: bool = true
@@ -221,7 +221,7 @@ func shop_handler() -> void:
 		"description":"A technique, taught to you by a bearded flamethrower, that blasts your opponent with concentrated fire.",
 		"learned":1,
 		"level":0,
-		"damage":15,
+		"damage":10,
 		"class": "attack",
 		"type": "Fire",
 		"stat_mod":{},

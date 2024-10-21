@@ -45,7 +45,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
-	if combat && !c_music.playing:
+	if State.combat && !c_music.playing:
 		c_music.play()
 
 	# makes sure music isn't playing when in dialogue
@@ -96,7 +96,7 @@ func _on_combat_screen_combat_end():
 	State.talking = 0
 	combat.endgame()
 	player.camera_current()
-	State.combat = 0
+	State.combat = false
 	State.level_up()
 	music.playing = true
 	c_music.playing = false
@@ -104,7 +104,7 @@ func _on_combat_screen_combat_end():
 
 func _on_player_combat_entered():
 	combat.casts_left = State.casts
-	if State.combat == 0:
+	if State.combat == false:
 		c_music.playing = true
 		music.playing = false
 		setup_combat()
@@ -119,7 +119,7 @@ func _on_combat_screen_death():
 	State.health = State.maxHealth
 	player.camera_current()
 	player.global_position = respawn_location
-	State.combat = 0
+	State.combat = false
 	music.playing = true
 	
 

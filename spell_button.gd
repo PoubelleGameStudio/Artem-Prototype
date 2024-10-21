@@ -56,6 +56,7 @@ func _on_pressed():
 	sound.set_stream(confirm)
 	sound.play()
 	State.spell1 = spell_icon
+	
 
 
 func _on_mouse_entered():
