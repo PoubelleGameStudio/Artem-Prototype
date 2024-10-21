@@ -7,8 +7,8 @@ extends Node2D
 @onready var inv = $combatUI/Inventory
 @onready var inv_ui = $inventory_ui
 @onready var eHealth = $combatUI/enemyInfo/enemyHealth
-@onready var pHealth = $combatUI/playerHealth
-@onready var pHealth_label: Label = $combatUI/playerHealth/current_health
+@onready var pHealth : TextureProgressBar = $combatUI/playerHealth
+@onready var pHealth_label: Label = $combatUI/current_health
 @onready var spell_book = $combatUI/spellSelect
 @onready var yourTurn = 1
 @onready var spells = State.spell_book

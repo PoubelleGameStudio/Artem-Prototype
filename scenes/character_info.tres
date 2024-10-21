@@ -1,11 +1,11 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b8gkxf5wk0pdu"]
 
-[ext_resource type="FontFile" uid="uid://tdovc51bifn8" path="res://Game Components/fonts/CRUMPLED.ttf" id="1_mt1li"]
+[ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="1_nrj05"]
 
 [resource]
-line_spacing = -20.0
-font = ExtResource("1_mt1li")
-font_size = 45
+line_spacing = 0.0
+font = ExtResource("1_nrj05")
+font_size = 30
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 0

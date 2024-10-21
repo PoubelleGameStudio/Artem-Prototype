@@ -33,8 +33,8 @@ shape = SubResource("CapsuleShape2D_jxhvg")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 process_mode = 4
-position = Vector2(2, 36)
-scale = Vector2(3.24219, 3.70536)
+position = Vector2(1, 36.5)
+scale = Vector2(1.9375, 2.51563)
 color = Color(1, 0.00784314, 0.341176, 1)
 energy = 1.47
 texture = SubResource("GradientTexture2D_giqp0")

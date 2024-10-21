@@ -1,9 +1,9 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d5s87duu30n6"]
 
-[ext_resource type="FontFile" uid="uid://tdovc51bifn8" path="res://Game Components/fonts/CRUMPLED.ttf" id="1_7aao8"]
+[ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="1_v8eb3"]
 
 [resource]
-font = ExtResource("1_7aao8")
+font = ExtResource("1_v8eb3")
 font_size = 37
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
