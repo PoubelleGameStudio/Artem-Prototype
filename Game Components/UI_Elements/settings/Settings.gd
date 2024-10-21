@@ -12,7 +12,8 @@ func _ready():
 
 
 func set_focus():
-	$MainMenu.set_focus()
+	if State.control_schema == "gamepad":
+		$MainMenu.set_focus()
 
 # signal funcs
 func _on_toggle_mute_sound_toggled(button_pressed):

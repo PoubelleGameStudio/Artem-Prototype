@@ -7,6 +7,7 @@ extends Node2D
 @onready var inv = $combatUI/Inventory
 @onready var inv_ui = $inventory_ui
 @onready var eHealth = $combatUI/enemyHealth
+@onready var eHealth_label : Label = $combatUI/enemyHealth_label
 @onready var pHealth : TextureProgressBar = $combatUI/playerHealth
 @onready var pHealth_label: Label = $combatUI/current_health
 @onready var spell_book = $combatUI/spellSelect
@@ -167,6 +168,7 @@ func combat_data():
 	enemy.enemySprite.play(str(enemy.enemy_type,"_idle"))
 	eHealth.max_value = enemy.max_health
 	eHealth.value = enemy.health
+	eHealth_label.text = str("HP: ",enemy.max_health)
 	inv_ui.populate_grid()
 	$combatUI/spellSelect/Control/VBoxContainer/Invoke/Fireball.grab_focus()
 	
@@ -385,6 +387,7 @@ func enemyTurn():
 				enemy.updateHealth(10)
 				
 			eHealth.value = enemy.health
+			eHealth_label.text = str("HP: ",enemy.health)
 			
 			DoTEffect.hide()
 		
@@ -398,6 +401,7 @@ func enemyTurn():
 			
 			enemy.updateHealth(10)
 			eHealth.value = enemy.health
+			eHealth_label.text = str("HP: ",enemy.health)
 			
 			DoTEffect.hide()
 			
@@ -527,6 +531,7 @@ func _on_onepunch_pressed():
 			if casts_left > 0:
 				enemy.updateHealth(castSpell())
 				eHealth.value = enemy.health
+				eHealth_label.text = str("HP: ",enemy.health)
 				casts_left -= 1
 				if casts_left == 0:
 					yourTurn = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=39 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="3_6j6h7"]
@@ -13,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="7_81yjc"]
 [ext_resource type="PackedScene" uid="uid://dpv6cisbc7uye" path="res://Game Components/UI_Elements/combat/spell_button.tscn" id="8_16ejo"]
 [ext_resource type="Texture2D" uid="uid://bwtf1a16blr5d" path="res://Sprites/combat/Artem_hp_bar_empty.png" id="8_iix57"]
+[ext_resource type="Texture2D" uid="uid://bk1awcq5akgmx" path="res://Sprites/combat/Enemy_hp_bar_empty.png" id="9_0l2pi"]
 [ext_resource type="Texture2D" uid="uid://duegmrco5pndh" path="res://Sprites/combat/Artem_hp_bar.png" id="9_6xbfc"]
+[ext_resource type="Texture2D" uid="uid://68pppua2d3j6" path="res://Sprites/combat/Enemy_hp_bar.png" id="10_axa30"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="12_jwlj2"]
 [ext_resource type="LabelSettings" uid="uid://bflt1vxoyo7lt" path="res://combat_instruct.tres" id="13_1dd1r"]
 [ext_resource type="SpriteFrames" uid="uid://ftaerve5ta27" path="res://Game Components/UI_Elements/combat/spell_animations.tres" id="14_cb2l5"]
@@ -221,9 +223,9 @@ light_mask = 0
 [node name="chosen_spell_label" type="Label" parent="combatUI/combat"]
 texture_filter = 4
 offset_left = 431.0
-offset_top = 735.0
+offset_top = 728.0
 offset_right = 538.0
-offset_bottom = 827.0
+offset_bottom = 790.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_0cyua")
 theme_override_font_sizes/font_size = 50
@@ -241,6 +243,9 @@ theme_override_constants/outline_size = 5
 text = "test test test test test test test test test test test test test test test test test test test test test test test test test test test "
 label_settings = ExtResource("5_be3fw")
 autowrap_mode = 2
+justification_flags = 162
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="chosen_spell_dmg" type="Label" parent="combatUI/combat"]
 texture_filter = 4
@@ -301,7 +306,8 @@ theme_override_font_sizes/font_size = 60
 text = "Executioner"
 horizontal_alignment = 1
 
-[node name="enemyHealth" type="ProgressBar" parent="combatUI/enemyInfo"]
+[node name="enemyHealth_old" type="ProgressBar" parent="combatUI/enemyInfo"]
+visible = false
 texture_filter = 4
 layout_mode = 2
 theme = ExtResource("4_2r65i")
@@ -309,7 +315,7 @@ max_value = 0.0
 
 [node name="MarginContainer" type="MarginContainer" parent="combatUI/enemyInfo"]
 layout_mode = 2
-theme_override_constants/margin_top = -7
+theme_override_constants/margin_top = 80
 
 [node name="status_effect" type="Label" parent="combatUI/enemyInfo/MarginContainer"]
 texture_filter = 4
@@ -319,6 +325,19 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_w8cyh")
 theme_override_font_sizes/font_size = 45
+text = "asdfasdf"
+
+[node name="enemyHealth" type="TextureProgressBar" parent="combatUI"]
+texture_filter = 4
+layout_mode = 2
+offset_left = 1340.0
+offset_top = 91.0
+offset_right = 3260.0
+offset_bottom = 535.0
+scale = Vector2(0.3, 0.3)
+fill_mode = 1
+texture_under = ExtResource("9_0l2pi")
+texture_progress = ExtResource("10_axa30")
 
 [node name="playerHealth" type="TextureProgressBar" parent="combatUI"]
 texture_filter = 4
@@ -340,6 +359,17 @@ offset_left = 186.0
 offset_top = 552.0
 offset_right = 266.0
 offset_bottom = 645.0
+theme_override_fonts/font = ExtResource("4_0cyua")
+theme_override_font_sizes/font_size = 68
+text = "HP"
+
+[node name="enemyHealth_label" type="Label" parent="combatUI"]
+texture_filter = 4
+layout_mode = 0
+offset_left = 1522.36
+offset_top = 115.896
+offset_right = 1602.36
+offset_bottom = 208.896
 theme_override_fonts/font = ExtResource("4_0cyua")
 theme_override_font_sizes/font_size = 68
 text = "HP"
@@ -488,7 +518,7 @@ spell_icon = "Blood Moon"
 metadata/_edit_use_anchors_ = true
 
 [node name="enemyCombat" parent="." instance=ExtResource("3_6j6h7")]
-position = Vector2(1571, 198)
+position = Vector2(1571, 243)
 scale = Vector2(7, 7)
 
 [node name="inventory_ui" parent="." instance=ExtResource("7_6qudd")]
@@ -574,7 +604,7 @@ flip_h = true
 
 [node name="DoT effect" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(1541, 493)
+position = Vector2(1541, 530)
 scale = Vector2(8.91666, 8.91666)
 sprite_frames = ExtResource("14_w4egx")
 animation = &"poisoned"
@@ -652,7 +682,7 @@ layout_direction = 1
 layout_mode = 0
 offset_left = -843.0
 offset_top = -305.0
-offset_right = 326.0
+offset_right = 1071.0
 offset_bottom = 179.0
 
 [node name="Label4" type="Label" parent="Control/VBoxContainer"]

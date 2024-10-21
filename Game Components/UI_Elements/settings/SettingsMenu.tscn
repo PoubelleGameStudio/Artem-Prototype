@@ -1,13 +1,15 @@
-[gd_scene load_steps=24 format=3 uid="uid://duw1coq7pkfci"]
+[gd_scene load_steps=28 format=3 uid="uid://duw1coq7pkfci"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/settings/Settings.gd" id="1_3l0ep"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="2_ld3py"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="3_2s2es"]
 [ext_resource type="Texture2D" uid="uid://b2tl23nftxkgb" path="res://Game Components/UI_Elements/main menu/buttons/checkbox - checked.png" id="4_32224"]
 [ext_resource type="Texture2D" uid="uid://b3rdvt432j3l" path="res://Game Components/UI_Elements/main menu/buttons/checkbox - unchecked.png" id="5_6sp4m"]
+[ext_resource type="Texture2D" uid="uid://dppo66muhg0aw" path="res://Game Components/UI_Elements/slider_grabber.png" id="6_2er77"]
 [ext_resource type="Texture2D" uid="uid://dim72gaqj6ggi" path="res://Game Components/UI_Elements/prompts/tile_0416.png" id="6_14qk0"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="6_aavd5"]
 [ext_resource type="Texture2D" uid="uid://diwnan71ffp7" path="res://Game Components/UI_Elements/prompts/f.png" id="7_b31cx"]
+[ext_resource type="Texture2D" uid="uid://knhxen77r4oj" path="res://Game Components/UI_Elements/slider_BG.png" id="7_dcbgr"]
 [ext_resource type="Texture2D" uid="uid://yfl18841n3fc" path="res://Game Components/UI_Elements/prompts/tile_0308.png" id="8_0akgj"]
 [ext_resource type="Texture2D" uid="uid://dfsa5hkj1tfrv" path="res://Game Components/UI_Elements/prompts/tile_0051.png" id="8_bmvyp"]
 [ext_resource type="Texture2D" uid="uid://ddvwr4xiw1acq" path="res://Game Components/UI_Elements/prompts/tile_0017.png" id="8_ruu6i"]
@@ -23,6 +25,16 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqa5o"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sk0y7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tq2au"]
+texture = ExtResource("7_dcbgr")
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6g6xm"]
+texture = ExtResource("7_dcbgr")
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7qm7"]
 
@@ -92,11 +104,15 @@ label_settings = ExtResource("3_2s2es")
 vertical_alignment = 2
 
 [node name="combat_music_slider" type="HSlider" parent="HBoxContainer/list/combat music volume"]
+z_index = 1
+texture_filter = 3
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_icons/grabber = ExtResource("6_2er77")
+theme_override_styles/slider = SubResource("StyleBoxTexture_tq2au")
 min_value = -20.0
 max_value = 0.0
-value = -10.0
+value = -20.0
 
 [node name="world music volume" type="HBoxContainer" parent="HBoxContainer/list"]
 layout_mode = 2
@@ -105,13 +121,16 @@ layout_mode = 2
 custom_minimum_size = Vector2(69, 0)
 layout_mode = 2
 size_flags_vertical = 8
-text = "level music"
+text = "level music   "
 label_settings = ExtResource("3_2s2es")
 vertical_alignment = 2
 
 [node name="world_music_slider" type="HSlider" parent="HBoxContainer/list/world music volume"]
+texture_filter = 3
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_icons/grabber = ExtResource("6_2er77")
+theme_override_styles/slider = SubResource("StyleBoxTexture_6g6xm")
 min_value = -20.0
 max_value = 0.0
 value = -10.0
@@ -196,6 +215,7 @@ horizontal_alignment = 1
 
 [node name="TextureRect7" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 3
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -204,6 +224,7 @@ stretch_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 3
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -212,6 +233,7 @@ stretch_mode = 2
 
 [node name="TextureRect4" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 3
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -220,6 +242,7 @@ stretch_mode = 2
 
 [node name="TextureRect5" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 3
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -228,6 +251,7 @@ stretch_mode = 2
 
 [node name="TextureRect6" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 3
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -247,6 +271,7 @@ horizontal_alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 3
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -255,6 +280,7 @@ stretch_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 3
 material = SubResource("ShaderMaterial_06m15")
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
@@ -264,6 +290,7 @@ stretch_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 3
 material = SubResource("ShaderMaterial_06m15")
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
@@ -273,6 +300,7 @@ stretch_mode = 2
 
 [node name="TextureRect4" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 3
 material = SubResource("ShaderMaterial_06m15")
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
@@ -282,6 +310,7 @@ stretch_mode = 2
 
 [node name="TextureRect5" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 3
 material = SubResource("ShaderMaterial_06m15")
 custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
@@ -291,6 +320,7 @@ stretch_mode = 2
 
 [node name="TextureRect6" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer3"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 3
 material = SubResource("ShaderMaterial_06m15")
 layout_mode = 2
 size_flags_horizontal = 4
@@ -322,7 +352,6 @@ button_pressed = true
 icon_alignment = 1
 
 [node name="MainMenu" parent="." instance=ExtResource("6_aavd5")]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 anchors_preset = 0
 anchor_left = 0.0

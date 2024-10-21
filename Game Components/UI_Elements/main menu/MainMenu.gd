@@ -171,10 +171,11 @@ func load_player() -> void:
 
 
 func toggle_focus_mark(node) -> void:
-	if node.visible:
-		node.hide()
-	else:
-		node.show()
+	pass
+	#if node.visible:
+		#node.hide()
+	#else:
+		#node.show()
 
 func _on_new_game_focus_entered():
 	sound.set_stream(focus_sound)
@@ -189,72 +190,73 @@ func _on_new_game_focus_exited():
 func _on_new_game_mouse_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($"MarginContainer/VBoxContainer/New Game/ColorRect")
+	$"MarginContainer/VBoxContainer/New Game/Label".set("theme_override_colors/font_color", Color.WHITE)
 
 
 func _on_new_game_mouse_exited():
-	toggle_focus_mark($"MarginContainer/VBoxContainer/New Game/ColorRect")
+	$MarginContainer/VBoxContainer/Load/Label.set("theme_override_colors/font_color", Color.BLACK)
 	$"MarginContainer/VBoxContainer/New Game".release_focus()
 
 
 func _on_load_focus_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($MarginContainer/VBoxContainer/Load/ColorRect2)
+	$MarginContainer/VBoxContainer/Load/Label2.set("theme_override_colors/font_color", Color.WHITE)
 
 
 func _on_load_focus_exited():
-	toggle_focus_mark($MarginContainer/VBoxContainer/Load/ColorRect2)
+	$MarginContainer/VBoxContainer/Load/Label2.set("theme_override_colors/font_color", Color.BLACK)
 
 
 func _on_load_mouse_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($MarginContainer/VBoxContainer/Load/ColorRect2)
+	$MarginContainer/VBoxContainer/Load/Label2.set("theme_override_colors/font_color", Color.WHITE) #toggle_focus_mark($MarginContainer/VBoxContainer/Load/ColorRect2)
 
 
 func _on_load_mouse_exited():
 	toggle_focus_mark($MarginContainer/VBoxContainer/Load/ColorRect2)
 	$"MarginContainer/VBoxContainer/Load".release_focus()
+	$MarginContainer/VBoxContainer/Load/Label2.set("theme_override_colors/font_color", Color.BLACK)
 	
 
 func _on_save_focus_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($MarginContainer/VBoxContainer/Save/ColorRect3)
+	$MarginContainer/VBoxContainer/Save/Label.set("theme_override_colors/font_color", Color.WHITE)
 
 
 func _on_save_focus_exited():
-	toggle_focus_mark($MarginContainer/VBoxContainer/Save/ColorRect3)
+	$MarginContainer/VBoxContainer/Save/Label.set("theme_override_colors/font_color", Color.BLACK)
 
 
 func _on_save_mouse_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($MarginContainer/VBoxContainer/Save/ColorRect3)
+	$MarginContainer/VBoxContainer/Save/Label.set("theme_override_colors/font_color", Color.WHITE)
 
 
 func _on_save_mouse_exited():
-	toggle_focus_mark($MarginContainer/VBoxContainer/Save/ColorRect3)
+	$MarginContainer/VBoxContainer/Save/Label.set("theme_override_colors/font_color", Color.BLACK)
 	$"MarginContainer/VBoxContainer/Save".release_focus()
 
 
 func _on_exit_mouse_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($MarginContainer/VBoxContainer/Exit/ColorRect4)
+	$MarginContainer/VBoxContainer/Exit/Label2.set("theme_override_colors/font_color", Color.WHITE)
 
 
 func _on_exit_mouse_exited():
-	toggle_focus_mark($MarginContainer/VBoxContainer/Exit/ColorRect4)
+	$MarginContainer/VBoxContainer/Exit/Label2.set("theme_override_colors/font_color", Color.BLACK)
 	$"MarginContainer/VBoxContainer/Exit".release_focus()
 
 
 func _on_exit_focus_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($MarginContainer/VBoxContainer/Exit/ColorRect4)
+	$MarginContainer/VBoxContainer/Exit/Label2.set("theme_override_colors/font_color", Color.WHITE)
 
 
 func _on_exit_focus_exited():
-	toggle_focus_mark($MarginContainer/VBoxContainer/Exit/ColorRect4)
+	$MarginContainer/VBoxContainer/Exit/Label2.set("theme_override_colors/font_color", Color.WHITE)
