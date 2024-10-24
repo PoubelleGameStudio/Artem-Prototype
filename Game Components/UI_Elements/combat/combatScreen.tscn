@@ -26,6 +26,7 @@
 [ext_resource type="SpriteFrames" uid="uid://6qj5grt6fv4i" path="res://scenes/enemy sprites.tres" id="18_f7f8g"]
 [ext_resource type="Texture2D" uid="uid://bcranc40bjctv" path="res://Sprites/combat/spell icons/Blood Moon - talent.png" id="19_v8xaj"]
 [ext_resource type="AudioStream" uid="uid://4kj77c85j117" path="res://sounds/UI/pluck_REVERB.wav" id="21_xvpy8"]
+[ext_resource type="PackedScene" uid="uid://br5mlw81bvnnl" path="res://Game Components/UI_Elements/combat/quick_slots.tscn" id="25_2kcmw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
 atlas = ExtResource("4_43trn")
@@ -724,15 +725,18 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer2/HBoxContainer"]
+visible = false
 texture_filter = 4
 layout_mode = 2
 
 [node name="enemyType" type="Label" parent="Control/VBoxContainer2/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Enemy Type: "
 label_settings = ExtResource("5_be3fw")
 
 [node name="enemyWeakness" type="Label" parent="Control/VBoxContainer2/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Enemy Weakness: "
 label_settings = ExtResource("5_be3fw")
@@ -771,6 +775,20 @@ text = "Observations: "
 label_settings = ExtResource("5_be3fw")
 vertical_alignment = 2
 autowrap_mode = 2
+
+[node name="Quick Slots" parent="." instance=ExtResource("25_2kcmw")]
+z_index = 99
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1045.0
+offset_top = 730.0
+offset_right = 2963.0
+offset_bottom = 780.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(3, 3)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_xvpy8")

@@ -20,10 +20,10 @@ var spell1: String = 'fireball'
 
 
 # player gear slots
-var quick_slot_1 : String = ''
-var quick_slot_2 : String = ''
-var quick_slot_3 : String = ''
-var quick_slot_4 : String = ''
+var quick_slot_1 : String = 'health restore'
+var quick_slot_2 : String = 'health restore'
+var quick_slot_3 : String = 'health restore'
+var quick_slot_4 : String = 'health restore'
 
 #var helm: String = 'Watcher Cowl'
 #var chest: String = 'Watcher Robe'

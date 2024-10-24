@@ -5,15 +5,15 @@
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="4_5223r"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="5_dnc0k"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mpnt"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4bib"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htl22"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cd28l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkxse"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htl22"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4bib"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mpnt"]
 
 [node name="Panel" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -52,11 +52,11 @@ layout_mode = 0
 offset_left = 4.0
 offset_right = 32.0
 offset_bottom = 32.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_8mpnt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c4bib")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_htl22")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cd28l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_jkxse")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_htl22")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_c4bib")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8mpnt")
 
 [node name="amount" type="Label" parent="."]
 light_mask = 0
