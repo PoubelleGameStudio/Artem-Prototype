@@ -16,6 +16,8 @@ extends CharacterBody2D
 @onready var all_interactions = []
 @onready var prompt: Sprite2D = $prompt
 @onready var animation: AnimationPlayer = $AnimationPlayer
+@onready var moving : bool = false
+@onready var facing : String
 @onready var settings: Settings = $HUD/Settings
 @onready var pad_prompt: Resource = load("res://Game Components/UI_Elements/prompts/tile_0308.png")
 @onready var mkb_prompt: Resource = load("res://Game Components/UI_Elements/prompts/f.png")
@@ -23,7 +25,7 @@ extends CharacterBody2D
 @onready var open_book: AudioStream = preload("res://sounds/UI/book_open_1.wav")
 @onready var close_book: AudioStream = preload("res://sounds/UI/book_close_1.wav")
 
-var speed = 120.0
+var speed = 110.0
 var current_dir = "none"
 var world = ''
 
@@ -126,46 +128,59 @@ func player_movement(_delta):
 		
 		
 		direction = direction.normalized()	
-		velocity = direction * speed	
+		velocity = direction * speed
+		if velocity == Vector2.ZERO: moving = false
+		play_anim(direction)	
 		move_and_slide()
 		
 
-func play_anim(movement):
-	var dir = current_dir
+func play_anim( speed : Vector2 ):
 	var anim = $AnimatedSprite2D
 	
+	if speed.y > 0 && speed.x == 0 :
+		facing = "down"
+	elif speed.y < 0 && speed.x == 0 :
+		facing = "up"
+
+	if speed.x > 0:
+		facing = "right"
+	elif speed.x < 0:
+		facing = "left"
+	elif speed.x == 0:
+		pass
+
 	
-	if dir == "right":
+	
+	if facing == "right":
 		anim.flip_h = false
-		if movement == 1:
+		if moving:
 			anim.play("side_walk")
-		elif movement == 0:
+		elif !moving:
 			anim.play("side_idle")
-	if dir == "left":
+	elif facing == "left":
 		anim.flip_h = true
-		if movement == 1:
+		if moving:
 			anim.play("side_walk")
-		elif movement == 0:
+		elif !moving:
 			anim.play("side_idle")
-	if dir == "up":
-		anim.flip_h = false
-		if movement == 1:
+	elif facing == "up":
+		if moving:
 			anim.play("up_walk")
-		elif movement == 0:
+		elif !moving:
 			anim.play("up_idle")
-	if dir == "down":
-		anim.flip_h = false
-		if movement == 1:
+	elif facing == "down":
+		if moving:
 			anim.play("down_walk")
-		elif movement == 0:
+		if !moving:
 			anim.play("idle")
+
 		
 ######################UI Element Data#################################
 func update_HUD():
 	xp_label.text = str("XP: ",State.cur_xp,"/",State.xp_to_next," (",int((float(State.cur_xp)/State.xp_to_next)*100),"%)")
 	hp_label.text = str("HP: ",State.health,"/",State.maxHealth)
 	goldLabel.text = str(State.gold," g")
-	inv.populate_grid()
+	inv.populate_grid() 
 	q_log.populate_log()
 		
 	if cur_level.text == "":
@@ -314,7 +329,7 @@ func _on_interaction_area_area_entered(area):
 			State.health = State.maxHealth
 			itemLabel.text = "Fully Healed!!"
 	
-	if cur_interact.interact_type != "secret" and cur_interact.interact_type != "ach" and cur_interact.interact_type != "heal":
+	if (cur_interact.interact_type != "secret" and cur_interact.interact_type != "ach" and cur_interact.interact_type != "heal") and !State.hide_control_hints:
 		prompt.show()
 	else:
 		prompt.hide()

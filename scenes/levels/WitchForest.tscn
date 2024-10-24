@@ -388,6 +388,7 @@ level_name = "WitchForest"
 
 [node name="Fog" type="TextureRect" parent="."]
 z_index = 1
+texture_filter = 4
 texture_repeat = 2
 material = SubResource("ShaderMaterial_pqx84")
 offset_left = -893.0
@@ -726,7 +727,7 @@ texture = ExtResource("28_kbs45")
 [node name="InteractArea" parent="Sprite2D" instance=ExtResource("6_d8wmu")]
 visible = false
 position = Vector2(-0.112457, -0.0163879)
-interact_label = "Health Restore"
+interact_label = "health restore"
 interact_type = "lootable"
 interact_value = "5"
 

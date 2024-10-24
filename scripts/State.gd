@@ -20,12 +20,17 @@ var spell1: String = 'fireball'
 
 
 # player gear slots
-var helm: String = 'Watcher Cowl'
-var chest: String = 'Watcher Robe'
-var gloves: String = 'Watcher Gloves'
-var pants: String = 'Watcher Trousers'
-var boots: String = 'Watcher Treads'
-var weapon: String = 'dagger of belonging' 
+var quick_slot_1 : String = ''
+var quick_slot_2 : String = ''
+var quick_slot_3 : String = ''
+var quick_slot_4 : String = ''
+
+#var helm: String = 'Watcher Cowl'
+#var chest: String = 'Watcher Robe'
+#var gloves: String = 'Watcher Gloves'
+#var pants: String = 'Watcher Trousers'
+#var boots: String = 'Watcher Treads'
+#var weapon: String = 'dagger of belonging' 
 # the dagger can't be removed unless you take a life with it
 # dagger is exceptionally dull as it can't be sharpened
 
@@ -188,7 +193,7 @@ func shop_handler() -> void:
 @onready var spell_book = {
 	"Sanguinated Shell":{
 		"name":"Sanguinated Shell",
-		"description":"Coalesce your blood into a hardened shell absorbing 50% damage for 3 turns. When the shell expires you heal for half the amount absorbed.",
+		"description":"Coalesce your blood into a hardened shell absorbing 30% damage for 3 turns. When the shell expires you heal for half the amount absorbed.",
 		"learned":0,
 		"level":5,
 		"damage":0,

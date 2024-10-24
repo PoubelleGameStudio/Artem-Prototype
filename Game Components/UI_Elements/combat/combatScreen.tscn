@@ -682,7 +682,7 @@ layout_direction = 1
 layout_mode = 0
 offset_left = -843.0
 offset_top = -305.0
-offset_right = 1071.0
+offset_right = 1075.0
 offset_bottom = 179.0
 
 [node name="Label4" type="Label" parent="Control/VBoxContainer"]

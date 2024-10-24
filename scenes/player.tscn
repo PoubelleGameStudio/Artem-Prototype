@@ -365,6 +365,7 @@ offset_bottom = 404.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Settings" parent="HUD" instance=ExtResource("21_mnbx0")]
+visible = false
 layout_mode = 1
 offset_left = -192.0
 offset_top = -128.0
@@ -453,10 +454,18 @@ label_settings = ExtResource("15_oq2cw")
 
 [node name="Inventory" parent="HUD/character_info" instance=ExtResource("13_cjqps")]
 z_index = 99
-offset_left = -239.04
-offset_top = -32.2494
-offset_right = -183.04
-offset_bottom = 7.7506
+offset_left = -223.04
+offset_top = -12.2494
+offset_right = -167.04
+offset_bottom = 27.7506
+
+[node name="Inventory_label" type="Label" parent="HUD/character_info/Inventory"]
+offset_left = -12.0
+offset_top = -32.0
+offset_right = 83.0
+offset_bottom = -8.0
+text = "Inventory"
+label_settings = ExtResource("15_oq2cw")
 
 [node name="quest_log_label" type="Label" parent="HUD/character_info"]
 offset_left = -50.0
@@ -472,17 +481,11 @@ offset_top = -100.0
 offset_right = -50.0
 offset_bottom = -100.0
 
-[node name="Inventory_label" type="Label" parent="HUD/character_info"]
-offset_left = -235.04
-offset_top = -64.2494
-offset_right = -140.04
-offset_bottom = -40.2494
-text = "Inventory"
-label_settings = ExtResource("15_oq2cw")
-
 [node name="shop" parent="HUD" instance=ExtResource("17_3neu2")]
+visible = false
 
 [node name="TalentTree" parent="HUD" instance=ExtResource("16_unwu1")]
+visible = false
 offset_left = -80.0
 offset_top = -120.0
 offset_right = 104.0

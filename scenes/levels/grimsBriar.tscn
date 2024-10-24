@@ -491,7 +491,7 @@ level_name = "grimsBriar"
 
 [node name="Fog" type="TextureRect" parent="."]
 z_index = 1
-texture_filter = 2
+texture_filter = 4
 texture_repeat = 2
 material = SubResource("ShaderMaterial_4df8r")
 offset_left = -1950.0
@@ -500,6 +500,7 @@ offset_right = 4050.0
 offset_bottom = 942.0
 mouse_filter = 2
 texture = SubResource("NoiseTexture2D_ytnll")
+metadata/_edit_use_anchors_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_05bvd")

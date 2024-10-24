@@ -68,6 +68,7 @@ extends Node2D
 @onready var fieldEffect: AnimatedSprite2D = $field
 @onready var pet: AnimatedSprite2D = $Pet
 @onready var defend: AnimatedSprite2D = $defend
+@onready var shield_absorbed : int = 0
 @onready var shielded: bool = false:
 	set(value):
 		shielded = value
@@ -79,6 +80,10 @@ extends Node2D
 		if shield_for < 1:
 			shielded = false
 			defend.hide()
+			State.health += shield_absorbed
+			pHealth.value = State.health
+			pHealth_label.text = str("HP: ",State.health)
+			shield_absorbed = 0
 @onready var enemy_hit_chance: float = 1.0
 @onready var hit_lowered_for: int = 0:
 	set(value):
@@ -204,6 +209,7 @@ func castSpell() -> int:
 		match spells[State.spell1]["name"]:
 			"Sanguinated Shell":
 				shielded = true
+				shield_for = 3
 				defend.play("Sanguinated Shell")
 				defend.show()
 
@@ -335,9 +341,9 @@ func enemyTurn():
 		# handles sanguine shell
 		if shielded:
 			print(str("pre shield damage taken: ",damageTaken))
+			shield_absorbed += (damageTaken/2)
 			shield_for -= 1
-			State.health += damageTaken * 0.2
-			damageTaken *= 0.8
+			damageTaken *= 0.7
 			print(str("adjusted damage taken: ",damageTaken))
 		
 		# handles hollowed threats
@@ -367,8 +373,8 @@ func enemyTurn():
 			State.health -= int(damageTaken)
 
 		pHealth.value = State.health
-		combatTextUpdate(str("Enemy attacked for ",int(damageTaken)))
-		pHealth_label.text = str("HP ",State.health,"/",State.maxHealth)
+		combatTextUpdate(str(enemy.enemy_type," attacked for ",int(damageTaken)))
+		pHealth_label.text = str("HP ",State.health)
 		await get_tree().create_timer(1.0).timeout
 
 		# handles burning damage
