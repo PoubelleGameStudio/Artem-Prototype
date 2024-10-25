@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://duw1coq7pkfci"]
+[gd_scene load_steps=25 format=3 uid="uid://duw1coq7pkfci"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/settings/Settings.gd" id="1_3l0ep"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="2_ld3py"]
@@ -8,13 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dppo66muhg0aw" path="res://Game Components/UI_Elements/slider_grabber.png" id="6_2er77"]
 [ext_resource type="Texture2D" uid="uid://dim72gaqj6ggi" path="res://Game Components/UI_Elements/prompts/tile_0416.png" id="6_14qk0"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="6_aavd5"]
-[ext_resource type="Texture2D" uid="uid://diwnan71ffp7" path="res://Game Components/UI_Elements/prompts/f.png" id="7_b31cx"]
 [ext_resource type="Texture2D" uid="uid://knhxen77r4oj" path="res://Game Components/UI_Elements/slider_BG.png" id="7_dcbgr"]
 [ext_resource type="Texture2D" uid="uid://yfl18841n3fc" path="res://Game Components/UI_Elements/prompts/tile_0308.png" id="8_0akgj"]
-[ext_resource type="Texture2D" uid="uid://dfsa5hkj1tfrv" path="res://Game Components/UI_Elements/prompts/tile_0051.png" id="8_bmvyp"]
 [ext_resource type="Texture2D" uid="uid://ddvwr4xiw1acq" path="res://Game Components/UI_Elements/prompts/tile_0017.png" id="8_ruu6i"]
 [ext_resource type="Texture2D" uid="uid://dml0ug4t2woco" path="res://Game Components/UI_Elements/prompts/d_pad.png" id="9_mnqee"]
-[ext_resource type="Texture2D" uid="uid://dbhsmrh1rawj7" path="res://Game Components/UI_Elements/prompts/tile_0052.png" id="9_vdt7c"]
 [ext_resource type="Texture2D" uid="uid://bmjgsasn3uavk" path="res://Game Components/UI_Elements/prompts/tile_0077.png" id="10_8bd3w"]
 [ext_resource type="Texture2D" uid="uid://baln24rcrphbp" path="res://Game Components/UI_Elements/prompts/tile_0651.png" id="10_r3v2t"]
 [ext_resource type="Texture2D" uid="uid://u1o4y3myupms" path="res://Game Components/UI_Elements/prompts/tile_0553.png" id="11_oee24"]
@@ -48,6 +45,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1540.0
+offset_bottom = -796.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3l0ep")
@@ -215,14 +214,11 @@ text = "W,A,S,D"
 label_settings = ExtResource("3_2s2es")
 horizontal_alignment = 1
 
-[node name="TextureRect7" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
-modulate = Color(0, 0, 0, 1)
-texture_filter = 3
-custom_minimum_size = Vector2(0, 21)
+[node name="Label4" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("7_b31cx")
-stretch_mode = 2
+text = "F"
+label_settings = ExtResource("3_2s2es")
+horizontal_alignment = 1
 
 [node name="TextureRect3" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
 modulate = Color(0, 0, 0, 1)
@@ -233,23 +229,17 @@ size_flags_horizontal = 4
 texture = ExtResource("8_ruu6i")
 stretch_mode = 2
 
-[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
-modulate = Color(0, 0, 0, 1)
-texture_filter = 3
-custom_minimum_size = Vector2(0, 21)
+[node name="Label2" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("8_bmvyp")
-stretch_mode = 2
+text = "C"
+label_settings = ExtResource("3_2s2es")
+horizontal_alignment = 1
 
-[node name="TextureRect5" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
-modulate = Color(0, 0, 0, 1)
-texture_filter = 3
-custom_minimum_size = Vector2(0, 21)
+[node name="Label3" type="Label" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("9_vdt7c")
-stretch_mode = 2
+text = "T"
+label_settings = ExtResource("3_2s2es")
+horizontal_alignment = 1
 
 [node name="TextureRect6" type="TextureRect" parent="HBoxContainer/list/HBoxContainer/VBoxContainer2"]
 modulate = Color(0, 0, 0, 1)

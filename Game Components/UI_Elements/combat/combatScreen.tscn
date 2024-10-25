@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=40 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="3_6j6h7"]
@@ -777,17 +777,11 @@ vertical_alignment = 2
 autowrap_mode = 2
 
 [node name="Quick Slots" parent="." instance=ExtResource("25_2kcmw")]
-z_index = 99
 custom_minimum_size = Vector2(0, 50)
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 1045.0
 offset_top = 730.0
-offset_right = 2963.0
+offset_right = 1204.0
 offset_bottom = 780.0
-grow_horizontal = 1
-grow_vertical = 1
 scale = Vector2(3, 3)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -805,3 +799,7 @@ volume_db = -25.0
 [connection signal="pressed" from="combatUI/combat/cast" to="." method="_on_onepunch_pressed"]
 [connection signal="dead" from="enemyCombat" to="." method="_on_enemy_combat_dead"]
 [connection signal="item_used" from="inventory_ui" to="." method="_on_inventory_ui_item_used"]
+[connection signal="slot1_used" from="Quick Slots" to="." method="_on_quick_slots_slot_1_used"]
+[connection signal="slot2_used" from="Quick Slots" to="." method="_on_quick_slots_slot_2_used"]
+[connection signal="slot3_used" from="Quick Slots" to="." method="_on_quick_slots_slot_3_used"]
+[connection signal="slot4_used" from="Quick Slots" to="." method="_on_quick_slots_slot_4_used"]

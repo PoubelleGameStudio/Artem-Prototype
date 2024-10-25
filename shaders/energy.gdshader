@@ -14,7 +14,7 @@ float hash12(vec2 x) {
 vec2 hash22(vec2 uv) {
 	uv = vec2(dot(uv, vec2(127.1,311.7)),
 			dot(uv, vec2(269.5, 183.3)));
-	return 2.0 * fract(sin(uv) * 43758.5453123) - 1.0;	
+	return 2.0 * fract(sin(uv) * 43758.5453123) - 1.0;
 }
 
 float noise(vec2 uv) {
@@ -44,11 +44,10 @@ void fragment() {
 	uv += 2.0 * fbm(uv + TIME, octave_count);
 	float dist = abs(uv.x);
 	vec3 color = effect_color * mix(0.0, 0.05, hash12(vec2(TIME))) / dist;
-	
+
 	if ( color.r < 1.0 && color.g < 1.0 && color.b < 1.0){
 		COLOR.a == 0.0;
 	} else {
 		COLOR = vec4(color, 1.0);
 	}
 }
-

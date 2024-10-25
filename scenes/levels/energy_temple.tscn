@@ -371,6 +371,7 @@ interact_value = "0"
 [node name="boss" parent="enemies" groups=["enemies"] instance=ExtResource("6_4fv7r")]
 position = Vector2(4624.16, 91.4929)
 enemy_type = "Ascended Technotheist"
+faction = "Technotheist"
 emitter = 1
 id = "10"
 

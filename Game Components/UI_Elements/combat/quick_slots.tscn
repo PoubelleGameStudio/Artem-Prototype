@@ -1,42 +1,63 @@
-[gd_scene load_steps=6 format=3 uid="uid://br5mlw81bvnnl"]
+[gd_scene load_steps=14 format=3 uid="uid://br5mlw81bvnnl"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/quick_slots.gd" id="1_edl30"]
 [ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="1_pwlk1"]
+[ext_resource type="StyleBox" uid="uid://blxk6rukjr3cj" path="res://Game Components/UI_Elements/combat/selected_frame.tres" id="2_ofp82"]
 [ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="3_wcav7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eefrb"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3iff"]
+texture = ExtResource("1_pwlk1")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ai18"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ojycj"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a2g3m"]
+texture = ExtResource("1_pwlk1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5do6v"]
+texture = ExtResource("1_pwlk1")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_12v6o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uoxm"]
+texture = ExtResource("1_pwlk1")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pv3vg"]
+
 [node name="Quick Slots" type="Control"]
+z_index = 99
 layout_mode = 3
-anchor_right = 0.669
-anchor_bottom = 0.293
-offset_right = -1124.48
+anchors_preset = 0
 offset_bottom = -251.44
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_edl30")
 
 [node name="slot 1" type="Button" parent="."]
+z_index = 100
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
 focus_neighbor_right = NodePath("../slot 2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eefrb")
+theme_override_styles/disabled = ExtResource("2_ofp82")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d3iff")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1ai18")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ojycj")
-
-[node name="Label" type="Label" parent="slot 1"]
-layout_mode = 0
-offset_left = -4.0
-offset_top = 32.0
-offset_right = 36.0
-offset_bottom = 55.0
 
 [node name="Sprite2D" type="Sprite2D" parent="slot 1"]
 light_mask = 0
 texture = ExtResource("1_pwlk1")
 centered = false
+
+[node name="Label" type="Label" parent="slot 1"]
+texture_filter = 4
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("3_wcav7")
+horizontal_alignment = 1
 
 [node name="slot 2" type="Button" parent="."]
 layout_mode = 0
@@ -46,9 +67,17 @@ offset_bottom = 32.0
 focus_neighbor_left = NodePath("../slot 1")
 focus_neighbor_right = NodePath("../slot 3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eefrb")
+theme_override_styles/disabled = ExtResource("2_ofp82")
+theme_override_styles/hover = SubResource("StyleBoxTexture_a2g3m")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ojycj")
 
+[node name="Sprite2D" type="Sprite2D" parent="slot 2"]
+light_mask = 0
+texture = ExtResource("1_pwlk1")
+centered = false
+
 [node name="Label" type="Label" parent="slot 2"]
+visible = false
 texture_filter = 4
 layout_mode = 0
 offset_left = -4.0
@@ -56,13 +85,7 @@ offset_top = 32.0
 offset_right = 36.0
 offset_bottom = 55.0
 theme_override_fonts/font = ExtResource("3_wcav7")
-text = "test"
 horizontal_alignment = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="slot 2"]
-light_mask = 0
-texture = ExtResource("1_pwlk1")
-centered = false
 
 [node name="slot 3" type="Button" parent="."]
 layout_mode = 0
@@ -72,19 +95,25 @@ offset_bottom = 32.0
 focus_neighbor_left = NodePath("../slot 2")
 focus_neighbor_right = NodePath("../slot 4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eefrb")
+theme_override_styles/disabled = ExtResource("2_ofp82")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5do6v")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_12v6o")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ojycj")
-
-[node name="Label" type="Label" parent="slot 3"]
-layout_mode = 0
-offset_left = -4.0
-offset_top = 32.0
-offset_right = 36.0
-offset_bottom = 55.0
 
 [node name="Sprite2D" type="Sprite2D" parent="slot 3"]
 light_mask = 0
 texture = ExtResource("1_pwlk1")
 centered = false
+
+[node name="Label" type="Label" parent="slot 3"]
+visible = false
+texture_filter = 4
+offset_left = -4.0
+offset_top = 32.0
+offset_right = 36.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("3_wcav7")
+horizontal_alignment = 1
 
 [node name="slot 4" type="Button" parent="."]
 layout_mode = 0
@@ -93,21 +122,43 @@ offset_right = 152.0
 offset_bottom = 32.0
 focus_neighbor_left = NodePath("../slot 3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eefrb")
+theme_override_styles/disabled = ExtResource("2_ofp82")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2uoxm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pv3vg")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ojycj")
-
-[node name="Label" type="Label" parent="slot 4"]
-layout_mode = 0
-offset_left = -4.0
-offset_top = 32.0
-offset_right = 36.0
-offset_bottom = 55.0
 
 [node name="Sprite2D" type="Sprite2D" parent="slot 4"]
 light_mask = 0
 texture = ExtResource("1_pwlk1")
 centered = false
 
+[node name="Label" type="Label" parent="slot 4"]
+visible = false
+texture_filter = 4
+offset_left = -4.0
+offset_top = 32.0
+offset_right = 36.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("3_wcav7")
+horizontal_alignment = 1
+
+[connection signal="focus_entered" from="slot 1" to="." method="_on_slot_1_focus_entered"]
+[connection signal="focus_exited" from="slot 1" to="." method="_on_slot_1_focus_exited"]
+[connection signal="mouse_entered" from="slot 1" to="." method="_on_slot_1_mouse_entered"]
+[connection signal="mouse_exited" from="slot 1" to="." method="_on_slot_1_mouse_exited"]
 [connection signal="pressed" from="slot 1" to="." method="_on_slot_1_pressed"]
+[connection signal="focus_entered" from="slot 2" to="." method="_on_slot_2_focus_entered"]
+[connection signal="focus_exited" from="slot 2" to="." method="_on_slot_2_focus_exited"]
+[connection signal="mouse_entered" from="slot 2" to="." method="_on_slot_2_mouse_entered"]
+[connection signal="mouse_exited" from="slot 2" to="." method="_on_slot_2_mouse_exited"]
 [connection signal="pressed" from="slot 2" to="." method="_on_slot_2_pressed"]
+[connection signal="focus_entered" from="slot 3" to="." method="_on_slot_3_focus_entered"]
+[connection signal="focus_exited" from="slot 3" to="." method="_on_slot_3_focus_exited"]
+[connection signal="mouse_entered" from="slot 3" to="." method="_on_slot_3_mouse_entered"]
+[connection signal="mouse_exited" from="slot 3" to="." method="_on_slot_3_mouse_exited"]
 [connection signal="pressed" from="slot 3" to="." method="_on_slot_3_pressed"]
+[connection signal="focus_entered" from="slot 4" to="." method="_on_slot_4_focus_entered"]
+[connection signal="focus_exited" from="slot 4" to="." method="_on_slot_4_focus_exited"]
+[connection signal="mouse_entered" from="slot 4" to="." method="_on_slot_4_mouse_entered"]
+[connection signal="mouse_exited" from="slot 4" to="." method="_on_slot_4_mouse_exited"]
 [connection signal="pressed" from="slot 4" to="." method="_on_slot_4_pressed"]

@@ -4,6 +4,7 @@ extends Node
 @export var max_health : int
 @export var speed : int = 5
 @export var enemy_type : String = ''
+@export var faction : String = ''
 @export var emitter = 0
 @export var defeated = 0
 @export var world = ""

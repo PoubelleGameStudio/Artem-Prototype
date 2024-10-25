@@ -11,7 +11,7 @@ extends Node2D
 @onready var pHealth : TextureProgressBar = $combatUI/playerHealth
 @onready var pHealth_label: Label = $combatUI/current_health
 @onready var spell_book = $combatUI/spellSelect
-@onready var yourTurn = 1
+@onready var yourTurn : bool = true
 @onready var spells = State.spell_book
 @onready var specialCounter = 0
 @onready var enemyBook = State.enemies
@@ -31,6 +31,7 @@ extends Node2D
 		casts_left_label.text = str("Casts Left: ", casts_left)
 		if casts_left < 1:
 			State.can_use = false
+			yourTurn = false
 		else:
 			State.can_use = true
 @onready var casts_left_label: Label = $cast_lefts
@@ -136,14 +137,19 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	player.play("idle")
+	
 	pHealth.value = State.health
 	pHealth.max_value = State.maxHealth
-	spellTexture.hide()
-	yourTurn = 1
+	pHealth_label.text = str("HP ",State.health)
+	
+	yourTurn = true
+	
 	DoTEffect.hide()
 	enemyAttack.hide()
-	pHealth_label.text = str("HP ",State.health)
+	spellTexture.hide()
+	
 	statusEffect.text = burningText + poisonedText
+	
 	chosen_spell_desc.visible_characters = -1
 
 
@@ -157,7 +163,7 @@ func _process(delta):
 
 func start_turn():
 	statusEffect.text = burningText + poisonedText
-	yourTurn = 1
+	yourTurn = true
 
 func camera_current():
 	cam.make_current()
@@ -171,10 +177,12 @@ func combat_data():
 	eNameLabel.text = enemy.enemy_type
 	enemy.enemyHealth()
 	enemy.enemySprite.play(str(enemy.enemy_type,"_idle"))
+	
 	eHealth.max_value = enemy.max_health
 	eHealth.value = enemy.health
 	eHealth_label.text = str("HP: ",enemy.max_health)
-	inv_ui.populate_grid()
+	
+	#inv_ui.populate_grid()
 	$combatUI/spellSelect/Control/VBoxContainer/Invoke/Fireball.grab_focus()
 	
 	enemy_info_enemy_type.text = str("Enemy Type: ",enemy.enemy_type)
@@ -253,22 +261,22 @@ func castSpell() -> int:
 		damage *= 2
 		
 
-	#handle spell resist
-	if enemyBook[enemy.enemy_type]["resists"]:
-		
-		preResists = damage
-		
-		match enemyBook[enemy.enemy_type]["resists"]:
-			"void":
-					damage *= 0.5
-			"fire":
-					damage *= 0.5
-			"frost":
-					damage *= 0.5
-			"arcane": 
-					damage *= 0.5
-			"blood":
-					damage *= 0.5
+	##handle spell resist
+	#if enemyBook[enemy.enemy_type]["resists"]:
+		#
+		#preResists = damage
+		#
+		#match enemyBook[enemy.enemy_type]["resists"]:
+			#"void":
+					#damage *= 0.5
+			#"fire":
+					#damage *= 0.5
+			#"frost":
+					#damage *= 0.5
+			#"arcane": 
+					#damage *= 0.5
+			#"blood":
+					#damage *= 0.5
 
 	#handle life_drain after all damage calcs are done
 	if life_drain > 0.0:
@@ -355,7 +363,7 @@ func enemyTurn():
 		if hit_lowered_for > 0 :
 			if rng.randf_range(0.0,1.0) > enemy_hit_chance:
 				hit_lowered_for -= 1
-				yourTurn = 1
+				yourTurn = true
 				casts_left = State.casts
 				return
 		
@@ -418,7 +426,7 @@ func enemyTurn():
 			fieldDuration -= 1
 		turn_sign.text = "Your Turn"
 		casts_left = State.casts
-		yourTurn = 1
+		yourTurn = true
 		if State.health < 1:
 			death.emit()
 			reset()
@@ -455,7 +463,7 @@ func endgame():
 		State.update_inventory(drop,State.enemies[enemy.enemy_type]["drops"][drop])
 		print(drop," added to inventory")
 	State.cur_xp += round(pow(State.level,1.5)+State.level*2.6)
-	yourTurn = 1
+	yourTurn = true
 
 
 func enemy_damage_sound_player() -> void :
@@ -494,9 +502,24 @@ func reset():
 	fieldDuration = 0
 
 
-
+func item_use(item) -> void :
+	if State.check_inv(item) > 0:
+		match item :
+			"health restore" :
+				print("healed slightly")
+				State.health += 45
+				pHealth.value = State.health
+				pHealth_label.text = str("HP: ",State.health)
+				casts_left -= 1
+				
+			"RIP'd CD" :
+				if enemy.faction == "Technotheist" :
+					enemy.updateHealth(45)
+					casts_left -= 1
+				
+				
 func _on_inventory_pressed():
-	if yourTurn == 1:
+	if yourTurn == true:
 		inv.hide()
 		inv_ui.show()
 		exit_inv.show()
@@ -510,7 +533,7 @@ func _on_return_pressed():
 func _on_onepunch_pressed():
 	
 	if casts_left > 0 :
-		if yourTurn == 1 && State.spell1 != '' && is_casting == false:
+		if yourTurn && State.spell1 != '' && is_casting == false:
 			sound.set_stream(confirm)
 			sound.play()
 			Input.start_joy_vibration(0,0.9,0.5,0.1)
@@ -540,7 +563,7 @@ func _on_onepunch_pressed():
 				eHealth_label.text = str("HP: ",enemy.health)
 				casts_left -= 1
 				if casts_left == 0:
-					yourTurn = 0
+					yourTurn = false
 					turn_sign.text = "Enemy Turn"
 					enemyTurn()
 
@@ -554,3 +577,26 @@ func _on_enemy_combat_dead():
 func _on_inventory_ui_item_used():
 	casts_left -= 1
 	enemyTurn() 
+
+
+func _on_quick_slots_slot_1_used():
+	if yourTurn:
+		print(State.quick_slot_1)
+		item_use(State.quick_slot_1)
+
+
+
+func _on_quick_slots_slot_2_used():
+	if yourTurn:
+		item_use(State.quick_slot_2)
+
+
+
+func _on_quick_slots_slot_3_used():
+	if yourTurn:
+		item_use(State.quick_slot_3)
+
+
+func _on_quick_slots_slot_4_used():
+	if yourTurn:
+		item_use(State.quick_slot_4)

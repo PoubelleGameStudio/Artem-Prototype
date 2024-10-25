@@ -320,7 +320,7 @@ texture = ExtResource("12_gtu0l")
 
 [node name="Fog" type="TextureRect" parent="."]
 z_index = -1
-texture_filter = 2
+texture_filter = 4
 texture_repeat = 2
 material = SubResource("ShaderMaterial_f5jv4")
 offset_left = -4492.0

@@ -21,9 +21,9 @@ var spell1: String = 'fireball'
 
 # player gear slots
 var quick_slot_1 : String = 'health restore'
-var quick_slot_2 : String = 'health restore'
-var quick_slot_3 : String = 'health restore'
-var quick_slot_4 : String = 'health restore'
+var quick_slot_2 : String
+var quick_slot_3 : String
+var quick_slot_4 : String = ''
 
 #var helm: String = 'Watcher Cowl'
 #var chest: String = 'Watcher Robe'
@@ -348,6 +348,16 @@ func update_inventory(item,amount):
 		inventory[item]+=amount
 	else:
 		inventory[item]=amount
+
+
+
+func check_inv(item) -> int :
+	if inventory.has(item) :
+		if inventory[item] :
+			return inventory[item]
+	return 0
+
+
 
 # quest status -1:unavailable 0:inactive 1:active 2:completed
 # array of quests

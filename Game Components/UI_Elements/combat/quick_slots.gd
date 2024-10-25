@@ -29,34 +29,124 @@ func _ready():
 
 
 func setup() -> void :
-	slot1_label.text = State.quick_slot_1
 	if State.quick_slot_1:
-		slot1_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_1,".png"))
+		slot1_label.text = State.quick_slot_1
+		if State.quick_slot_1:
+			slot1_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_1,".png"))
+	else:
+		slot1.disabled = true
 	
-	slot2_label.text = State.quick_slot_2
 	if State.quick_slot_2:
-		slot2_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_2,".png"))
+		slot2_label.text = State.quick_slot_2
+		if State.quick_slot_2:
+			slot2_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_2,".png"))
+	else:
+		slot2.disabled = true
 	
-	slot3_label.text = State.quick_slot_3
 	if State.quick_slot_3:
-		slot3_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_3,".png"))
+		slot3_label.text = State.quick_slot_3
+		if State.quick_slot_3:
+			slot3_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_3,".png"))
+	else:
+		slot3.disabled = true
 	
-	slot4_label.text = State.quick_slot_4
 	if State.quick_slot_4:
-		slot4_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_4,".png"))
+		slot4_label.text = State.quick_slot_4
+		if State.quick_slot_4:
+			slot4_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_4,".png"))
 
 
 func _on_slot_1_pressed():
-	slot2_used.emit()
+	print("slot1")
+	slot1_used.emit()
+
+
+func _on_slot_1_mouse_entered():
+	slot1_label.show()
+
+
+
+func _on_slot_1_mouse_exited():
+	slot1_label.hide()
+
+
+
+func _on_slot_1_focus_entered():
+	slot1_label.show()
+
+
+func _on_slot_1_focus_exited():
+	slot1_label.hide()
+
 
 
 func _on_slot_2_pressed():
 	slot2_used.emit()
 
 
+
+func _on_slot_2_focus_entered():
+	slot2_label.show()
+	
+	
+
+func _on_slot_2_focus_exited():
+	slot2_label.hide()
+
+
+func _on_slot_2_mouse_entered():
+	slot2_label.show()
+	
+
+
+func _on_slot_2_mouse_exited():
+	slot2_label.hide()
+
+
+
 func _on_slot_3_pressed():
 	slot3_used.emit()
 
 
+func _on_slot_3_focus_entered():
+	slot3_label.show()
+
+
+
+func _on_slot_3_focus_exited():
+	slot3_label.hide()
+
+
+
+func _on_slot_3_mouse_entered():
+	slot3_label.show()
+
+
+
+func _on_slot_3_mouse_exited():
+	slot3_label.hide()
+
+
+
 func _on_slot_4_pressed():
 	slot4_used.emit()
+
+
+
+func _on_slot_4_focus_entered():
+	slot4_label.show()
+
+
+
+func _on_slot_4_focus_exited():
+	slot4_label.hide()
+
+
+
+func _on_slot_4_mouse_entered():
+	slot4_label.show()
+
+
+
+func _on_slot_4_mouse_exited():
+	slot4_label.hide()
