@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://br5mlw81bvnnl"]
+[gd_scene load_steps=17 format=3 uid="uid://br5mlw81bvnnl"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/quick_slots.gd" id="1_edl30"]
 [ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="1_pwlk1"]
-[ext_resource type="StyleBox" uid="uid://blxk6rukjr3cj" path="res://Game Components/UI_Elements/combat/selected_frame.tres" id="2_ofp82"]
 [ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="3_wcav7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eefrb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_frm8p"]
+texture = ExtResource("1_pwlk1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3iff"]
 texture = ExtResource("1_pwlk1")
@@ -14,13 +16,22 @@ texture = ExtResource("1_pwlk1")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ojycj"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tujib"]
+texture = ExtResource("1_pwlk1")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a2g3m"]
+texture = ExtResource("1_pwlk1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d46y8"]
 texture = ExtResource("1_pwlk1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5do6v"]
 texture = ExtResource("1_pwlk1")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_12v6o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ggq0v"]
+texture = ExtResource("1_pwlk1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uoxm"]
 texture = ExtResource("1_pwlk1")
@@ -41,7 +52,7 @@ offset_right = 32.0
 offset_bottom = 32.0
 focus_neighbor_right = NodePath("../slot 2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eefrb")
-theme_override_styles/disabled = ExtResource("2_ofp82")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_frm8p")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d3iff")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_1ai18")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ojycj")
@@ -68,7 +79,7 @@ offset_bottom = 32.0
 focus_neighbor_left = NodePath("../slot 1")
 focus_neighbor_right = NodePath("../slot 3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eefrb")
-theme_override_styles/disabled = ExtResource("2_ofp82")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_tujib")
 theme_override_styles/hover = SubResource("StyleBoxTexture_a2g3m")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ojycj")
 
@@ -96,7 +107,7 @@ offset_bottom = 32.0
 focus_neighbor_left = NodePath("../slot 2")
 focus_neighbor_right = NodePath("../slot 4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eefrb")
-theme_override_styles/disabled = ExtResource("2_ofp82")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_d46y8")
 theme_override_styles/hover = SubResource("StyleBoxTexture_5do6v")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_12v6o")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ojycj")
@@ -124,7 +135,7 @@ offset_right = 152.0
 offset_bottom = 32.0
 focus_neighbor_left = NodePath("../slot 3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eefrb")
-theme_override_styles/disabled = ExtResource("2_ofp82")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ggq0v")
 theme_override_styles/hover = SubResource("StyleBoxTexture_2uoxm")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_pv3vg")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ojycj")

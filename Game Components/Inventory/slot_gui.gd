@@ -49,36 +49,26 @@ func _process(delta):
 	hover_check()
 
 
-func _on_button_mouse_entered():
-	$hoverName.show()
-	
-	
-
-func _on_button_mouse_exited():
-	$hoverName.hide()
-
-
-
 
 func hover_check():
 	if $Button.is_hovered() or has_focus():
 		
 		if Input.is_action_just_pressed("quick_slot_1"):
 			State.quick_slot_1 = item_name
-			print(get_node("../../../Quick Slots"))
 			get_node("../../../Quick Slots").setup()
 			
 		if Input.is_action_just_pressed("quick_slot_2"):
 			State.quick_slot_2 = item_name
-			get_node("../../Quick Slots").setup()
+			get_node("../../../Quick Slots").setup()
 			
 		if Input.is_action_just_pressed("quick_slot_3"):
 			State.quick_slot_3 = item_name
-			get_node("../../Quick Slots").setup()
+			get_node("../../../Quick Slots").setup()
 			
 		if Input.is_action_just_pressed("quick_slot_4"):
 			State.quick_slot_4 = item_name
-			get_node("../../Quick Slots").setup()
+			get_node("../../../Quick Slots").setup()
+			
 		
 		if Input.is_action_pressed("drop_inv_item"):
 			inv.erase(item_name)
@@ -101,12 +91,19 @@ func hover_check():
 								inv[item_name]-=1
 								item_used.emit()
 							
-					
-
-
+							
+							
+func _on_button_mouse_entered():
+	$hoverName.show()
+	
 	
 
+func _on_button_mouse_exited():
+	$hoverName.hide()
 
+			
+			
+			
 func _on_focus_entered():
 	$indicator.show()
 	$hoverName.show()

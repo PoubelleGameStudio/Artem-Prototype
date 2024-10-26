@@ -656,15 +656,11 @@ var Vendor_wares = {
 var items = {
 	"health restore":{
 		"type":"Potion",
-		"effect":{
-			"HP":60
-		}
+		"effect":60
 	},
 	"beer":{
 		"type":"Potion",
-		"effect":{
-			"HP":20
-		}
+		"effect":20
 	},
 	"rip'd cd":{
 		"type":"Throwable",

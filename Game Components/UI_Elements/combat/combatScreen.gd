@@ -33,6 +33,7 @@ extends Node2D
 		if casts_left < 1:
 			State.can_use = false
 			yourTurn = false
+			turn_sign.text = "Enemy Turn"
 			enemyTurn()
 		else:
 			State.can_use = true
@@ -321,23 +322,23 @@ func enemyTurn():
 		enemy.enemySprite.play(str(enemy.enemy_type,"_idle"))
 		enemyAttack.hide()
 
-		#handle player resist
-		match enemyBook[enemy.enemy_type]["type"]:
-			"void":
-				var reduce = (100 - State.rVoid) * .01
-				damageTaken *= reduce
-
-			"fire":
-				var reduce = (100 - State.rFire) * .01
-				damageTaken *= reduce
-
-			"blood":
-				var reduce = (100 - State.rBlood) * .01
-				damageTaken *= reduce
-
-			"physical":
-				var reduce = (100 - State.armor) * .01
-				damageTaken *= reduce
+		##handle player resist
+		#match enemyBook[enemy.enemy_type]["type"]:
+			#"void":
+				#var reduce = (100 - State.rVoid) * .01
+				#damageTaken *= reduce
+#
+			#"fire":
+				#var reduce = (100 - State.rFire) * .01
+				#damageTaken *= reduce
+#
+			#"blood":
+				#var reduce = (100 - State.rBlood) * .01
+				#damageTaken *= reduce
+#
+			#"physical":
+				#var reduce = (100 - State.armor) * .01
+				#damageTaken *= reduce
 
 		if specialCounter == 5: # TODO add set func to handle reset instead
 			specialCounter = 0  #  if specialCounter is > 5 then = 0
@@ -385,6 +386,7 @@ func enemyTurn():
 
 		pHealth.value = State.health
 		combatTextUpdate(str(enemy.enemy_type," attacked for ",int(damageTaken)))
+		print("combat log printed")
 		pHealth_label.text = str("HP ",State.health)
 		await get_tree().create_timer(1.0).timeout
 
@@ -509,16 +511,24 @@ func item_use(item) -> void :
 	if State.check_inv(item) > 0:
 		match item :
 			"health restore" :
-				print("healed slightly")
-				State.health += 45
-				pHealth.value = State.health
-				pHealth_label.text = str("HP: ",State.health)
-				casts_left -= 1
+				if State.health < State.maxHealth:
+					print("healed slightly")
+					if State.health + 45 > State.maxHealth:
+						State.health = State.maxHealth
+					else:
+						State.health += 45
+					pHealth.value = State.health
+					pHealth_label.text = str("HP: ",State.health)
+					casts_left -= 1
+					State.inventory[item] -= 1
+
 				
 			"RIP'd CD" :
 				if enemy.faction == "Technotheist" :
 					enemy.updateHealth(45)
 					casts_left -= 1
+					State.inventory[item] -= 1
+		quick_slots.setup()
 				
 				
 func _on_inventory_pressed():
@@ -565,10 +575,10 @@ func _on_onepunch_pressed():
 				eHealth.value = enemy.health
 				eHealth_label.text = str("HP: ",enemy.health)
 				casts_left -= 1
-				if casts_left == 0:
-					yourTurn = false
-					turn_sign.text = "Enemy Turn"
-					enemyTurn()
+				#if casts_left == 0:
+					#yourTurn = false
+					#turn_sign.text = "Enemy Turn"
+					#enemyTurn()
 
 func _on_enemy_combat_dead():
 	combat_end.emit()
@@ -579,7 +589,6 @@ func _on_enemy_combat_dead():
 
 func _on_inventory_ui_item_used():
 	casts_left -= 1
-	enemyTurn() 
 
 
 func _on_quick_slots_slot_1_used():
