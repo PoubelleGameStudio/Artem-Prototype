@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=46 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="13_cjqps"]
 [ext_resource type="PackedScene" uid="uid://5v2qsot5igdu" path="res://Game Components/UI_Elements/quest log components/quest_log.tscn" id="14_xc3j5"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="15_oq2cw"]
+[ext_resource type="PackedScene" uid="uid://br5mlw81bvnnl" path="res://Game Components/UI_Elements/combat/quick_slots.tscn" id="15_ps5bq"]
 [ext_resource type="PackedScene" uid="uid://c8skkvcn0ci81" path="res://Game Components/UI_Elements/Talent Tree/talentTree.tscn" id="16_unwu1"]
 [ext_resource type="PackedScene" uid="uid://d010sb0bdrwv5" path="res://Game Components/Shop/shop.tscn" id="17_3neu2"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="18_jm848"]
@@ -452,12 +453,19 @@ theme_override_font_sizes/font_size = 38
 text = "XP"
 label_settings = ExtResource("15_oq2cw")
 
+[node name="Quick Slots" parent="HUD/character_info" instance=ExtResource("15_ps5bq")]
+offset_left = -239.0
+offset_top = -52.0
+offset_right = -205.0
+offset_bottom = -52.0
+mouse_filter = 1
+
 [node name="Inventory" parent="HUD/character_info" instance=ExtResource("13_cjqps")]
 z_index = 99
 offset_left = -223.04
-offset_top = -12.2494
+offset_top = 23.7506
 offset_right = -167.04
-offset_bottom = 27.7506
+offset_bottom = 63.7506
 
 [node name="Inventory_label" type="Label" parent="HUD/character_info/Inventory"]
 layout_mode = 0

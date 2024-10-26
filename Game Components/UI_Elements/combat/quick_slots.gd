@@ -33,22 +33,22 @@ func setup() -> void :
 		slot1_label.text = State.quick_slot_1
 		if State.quick_slot_1:
 			slot1_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_1,".png"))
-	else:
-		slot1.disabled = true
+	#else:
+		#slot1.disabled = true
 	
 	if State.quick_slot_2:
 		slot2_label.text = State.quick_slot_2
 		if State.quick_slot_2:
 			slot2_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_2,".png"))
-	else:
-		slot2.disabled = true
+	#else:
+		#slot2.disabled = true
 	
 	if State.quick_slot_3:
 		slot3_label.text = State.quick_slot_3
 		if State.quick_slot_3:
 			slot3_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_3,".png"))
-	else:
-		slot3.disabled = true
+	#else:
+		#slot3.disabled = true
 	
 	if State.quick_slot_4:
 		slot4_label.text = State.quick_slot_4
@@ -59,6 +59,9 @@ func setup() -> void :
 func _on_slot_1_pressed():
 	print("slot1")
 	slot1_used.emit()
+	if State.check_inv(slot1_label.text) <= 0 :
+		State.quick_slot_1 = ''
+		slot1.set_texture(null)
 
 
 func _on_slot_1_mouse_entered():

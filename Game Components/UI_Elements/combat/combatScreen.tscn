@@ -776,12 +776,24 @@ label_settings = ExtResource("5_be3fw")
 vertical_alignment = 2
 autowrap_mode = 2
 
+[node name="Label" type="Label" parent="Control"]
+z_index = 99
+layout_mode = 0
+offset_left = 199.0
+offset_top = 397.0
+offset_right = 297.0
+offset_bottom = 459.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_0cyua")
+theme_override_font_sizes/font_size = 50
+text = "Items"
+
 [node name="Quick Slots" parent="." instance=ExtResource("25_2kcmw")]
 custom_minimum_size = Vector2(0, 50)
-offset_left = 1045.0
-offset_top = 730.0
-offset_right = 1204.0
-offset_bottom = 780.0
+offset_left = 1044.0
+offset_top = 785.0
+offset_right = 1203.0
+offset_bottom = 835.0
 scale = Vector2(3, 3)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -17,6 +17,7 @@ extends Node2D
 @onready var enemyBook = State.enemies
 @onready var eNameLabel = $combatUI/enemyInfo/HBoxContainer/EnemyName
 @onready var cam = $Camera2D
+@onready var quick_slots : QuickSlots = $"Quick Slots"
 @onready var world_instance = get_tree().get_root().get_node('/root/root')
 @onready var world_level = get_tree().get_root().get_node('/root/root').level_name
 @onready var chosen_spell_desc: Label = $combatUI/combat/chosen_spell_desc
@@ -32,6 +33,7 @@ extends Node2D
 		if casts_left < 1:
 			State.can_use = false
 			yourTurn = false
+			enemyTurn()
 		else:
 			State.can_use = true
 @onready var casts_left_label: Label = $cast_lefts
@@ -183,6 +185,7 @@ func combat_data():
 	eHealth_label.text = str("HP: ",enemy.max_health)
 	
 	#inv_ui.populate_grid()
+	quick_slots.setup()
 	$combatUI/spellSelect/Control/VBoxContainer/Invoke/Fireball.grab_focus()
 	
 	enemy_info_enemy_type.text = str("Enemy Type: ",enemy.enemy_type)

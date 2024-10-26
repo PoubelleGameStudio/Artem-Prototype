@@ -20,7 +20,7 @@ var spell1: String = 'fireball'
 
 
 # player gear slots
-var quick_slot_1 : String = 'health restore'
+var quick_slot_1 : String = ''
 var quick_slot_2 : String
 var quick_slot_3 : String
 var quick_slot_4 : String = ''
@@ -341,7 +341,7 @@ func learn_spell(spell,cost,damage,stat_mod,stat_mod_amt,stat_req,stat_req_amt):
 @onready var q_inventroy = {"Cursed Book":1}
 
 # personal inventory and functions
-@onready var inventory = {}
+@onready var inventory = {"health restore":2}
 
 func update_inventory(item,amount):
 	if inventory.has(item):
@@ -664,6 +664,12 @@ var items = {
 		"type":"Potion",
 		"effect":{
 			"HP":20
+		}
+	},
+	"rip'd cd":{
+		"type":"Throwable",
+		"effect":{
+			"damage": 55
 		}
 	}
 }
