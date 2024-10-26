@@ -341,7 +341,10 @@ func learn_spell(spell,cost,damage,stat_mod,stat_mod_amt,stat_req,stat_req_amt):
 @onready var q_inventroy = {"Cursed Book":1}
 
 # personal inventory and functions
-@onready var inventory = {"health restore":2}
+@onready var inventory = {
+	"health restore":2,
+	"RIP'd CD":1
+}
 
 func update_inventory(item,amount):
 	if inventory.has(item):
@@ -525,7 +528,8 @@ var area_enemies = {
 		"7":0,
 		"8":0,
 		"9":0,
-		"10":0
+		"10":0,
+		"11":0
 	},
 	"forest_cave":{
 		"1":0,
@@ -611,6 +615,7 @@ var enemies = {
 	},
 	"Ascended Technotheist":{
 		"health":200,
+		"faction":"Technotheist",
 		"speed":5,
 		"defeated":0,
 		"armor":0,

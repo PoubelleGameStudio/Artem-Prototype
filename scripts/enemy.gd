@@ -31,6 +31,7 @@ func _ready():
 			if type == enemy_type:
 				health = zone_enemies[type]["health"]
 				max_health = zone_enemies[type]["health"]
+				# faction = zone_enemies[type]["faction"]
 	# print("from enemy ", health)
 	if enemy_type != "":
 		enemySprite.play(str(enemy_type,"_idle"))

@@ -48,24 +48,110 @@ func _process(delta):
 
 	hover_check()
 
-
+func check_for_swap(item : String,slot : int) -> void : 
+	
+	var new_item : String = item
+	
+	match new_item : 
+		State.quick_slot_1:
+			print("need to swap to slot 1")
+			State.quick_slot_1 = new_item
+			match slot:
+				2 : 
+					if !State.quick_slot_2:
+						State.quick_slot_1 = ''
+					else:
+						State.quick_slot_1 = State.quick_slot_2
+				3 :
+					if !State.quick_slot_3:
+						State.quick_slot_1 = ''
+					else:
+						State.quick_slot_1 = State.quick_slot_3
+				4 :
+					if !State.quick_slot_4:
+						State.quick_slot_1 = ''
+					else:
+						State.quick_slot_1 = State.quick_slot_4
+		State.quick_slot_2:
+			print("need to swap to slot 2")
+			State.quick_slot_2 = new_item
+			match slot:
+				1 : 
+					if !State.quick_slot_1:
+						State.quick_slot_2 = ''
+					else:
+						State.quick_slot_2 = State.quick_slot_1
+				3 :
+					if !State.quick_slot_3:
+						State.quick_slot_2 = ''
+					else:
+						State.quick_slot_2 = State.quick_slot_3
+				4 :
+					if !State.quick_slot_4:
+						State.quick_slot_2 = ''
+					else:
+						State.quick_slot_2 = State.quick_slot_4
+		State.quick_slot_3:
+			print("need to swap to slot 3")
+			State.quick_slot_3 = new_item
+			match slot:
+				2 : 
+					if !State.quick_slot_2:
+						State.quick_slot_3 = ''
+					else:
+						State.quick_slot_3 = State.quick_slot_2
+				1 :
+					if !State.quick_slot_1:
+						State.quick_slot_3 = ''
+					else:
+						State.quick_slot_3 = State.quick_slot_1
+				4 :
+					if !State.quick_slot_4:
+						State.quick_slot_3 = ''
+					else:
+						State.quick_slot_3 = State.quick_slot_4
+		State.quick_slot_4:
+			print("need to swap to slot 4")
+			State.quick_slot_4 = new_item
+			match slot:
+				2 : 
+					if !State.quick_slot_2:
+						State.quick_slot_4 = ''
+					else:
+						State.quick_slot_4 = State.quick_slot_2
+				3 :
+					if !State.quick_slot_3:
+						State.quick_slot_4 = ''
+					else:
+						State.quick_slot_4 = State.quick_slot_3
+				1 :
+					if !State.quick_slot_1:
+						State.quick_slot_4 = ''
+					else:
+						State.quick_slot_4 = State.quick_slot_1
+	
+	pass
 
 func hover_check():
 	if $Button.is_hovered() or has_focus():
 		
 		if Input.is_action_just_pressed("quick_slot_1"):
+			check_for_swap(item_name,1)
 			State.quick_slot_1 = item_name
 			get_node("../../../Quick Slots").setup()
 			
 		if Input.is_action_just_pressed("quick_slot_2"):
+			check_for_swap(item_name,2)
 			State.quick_slot_2 = item_name
 			get_node("../../../Quick Slots").setup()
 			
 		if Input.is_action_just_pressed("quick_slot_3"):
+			check_for_swap(item_name,3)
 			State.quick_slot_3 = item_name
 			get_node("../../../Quick Slots").setup()
 			
 		if Input.is_action_just_pressed("quick_slot_4"):
+			check_for_swap(item_name,4)
 			State.quick_slot_4 = item_name
 			get_node("../../../Quick Slots").setup()
 			
@@ -94,12 +180,15 @@ func hover_check():
 							
 							
 func _on_button_mouse_entered():
+	self.has_focus()
+	$indicator.show()
 	$hoverName.show()
 	
 	
 
 func _on_button_mouse_exited():
 	$hoverName.hide()
+	$indicator.hide()
 
 			
 			
@@ -107,8 +196,6 @@ func _on_button_mouse_exited():
 func _on_focus_entered():
 	$indicator.show()
 	$hoverName.show()
-	print(has_focus())
-	print(get_viewport().gui_get_focus_owner())
 
 
 func _on_focus_exited():

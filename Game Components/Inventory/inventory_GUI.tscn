@@ -17,39 +17,46 @@ script = ExtResource("1_8i475")
 
 [node name="grid" type="GridContainer" parent="."]
 layout_mode = 1
-offset_right = 248.0
+offset_left = -10.0
+offset_right = 238.0
 offset_bottom = 104.0
 columns = 4
 
 [node name="Slot1" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+texture_filter = 3
 layout_mode = 2
 focus_neighbor_right = NodePath("../Slot2")
 focus_neighbor_bottom = NodePath("../Slot5")
 
 [node name="Slot2" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+texture_filter = 3
 layout_mode = 2
 focus_neighbor_left = NodePath("../Slot1")
 focus_neighbor_right = NodePath("../Slot3")
 focus_neighbor_bottom = NodePath("../Slot6")
 
 [node name="Slot3" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+texture_filter = 3
 layout_mode = 2
 focus_neighbor_left = NodePath("../Slot2")
 focus_neighbor_right = NodePath("../Slot4")
 focus_neighbor_bottom = NodePath("../Slot7")
 
 [node name="Slot4" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+texture_filter = 3
 layout_mode = 2
 focus_neighbor_left = NodePath("../Slot3")
 focus_neighbor_bottom = NodePath("../Slot8")
 
 [node name="Slot5" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+texture_filter = 3
 layout_mode = 2
 focus_neighbor_top = NodePath("../Slot1")
 focus_neighbor_right = NodePath("../Slot6")
 focus_neighbor_bottom = NodePath("../Slot9")
 
 [node name="Slot6" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+texture_filter = 3
 layout_mode = 2
 focus_neighbor_left = NodePath("../Slot5")
 focus_neighbor_top = NodePath("../Slot2")
@@ -57,53 +64,67 @@ focus_neighbor_right = NodePath("../Slot7")
 focus_neighbor_bottom = NodePath("../Slot10")
 
 [node name="Slot7" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot8" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot9" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot10" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot11" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot12" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot13" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
 visible = false
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot14" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
 visible = false
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot15" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
 visible = false
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot16" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
 visible = false
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot17" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
 visible = false
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot18" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
 visible = false
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot19" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
 visible = false
+texture_filter = 3
 layout_mode = 2
 
 [node name="Slot20" parent="grid" groups=["empty_slots", "slots"] instance=ExtResource("2_p73rp")]
 visible = false
+texture_filter = 3
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -117,8 +138,9 @@ offset_bottom = 310.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
+offset_left = -10.0
 offset_top = 120.0
-offset_right = 71.0
+offset_right = 128.0
 offset_bottom = 166.0
 
 [node name="use_container" type="HBoxContainer" parent="VBoxContainer"]
@@ -139,6 +161,7 @@ label_settings = ExtResource("4_5qyxi")
 
 [node name="drop_container" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/drop_container"]
 layout_mode = 2

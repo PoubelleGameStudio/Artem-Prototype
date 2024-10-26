@@ -63,12 +63,16 @@ texture = ExtResource("1_pwlk1")
 centered = false
 
 [node name="Label" type="Label" parent="slot 1"]
+visible = false
 texture_filter = 4
 layout_mode = 0
 offset_top = 32.0
 offset_right = 32.0
 offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wcav7")
+text = "
+"
 horizontal_alignment = 1
 
 [node name="slot 2" type="Button" parent="."]
@@ -96,6 +100,7 @@ offset_left = -4.0
 offset_top = 32.0
 offset_right = 36.0
 offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wcav7")
 horizontal_alignment = 1
 
@@ -125,6 +130,7 @@ offset_left = -4.0
 offset_top = 32.0
 offset_right = 36.0
 offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wcav7")
 horizontal_alignment = 1
 
@@ -153,6 +159,7 @@ offset_left = -4.0
 offset_top = 32.0
 offset_right = 36.0
 offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wcav7")
 horizontal_alignment = 1
 

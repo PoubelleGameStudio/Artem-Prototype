@@ -519,8 +519,11 @@ func item_use(item) -> void :
 						State.health += 45
 					pHealth.value = State.health
 					pHealth_label.text = str("HP: ",State.health)
-					casts_left -= 1
 					State.inventory[item] -= 1
+					if State.check_inv(item) <= 0:
+						quick_slots.setup()
+					casts_left -= 1
+
 
 				
 			"RIP'd CD" :
@@ -575,10 +578,6 @@ func _on_onepunch_pressed():
 				eHealth.value = enemy.health
 				eHealth_label.text = str("HP: ",enemy.health)
 				casts_left -= 1
-				#if casts_left == 0:
-					#yourTurn = false
-					#turn_sign.text = "Enemy Turn"
-					#enemyTurn()
 
 func _on_enemy_combat_dead():
 	combat_end.emit()

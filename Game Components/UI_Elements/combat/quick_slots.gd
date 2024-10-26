@@ -39,39 +39,44 @@ func _process(_delta):
 
 
 func setup() -> void :
-	if State.quick_slot_1:
+	print("setting up quick slots")
+	if State.quick_slot_1 and State.check_inv(State.quick_slot_1) > 0:
 		slot1_label.text = State.quick_slot_1
 		if State.quick_slot_1:
 			slot1_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_1,".png"))
 			slot1.disabled = false
 	else:
+		State.quick_slot_1  = ''
 		slot1_sprite.texture = null
 		slot1.disabled = true
 	
-	if State.quick_slot_2:
+	if State.quick_slot_2 and State.check_inv(State.quick_slot_2) > 0:
 		slot2_label.text = State.quick_slot_2
-		if State.quick_slot_2:
+		if State.quick_slot_2 and State.check_inv(State.quick_slot_2) > 0:
 			slot2_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_2,".png"))
 			slot2.disabled = false
 	else:
+		State.quick_slot_2  = ''
 		slot2_sprite.texture = null
 		slot2.disabled = true
 	
-	if State.quick_slot_3:
+	if State.quick_slot_3 and State.check_inv(State.quick_slot_3) > 0:
 		slot3_label.text = State.quick_slot_3
 		if State.quick_slot_3:
 			slot3_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_3,".png"))
 			slot3.disabled = false
 	else:
+		State.quick_slot_3  = ''
 		slot3_sprite.texture = null
 		slot3.disabled = true
 	
-	if State.quick_slot_4:
+	if State.quick_slot_4  and State.check_inv(State.quick_slot_4) > 0:
 		slot4_label.text = State.quick_slot_4
 		if State.quick_slot_4:
 			slot4_sprite.texture = load(str("res://Art/inv_Art/",State.quick_slot_4,".png"))
 			slot4.disabled = false
 	else:
+		State.quick_slot_4  = ''
 		slot4_sprite.texture = null
 		slot4.disabled = true
 
@@ -99,6 +104,7 @@ func _on_slot_1_pressed():
 
 
 func _on_slot_1_mouse_entered():
+	slot1.has_focus()
 	slot1_label.show()
 	slot1_hovered = true
 
@@ -142,6 +148,7 @@ func _on_slot_2_focus_exited():
 
 
 func _on_slot_2_mouse_entered():
+	slot2.has_focus()
 	slot2_label.show()
 	slot2_hovered = true
 	
@@ -173,6 +180,7 @@ func _on_slot_3_focus_exited():
 
 
 func _on_slot_3_mouse_entered():
+	slot2.has_focus()
 	slot3_label.show()
 	slot3_hovered = true
 
@@ -205,6 +213,7 @@ func _on_slot_4_focus_exited():
 
 
 func _on_slot_4_mouse_entered():
+	slot4.has_focus()
 	slot4_label.show()
 	slot4_hovered = true
 

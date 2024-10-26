@@ -67,7 +67,9 @@ func verify_save_directory(path:String):
 
 func bury_the_dead():
 	var to_kill = get_tree().get_nodes_in_group("enemies")
+	print("checking for bodies")
 	for bad in to_kill:
+		print("enemy ",bad.id," is ",State.area_enemies[level_name])
 		if State.area_enemies[level_name][bad.id] == 1:
 			bad.remove_from_group("enemies")
 			bad.hide()

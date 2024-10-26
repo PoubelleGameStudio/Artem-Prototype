@@ -98,7 +98,8 @@ func _physics_process(delta):
 				character_screen.visible = true
 				update_HUD()
 				$HUD/character_info/Inventory.update_input_prompt()
-				$HUD/character_info/Inventory.set_focus()
+				if State.control_schema == 'gamepad':
+					$HUD/character_info/Inventory.set_focus()
 				animation.play("hud_up")
 				sound.set_stream(open_book)
 				sound.play()

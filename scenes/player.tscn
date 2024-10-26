@@ -418,6 +418,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="cHUB" type="Control" parent="HUD/character_info"]
 light_mask = 0
+texture_filter = 4
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -454,29 +455,42 @@ text = "XP"
 label_settings = ExtResource("15_oq2cw")
 
 [node name="Quick Slots" parent="HUD/character_info" instance=ExtResource("15_ps5bq")]
-offset_left = -239.0
-offset_top = -52.0
-offset_right = -205.0
-offset_bottom = -52.0
+offset_left = -231.0
+offset_top = -42.0
+offset_right = -197.0
+offset_bottom = -42.0
 mouse_filter = 1
+
+[node name="quick_slots_label" type="Label" parent="HUD/character_info/Quick Slots"]
+texture_filter = 4
+layout_mode = 0
+offset_left = -12.0
+offset_top = -24.0
+offset_right = 172.0
+text = "Item Slots"
+label_settings = ExtResource("15_oq2cw")
+horizontal_alignment = 1
 
 [node name="Inventory" parent="HUD/character_info" instance=ExtResource("13_cjqps")]
 z_index = 99
-offset_left = -223.04
-offset_top = 23.7506
-offset_right = -167.04
-offset_bottom = 63.7506
+offset_left = -215.0
+offset_top = 32.0
+offset_right = -59.0
+offset_bottom = 72.0
 
 [node name="Inventory_label" type="Label" parent="HUD/character_info/Inventory"]
+texture_filter = 4
 layout_mode = 0
-offset_left = -12.0
-offset_top = -32.0
-offset_right = 83.0
-offset_bottom = -8.0
+offset_left = -33.0
+offset_top = -23.0
+offset_right = 155.0
+offset_bottom = 1.0
 text = "Inventory"
 label_settings = ExtResource("15_oq2cw")
+horizontal_alignment = 1
 
 [node name="quest_log_label" type="Label" parent="HUD/character_info"]
+texture_filter = 4
 offset_left = -50.0
 offset_top = -120.0
 offset_right = -10.0
