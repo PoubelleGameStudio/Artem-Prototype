@@ -13,6 +13,7 @@ level_name = "mourning_fields"
 [node name="player" parent="." instance=ExtResource("2_kjssl")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
 
 [node name="combatScreen" parent="." instance=ExtResource("3_emxit")]
 position = Vector2(-23979.5, -3444.41)

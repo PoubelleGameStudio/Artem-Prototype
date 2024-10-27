@@ -75,7 +75,9 @@ func _physics_process(delta):
 				sound.play()
 				await get_tree().create_timer(0.5).timeout
 				settings.hide()
+				State.can_walk = true
 			else:
+				State.can_walk = false
 				talents.hide()
 				character_screen.hide()
 				settings.set_focus()
@@ -92,7 +94,9 @@ func _physics_process(delta):
 				sound.play()
 				await get_tree().create_timer(0.5).timeout
 				character_screen.visible = false
+				State.can_walk = true
 			else:
+				State.can_walk = false
 				talents.hide()
 				settings.hide()
 				character_screen.visible = true
@@ -112,7 +116,9 @@ func _physics_process(delta):
 				sound.play()
 				await get_tree().create_timer(0.5).timeout
 				talents.visible = false
+				State.can_walk = true
 			else:
+				State.can_walk = false
 				animation.play("hud_up")
 				sound.set_stream(open_book)
 				sound.play()
@@ -130,7 +136,7 @@ func player_movement(_delta):
 		
 		direction = direction.normalized()	
 		velocity = direction * speed
-		
+
 		if velocity == Vector2.ZERO: moving = false
 		else : moving = true
 
@@ -141,19 +147,19 @@ func player_movement(_delta):
 func play_anim( speed : Vector2 ):
 	var anim = $AnimatedSprite2D
 	
-	if speed.y > 0 && speed.x == 0 :
+	if speed.y > 0 && abs(speed.x) < 0.6 :
 		facing = "down"
-	elif speed.y < 0 && speed.x == 0 :
+	elif speed.y < 0 && abs(speed.x) < 0.6 :
 		facing = "up"
 
-	if speed.x > 0:
+	if speed.x > 0 and abs(speed.y) < 0.6:
 		facing = "right"
-	elif speed.x < 0:
+	elif speed.x < 0 and abs(speed.y) < 0.6:
 		facing = "left"
 	elif speed.x == 0:
 		pass
 
-	
+
 	
 	if facing == "right":
 		anim.flip_h = false
@@ -231,6 +237,7 @@ func execute_interaction():
 								cur_interaction.interact_label,".dialogue"))
 			"quest_giver":
 				if State.talking == 0:
+					State.can_walk = false
 					State.talking = 1
 					prompt.hide()
 					cur_interaction.set_value("yes")
@@ -244,7 +251,6 @@ func execute_interaction():
 			"secret":
 				if cur_interaction.interact_value == "0":
 					cur_interaction.set_value("1")
-					print("secret opened")
 			
 			#door logic
 			"gateway":

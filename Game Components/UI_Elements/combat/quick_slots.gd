@@ -225,3 +225,8 @@ func _on_slot_4_mouse_entered():
 func _on_slot_4_mouse_exited():
 	slot4_label.hide()
 	slot4_hovered = false
+
+
+func _on_focus_entered():
+	print("focusing items")
+	slot1.has_focus()

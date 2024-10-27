@@ -454,6 +454,7 @@ custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
 focus_neighbor_left = NodePath("../Curse")
 focus_neighbor_top = NodePath("../../../../../combat/cast")
+focus_neighbor_right = NodePath("../../../../../../Quick Slots")
 focus_neighbor_bottom = NodePath("../../Void/Vapid Affliction")
 spell_icon = "Poison Swamp"
 metadata/_edit_use_anchors_ = true
@@ -485,6 +486,7 @@ custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
 focus_neighbor_left = NodePath("../Void Sight")
 focus_neighbor_top = NodePath("../../Invoke/Poison Swamp")
+focus_neighbor_right = NodePath("../../../../../../Quick Slots")
 focus_neighbor_bottom = NodePath("../../Blood/Blood Moon")
 spell_icon = "Vapid Affliction"
 metadata/_edit_use_anchors_ = true
@@ -515,6 +517,7 @@ custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
 focus_neighbor_left = NodePath("../Blood Clot Homunculus")
 focus_neighbor_top = NodePath("../../Void/Vapid Affliction")
+focus_neighbor_right = NodePath("../../../../../../Quick Slots")
 spell_icon = "Blood Moon"
 metadata/_edit_use_anchors_ = true
 
@@ -799,8 +802,10 @@ scale = Vector2(3, 3)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_xvpy8")
 volume_db = -25.0
+bus = &"Effects"
 
 [node name="enemySounds" type="AudioStreamPlayer" parent="."]
+bus = &"Effects"
 
 [connection signal="pressed" from="combatUI/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="combatUI/return" to="." method="_on_return_pressed"]

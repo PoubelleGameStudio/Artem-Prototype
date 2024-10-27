@@ -454,13 +454,13 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2qfg3"]
 shader = ExtResource("46_epoqw")
-shader_parameter/speed = 1.0
+shader_parameter/speed = 0.4
 shader_parameter/minStrength = 0.05
 shader_parameter/maxStrength = 0.01
 shader_parameter/strengthScale = 100.0
 shader_parameter/interval = 3.5
 shader_parameter/detail = 1.0
-shader_parameter/distortion = 0.01
+shader_parameter/distortion = 1.0
 shader_parameter/heightOffset = null
 shader_parameter/offset = 0.0
 
@@ -993,8 +993,8 @@ interact_value = "in"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("50_iuo0a")
-volume_db = -25.413
 autoplay = true
+bus = &"Music"
 
 [node name="respawn" parent="." instance=ExtResource("18_a2bs0")]
 position = Vector2(-1121, -730)
@@ -1004,8 +1004,8 @@ interact_value = "1"
 
 [node name="rain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("51_iu4o1")
-volume_db = -22.962
 autoplay = true
+bus = &"Effects"
 script = ExtResource("52_fstjm")
 
 [connection signal="combat_entered" from="player" to="." method="_on_player_combat_entered"]

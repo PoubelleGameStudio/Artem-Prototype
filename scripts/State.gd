@@ -75,8 +75,8 @@ var world: String
 # setting configs
 var mute_sound: bool = false
 var hide_control_hints: bool = false
-var combat_music_slider_value: int = -15
-var world_music_slider_value: int = -15
+var combat_music_slider_value: int = 0
+var world_music_slider_value: int = 0
 var control_schema: String = ""
 
 

@@ -82,8 +82,8 @@ position = Vector2(16, 118)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_17j8u")
-volume_db = -13.371
 autoplay = true
+bus = &"Music"
 
 [node name="respawn" parent="." instance=ExtResource("3_3le5n")]
 position = Vector2(64, 120)

@@ -26,11 +26,12 @@ func _ready():
 
 	State.is_raining = is_raining
 	State.world = level_name
-	
-	
+
+
 	add_child(c_music)
 	c_music.stream = load("res://sounds/levelMusic/to battle so that we may die.wav")
-	c_music.volume_db = -15
+	c_music.volume_db = 0
+	c_music.set_bus("Effects")
 	
 	player.camera_current()
 	
@@ -50,9 +51,9 @@ func _process(delta):
 
 	# makes sure music isn't playing when in dialogue
 	if State.mute_sound == false && State.talking == 1:
-		music.volume_db = -30
+		music.volume_db = -15
 	else:
-		music.volume_db = State.world_music_slider_value
+		music.volume_db = 0
 
 
 

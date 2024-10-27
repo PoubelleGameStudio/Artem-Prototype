@@ -89,8 +89,8 @@ interact_value = "out"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_o3fyh")
-volume_db = -13.371
 autoplay = true
+bus = &"Music"
 
 [node name="Trashcan3" type="AnimatedSprite2D" parent="."]
 position = Vector2(145.271, -92.5735)

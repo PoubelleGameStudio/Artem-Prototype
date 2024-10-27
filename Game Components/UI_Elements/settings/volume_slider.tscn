@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://drm4jg5bcy3fs"]
+
+[ext_resource type="Texture2D" uid="uid://dppo66muhg0aw" path="res://Game Components/UI_Elements/slider_grabber.png" id="1_4ctav"]
+[ext_resource type="Texture2D" uid="uid://knhxen77r4oj" path="res://Game Components/UI_Elements/slider_BG.png" id="2_iub6x"]
+[ext_resource type="Script" path="res://Game Components/UI_Elements/settings/volume_slider.gd" id="3_0tlqw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tq2au"]
+texture = ExtResource("2_iub6x")
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[node name="combat_music_slider" type="HSlider"]
+z_index = 1
+texture_filter = 3
+size_flags_horizontal = 3
+theme_override_icons/grabber = ExtResource("1_4ctav")
+theme_override_icons/grabber_highlight = ExtResource("1_4ctav")
+theme_override_styles/slider = SubResource("StyleBoxTexture_tq2au")
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_0tlqw")

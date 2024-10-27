@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" path="res://tutorial_screen.gd" id="1_tlwe8"]
 [ext_resource type="Texture2D" uid="uid://bnei5qwvolm54" path="res://Game Components/tutorials/UI_Paper_Frame_02_Standard.png" id="2_oobxb"]
-[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="4_lxvx6"]
+[ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="3_spcer"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_imhmk"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xtfsr"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qdobq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_njob4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubgn0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2njel"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_njob4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qdobq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xtfsr"]
 
 [node name="tutorials" type="Control"]
 z_index = 99
@@ -33,6 +33,7 @@ offset_bottom = 242.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_imhmk")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
+texture_filter = 3
 layout_mode = 2
 texture = ExtResource("2_oobxb")
 patch_margin_left = 16
@@ -50,9 +51,10 @@ theme_override_constants/margin_right = 5
 layout_mode = 2
 
 [node name="title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+texture_filter = 4
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_lxvx6")
+theme_override_fonts/font = ExtResource("3_spcer")
 theme_override_font_sizes/font_size = 45
 text = "test"
 horizontal_alignment = 1
@@ -64,10 +66,11 @@ bbcode_enabled = true
 fit_content = true
 
 [node name="text" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+texture_filter = 4
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_lxvx6")
+theme_override_fonts/font = ExtResource("3_spcer")
 theme_override_font_sizes/font_size = 19
 text = "testestestest"
 horizontal_alignment = 1
@@ -75,20 +78,19 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1, 1)
+texture_filter = 4
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_lxvx6")
+theme_override_fonts/font = ExtResource("3_spcer")
 theme_override_font_sizes/font_size = 41
-theme_override_styles/normal = SubResource("StyleBoxEmpty_xtfsr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qdobq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_njob4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ubgn0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_2njel")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_njob4")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qdobq")
-text = "
-Close"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xtfsr")
+text = "Close"
 text_direction = 3
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

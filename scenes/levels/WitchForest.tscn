@@ -576,6 +576,7 @@ interact_value = "1"
 stream = ExtResource("32_b22h3")
 volume_db = -25.0
 autoplay = true
+bus = &"Music"
 
 [node name="NPC" type="Node2D" parent="."]
 y_sort_enabled = true

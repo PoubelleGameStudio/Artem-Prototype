@@ -81,7 +81,7 @@ noise = SubResource("FastNoiseLite_te7fs")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53752"]
 shader = ExtResource("2_j31jx")
 shader_parameter/scale = Vector2(106.904, 2.54688)
-shader_parameter/y_zoom = 1.41421
+shader_parameter/y_zoom = 1.0
 shader_parameter/water_color = Color(0, 0.392157, 0, 0.607843)
 shader_parameter/distortion_scale = Vector2(0.05, 0.408)
 shader_parameter/intensity = 0.07
@@ -158,6 +158,7 @@ model = "Torch"
 stream = ExtResource("6_r0uuj")
 volume_db = -5.889
 autoplay = true
+bus = &"Music"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("6_oafss")

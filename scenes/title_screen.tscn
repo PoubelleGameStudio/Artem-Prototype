@@ -257,9 +257,11 @@ color = Color(0.431373, 1, 0.388235, 1)
 stream = ExtResource("10_otf0g")
 volume_db = -22.962
 autoplay = true
+bus = &"Effects"
 script = ExtResource("11_u6mv1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
 
 [connection signal="focus_entered" from="CanvasLayer/HBoxContainer2/New Game" to="." method="_on_new_game_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/HBoxContainer2/New Game" to="." method="_on_new_game_focus_exited"]

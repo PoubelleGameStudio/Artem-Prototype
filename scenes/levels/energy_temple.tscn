@@ -167,6 +167,7 @@ level_name = "energy_temple"
 stream = ExtResource("2_w3ifo")
 volume_db = -80.0
 autoplay = true
+bus = &"Music"
 
 [node name="respawn" parent="." instance=ExtResource("4_sbvxa")]
 monitorable = false

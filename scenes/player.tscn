@@ -531,6 +531,7 @@ speed_scale = 1.5
 fixed_fps = 144
 
 [node name="voice" type="AudioStreamPlayer" parent="."]
+bus = &"Effects"
 
 [node name="prompt" type="Sprite2D" parent="."]
 visible = false
@@ -545,6 +546,7 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_53s8o")
 volume_db = -10.0
+bus = &"Effects"
 
 [connection signal="area_entered" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_exited"]

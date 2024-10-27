@@ -233,6 +233,7 @@ position = Vector2(-3781.19, -566.412)
 autoplay = true
 max_distance = 4300.0
 attenuation = 0.482968
+bus = &"Music"
 script = ExtResource("11_47602")
 
 [node name="enemies" type="Node2D" parent="."]
