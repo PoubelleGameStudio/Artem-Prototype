@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d010sb0bdrwv5"]
+[gd_scene load_steps=10 format=3 uid="uid://d010sb0bdrwv5"]
 
 [ext_resource type="Script" path="res://Game Components/Shop/shop.gd" id="1_tntft"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="1_uo7i2"]
 [ext_resource type="PackedScene" uid="uid://75gusw7bcx3f" path="res://Game Components/UI_Elements/shopshop/shop_button.tscn" id="3_2mlms"]
 [ext_resource type="LabelSettings" uid="uid://dlqqfhw358iwk" path="res://title.tres" id="3_bjrjc"]
+[ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="3_h0un2"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="4_livgh"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="5_km8cl"]
 [ext_resource type="AudioStream" uid="uid://dmvxux2ekuqrs" path="res://sounds/UI/book_open_1.wav" id="7_kkgox"]
@@ -23,20 +24,27 @@ texture = ExtResource("1_uo7i2")
 position = Vector2(-160, -120)
 
 [node name="item_name" type="Label" parent="Sprite2D/buy"]
-offset_left = 178.824
-offset_top = 38.4314
-offset_right = 429.824
-offset_bottom = 80.4314
+texture_filter = 4
+offset_left = 172.549
+offset_top = 8.62746
+offset_right = 423.549
+offset_bottom = 50.6275
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_h0un2")
+theme_override_font_sizes/font_size = 25
 text = "test"
-label_settings = ExtResource("5_km8cl")
 autowrap_mode = 2
 
 [node name="item_description" type="Label" parent="Sprite2D/buy"]
-offset_left = 178.824
-offset_top = 63.5294
-offset_right = 429.824
-offset_bottom = 188.529
-label_settings = ExtResource("5_km8cl")
+texture_filter = 4
+offset_left = 172.549
+offset_top = 40.0
+offset_right = 423.549
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_h0un2")
+theme_override_font_sizes/font_size = 0
+text = "testetsetsetsetsetsetse"
 autowrap_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Sprite2D/buy"]
@@ -46,6 +54,7 @@ offset_right = 110.0
 offset_bottom = 164.0
 
 [node name="Label" type="Label" parent="Sprite2D/buy/VBoxContainer"]
+texture_filter = 4
 layout_mode = 2
 text = "Shop"
 label_settings = ExtResource("3_bjrjc")
@@ -67,7 +76,7 @@ columns = 4
 layout_mode = 2
 focus_neighbor_right = NodePath("../Health restore2")
 item_name = "health restore"
-item_cost = 5
+item_cost = 10
 item_desc = "Heals for a large amount of health"
 
 [node name="Health restore2" parent="Sprite2D/buy/VBoxContainer/GridContainer" instance=ExtResource("3_2mlms")]
@@ -84,6 +93,13 @@ focus_neighbor_left = NodePath("../Health restore2")
 item_name = "trash food"
 item_cost = 5
 item_desc = "A morsel fit for a grandiose critter"
+
+[node name="ripd_cd" parent="Sprite2D/buy/VBoxContainer/GridContainer" instance=ExtResource("3_2mlms")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Health restore2")
+item_name = "RIP'd CD"
+item_cost = 20
+item_desc = "Absolutley not malicious software that would reduce Technotheist health by 45 points"
 
 [node name="sell" type="Node2D" parent="Sprite2D"]
 visible = false
@@ -129,3 +145,6 @@ stream = ExtResource("7_kkgox")
 [connection signal="focus_entered" from="Sprite2D/buy/VBoxContainer/GridContainer/Health restore3" to="." method="_on_health_restore_3_focus_entered"]
 [connection signal="mouse_entered" from="Sprite2D/buy/VBoxContainer/GridContainer/Health restore3" to="." method="_on_health_restore_3_mouse_entered"]
 [connection signal="updateGold" from="Sprite2D/buy/VBoxContainer/GridContainer/Health restore3" to="." method="_on_health_restore_3_update_gold"]
+[connection signal="mouse_entered" from="Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd" to="." method="_on_ripd_cd_mouse_entered"]
+[connection signal="pressed" from="Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd" to="." method="_on_ripd_cd_pressed"]
+[connection signal="updateGold" from="Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd" to="." method="_on_ripd_cd_update_gold"]

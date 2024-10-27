@@ -130,7 +130,10 @@ func player_movement(_delta):
 		
 		direction = direction.normalized()	
 		velocity = direction * speed
+		
 		if velocity == Vector2.ZERO: moving = false
+		else : moving = true
+
 		play_anim(direction)	
 		move_and_slide()
 		
@@ -191,7 +194,7 @@ func update_HUD():
 	elif (int(cur_level.text) != State.level) and State.level > 1:
 		cur_level.text = str("Lvl: ",State.level)
 		itemLabel.text = str("Level ",State.level,"!")
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(5).timeout
 		itemLabel.text = ""
 	
 
@@ -268,13 +271,13 @@ func execute_interaction():
 								cur_interaction.interact_label)))
 				else:
 					itemLabel.text = "The Gate's Locked..."	
-					await get_tree().create_timer(2).timeout
+					await get_tree().create_timer(5).timeout
 					itemLabel.text = ""
 			
 			#signs
 			"sign":
 				itemLabel.text = cur_interaction.interact_label
-				await get_tree().create_timer(2).timeout
+				await get_tree().create_timer(5).timeout
 				itemLabel.text = ""
 			
 			"lootable":
@@ -300,7 +303,7 @@ func execute_interaction():
 					cur_interaction.monitorable = false
 					
 					print(State.inventory)
-				await get_tree().create_timer(2).timeout
+				await get_tree().create_timer(5).timeout
 				itemLabel.text = ""
 			
 			"portal":
@@ -356,7 +359,6 @@ func _on_interaction_area_area_exited(area):
 	State.talking = 0
 	all_interactions.erase(area)
 	await get_tree().create_timer(.5).timeout
-	itemLabel.text = ""
 	shop.hide()
 	
 

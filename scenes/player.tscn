@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=47 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b4dgg37yjp405" path="res://Sprites/Artem/artem_v1_side_walking-spritesheet.png" id="5_d4qgt"]
 [ext_resource type="Texture2D" uid="uid://dv7hntw3bi4xl" path="res://Sprites/Artem/artem_v1_back_walking.png" id="7_wkoaj"]
 [ext_resource type="Texture2D" uid="uid://b0kmobajmfp4n" path="res://Sprites/textures/rainfall.png" id="8_v2vqm"]
+[ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="9_wbp7e"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="12_4q3lk"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="13_cjqps"]
 [ext_resource type="PackedScene" uid="uid://5v2qsot5igdu" path="res://Game Components/UI_Elements/quest log components/quest_log.tscn" id="14_xc3j5"]
@@ -161,8 +162,10 @@ radius = 24.0
 height = 72.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_2xnrd"]
-font = ExtResource("3_8eknr")
-font_size = 19
+font = ExtResource("9_wbp7e")
+font_size = 12
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5kijb"]
 font = ExtResource("3_8eknr")
@@ -277,12 +280,14 @@ shape = SubResource("CapsuleShape2D_dfod3")
 
 [node name="itemLabel" type="Label" parent="interactionComponents/interactionArea"]
 z_index = 2
+texture_filter = 4
 offset_left = -282.0
 offset_top = -60.0
 offset_right = 283.0
 offset_bottom = -26.0
 theme_override_fonts/font = ExtResource("3_8eknr")
 theme_override_font_sizes/font_size = 19
+text = "test"
 label_settings = SubResource("LabelSettings_2xnrd")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,8 +1,8 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dlqqfhw358iwk"]
 
-[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="1_38l23"]
+[ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="1_e13xi"]
 
 [resource]
-font = ExtResource("1_38l23")
+font = ExtResource("1_e13xi")
 font_size = 72
 font_color = Color(0, 0, 0, 1)

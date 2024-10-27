@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Game Components/dialogue/balloon.gd" id="1_4u26j"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
-[ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="2_panfk"]
 [ext_resource type="Texture2D" uid="uid://cxe3nogps8dc7" path="res://Sprites/vendor - GrimsBriar - sprite sheet.png" id="2_tfy3o"]
 [ext_resource type="Texture2D" uid="uid://jn0psaihgi7i" path="res://Sprites/beggar.png" id="3_qvd8c"]
 [ext_resource type="Texture2D" uid="uid://bf77qsbmfnqrt" path="res://Sprites/quest givers/mayor_barkeep - sprite sheet.png" id="4_jvr3m"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://4cjp8pme00u1" path="res://Sprites/quest givers/Witch_idle - sprite sheet.png" id="6_6ex74"]
 [ext_resource type="Texture2D" uid="uid://bvt27gyk3i662" path="res://Sprites/quest givers/raccoon.png" id="7_pah6t"]
 [ext_resource type="Texture2D" uid="uid://cd7todjajlpev" path="res://Sprites/barmaid.png" id="8_6uipw"]
+[ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="10_ayiec"]
 [ext_resource type="Texture2D" uid="uid://bmjgsasn3uavk" path="res://Game Components/UI_Elements/prompts/tile_0077.png" id="12_gv2qj"]
 [ext_resource type="Texture2D" uid="uid://ck6lvxkbgrqml" path="res://Game Components/dialogue/art/UI_MysticWood_Banner_02a.png" id="13_jwmx6"]
 [ext_resource type="Texture2D" uid="uid://yfl18841n3fc" path="res://Game Components/UI_Elements/prompts/tile_0308.png" id="13_k2dok"]
@@ -332,8 +332,10 @@ content_margin_bottom = 5.0
 draw_center = false
 
 [sub_resource type="LabelSettings" id="LabelSettings_c0elf"]
-font = ExtResource("2_panfk")
+font = ExtResource("10_ayiec")
 font_size = 38
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
@@ -400,39 +402,40 @@ speed_scale = 0.4
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Margin/VBox"]
 modulate = Color(1, 1, 1, 0.501961)
-texture_filter = 3
+texture_filter = 4
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.658824, 0.792157, 0.345098, 1)
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_outline_size = -1
-theme_override_fonts/normal_font = ExtResource("2_panfk")
-theme_override_font_sizes/normal_font_size = 79
+theme_override_fonts/normal_font = ExtResource("10_ayiec")
+theme_override_font_sizes/normal_font_size = 55
 bbcode_enabled = true
 text = "Character"
 fit_content = true
 scroll_active = false
 
 [node name="DialogueLabel" parent="Balloon/Margin/VBox" instance=ExtResource("2_a8ve6")]
-texture_filter = 3
+texture_filter = 4
 layout_mode = 2
 theme_override_colors/default_color = Color(1, 0.866667, 1, 1)
-theme_override_fonts/normal_font = ExtResource("2_panfk")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_fonts/normal_font = ExtResource("10_ayiec")
+theme_override_font_sizes/normal_font_size = 45
 text = "Dialogue"
 scroll_active = true
 scroll_following = true
 
 [node name="Responses" type="VBoxContainer" parent="Balloon/Margin/VBox"]
+texture_filter = 4
 layout_mode = 2
 theme_override_constants/separation = 2
 
 [node name="ResponseTemplate" type="RichTextLabel" parent="Balloon/Margin/VBox"]
 unique_name_in_owner = true
-texture_filter = 3
+texture_filter = 4
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("2_panfk")
+theme_override_fonts/normal_font = ExtResource("10_ayiec")
 theme_override_font_sizes/normal_font_size = 45
 theme_override_styles/focus = SubResource("StyleBoxFlat_5d24i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_oj3c8")
@@ -445,7 +448,7 @@ meta_underlined = false
 hint_underlined = false
 
 [node name="hints" type="HBoxContainer" parent="Balloon"]
-texture_filter = 3
+texture_filter = 4
 layout_mode = 0
 offset_left = 9.0
 offset_top = -46.0
@@ -455,6 +458,7 @@ offset_bottom = -1.0
 [node name="Label" type="Label" parent="Balloon/hints"]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("10_ayiec")
 text = "press "
 label_settings = SubResource("LabelSettings_c0elf")
 
@@ -471,6 +475,7 @@ texture = ExtResource("12_gv2qj")
 visible = false
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("10_ayiec")
 text = "or"
 label_settings = SubResource("LabelSettings_c0elf")
 
@@ -497,6 +502,7 @@ offset_top = -3.0
 offset_right = 126.0
 offset_bottom = 39.0
 size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("10_ayiec")
 text = " (spacebar)"
 label_settings = SubResource("LabelSettings_c0elf")
 

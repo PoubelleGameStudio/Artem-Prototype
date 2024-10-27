@@ -535,7 +535,7 @@ func item_use(item) -> void :
 					eHealth_label.text = str("HP: ",enemy.health)
 					casts_left -= 1
 					State.inventory[item] -= 1
-					combatTextUpdate(str("The CD contained a virus damaging ",enemy.enemy_type," for 45"))
+					combatTextUpdate(str("RIP'd CD damaged ",enemy.enemy_type," for 45"))
 
 		quick_slots.setup()
 				

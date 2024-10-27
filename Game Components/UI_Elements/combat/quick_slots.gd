@@ -47,6 +47,7 @@ func setup() -> void :
 			slot1.disabled = false
 	else:
 		State.quick_slot_1  = ''
+		slot1_label.text = ''
 		slot1_sprite.texture = null
 		slot1.disabled = true
 	
@@ -57,6 +58,7 @@ func setup() -> void :
 			slot2.disabled = false
 	else:
 		State.quick_slot_2  = ''
+		slot2_label.text = ''
 		slot2_sprite.texture = null
 		slot2.disabled = true
 	
@@ -67,6 +69,7 @@ func setup() -> void :
 			slot3.disabled = false
 	else:
 		State.quick_slot_3  = ''
+		slot3_label.text = ''
 		slot3_sprite.texture = null
 		slot3.disabled = true
 	
@@ -77,6 +80,7 @@ func setup() -> void :
 			slot4.disabled = false
 	else:
 		State.quick_slot_4  = ''
+		slot4_label.text = ''
 		slot4_sprite.texture = null
 		slot4.disabled = true
 

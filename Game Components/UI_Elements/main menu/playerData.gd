@@ -20,6 +20,10 @@ class_name PlayerData
 @export var spell1: String
 @export var spell2: String
 @export var spell3: String
+@export var quick_slot_1: String
+@export var quick_slot_2: String
+@export var quick_slot_3: String
+@export var quick_slot_4: String
 
 # player items
 @export var player_inv: Dictionary

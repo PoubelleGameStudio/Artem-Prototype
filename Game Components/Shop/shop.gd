@@ -60,3 +60,13 @@ func _on_health_restore_3_mouse_entered():
 	$"Sprite2D/buy/VBoxContainer/GridContainer/Health restore3".grab_focus()
 	item_name.text = str("Item: ",$"Sprite2D/buy/VBoxContainer/GridContainer/Health restore3".item_name)
 	item_desc.text = str("Use: ",$"Sprite2D/buy/VBoxContainer/GridContainer/Health restore3".item_desc)
+
+
+func _on_ripd_cd_update_gold():
+	currentGold.text = str(State.gold,"g")
+
+
+func _on_ripd_cd_mouse_entered():
+	$"Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd".grab_focus()
+	item_name.text = str("Item: ",$"Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd".item_name)
+	item_desc.text = str("Use: ",$"Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd".item_desc)

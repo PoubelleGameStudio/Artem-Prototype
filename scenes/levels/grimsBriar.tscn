@@ -423,17 +423,15 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mkkwe"]
 shader = ExtResource("46_epoqw")
-shader_parameter/pixel_mode = true
-shader_parameter/pixel_amount = 32.0
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
 shader_parameter/distortion = 0.01
-shader_parameter/texture_noise_system = true
-shader_parameter/noise_speed = 1.0
-shader_parameter/noise_direction = -1
-shader_parameter/worley_noise_system = false
-shader_parameter/worley_cell_density = 10.0
-shader_parameter/worley_speed = 2.0
-shader_parameter/edge_and_mask = false
-shader_parameter/alpha_value = 1.0
+shader_parameter/heightOffset = null
+shader_parameter/offset = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m1f20"]
 animations = [{
@@ -456,17 +454,15 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2qfg3"]
 shader = ExtResource("46_epoqw")
-shader_parameter/pixel_mode = true
-shader_parameter/pixel_amount = 32.0
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
 shader_parameter/distortion = 0.01
-shader_parameter/texture_noise_system = true
-shader_parameter/noise_speed = 1.0
-shader_parameter/noise_direction = -1
-shader_parameter/worley_noise_system = false
-shader_parameter/worley_cell_density = 10.0
-shader_parameter/worley_speed = 2.0
-shader_parameter/edge_and_mask = false
-shader_parameter/alpha_value = 1.0
+shader_parameter/heightOffset = null
+shader_parameter/offset = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v64qe"]
 radius = 14.3372
@@ -621,7 +617,7 @@ scale = Vector2(1, 0.937)
 model = " "
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
-position = Vector2(-1249.94, -774.923)
+position = Vector2(3126.3, -522.184)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
 visible = false

@@ -64,7 +64,7 @@ var rBlood: int = 0
 var rVoid: int = 0
 
 # resources
-var gold: int = 100
+var gold: int = 50
 var ability_points: int = 30
 
 # social trackers
