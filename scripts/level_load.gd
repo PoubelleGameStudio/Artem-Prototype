@@ -57,7 +57,6 @@ func _process(delta):
 
 
 
-
 func _on_music_finished():
 	music.play()
 

@@ -35,9 +35,42 @@ func _ready():
 
 func _process(_delta):
 	clear_quick_slot()
+	gamepad_item_use()
 
 
+func gamepad_item_use() -> void:
+	if Input.is_action_pressed("use_combat_item"):
 
+		if Input.is_action_just_pressed("use_slot_1"):
+			slot1_used.emit()
+			if State.check_inv(slot1_label.text) <= 0 :
+				State.quick_slot_1 = ''
+				slot1_sprite.set_texture(null)
+				slot1.disabled = true
+		
+		if Input.is_action_just_pressed("use_slot_2"):
+			slot2_used.emit()
+			if State.check_inv(slot2_label.text) <= 0 :
+				State.quick_slot_2 = ''
+				slot2_sprite.set_texture(null)
+				slot2.disabled = true
+			
+		if Input.is_action_just_pressed("use_slot_3"):
+			slot3_used.emit()
+			if State.check_inv(slot3_label.text) <= 0 :
+				State.quick_slot_3 = ''
+				slot3_sprite.set_texture(null)
+				slot3.disabled = true
+		
+		if Input.is_action_just_pressed("use_slot_4"):
+			slot4_used.emit()
+			if State.check_inv(slot4_label.text) <= 0 :
+				State.quick_slot_4 = ''
+				slot4_sprite.set_texture(null)
+				slot4.disabled = true
+				
+				
+				
 func setup() -> void :
 	print("setting up quick slots")
 	if State.quick_slot_1 and State.check_inv(State.quick_slot_1) > 0:
