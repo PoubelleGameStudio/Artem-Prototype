@@ -177,6 +177,7 @@ func combat_data():
 	enemy.enemyID(State.enemyID)
 	enemy.world = world_level
 	enemy.enemyType(State.engaging[0])
+	enemy.faction = State.enemies[State.engaging[0]]["faction"]
 	eNameLabel.text = enemy.enemy_type
 	enemy.enemyHealth()
 	enemy.enemySprite.play(str(enemy.enemy_type,"_idle"))
@@ -523,14 +524,19 @@ func item_use(item) -> void :
 					if State.check_inv(item) <= 0:
 						quick_slots.setup()
 					casts_left -= 1
+					combatTextUpdate("You healed for 45 HP")
 
 
 				
 			"RIP'd CD" :
 				if enemy.faction == "Technotheist" :
 					enemy.updateHealth(45)
+					eHealth.value = enemy.health
+					eHealth_label.text = str("HP: ",enemy.health)
 					casts_left -= 1
 					State.inventory[item] -= 1
+					combatTextUpdate(str("The CD contained a virus damaging ",enemy.enemy_type," for 45"))
+
 		quick_slots.setup()
 				
 				

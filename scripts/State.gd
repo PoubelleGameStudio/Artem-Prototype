@@ -550,6 +550,7 @@ var enemies = {
 	# dude got executed one day and has been hella salty and j haunts shit now
 	"executioner":{
 		"health":95,
+		"faction":"Void",
 		"speed":10,
 		"defeated":0,
 		"armor":0,
@@ -567,6 +568,7 @@ var enemies = {
 	# the highly volatile void squirrel. Best to kill it before it attacks
 	"Void Squirrel":{
 		"health":25,
+		"faction":"Void",
 		"speed":5,
 		"defeated":0,
 		"armor":0,
@@ -583,6 +585,7 @@ var enemies = {
 	},
 	"ghost":{
 		"health":45,
+		"faction":"Spirit",
 		"speed":5,
 		"defeated":0,
 		"armor":0,
@@ -599,6 +602,7 @@ var enemies = {
 	},
 	"Technotheist Grunt":{
 		"health":55,
+		"faction":"Technotheist",
 		"speed":5,
 		"defeated":0,
 		"armor":0,
@@ -632,6 +636,7 @@ var enemies = {
 	},
 	"Sorrow Shade":{
 		"health":40,
+		"faction":"Spirit",
 		"speed":5,
 		"defeated":0,
 		"armor":0,

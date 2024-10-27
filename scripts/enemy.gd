@@ -24,18 +24,17 @@ extends Node
 #signals
 signal dead
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	# print("Enemy ID: ",id," ",enemy_type)
 	for type in zone_enemies:
 			if type == enemy_type:
 				health = zone_enemies[type]["health"]
 				max_health = zone_enemies[type]["health"]
-				# faction = zone_enemies[type]["faction"]
-	# print("from enemy ", health)
+				faction = zone_enemies[type]["faction"]
+
 	if enemy_type != "":
 		enemySprite.play(str(enemy_type,"_idle"))
-	#health = State.enemies[enemy_type]["health"]
 	if emitter == 0:
 		light.hide()
 		
