@@ -41,11 +41,11 @@ var bonusMaxHealth: float = 1.0:
 	set(value):
 		bonusMaxHealth = value
 		maxHealth = (bonusMaxHealth) * baseMaxHealth
-var baseMaxHealth: int = 200:
+var baseMaxHealth: int = 100:
 	set(value):
 		baseMaxHealth = value
 		maxHealth = (bonusMaxHealth) * baseMaxHealth
-var health: int = 200
+var health: int = 100
 var casts: int = 1
 var shield
 var cur_xp: int = 0

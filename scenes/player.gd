@@ -237,7 +237,6 @@ func execute_interaction():
 								cur_interaction.interact_label,".dialogue"))
 			"quest_giver":
 				if State.talking == 0:
-					State.can_walk = false
 					State.talking = 1
 					prompt.hide()
 					cur_interaction.set_value("yes")

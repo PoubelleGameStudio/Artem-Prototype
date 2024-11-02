@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="3_k1v68"]
 [ext_resource type="Texture2D" uid="uid://d1t4je0end326" path="res://Game Components/UI_Elements/prompts/tile_0306.png" id="3_rc6tg"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="4_5qyxi"]
-[ext_resource type="Texture2D" uid="uid://c8oyx3v0etlc8" path="res://Game Components/UI_Elements/prompts/tile_0307.png" id="6_1smh8"]
+[ext_resource type="Texture2D" uid="uid://b5ajofqyi6hq1" path="res://Game Components/UI_Elements/inv_components/tile_0552.png" id="6_6lg4b"]
 
 [node name="inventory" type="Control"]
 light_mask = 0
@@ -164,8 +164,9 @@ layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/drop_container"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
-texture = ExtResource("6_1smh8")
+texture = ExtResource("6_6lg4b")
 stretch_mode = 2
 
 [node name="drop_instruct" type="Label" parent="VBoxContainer/drop_container"]

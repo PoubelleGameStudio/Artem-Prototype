@@ -42,6 +42,7 @@ light_mask = 0
 position = Vector2(16, 12)
 
 [node name="indicator" type="Sprite2D" parent="."]
+visible = false
 light_mask = 0
 texture = ExtResource("2_j78av")
 centered = false

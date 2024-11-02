@@ -168,7 +168,7 @@ func hover_check():
 				match State.items[item_name]["type"]:
 					"Potion":
 						if State.health < State.maxHealth:
-							if State.maxHealth && (State.health + State.items[item_name]["effect"]['HP']) > State.maxHealth:
+							if State.maxHealth && (State.health + State.items[item_name]["effect"]) > State.maxHealth:
 								State.health = State.maxHealth
 								inv[item_name]-=1
 								item_used.emit()

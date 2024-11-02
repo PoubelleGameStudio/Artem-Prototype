@@ -1,8 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://br5mlw81bvnnl"]
+[gd_scene load_steps=21 format=3 uid="uid://br5mlw81bvnnl"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/quick_slots.gd" id="1_edl30"]
 [ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="1_pwlk1"]
 [ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="3_wcav7"]
+[ext_resource type="Texture2D" uid="uid://64vakq5f4j42" path="res://Game Components/UI_Elements/combat/prompts/tile_0037.png" id="4_nbuqg"]
+[ext_resource type="Texture2D" uid="uid://d2yoxkdcip278" path="res://Game Components/UI_Elements/combat/prompts/tile_0038.png" id="5_nvc4a"]
+[ext_resource type="Texture2D" uid="uid://bfkea0c8hyak2" path="res://Game Components/UI_Elements/combat/prompts/tile_0035.png" id="6_k4gex"]
+[ext_resource type="Texture2D" uid="uid://ku3x0sq2isub" path="res://Game Components/UI_Elements/combat/prompts/tile_0036.png" id="7_3uwpq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eefrb"]
 
@@ -162,6 +166,40 @@ offset_bottom = 55.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wcav7")
 horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 38.0
+offset_right = 159.0
+offset_bottom = 70.0
+theme_override_constants/separation = 13
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_nbuqg")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_nvc4a")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_k4gex")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_3uwpq")
+stretch_mode = 2
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_entered" from="slot 1" to="." method="_on_slot_1_focus_entered"]

@@ -19,7 +19,7 @@ var playerData = PlayerData.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SceneTransition.fade_in()
-	$"CanvasLayer/HBoxContainer2/New Game".grab_focus()
+	$"CanvasLayer/Control/HBoxContainer2/New Game".grab_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -35,22 +35,22 @@ func _on_new_game_pressed():
 func _on_new_game_focus_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($"CanvasLayer/HBoxContainer2/New Game/ColorRect")
+	# toggle_focus_mark($"CanvasLayer/HBoxContainer2/New Game/ColorRect")
 
 
 func _on_new_game_focus_exited():
-	toggle_focus_mark($"CanvasLayer/HBoxContainer2/New Game/ColorRect")
+	pass# toggle_focus_mark($"CanvasLayer/HBoxContainer2/New Game/ColorRect")
 
 
 func _on_new_game_mouse_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($"CanvasLayer/HBoxContainer2/New Game/ColorRect")
+	# toggle_focus_mark($"CanvasLayer/HBoxContainer2/New Game/ColorRect")
 
 
 func _on_new_game_mouse_exited():
-	toggle_focus_mark($"CanvasLayer/HBoxContainer2/New Game/ColorRect")
-	$"CanvasLayer/HBoxContainer2/New Game".release_focus()
+	pass # toggle_focus_mark($"CanvasLayer/HBoxContainer2/New Game/ColorRect")
+	# $"CanvasLayer/HBoxContainer2/New Game".release_focus()
 
 
 func _on_load_pressed():
@@ -70,41 +70,41 @@ func _on_exit_pressed():
 func _on_exit_focus_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($CanvasLayer/HBoxContainer2/Exit/ColorRect4)
+	# toggle_focus_mark($CanvasLayer/HBoxContainer2/Exit/ColorRect4)
 
 
 func _on_exit_focus_exited():
-	toggle_focus_mark($CanvasLayer/HBoxContainer2/Exit/ColorRect4)
+	pass# toggle_focus_mark($CanvasLayer/HBoxContainer2/Exit/ColorRect4)
 
 
 func _on_exit_mouse_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($CanvasLayer/HBoxContainer2/Exit/ColorRect4)
+	# toggle_focus_mark($CanvasLayer/HBoxContainer2/Exit/ColorRect4)
 
 
 func _on_exit_mouse_exited():
-	toggle_focus_mark($CanvasLayer/HBoxContainer2/Exit/ColorRect4)
+	pass # toggle_focus_mark($CanvasLayer/HBoxContainer2/Exit/ColorRect4)
 
 
 func _on_load_focus_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($CanvasLayer/HBoxContainer2/Load/ColorRect2)
+	# toggle_focus_mark($CanvasLayer/HBoxContainer2/Load/ColorRect2)
 
 
 func _on_load_focus_exited():
-	toggle_focus_mark($CanvasLayer/HBoxContainer2/Load/ColorRect2)
+	pass # toggle_focus_mark($CanvasLayer/HBoxContainer2/Load/ColorRect2)
 
 
 func _on_load_mouse_entered():
 	sound.set_stream(focus_sound)
 	sound.play()
-	toggle_focus_mark($CanvasLayer/HBoxContainer2/Load/ColorRect2)
+	# toggle_focus_mark($CanvasLayer/HBoxContainer2/Load/ColorRect2)
 
 
 func _on_load_mouse_exited():
-	toggle_focus_mark($CanvasLayer/HBoxContainer2/Load/ColorRect2)
+	pass # toggle_focus_mark($CanvasLayer/HBoxContainer2/Load/ColorRect2)
 
 
 

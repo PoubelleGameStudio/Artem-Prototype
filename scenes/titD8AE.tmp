@@ -1,13 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://c1jcq7rvu0h6m"]
+[gd_scene load_steps=20 format=3 uid="uid://c1jcq7rvu0h6m"]
 
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="1_2dcj5"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="1_irif3"]
 [ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_kqvca"]
-[ext_resource type="Texture2D" uid="uid://dmbdsi8v0vjh" path="res://Art/banner2_landscape.png" id="5_h8b4y"]
+[ext_resource type="Texture2D" uid="uid://dnu8211qvy5yy" path="res://Art/banner_landscape.png" id="5_chuci"]
 [ext_resource type="Texture2D" uid="uid://b0kmobajmfp4n" path="res://Sprites/textures/rainfall.png" id="5_sw188"]
 [ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="7_3f4f1"]
-[ext_resource type="Script" path="res://Game Components/UI_Elements/web_link.gd" id="8_6lpja"]
-[ext_resource type="Texture2D" uid="uid://cabaselk6qb8x" path="res://Game Components/UI_Elements/main menu/Bluesky_Logo.svg.png" id="9_dt3mi"]
 [ext_resource type="Shader" path="res://shaders/fog.gdshader" id="9_pdgth"]
 [ext_resource type="AudioStream" uid="uid://dk4rbq3qappgy" path="res://sounds/ambient/Rain.mp3" id="10_otf0g"]
 [ext_resource type="Script" path="res://scripts/autoplay_sound.gd" id="11_u6mv1"]
@@ -59,20 +57,11 @@ level_name = "title_screen"
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -540.0
-offset_right = -920.0
-offset_bottom = -500.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
-layout_mode = 0
 offset_left = -1187.0
 offset_right = 2941.0
 offset_bottom = 1150.0
@@ -80,10 +69,8 @@ color = Color(0.286275, 0.196078, 0.352941, 1)
 
 [node name="Fog" type="TextureRect" parent="CanvasLayer/Control"]
 z_index = 1
-texture_filter = 4
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ma6fg")
-layout_mode = 0
 offset_left = -1103.0
 offset_right = 2916.0
 offset_bottom = 1090.0
@@ -187,7 +174,7 @@ anchor_left = 15.6297
 anchor_top = 7.6
 anchor_right = 17.4036
 anchor_bottom = 8.90185
-offset_left = -625.191
+offset_left = -625.188
 offset_top = -304.0
 offset_right = 1863.85
 offset_bottom = 1083.93
@@ -196,7 +183,7 @@ grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 size_flags_horizontal = 4
 size_flags_vertical = 6
-texture = ExtResource("5_h8b4y")
+texture = ExtResource("5_chuci")
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true
 
@@ -294,39 +281,6 @@ offset_right = 149.5
 offset_bottom = 197.0
 color = Color(0.431373, 1, 0.388235, 1)
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_bottom = 0.275
-offset_left = 77.0
-offset_top = 993.0
-offset_right = 450.0
-offset_bottom = 1039.0
-script = ExtResource("8_6lpja")
-link = "https://bsky.app/profile/poubelle.bsky.social"
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/TextureButton"]
-texture_filter = 2
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 601.0
-offset_bottom = 531.0
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("9_dt3mi")
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/TextureButton"]
-texture_filter = 4
-layout_mode = 0
-offset_left = 71.0
-offset_top = 8.0
-offset_right = 362.0
-offset_bottom = 57.0
-theme_override_colors/font_color = Color(0.658824, 0.792157, 0.345098, 1)
-theme_override_fonts/font = ExtResource("7_3f4f1")
-theme_override_font_sizes/font_size = 37
-text = "@poubelle.bsky.social"
-
 [node name="rain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_otf0g")
 volume_db = -22.962
@@ -352,4 +306,3 @@ bus = &"Music"
 [connection signal="mouse_entered" from="CanvasLayer/Control/HBoxContainer2/Exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/HBoxContainer2/Exit" to="." method="_on_exit_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer2/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/TextureButton" to="CanvasLayer/Control/TextureButton" method="_on_pressed"]

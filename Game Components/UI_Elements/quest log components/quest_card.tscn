@@ -8,6 +8,7 @@
 
 [node name="quest_card" type="Panel"]
 light_mask = 0
+texture_filter = 4
 offset_right = 152.0
 offset_bottom = 96.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gyxv6")
@@ -36,14 +37,6 @@ text = "follow orders"
 label_settings = ExtResource("3_5ujas")
 uppercase = true
 
-[node name="quest_status" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("3_rljj1")
-theme_override_font_sizes/font_size = 19
-text = "not done"
-label_settings = ExtResource("3_5ujas")
-
 [node name="quest_desc" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(40, 35)
 layout_mode = 2
@@ -51,3 +44,11 @@ theme_override_constants/outline_size = 0
 text = "do stuff"
 label_settings = ExtResource("3_5ujas")
 autowrap_mode = 2
+
+[node name="quest_status" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("3_rljj1")
+theme_override_font_sizes/font_size = 19
+text = "not done"
+label_settings = ExtResource("3_5ujas")

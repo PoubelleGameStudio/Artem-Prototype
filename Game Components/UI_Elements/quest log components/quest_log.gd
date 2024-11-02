@@ -17,7 +17,7 @@ func _process(delta):
 	
 func populate_log():
 	var log = State.quest_db.keys()
-	var cards = get_node("quests").get_children()
+	var cards = get_node("ScrollContainer/quests").get_children()
 	var step = 0
 	for quest in log:
 		

@@ -10,6 +10,7 @@ extends Node2D
 @onready var eHealth_label : Label = $combatUI/enemyHealth_label
 @onready var pHealth : TextureProgressBar = $combatUI/playerHealth
 @onready var pHealth_label: Label = $combatUI/current_health
+@onready var buff_label: Label = $combatUI/buffs
 @onready var spell_book = $combatUI/spellSelect
 @onready var yourTurn : bool = true
 @onready var spells = State.spell_book
@@ -88,6 +89,11 @@ extends Node2D
 			pHealth.value = State.health
 			pHealth_label.text = str("HP: ",State.health)
 			shield_absorbed = 0
+			buff_label.hide()
+			buff_label.text = ''
+		else:
+			buff_label.show()
+			buff_label.text = str("Shielded x",shield_for)
 @onready var enemy_hit_chance: float = 1.0
 @onready var hit_lowered_for: int = 0:
 	set(value):
@@ -140,6 +146,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	player.play("idle")
+	buff_label.text = ''
 	
 	pHealth.value = State.health
 	pHealth.max_value = State.maxHealth

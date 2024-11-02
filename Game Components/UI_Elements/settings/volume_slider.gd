@@ -12,7 +12,10 @@ func _ready():
 	value = db_to_linear(
 		AudioServer.get_bus_volume_db(bus_index)
 	)
-	print(AudioServer.get_bus_index(bus_name))
+	
+func _process(delta):
+	if State.control_schema == 'gamepad':
+		step = 0.01
 	
 func _on_value_changed(value: float) -> void:
 	print(value)

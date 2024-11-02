@@ -241,6 +241,7 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D"]
+light_mask = 524289
 y_sort_enabled = true
 position = Vector2(16, -32)
 script = ExtResource("1_6vypi")

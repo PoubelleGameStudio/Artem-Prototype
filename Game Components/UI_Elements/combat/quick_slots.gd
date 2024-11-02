@@ -1,7 +1,7 @@
 extends Control
 
 class_name QuickSlots
-
+@onready var controller_prompts = $HBoxContainer
 @onready var slot1 : Button = $"slot 1"
 @onready var slot1_label : Label = $"slot 1/Label"
 @onready var slot1_sprite : Sprite2D = $"slot 1/Sprite2D"
@@ -39,8 +39,10 @@ func _process(_delta):
 
 
 func gamepad_item_use() -> void:
+	if Input.is_action_just_released("use_combat_item"):
+		controller_prompts.hide()
 	if Input.is_action_pressed("use_combat_item"):
-
+		controller_prompts.show()
 		if Input.is_action_just_pressed("use_slot_1"):
 			slot1_used.emit()
 			if State.check_inv(slot1_label.text) <= 0 :
