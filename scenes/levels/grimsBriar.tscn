@@ -681,8 +681,7 @@ interact_type = "enemy"
 interact_value = "0"
 
 [node name="Void Squirrel2" parent="enemies" groups=["enemies"] instance=ExtResource("17_dt21t")]
-position = Vector2(-498, -72)
-scale = Vector2(2, 2)
+position = Vector2(-500.616, -106.215)
 enemy_type = "Void Squirrel"
 emitter = 1
 id = "8"

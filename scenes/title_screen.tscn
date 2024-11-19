@@ -223,6 +223,7 @@ layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="New Game" type="Button" parent="CanvasLayer/Control/HBoxContainer2"]
+z_index = 100
 texture_filter = 4
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Load")

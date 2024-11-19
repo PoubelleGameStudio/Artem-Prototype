@@ -1,15 +1,10 @@
-[gd_scene load_steps=47 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=27 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
-[ext_resource type="Texture2D" uid="uid://ftcrveq2n7hh" path="res://Sprites/Artem/artem_v1_front_walking-spritesheet.png" id="2_he7ll"]
+[ext_resource type="SpriteFrames" uid="uid://c8pc0cx3ymlfk" path="res://scenes/player_anims.tres" id="2_ed8oj"]
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="3_8eknr"]
-[ext_resource type="Texture2D" uid="uid://belgwwqvl7of1" path="res://Sprites/Artem/artem_v1_side-spritesheet.png" id="3_85di3"]
-[ext_resource type="Texture2D" uid="uid://bhx6u3r52bon6" path="res://Sprites/Artem/artem_v1_front_idle-spritesheet.png" id="3_8155j"]
-[ext_resource type="Texture2D" uid="uid://cp6dyn170ab6v" path="res://Sprites/Artem/artem_v1_back_idle.png" id="4_oipig"]
 [ext_resource type="Script" path="res://Game Components/UI_Elements/pause/PauseController.gd" id="4_wdihw"]
 [ext_resource type="Script" path="res://Game Components/UI_Elements/character screen/character_info.gd" id="5_2ad3x"]
-[ext_resource type="Texture2D" uid="uid://b4dgg37yjp405" path="res://Sprites/Artem/artem_v1_side_walking-spritesheet.png" id="5_d4qgt"]
-[ext_resource type="Texture2D" uid="uid://dv7hntw3bi4xl" path="res://Sprites/Artem/artem_v1_back_walking.png" id="7_wkoaj"]
 [ext_resource type="Texture2D" uid="uid://b0kmobajmfp4n" path="res://Sprites/textures/rainfall.png" id="8_v2vqm"]
 [ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="9_wbp7e"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="12_4q3lk"]
@@ -22,137 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="18_jm848"]
 [ext_resource type="AudioStream" uid="uid://dmvxux2ekuqrs" path="res://sounds/UI/book_open_1.wav" id="20_53s8o"]
 [ext_resource type="PackedScene" uid="uid://duw1coq7pkfci" path="res://Game Components/UI_Elements/settings/SettingsMenu.tscn" id="21_mnbx0"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h5msp"]
-atlas = ExtResource("2_he7ll")
-region = Rect2(0, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dg8ut"]
-atlas = ExtResource("2_he7ll")
-region = Rect2(32, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x28u8"]
-atlas = ExtResource("3_8155j")
-region = Rect2(0, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhb6t"]
-atlas = ExtResource("3_8155j")
-region = Rect2(32, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3p7ut"]
-atlas = ExtResource("3_85di3")
-region = Rect2(0, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ooxtj"]
-atlas = ExtResource("3_85di3")
-region = Rect2(32, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x31r3"]
-atlas = ExtResource("5_d4qgt")
-region = Rect2(0, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6x8j4"]
-atlas = ExtResource("5_d4qgt")
-region = Rect2(32, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4c43u"]
-atlas = ExtResource("5_d4qgt")
-region = Rect2(64, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6rb1y"]
-atlas = ExtResource("5_d4qgt")
-region = Rect2(96, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0c5cf"]
-atlas = ExtResource("4_oipig")
-region = Rect2(0, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tkrwi"]
-atlas = ExtResource("4_oipig")
-region = Rect2(32, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bljnv"]
-atlas = ExtResource("7_wkoaj")
-region = Rect2(0, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oxdpc"]
-atlas = ExtResource("7_wkoaj")
-region = Rect2(32, 0, 32, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lrcab"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h5msp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dg8ut")
-}],
-"loop": true,
-"name": &"down_walk",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x28u8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hhb6t")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3p7ut")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ooxtj")
-}],
-"loop": true,
-"name": &"side_idle",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x31r3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6x8j4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4c43u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6rb1y")
-}],
-"loop": true,
-"name": &"side_walk",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0c5cf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tkrwi")
-}],
-"loop": true,
-"name": &"up_idle",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bljnv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oxdpc")
-}],
-"loop": true,
-"name": &"up_walk",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jl5s"]
 size = Vector2(24, 16)
@@ -258,7 +122,7 @@ editor_draw_limits = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-sprite_frames = SubResource("SpriteFrames_lrcab")
+sprite_frames = ExtResource("2_ed8oj")
 animation = &"down_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,7 +1,7 @@
 extends Control
 
 @onready var loader = get_node('/root/root')
-@onready var player = get_node('/root/root/player')
+@onready var player = get_node_or_null('/root/root/player') 
 
 
 @onready var confirm: AudioStream = preload("res://sounds/UI/movement_1.wav")
@@ -19,6 +19,7 @@ var settingsConfig = SettingsConfig.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	verify_save_directory(save_dir)
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,8 +1,9 @@
-[gd_resource type="SpriteFrames" load_steps=79 format=3 uid="uid://6qj5grt6fv4i"]
+[gd_resource type="SpriteFrames" load_steps=82 format=3 uid="uid://6qj5grt6fv4i"]
 
 [ext_resource type="Texture2D" uid="uid://bulwapv5v5ea7" path="res://Sprites/combat/enemies/sorrow_shade_spritesheet.png" id="1_ey2ip"]
 [ext_resource type="Texture2D" uid="uid://bf6eknt5ai6li" path="res://Sprites/combat/enemies/t_boss_idle.png" id="1_ubgpd"]
 [ext_resource type="Texture2D" uid="uid://52rvto5g48og" path="res://Sprites/combat/enemies/Technotheist Grunt.png" id="2_5ywcf"]
+[ext_resource type="Texture2D" uid="uid://b7c8kl3cfgsjb" path="res://Sprites/combat/enemies/myconid_001_spritesheet.png" id="2_46qie"]
 [ext_resource type="Texture2D" uid="uid://11bp34n8ur61" path="res://Sprites/combat/enemies/void squirrel-Sheet.png" id="3_y0jul"]
 [ext_resource type="Texture2D" uid="uid://crr8pqffinomt" path="res://Sprites/combat/enemies/attacking.png" id="4_d0esi"]
 [ext_resource type="Texture2D" uid="uid://cpe5ata55ng54" path="res://Sprites/combat/enemies/idle2.png" id="5_s62jn"]
@@ -83,6 +84,14 @@ region = Rect2(544, 0, 32, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_my6xy"]
 atlas = ExtResource("1_ubgpd")
 region = Rect2(576, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl2tu"]
+atlas = ExtResource("2_46qie")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5x53"]
+atlas = ExtResource("2_46qie")
+region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldmoo"]
 atlas = ExtResource("1_ey2ip")
@@ -354,6 +363,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"Ascended Technotheist_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pl2tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5x53")
+}],
+"loop": true,
+"name": &"Fungalian_idle",
 "speed": 5.0
 }, {
 "frames": [{
