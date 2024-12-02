@@ -11,6 +11,7 @@ class_name title_screen
 @export var level_name: String = ''
 
 
+
 const SAVE_DIR = "user://saves/"
 var save_file = "PlayerSave.tres"
 var playerData = PlayerData.new()
@@ -18,6 +19,7 @@ var playerData = PlayerData.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SceneTransition.animation_finished.connect(_on_scene_transition_animation_finished)
 	SceneTransition.fade_in()
 	$"CanvasLayer/Control/HBoxContainer2/New Game".grab_focus()
 
@@ -25,12 +27,14 @@ func _ready():
 func _process(_delta):
 	pass
 
+func _on_scene_transition_animation_finished() -> void:
+	print("animation finished")
+	get_tree().change_scene_to_packed(intro_level)
 
 func _on_new_game_pressed():
 	sound.set_stream(confirm)
 	sound.play()
 	SceneTransition.fade_out()
-	get_tree().change_scene_to_packed(intro_level)
 	
 func _on_new_game_focus_entered():
 	sound.set_stream(focus_sound)

@@ -56,6 +56,8 @@ script = ExtResource("1_kqvca")
 level_name = "title_screen"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 1
+layer = 99
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -72,6 +74,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+z_index = -99
 layout_mode = 0
 offset_left = -1187.0
 offset_right = 2941.0
@@ -86,7 +89,7 @@ material = SubResource("ShaderMaterial_ma6fg")
 layout_mode = 0
 offset_left = -1103.0
 offset_right = 2916.0
-offset_bottom = 1090.0
+offset_bottom = 1140.0
 texture = SubResource("NoiseTexture2D_da243")
 
 [node name="flies" type="Node2D" parent="CanvasLayer/Control"]
@@ -180,6 +183,7 @@ position = Vector2(310.68, 170.683)
 zoom = Vector2(3, 3)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+z_index = -99
 texture_filter = 4
 layout_mode = 1
 anchors_preset = -1
@@ -187,10 +191,10 @@ anchor_left = 15.6297
 anchor_top = 7.6
 anchor_right = 17.4036
 anchor_bottom = 8.90185
-offset_left = -625.191
+offset_left = -625.192
 offset_top = -304.0
-offset_right = 1863.85
-offset_bottom = 1083.93
+offset_right = 1934.81
+offset_bottom = 1136.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
@@ -327,6 +331,20 @@ theme_override_colors/font_color = Color(0.658824, 0.792157, 0.345098, 1)
 theme_override_fonts/font = ExtResource("7_3f4f1")
 theme_override_font_sizes/font_size = 37
 text = "@poubelle.bsky.social"
+
+[node name="Control2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -920.0
+offset_bottom = -500.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="rain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_otf0g")

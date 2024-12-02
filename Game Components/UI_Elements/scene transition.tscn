@@ -145,7 +145,7 @@ _data = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
-layer = 0
+layer = 98
 script = ExtResource("1_578nf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -155,13 +155,17 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="."]
 light_mask = 0
+z_index = 99
 anchors_preset = -1
 anchor_left = -0.347917
+anchor_top = -0.144444
 anchor_right = 3.16667
+anchor_bottom = -0.144444
 offset_left = -1744.0
 offset_top = -204.0
 offset_right = -1744.0
 offset_bottom = 1236.0
+mouse_filter = 1
 color = Color(0.0941176, 0, 0.101961, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -175,6 +179,7 @@ offset_left = -964.0
 offset_right = 2476.0
 offset_bottom = 1440.0
 grow_horizontal = 2
+mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
@@ -185,5 +190,7 @@ position = Vector2(892, 1436)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("2_n53mb")
 centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

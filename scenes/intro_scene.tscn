@@ -1,12 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://dox5dno8g3ivl"]
+[gd_scene load_steps=8 format=3 uid="uid://dox5dno8g3ivl"]
 
 [ext_resource type="Shader" path="res://shaders/galaxy.gdshader" id="1_73yuv"]
 [ext_resource type="Script" path="res://scenes/intro_scene.gd" id="1_mc30u"]
 [ext_resource type="SpriteFrames" uid="uid://c8pc0cx3ymlfk" path="res://scenes/player_anims.tres" id="2_1cdgh"]
 [ext_resource type="Shader" path="res://shaders/bob_up_and_down.gdshader" id="2_m8xu5"]
+[ext_resource type="AudioStream" uid="uid://dcjnf3jitksrt" path="res://sounds/levelMusic/a mind wanders.wav" id="5_cgdx7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yggb6"]
 shader = ExtResource("1_73yuv")
+shader_parameter/anim_speed = 0.00500071
+shader_parameter/star_brightness = 0.018
+shader_parameter/dust = 0.091
+shader_parameter/dist_fade = 0.491
+shader_parameter/pixelation = 194.796
+shader_parameter/quantization_levels = 256
+shader_parameter/dust_color = Color(0.0117647, 0.243137, 1, 1)
+shader_parameter/saturation = 1.0
+shader_parameter/layers = 3.669
+shader_parameter/iterations = 12
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hevab"]
 shader = ExtResource("2_m8xu5")
@@ -20,9 +31,15 @@ script = ExtResource("1_mc30u")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_yggb6")
+anchors_preset = -1
+anchor_left = -1.27656
+anchor_top = -0.790741
+anchor_right = 1.4526
+anchor_bottom = 0.936111
 offset_left = -174.0
 offset_right = 2243.0
 offset_bottom = 1078.0
+color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
@@ -31,3 +48,8 @@ position = Vector2(681, 581)
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("2_1cdgh")
 animation = &"up_idle"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cgdx7")
+autoplay = true
+bus = &"Music"

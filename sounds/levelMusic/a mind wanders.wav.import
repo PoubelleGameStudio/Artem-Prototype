@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dcjnf3jitksrt"
+path="res://.godot/imported/a mind wanders.wav-7d41ad596d6861a5d31d2c21ccb44e84.sample"
+
+[deps]
+
+source_file="res://sounds/levelMusic/a mind wanders.wav"
+dest_files=["res://.godot/imported/a mind wanders.wav-7d41ad596d6861a5d31d2c21ccb44e84.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

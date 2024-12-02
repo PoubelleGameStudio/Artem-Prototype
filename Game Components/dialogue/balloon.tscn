@@ -480,12 +480,12 @@ text = "or"
 label_settings = SubResource("LabelSettings_c0elf")
 
 [node name="prompt" type="TextureRect" parent="Balloon/hints"]
+texture_filter = 3
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("13_k2dok")
-stretch_mode = 2
 
 [node name="prompt2" type="TextureRect" parent="Balloon/hints"]
 visible = false

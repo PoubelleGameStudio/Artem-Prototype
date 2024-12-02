@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var player: AnimationPlayer = $AnimationPlayer
 @onready var Splash: Sprite2D = $Control/HBoxContainer/ScreenText
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 signal animation_finished
 
@@ -15,8 +16,12 @@ func fade_in() -> void:
 
 	
 func fade_out() -> void:
-	player.play_backwards('fade in')
+	print("fading out")
+	player.play('fade in')
 	
+func play_audio(track) -> void:
+	audio.set_stream(track)
+	audio.play()
 
 func victory() -> void:
 	State.can_walk = false
@@ -35,6 +40,7 @@ func death() -> void:
 	State.can_walk = true
 
 
-func _on_animation_player_animation_finished(anim_name):
+func _on_animation_player_animation_finished():
 	animation_finished.emit()
+	print("animation_finished")
 	

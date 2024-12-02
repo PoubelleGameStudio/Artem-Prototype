@@ -1,0 +1,12 @@
+~ start
+Artem: Another night chasing ancient horrors across Hollow Veil, another night drowning myself in inkblot to clear my mind enough to find sleep...
+Artem: The Eso say there's a point to all this, but more and more it feels like every Watcher is nothing more than a janitor sweeping away the day's filth.
+Artem: Filth isn't the right word. A tavern keep deals with filth. Filth would be a vacation, a reprieve from telling a mother her child was flailed, from driving the life from the eyes of a possessed doe as the blood of a local merchant dries on it's hooves.
+Artem: At least the day's work was over...
+# do chaos effects
+
+Disembodied Voice: U'au qyik qaet
+# do speeding effect
+Artem: Are there new horrors in my head?
+# load grimsBriar
+=> END
