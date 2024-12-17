@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d010sb0bdrwv5"]
+[gd_scene load_steps=15 format=3 uid="uid://d010sb0bdrwv5"]
 
 [ext_resource type="Script" path="res://Game Components/Shop/shop.gd" id="1_tntft"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="1_uo7i2"]
@@ -8,6 +8,15 @@
 [ext_resource type="FontFile" uid="uid://du58gfnyy5wpj" path="res://Game Components/fonts/Silver.ttf" id="4_livgh"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="5_km8cl"]
 [ext_resource type="AudioStream" uid="uid://dmvxux2ekuqrs" path="res://sounds/UI/book_open_1.wav" id="7_kkgox"]
+[ext_resource type="Theme" uid="uid://c1pntnyw8t772" path="res://themes/hp_bar.tres" id="7_t1u2j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygkb1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4k862"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_womnx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajnwq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nw3a"]
 
@@ -51,7 +60,7 @@ autowrap_mode = 2
 offset_left = -135.0
 offset_top = -68.0
 offset_right = 110.0
-offset_bottom = 164.0
+offset_bottom = 340.0
 
 [node name="Label" type="Label" parent="Sprite2D/buy/VBoxContainer"]
 texture_filter = 4
@@ -101,6 +110,22 @@ item_name = "RIP'd CD"
 item_cost = 20
 item_desc = "Absolutley not malicious software that would reduce Technotheist health by 45 points"
 
+[node name="Button" type="Button" parent="Sprite2D/buy/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("7_t1u2j")
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_h0un2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ygkb1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4k862")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_womnx")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ajnwq")
+text = "Leave Shop"
+
 [node name="sell" type="Node2D" parent="Sprite2D"]
 visible = false
 position = Vector2(-160, -120)
@@ -148,3 +173,4 @@ stream = ExtResource("7_kkgox")
 [connection signal="mouse_entered" from="Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd" to="." method="_on_ripd_cd_mouse_entered"]
 [connection signal="pressed" from="Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd" to="." method="_on_ripd_cd_pressed"]
 [connection signal="updateGold" from="Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd" to="." method="_on_ripd_cd_update_gold"]
+[connection signal="pressed" from="Sprite2D/buy/VBoxContainer/Button" to="." method="_on_button_pressed"]

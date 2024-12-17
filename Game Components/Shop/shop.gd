@@ -5,6 +5,8 @@ extends Node2D
 @onready var item_name: Label = $Sprite2D/buy/item_name
 @onready var item_desc: Label = $Sprite2D/buy/item_description
 
+signal exit
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentGold.text = str(State.gold,"g")
@@ -70,3 +72,8 @@ func _on_ripd_cd_mouse_entered():
 	$"Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd".grab_focus()
 	item_name.text = str("Item: ",$"Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd".item_name)
 	item_desc.text = str("Use: ",$"Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd".item_desc)
+
+
+func _on_button_pressed():
+	exit.emit()
+	print("leave shop")

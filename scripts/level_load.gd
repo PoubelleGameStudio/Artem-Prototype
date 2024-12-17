@@ -6,7 +6,6 @@ class_name LevelManager
 @export var is_raining: int 
 @export var level_name: String
 @onready var combat = $combatScreen
-@onready var enemy_list = State.area_enemies[level_name]
 @onready var player = $player
 @onready var respawn_location = $respawn.global_position
 
@@ -77,6 +76,7 @@ func bury_the_dead():
 
 func setup_combat():
 	combat.show()
+	c_music.play()
 	combat.process_mode = 0
 	music.playing = false
 	combat.start_turn()
@@ -90,6 +90,7 @@ func stop_combat():
 
 
 func _on_combat_screen_combat_end():
+	var enemy_list = State.area_enemies[level_name]
 	enemy_list[State.engaging] = 1
 	var hide_node = NodePath(str("enemies/",State.engaging[0]))
 	SceneTransition.victory()
@@ -123,8 +124,3 @@ func _on_combat_screen_death():
 	State.combat = false
 	music.playing = true
 	
-
-
-
-func _on_audio_stream_player_finished():
-	pass # Replace with function body.

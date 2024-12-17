@@ -4,12 +4,28 @@ extends CanvasLayer
 @onready var Splash: Sprite2D = $Control/HBoxContainer/ScreenText
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
+#pack scenes
+@onready var grimsBriar = load("res://scenes/levels/grimsBriar.tscn")
+@onready var GB_sewers = load("res://scenes/levels/GB_sewers.tscn")
+@onready var WitchForest = load("res://scenes/levels/WitchForest.tscn")
+@onready var forest_cave = load("res://scenes/levels/forest_cave.tscn")
+@onready var energy_temple = load("res://scenes/levels/energy_temple.tscn")
+@onready var mourningFields = load("res://scenes/levels/mourningFields.tscn")
+
 signal animation_finished
 
 func change_scene(target: String) -> void:
-	$AnimationPlayer.play_backwards('fade in')
-	get_tree().change_scene_to_file(target)
+	
+	match target :
+		"grimsBriar": get_tree().change_scene_to_packed(grimsBriar)
+		"GB_sewers": get_tree().change_scene_to_packed(GB_sewers)
+		"WitchForest": get_tree().change_scene_to_packed(WitchForest)
+		"forest_cave": get_tree().change_scene_to_packed(forest_cave)
+		"energy_temple": get_tree().change_scene_to_packed(energy_temple)
+		"mourningFields": get_tree().change_scene_to_packed(mourningFields)
+	print("loading ",target)
 	player.play('fade in')
+	
 	
 func fade_in() -> void:
 	player.play('fade in')
@@ -17,7 +33,7 @@ func fade_in() -> void:
 	
 func fade_out() -> void:
 	print("fading out")
-	player.play('fade in')
+	player.play_backwards('fade in')
 	
 func play_audio(track) -> void:
 	audio.set_stream(track)

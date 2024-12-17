@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var balloon: ColorRect = $Balloon
 @onready var margin: MarginContainer = $Balloon/Margin
 @onready var character_label: RichTextLabel = $Balloon/Margin/VBox/CharacterLabel
-@export var character_label_color = ""
+# @export var character_label_color = ""
 @onready var dialogue_label := $Balloon/Margin/VBox/DialogueLabel
 @onready var responses_menu: VBoxContainer = $Balloon/Margin/VBox/Responses
 @onready var response_template: RichTextLabel = %ResponseTemplate
@@ -249,11 +249,13 @@ func _on_margin_resized() -> void:
 func _on_dialogue_label_spoke(letter, letter_index, speed):
 	if letter_index%3 == 0 || letter_index == 1:
 		if character_label.text != "Artem":
+			set_character_label_color("d0da91")
 			if not letter in ["."," ","*"]:
 				if  letter in ["a","e","i","o","u","y"]:
 					talk.pitch_scale = randf_range(0.2,0.3)
 					talk.play()
 		else:
+			set_character_label_color("d4d5ff")
 			if not letter in ["."," ","*"]:
 				if  letter in ["a","e","i","o","y"]:
 					artem_talk.pitch_scale = randf_range(0.4,0.5)

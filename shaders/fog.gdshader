@@ -6,7 +6,7 @@ uniform float speed;
 
 void fragment() {
 	vec3 fog_color_1 = texture(TEXTURE, vec2(UV.x /2.0 + (TIME*speed) / 100.0, UV.y / 4.0 - TIME*speed / 300.0)).rgb;
-	vec3 fog_color_2 = texture(TEXTURE, vec2(UV.x /2.0 + 0.5 / 50.0, UV.y / 4.0 + 0.5 - TIME*speed / 
+	vec3 fog_color_2 = texture(TEXTURE, vec2(UV.x /2.0 + 0.5 / 50.0, UV.y / 4.0 + 0.5 - TIME*speed /
 								160.00 )).rgb;
 	vec3 fog_color_3 = texture(TEXTURE, vec2(UV.x /2.0 + 0.5 + (TIME)/2.0 / 90.0,  UV.y /4.0 - .25 + TIME*speed
 								/ 160.0)).rgb;

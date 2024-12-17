@@ -81,7 +81,7 @@ noise = SubResource("FastNoiseLite_te7fs")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53752"]
 shader = ExtResource("2_j31jx")
 shader_parameter/scale = Vector2(106.904, 2.54688)
-shader_parameter/y_zoom = 0.353553
+shader_parameter/y_zoom = 1.33484
 shader_parameter/water_color = Color(0, 0.392157, 0, 0.607843)
 shader_parameter/distortion_scale = Vector2(0.05, 0.408)
 shader_parameter/intensity = 0.07
@@ -171,7 +171,7 @@ animation = &""
 [node name="InteractArea" parent="sewer_door" instance=ExtResource("4_gydm5")]
 z_index = 1
 position = Vector2(5.22525, 28.5476)
-interact_label = "grimsBriar.tscn"
+interact_label = "grimsBriar"
 interact_type = "gateway"
 interact_value = "out"
 
@@ -184,7 +184,7 @@ animation = &"door"
 [node name="InteractArea" parent="exit_door" instance=ExtResource("4_gydm5")]
 z_index = 1
 position = Vector2(-8, 6)
-interact_label = "WitchForest.tscn"
+interact_label = "WitchForest"
 interact_type = "gateway"
 interact_value = "out"
 

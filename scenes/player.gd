@@ -130,7 +130,7 @@ func _physics_process(delta):
 
 func player_movement(_delta):
 # setup direction of movement
-	if State.can_walk:
+	if State.can_walk and !State.shopping:
 		var direction = Input.get_vector("MOVE_LEFT", "MOVE_RIGHT", "MOVE_UP", "MOVE_DOWN")
 		
 		
@@ -227,6 +227,7 @@ func execute_interaction():
 			"vendor":
 				if State.talking == 0:
 					State.talking = 1
+					State.shopping = true
 					cur_interaction.talk(str("res://Game Components/dialogue/NPC/",
 					cur_interaction.get_parent().sprite,".dialogue"))
 			"dialogue":
@@ -255,8 +256,7 @@ func execute_interaction():
 			"gateway":
 				#if cur_interaction.interact_value == "in":
 				State.p_locs[get_parent().level_name] = global_position
-				SceneTransition.change_scene((str("res://scenes/levels/",
-							cur_interaction.interact_label)))
+				SceneTransition.change_scene(cur_interaction.interact_label)
 				#elif cur_interaction.interact_value == "out":
 					#SceneTransition.change_scene((str("res://scenes/levels/",
 															#cur_interaction.interact_label)))
@@ -269,11 +269,9 @@ func execute_interaction():
 					if cur_interaction.interact_value == "in":
 						print(get_parent().level_name)
 						State.p_locs[get_parent().level_name] = get_node("../player").global_position
-						SceneTransition.change_scene((str("res://scenes/levels/",
-								cur_interaction.interact_label)))
+						SceneTransition.change_scene(cur_interaction.interact_label)
 					elif cur_interaction.interact_value == "out":
-						SceneTransition.change_scene((str("res://scenes/levels/",
-								cur_interaction.interact_label)))
+						SceneTransition.change_scene(cur_interaction.interact_label)
 				else:
 					itemLabel.text = "The Gate's Locked..."	
 					await get_tree().create_timer(5).timeout
@@ -358,8 +356,8 @@ func _on_interaction_area_area_entered(area):
 func _on_interaction_area_area_exited(area):
 	var cur_interact = all_interactions[0]
 	cur_interact.talk_end()
-	if cur_interact.interact_type == "vendor" and shop.visible:
-		animation.play("hud_down")
+	#if cur_interact.interact_type == "vendor" and shop.visible:
+		#animation.play("hud_down")
 	prompt.hide()
 	State.talking = 0
 	all_interactions.erase(area)
@@ -375,3 +373,9 @@ func _on_item_pressed():
 	else:
 		# play poor sound 
 		pass
+
+
+func _on_shop_exit():
+	if shop.visible:
+		animation.play("hud_down")
+		State.shopping = false

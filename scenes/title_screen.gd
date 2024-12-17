@@ -2,10 +2,14 @@ extends Node2D
 class_name title_screen
 
 
-@onready var intro_level: PackedScene = preload("res://scenes/levels/grimsBriar.tscn")
+@onready var intro_level: PackedScene = preload("res://scenes/intro_scene.tscn")
 @onready var confirm: AudioStream = preload("res://sounds/UI/movement_1.wav")
 @onready var focus_sound: AudioStream = preload("res://sounds/UI/block_1.wav")
 @onready var sound: AudioStreamPlayer = $AudioStreamPlayer
+
+@onready var newgame: Button = $"CanvasLayer/Control/HBoxContainer2/New Game"
+@onready var loadgame: Button = $CanvasLayer/Control/HBoxContainer2/Load
+@onready var exitgame: Button = $CanvasLayer/Control/HBoxContainer2/Exit
 
 
 @export var level_name: String = ''
@@ -35,6 +39,7 @@ func _on_new_game_pressed():
 	sound.set_stream(confirm)
 	sound.play()
 	SceneTransition.fade_out()
+	get_tree().change_scene_to_packed(intro_level)
 	
 func _on_new_game_focus_entered():
 	sound.set_stream(focus_sound)
@@ -47,6 +52,7 @@ func _on_new_game_focus_exited():
 
 
 func _on_new_game_mouse_entered():
+	newgame.grab_focus()
 	sound.set_stream(focus_sound)
 	sound.play()
 	# toggle_focus_mark($"CanvasLayer/HBoxContainer2/New Game/ColorRect")
@@ -82,6 +88,7 @@ func _on_exit_focus_exited():
 
 
 func _on_exit_mouse_entered():
+	exitgame.grab_focus()
 	sound.set_stream(focus_sound)
 	sound.play()
 	# toggle_focus_mark($CanvasLayer/HBoxContainer2/Exit/ColorRect4)
@@ -102,6 +109,7 @@ func _on_load_focus_exited():
 
 
 func _on_load_mouse_entered():
+	loadgame.grab_focus()
 	sound.set_stream(focus_sound)
 	sound.play()
 	# toggle_focus_mark($CanvasLayer/HBoxContainer2/Load/ColorRect2)

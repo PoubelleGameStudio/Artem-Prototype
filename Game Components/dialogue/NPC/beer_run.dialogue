@@ -10,31 +10,21 @@ else
 [wave amp=25 freq=5]Hedo[/wave]: Everyone writes. Never had the talent though. Maybe I need a muse.
 Artem: I'm not really current with the art world.
 [wave amp=25 freq=5]Hedo[/wave]: I had a full flask. and now the damn thing's gone dry. Creature of Habit.
-Artem: Are you able to recognize this book?
-[wave amp=25 freq=5]Hedo[/wave]: *Vomits* I'd never touch that. Mass Market's for NPCs. I'm strictly hardback.
-- Apologize
-	Artem: Terribly sorry. I prefer a first printing myself, though not quite as passionately.
-	[wave amp=25 freq=5]Hedo[/wave]: Welcome to Grim's Briar
-	set State.welcomed = true
-	=> beer_run
-- Move along
-	Artem: Well, glad we've set expecations.
-	set State.welcomed = true
+Artem: My condolences for your loss. Could you point me towards the nearest town?
+[wave amp=25 freq=5]Hedo[/wave]: fill my flask would you? never know how a deed shines. could be of some value.
+- Accept
+	Artem: Sure. Who am I to judge?
+	set State.talking = 0
+	do update_quest_status("beer_run",1)
+	=>  END
+- Decline
+	Artem: I've got my own habit to manage.
+	set State.talking = 0
+	=>  END
 
 	=> END
 
 ~ beer_run
-if quest_db["beer_run"]["Status"] == 0
-	[wave amp=25 freq=5]Hedo[/wave]: fill my flask would you? never know how a deed shines. could be of some value.
-	- Accept
-		Artem: I'll see what I can do.
-		set State.talking = 0
-		do update_quest_status("beer_run",1)
-		=>  END
-	- Decline
-		Artem: Piss off...
-		set State.talking = 0
-		=>  END
 elif quest_db["beer_run"]["Status"] == 1
 	if quest_complete("beer_run") == false
 		[wave amp=25 freq=5]Hedo[/wave]: *The drunken pile of clothes stares off into the void*
@@ -44,7 +34,7 @@ elif quest_db["beer_run"]["Status"] == 1
 		set gold += 10
 		do update_quest_status("beer_run",2)
 		do SteamFeatures.setAchievement("ACH_Hedo")
-		[wave amp=25 freq=5]Hedo[/wave]: filled my flask you did. The creative juices flow. The gold is all yours. *You receive 10 Gold*
+		[wave amp=25 freq=5]Hedo[/wave]: filled my flask you did. The creative juices flow. Follow the path south.
 		set State.talking = 0
 	=> END
 elif quest_db["beer_run"]["Status"] == 2 and quest_db["barkeep_3"]["Status"] == 2:
@@ -52,21 +42,21 @@ elif quest_db["beer_run"]["Status"] == 2 and quest_db["barkeep_3"]["Status"] == 
 	Hedo: I was to be a celebrated sculptor.
 	Hedo: As soon as I could hold a chisel and mallet I started shaping my world.
 	Hedo: My family found it enjoyable to watch me work, but soon decided I should receive tutelage to nurture my passion and skill.
-	Hedo: I look at you and see a spirit of kind. You too have seen the look upon your master's face when they realize you've hopelessly outpaced them.
-	Hedo: I was sent off to live among a royal family in their monolith of self-indulgence they called a home.
-	Hedo: It was fine in the sense I lived without my true comforts of home, but never had I been more prolific 
-	Hedo: This continued for some years and as long as the royal's received the work they wanted, I was free to create and sell as I pleased.
+	Hedo: I look at you and see a kindred soul. You've seen the look on your master's face once you've hopelessly outpaced them.
+	Hedo: I was sent off to live among royals in their monolith of self-indulgence.
+	Hedo: It was fine. I lived without my true comforts of home, but never had I been more prolific 
+	Hedo: This continued for as long as the royal's received the work they wanted. I was free to create and sell as I pleased.
 	Hedo: I think if anything my success outside of their castle only furthered their self-grandeur.
 	Hedo: I would send my family most of the money, and kept a small amount to eventually afford my own land and studio.
 	Hedo: It was the day I turned 18 that I lost feeling in my left hand.
 	Hedo: I hadn't been sent to live with royals.
-	Hedo: My family had sold me to them. The royals told me as much as well the reason for my ailment.
-	Hedo: Have you ever lived among vampires, Artem? Vultures in silk. They don't drink your blood, not all of them, anway.
+	Hedo: My family had sold me to them. The royals told me this as well the reason for my ailment.
+	Hedo: Have you ever lived among vampires, Artem? Vultures in silk. They don't actually drink your blood, not all of them, anway.
 	Hedo: The ones who have been here before man walked, they crave something much more decadent.
 	Hedo: They want to steal the joy from their food. They want to watch as any sense of fulfillmet is ripped from your heart.
 	Hedo: Only then will they let you taste the only freedom you have left.
-	Hedo: I escaped before then. To be truthful, I flung myself from the window of my room hoping the fall would end me before they could.
-	Hedo: Turns out death would wait. Several cracked ribs and a misplaced shoulder, but slowly I floated down the river I had landed in.
+	Hedo: I escaped, though. To be truthful, I flung myself from the window of my room hoping the fall would end me before they could.
+	Hedo: Death would wait. Several cracked ribs and a misplaced shoulder, but slowly I floated down the river I had landed in.
 	Hedo: I turned up not far from here, and stumbled into the tavern. 
 	Hedo: Never got much feeling back in my hands, but mayor and Thorne have treated me like family since.
 elif quest_db["beer_run"]["Status"] == 2:

@@ -1,12 +1,17 @@
 ~ start
-Artem: Another night chasing ancient horrors across Hollow Veil, another night drowning myself in inkblot to clear my mind enough to find sleep...
-Artem: The Eso say there's a point to all this, but more and more it feels like every Watcher is nothing more than a janitor sweeping away the day's filth.
-Artem: Filth isn't the right word. A tavern keep deals with filth. Filth would be a vacation, a reprieve from telling a mother her child was flailed, from driving the life from the eyes of a possessed doe as the blood of a local merchant dries on it's hooves.
-Artem: At least the day's work was over...
+Artem: Another night chasing horrors across Hollow Veil...
+Artem: Most days it feels like we're just janitors washing away the day's filth.
+Artem: Wading through the world's misery in the hope that there will be something new to write down. Something to make this worth it...
 # do chaos effects
 
-Disembodied Voice: U'au qyik qaet
-# do speeding effect
+Dispatch: U'au qyik qaet
 Artem: Are there new horrors in my head?
-# load grimsBriar
+Dispatch: It's easier to reach you when you aren't drowning yourself in inkblots every night.
+Artem: Is this my intervention?
+Dispatch: Bartholemew's gone silent. We need you to check in. If he's fine, give him a scolding. If he's not, then recover what's left and provide a threat analysis.
+Artem: Search and rescue...am I being punished again?
+Dispatch: You'll be spitting distance from the Needle. If they're involved we can't have a rookie on scene. Talk to the locals, poke around, and keep your head down. You know the dance.
+Artem: Did you know you dropped me in a swamp 10 miles from the eldritch last time?
+Dispatch: Your service is truly appreciated. Prepare to blink.
+do SceneTransition.change_scene("grimsBriar")
 => END

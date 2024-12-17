@@ -10,6 +10,7 @@ var combat : bool = false
 var enemyID:String
 var can_walk: bool = true
 var can_use: bool = true
+var shopping: bool = false
 
 
 #weather vars

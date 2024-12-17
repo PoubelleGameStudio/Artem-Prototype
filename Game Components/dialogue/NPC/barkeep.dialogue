@@ -21,39 +21,31 @@ elif quest_db["barkeep_3"]["Status"] == 2:
 
 ~ Barkeep_welcome
 Mayor Barkeep: Hello there. Haven't had any newcomers in a while now.
-Artem: Please tell me you aren't also drunk.
-Mayor Barkeep: Sounds like you met Hedo out on the trails, but no I'm not drunk. Though, I am Mayor Barkeep of Grim's Briar, so that makes Hedo's state a bit my fault. Got a name, friend?
-Artem: Artem. He mentioned Grim's Briar. Where, geographically, are we right now?
-Mayor Barkeep: You share a couple rounds with Hedo?
-Artem: Quickly begining to feel as though I did...
+Artem: Is this Grim's Briar? I was given directions by a very drunk man.
+Mayor Barkeep: Sounds like you met Hedo out on the trails, but he did get you to the right place. I'll guess based on your robes that you're here about your buddy?
+Artem: Co-worker more than friend, really, but yes. What can you tell me?
 => main_path
 	
 ~ no_welcome	
 Mayor Barkeep: Would ya look at that! A new face in town! What can we do ya for?
-Artem: Hi, I'm Artem, a member of the Eye. Would you kindly tell me where exactly we are?
-Mayor Barkeep: You feelin' alright? Folks usually don't end up here without meaning to.
-Artem: Ever the exception I suppose...
+Artem: Hi, I'm Artem, a member of the Eye. By any chance am I actually in or close to Grim's Briar?
+Mayor Barkeep: Not sure you could get any closer. We don't tend to draw folks with a purpose, though. How'd you find yourself here?
+Artem: It would appear a co-worker of mine went missing in the last week or two. Have you seen any other Watchers pass through?
 => main_path
 	
 ~ main_path
-Mayor Barkeep: Grim's Briar is nested in the ever-dreary valley of the Noctemura Mountains.
-Artem: That's a bit closer to the Needle than I'd prefer.
-Mayor Barkeep: We stay tucked away in our corner of the valley and they stay in their buzzing, sterile monolith.
-Artem: If you don't mind, do you recognize this book? Seemingly it's the reason I'm here.
-Mayor Barkeep: *sigh*...yep that's one of Tim's. He had a bad review in the local magazine recently and got upset saying they hadn't even read his book. Not long after that, everyone he gave a copy to went missing. Just all at once.
-Artem: I don't suppose you found out how to bring everyone back?
-Mayor Barkeep: Unfortunately, no. Hedo was only saved by refusing a copy. Tim offered him one but he muttered something about NPCs and smashed a bottle...
-Mayor Barkeep: Either way...I've been trying to track Tim down. If not to set him straight then to at least find out where his books sent everyone off to.
-Artem: I noticed you've also got a problem with ghosts and void rodents?
-Mayor Barkeep: They're a natural part of the valley, but, without the townies roaming about in a stupor at all hours, the local haunts have started claiming the outskirts. 
-Artem: Well, given all of my possesions are some 300 miles from here...guess it's a night of ghost hunting and mystery solving.
+Mayor Barkeep: You may notice how quiet things are around town. A week ago we had a bit of an incident.
+Artem: I'm all ears.
+Mayor Barkeep: That we could manage. No, all but myself, hedo, and a couple workers vanished overnight. Your friend was one of them.
+Artem: Maybe they all suddenly gained a sense of purpose?
+Mayor Barkeep: Nothing that drastic. We dont' know how exactly he managed it, but we know Tim was behind it. He's a local writer, more or less.
+Artem: What happened? Bad review?
+Mayor Barkeep: I realize that was supposed to be calloused sarcasm, but yes. The local art rag wasn't a fan of his recent novel. He got about as upset as I've ever seen. Not long after that, everyone he gave a copy to went missing. Just all at once.
+Artem: Did Tim go with them?
+Mayor Barkeep: Maybe? I've been trying to track him down. If not to set him straight then to at least find out where he sent everyone.
+Artem: Well, consider me now at your disposal. Let me see everything you've got so far.
 Mayor Barkeep: I appreciate your help, and I apologize for how much we need it. Talk to Thorn for a drink and check in with the Old Crusty Guy at the inn. I'll gather what little info I have and you can meet me back here once you've made the rounds.
-- How resplendent...
-	Artem: How resplendent...
-	do update_quest_status("barkeep_1",1)
-- Let me mull this over, new friend.
-	=> END
-set talking = 0
+do update_quest_status("barkeep_1",1)
 => END
 
 ~ in_prog
@@ -62,7 +54,7 @@ if quest_complete("barkeep_1") == false:
 	set talking = 0
 	=> END
 else:
-	Mayor Barkeep: It's healthy to meet new people. Here's a little something from the tourism grant. Make sure to patron your local artists!
+	Mayor Barkeep: Hope you settled in well enough. Here's a little something from the tourism grant. Make sure to shop local!
 	set gold += 10
 	set cur_xp += 10
 	do level_up()
@@ -73,19 +65,17 @@ else:
 
 ~ next
 Artem: Your architecture is deeply unorthodox
-Mayor Barkeep: Most of our residents' favorite establishments are hole in the walls, so we figured yeh, why not?
+Mayor Barkeep: It's a bit eclectic I suppose. Renovations are done by whoever is around and steady enough, so we get a bit of everyone's influence.
 Artem: And they just stay perpetually suspended like that?
 Mayor Barkeep: What?
 Artem: What?
-Mayor Barkeep: Oh, right...the air here is psychoactive. 
-Mayor Barkeep: Locals develop a tolerance to it for the most part, but we do keep some of those rad plague doctor masks. Those...probably help?
-Artem: This is the opposite of rest.
+Mayor Barkeep: Oh, right...the air here is psychoactive. Locals develop a tolerance to it for the most part, but we do keep some of those rad plague doctor masks. Those...probably help?
+Artem: I'm being drugged?
 Mayor Barkeep: Okay, it's totally fine. You're going to be absolutley totally fine for sure. No doubt.
-Mayor Barkeep: . . .However.
-Mayor Barkeep: You also have a few hours before you peak, and the crusty guy at the inn knows how to make what we call the "Get Me Down Potion".
+Mayor Barkeep: ...However, you also have some time before you peak. The crusty guy at the inn knows how to make what we call the "Get Me Down Potion".
 Artem: And that will make it so [wave amp=25 freq=5]hallucinations[/wave] are not a side effect of breathing?
-Mayor Barkeep: Usually.
-Artem: Then off I go. . .
+Mayor Barkeep: Almost always.
+Artem: Then off I go.
 do update_quest_status("barkeep_2",1)
 set talking = 0
 => END
