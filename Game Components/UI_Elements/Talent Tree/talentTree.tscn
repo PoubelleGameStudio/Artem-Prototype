@@ -306,7 +306,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_dsmqw")
 icon = ExtResource("6_e6b38")
 talentName = "Sacred Kindling"
 description = "The first kindling ignited by the wielders of flame increases the damage over time damage of your fire spells"
-required_level = 5
+required_level = 1
 talentType = "Passive Buff"
 cost = 2
 
@@ -321,7 +321,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_nx10a")
 icon = ExtResource("8_75706")
 talentName = "Curse"
 description = "Chaos entangled matter attacks the soul directly."
-required_level = 10
+required_level = 5
 cost = 3
 
 [node name="Poison Swamp" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
@@ -334,7 +334,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_y0tb0")
 icon = ExtResource("12_86fet")
 talentName = "Poison Swamp"
 description = "Seep the ground beneath your foes feet in thick, poisonous sludge"
-required_level = 15
+required_level = 10
 talentType = "Spell"
 cost = 4
 
@@ -371,7 +371,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_yld72")
 icon = ExtResource("13_dfx5d")
 talentName = "Hollowed Threats"
 description = "Seep your opponent in void energy weakening their attack by 10%"
-required_level = 5
+required_level = 1
 talentType = "Spell"
 cost = 2
 
@@ -386,7 +386,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_rmea8")
 icon = ExtResource("14_roe8q")
 talentName = "Void Sight"
 description = "Look through the void to anticipate your oppoents attacks. Increase chance to dodge by 15% for 3 turns."
-required_level = 10
+required_level = 5
 cost = 3
 
 [node name="Vapid Affliction" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
@@ -399,7 +399,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_7tupi")
 icon = ExtResource("15_ado0h")
 talentName = "Vapid Affliction"
 description = "The void invades your foe's mind. Each turn they have an increasing chance to not attack on their next turn."
-required_level = 15
+required_level = 10
 cost = 4
 
 [node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
@@ -425,7 +425,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ud3x2")
 icon = ExtResource("16_nfr74")
 talentName = "Sanguinated Shell"
 description = "Coalesce your blood into a hardened shell absorbing 50% damage for 3 turns. When the shell expires you heal for half the amount absorbed."
-required_level = 5
+required_level = 1
 talentType = "Spell"
 cost = 2
 
@@ -439,7 +439,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_0bxbq")
 icon = ExtResource("17_pyrdo")
 talentName = "Blood Clot Homunculus"
 description = "Sacrifice 20% of your health to construct a blood clot homunculus that will copy your attacks for 20% of the damage done."
-required_level = 10
+required_level = 5
 talentType = "Spell"
 cost = 3
 
@@ -452,7 +452,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_vsrlo")
 icon = ExtResource("18_blfk6")
 talentName = "Blood Moon"
 description = "Increase the effects of all blood magic by 20% for 3 turns."
-required_level = 15
+required_level = 10
 talentType = "Spell"
 cost = 4
 

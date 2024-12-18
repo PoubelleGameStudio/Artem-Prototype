@@ -1,6 +1,19 @@
 ~ start
-if quest_db["Trash_1"]["Status"] == 2 and quest_db["witch_1"]["Status"] == 0:
-	=> trash_path
+
+if quest_db["Trash_1"]["Status"] == 2 and quest_db["witch_1"]["Status"] == 0 and State.met_stw:
+	The Witch Appears to be in a meditative trance, chanting quietly in several dead languages.
+	- Hello, a raccoon-based entity sent me your way.
+		=> trash_path
+	- Is that cauldron also a person?
+		=> stw_path
+	- Excuse me, have you seen a sad man walk this way?
+		=> no_trash
+elif quest_db["Trash_1"]["Status"] == 2 and quest_db["witch_1"]["Status"] == 0:
+	The Witch Appears to be in a meditative trance, chanting quietly in several dead languages.
+	- Hello, a raccoon-based entity sent me your way.
+		=> trash_path
+	- Excuse me, do you know much about cursed items?
+		=> no_trash
 elif quest_db["witch_1"]["Status"] == 0:
 	=> no_trash
 
@@ -11,33 +24,37 @@ if quest_db["witch_1"]["Status"] == 1  and quest_complete("witch_1"):
 if quest_db["witch_1"]["Status"] == 2:
 	=> witch_1_complete
 	
+~ stw_path
+The Witch: That is a terrible greeting. Do you often find yourself without company?
+Artem: Only when I'm lucky.
+The Witch: Maybe it won't escape us both just yet. Why you are in the woods asking if soups are people?
+Artem: I was drugged earlier in the evening, but I'm moderately confident I had a conversation with a talking cauldron of soup.
+The Witch: And now you've got the itch to be a chowder?
+Artem: I've likely expanded my boundaries enough tonight. 
+	
 ~ trash_path
-The Witch: Well you're a fresh face. Is there a reason I shouldn't add it to the wall?
-Artem: Something between a raccoon and a god said you could help.
-The Witch: That furry little shit never takes a day off from ruining my focus.
+The Witch: That furry little gremlin never takes a day off...
 Artem: Is he your familiar?
 The Witch: No more than the shit I took this morning is.
 Artem: ...
-The Witch: Never date among the gods.
+The Witch: Never date a domain god. One date and they never leave you alone.
 Artem: Can't imagine I'll ever need to make that call.
-The Witch: Even by my standards they're never faithful
-Artem: I should clarify I really have no allegiance to the raccoon.
+The Witch: All that power and knowledge and he just sits around asking strangers to hand him burgers out of the trash. What value would that bring to a relationship?
+Artem: I really have no allegiance to the raccoon.
 The Witch: Yet you let him send you to a witch's house in a strange forest?
 Artem: Really still in the discovery phase of things. All the same, I don't suppose you'd give this book a glance since I made the trip?
 => main_path 
 
 ~ no_trash
 The Witch: Well you're a fresh face. Tell me why I shouldn't add it to the wall?
-Artem: I don't suppose you're a friend of the bartending mayor?
+Artem: ?
 The Witch: He's never caused me trouble. Will I say the same of you?
 Artem: I'm Artem, a watcher.
 The Witch: Bit of a mixed bag, they are. What's brought you to my door?
-Artem: I've found myself in Grim's briar after touching this book. It apparently belongs to a local man named Tim, who distributed copies to the townies and now they've all gone missing.
+Artem: A colleague of mine has gone missing in the area. Seems his absence may be related to a charmed book.
 => main_path
 
 ~ main_path
-The Witch: Make a habit of touching strange books?
-Artem: Just the interesting ones.
 Artem hands the book over
 Artem: Copies in Grims Briar were charmed with relocation. Only folks left are a couple workers and some drunk named Hedo.
 The Witch: That misguided fool wouldn't touch anything short of hand-bound, first edition hardback.
@@ -51,27 +68,25 @@ The Witch: Those townies live for rough edges and pulled stitches. Perfection is
 Artem: Tim's publisher was the Needle? That still doesn't explain the charms placed on the books, though.
 The Witch: Far from a charm, burdened one. This was a curse. A curse that reeks.
 Artem: Reeks of what?
-The Witch: I have a theory. However, I'd like you to do something for me that will benefit the both of us.
-Artem: ...What would that be?
-The Witch: As a watcher, I'm sure you're aware of how painfully close we are to the Needle. As time marches forward so do their perceived property lines.
+The Witch: I have a theory. However, I don't work for free.
+Artem: Your price?
+The Witch: As time marches forward so does the Needle's property lines.
 Artem: You want me to settle a land dispute?
-The Witch: No. I want you to find those walking circuit boards, kill them, and desecrate their corpses. Then you'll make sure their precious energy temple will never generate an ounce of power again.
-Artem: I'm not a mercenary.
-The Witch: Fine. Then don't kill them if you haven't the stomach, though they won't share your sentiment. Regardless, until they're no longer a nuisance to my home, and my work, you won't find me lifting a finger for you.
+The Witch: I want you to go to shiny new temple and kill every last one of them.
+Artem: I'm really trying to operate within a damage control capacity here.
+The Witch: They've gone a bit bloodthirsty these days, but do try diplomacy. Regardless, as long as their temple is zipping and zapping I won't lift a finger for you.
 do update_quest_status("witch_1",1)
 => main_path_2
 
 ~ main_path_2
 Artem: Is this temple something new of theirs?
-The Witch: I found one of their lackey's poking around my garden and we had a truly englightening chat...
-Artem: I don't suppose you then sent him on his way?
-The Witch: In so many words, yes. It told me they've had a breakthrough communicating with their god and are receiving direction with unprecedented clarity. Among that direction is to construct these temples. They route their power through them and at the center of their grand circuitry is a sinner.
+The Witch: They've had a breakthrough communicating with their digital god. His message is being received with unprecedented clarity. The primary procolamation is to construct these temples. Each part of a larger sacred circuity with a sinner in the center of each temple.
 Artem: At the center?
-The Witch: Dead center, even. It would seem their god has stated that by placing these sinners into the energy's path it both purifies their vessel and strengthens the energy that passes through. Something about it challenging their sin.
+The Witch: Dead center, even. Their god says by placing these sinners into the energy's path it purifies the vessel and blesses the energy that passes through.
 Artem: They're killing them? 
-The Witch: By the dozens if not hundreds at this point. They fry them until their little light finally goes out.
+The Witch: By the dozens or hundreds at this point. They fry them until their little light finally goes out.
 Artem: How many temples are there?
-The Witch: More than any of us would care for, but I've said enough for now.
+The Witch: I've said enough for now.
 
 ~ witch_1_in_prog
 The Witch: You've all you need to find your answers.
@@ -86,22 +101,22 @@ Artem: How many temples are they doing this at?
 The Witch: Nine. Arranged and connected in quite the peculiar manner.
 Artem: Peculiar?
 The Witch: The nine temples encircle their precious needle, which isn't terribly surprising, however tracing the powerlines connecting each temple etches quite the symbol.
-Artem: Their needle and everything on it runs off the power their core generates. What good would a rune do them?
-The Witch: Curious, isn't it? Like gills on a paper bag. 
-Artem: What does the rune invoke?
-The Witch: That is [wave amp=25 freq=5]truly[/wave] the best part, my duty burdened Watcher. I can feel the oscilations of the universe. I can feel them and they have fallen from harmony. I'd wondered what could have happened to create such a reaction and it appears the source has revealed itself. The owner of this rune, this etching, this [shake rate=20 level=10]greeting[/shake]...is none other than a cosmic founding father. Chaos has made their first move.
+Artem: What good is a rune to them?
+The Witch: Like gills on a paper bag, isn't it?
+Artem: Are they trying to summon their god?
+The Witch: That is [wave amp=25 freq=5]truly[/wave] the best part, my duty burdened Watcher. I can feel the oscilations of the universe. I can feel them and they have fallen from harmony. I sought for what could have happened to create such a thing and the source has finally revealed itself. The owner of this rune, this circuitry, this [shake rate=20 level=10]greeting[/shake] is none other than a cosmic founding father. Chaos has made their first move.
 Artem: Unprecedented clarity...
 The Witch: A precarious coincidence, is it not? A creator of existence once again speaks the same time these hardwired pscyhopaths start wiring up runes?
 Artem: If you already knew all of this, then why not do something yourself?
 The Witch: I don't make it a habit to wage war with a cosmic fundamental.
-Artem: Did you orchestrate my arrival just to show me what they've built?
+Artem: Were you pulling strings to get me here?
 The Witch: I took no action to influence your journey. I watched this moment of time and space through the infinite. I exhaled and dispersed myself atom by atom like a river across every universal instance until I found you [shake rate=20 level=10]here[/shake] in this moment. So here I am, just a witch...standing in front of a watcher...asking him to kill a god.
 Artem: You're insane.
 The Witch: There is a way forward to harmony, little watcher. You will see horrors beyond anything you could ever conceive. You will face spawns of chaos that level kingdoms. You will find victory. Then you will die.
 Artem: You want me to kill a god then [wave amp=25 freq=5]DIE[/wave]?
 The Witch: I don't deal in wants. I'm compelled, by a force beyond even my sight, to witness the curse of existence. It will be your compulsion to carry this curse.
-Artem: What do you even expect me to do? Demand an audience with the 3 Eso and tell them we've a received a request to assassinate one of the two oldest known gods?
-The Witch: Yes, my Watcher.
+Artem: What do you even expect me to do?
+The Witch: Fight, my Watcher.
 do update_quest_status("witch_1",2)
 
 

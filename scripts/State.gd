@@ -20,7 +20,7 @@ var is_raining = 0
 var spell1: String = 'fireball'
 
 
-# player gear slots
+# player slots
 var quick_slot_1 : String = ''
 var quick_slot_2 : String
 var quick_slot_3 : String
@@ -72,6 +72,7 @@ var ability_points: int = 30
 var welcomed: bool = false
 var witch_greeted: bool = 0
 var world: String
+var met_stw: bool = false
 
 # setting configs
 var mute_sound: bool = false
@@ -196,7 +197,7 @@ func shop_handler() -> void:
 		"name":"Sanguinated Shell",
 		"description":"Coalesce your blood into a hardened shell absorbing 30% damage for 3 turns. When the shell expires you heal for half the amount absorbed.",
 		"learned":0,
-		"level":5,
+		"level":1,
 		"damage":0,
 		"class": "defend",
 		"type":"blood",
@@ -206,7 +207,7 @@ func shop_handler() -> void:
 		"name":"Blood Clot Homunculus",
 		"description":"Sacrifice 20% of your health to construct a blood clot homunculus that will copy your attacks for 20% of the damage done.",
 		"learned":0,
-		"level":10,
+		"level":5,
 		"damage":0,
 		"class": "summon",
 		"type": "blood",
@@ -216,7 +217,7 @@ func shop_handler() -> void:
 		"name":"Blood Moon",
 		"description":"Increase the effects of all blood magic by 20% for 3 turns.",
 		"learned":0,
-		"level":15,
+		"level":10,
 		"damage":0,
 		"class": "field",
 		"type": "blood",
@@ -236,7 +237,7 @@ func shop_handler() -> void:
 		"name":"Hollowed Threats",
 		"description":"Seep your opponent in void energy weakening their attack by 20%",
 		"learned":0,
-		"level":5,
+		"level":1,
 		"damage":0,
 		"class": "attack",
 		"type": "Void",
@@ -246,7 +247,7 @@ func shop_handler() -> void:
 		"name":"Void Sight",
 		"description":"Look through the void to anticipate your oppoents attacks. Increase chance to dodge by 15% for 3 turns.",
 		"learned":0,
-		"level":10,
+		"level":5,
 		"damage":0,
 		"class": "attack",
 		"type": "Void",
@@ -256,7 +257,7 @@ func shop_handler() -> void:
 		"name":"Vapid Affliction",
 		"description":"The void invades your foe's mind. Each turn they have an increasing chance to not attack on their next turn.",
 		"learned":0,
-		"level":15,
+		"level":10,
 		"damage":0,
 		"class": "attack",
 		"type": "Void",
@@ -266,7 +267,7 @@ func shop_handler() -> void:
 		"name":"Curse",
 		"description":"Chaos entangled matter attacks the soul directly.",
 		"learned":0,
-		"level":10,
+		"level":5,
 		"damage":15,
 		"class": "attack",
 		"type": "Void",
@@ -276,7 +277,7 @@ func shop_handler() -> void:
 		"name":"Poison Swamp",
 		"description":"Seep the ground beneath your foes feet in thick, poisonous sludge",
 		"learned":0,
-		"level":15,
+		"level":10,
 		"damage":10,
 		"class": "attack",
 		"type": "Poison",

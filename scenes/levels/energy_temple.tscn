@@ -230,7 +230,7 @@ interact_value = "portal5"
 
 [node name="InteractArea" parent="gateways" instance=ExtResource("4_sbvxa")]
 position = Vector2(-53, 21)
-interact_label = "WitchForest.tscn"
+interact_label = "WitchForest"
 interact_type = "gateway"
 interact_value = "out"
 

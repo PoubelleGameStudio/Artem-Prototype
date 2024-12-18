@@ -74,6 +74,7 @@ class_name PlayerData
 # social trackers
 @export var welcomed: bool
 @export var witch_greeted: bool
+@export var met_stw: bool
 
 # world progress
 @export var quest_db: Dictionary

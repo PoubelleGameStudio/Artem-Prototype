@@ -119,6 +119,7 @@ func save_player()-> void:
 	playerData.t_blood_moon = State.t_blood_moon
 	playerData.world = loader.level_name
 	playerData.pos = player.get_global_position()
+	playerData.met_stw = State.met_stw
 	
 func load_player() -> void:
 	State.welcomed = playerData.welcomed
@@ -169,6 +170,7 @@ func load_player() -> void:
 	State.Vendor_wares = playerData.Vendor_wares
 	State.talking = 0
 	State.combat = false
+	State.met_stw = playerData.met_stw
 
 	State.tutorials = playerData.tutorials
 	get_tree().change_scene_to_file((str("res://scenes/levels/",playerData.world,".tscn")))

@@ -350,7 +350,7 @@ texture_filter = 3
 custom_minimum_size = Vector2(10, 10)
 offset_right = 10.0
 offset_bottom = 10.0
-color = Color(0, 0, 0.176471, 1)
+color = Color(6.76839e-09, 0, 0.0585003, 1)
 
 [node name="scroll" type="NinePatchRect" parent="Balloon"]
 visible = false

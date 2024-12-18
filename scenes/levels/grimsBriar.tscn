@@ -552,7 +552,7 @@ position = Vector2(2146, 78)
 model = "Lamp Post - Spooky"
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
-position = Vector2(2505.38, 616.985)
+position = Vector2(-1136.94, -762.062)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
 visible = false
