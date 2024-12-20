@@ -28,7 +28,7 @@ script = ExtResource("1_tlwe8")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 160.0
+offset_right = 250.0
 offset_bottom = 232.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_imhmk")
 
@@ -55,7 +55,7 @@ texture_filter = 4
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_spcer")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 30
 text = "test"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -71,20 +71,21 @@ custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_spcer")
-theme_override_font_sizes/font_size = 19
+theme_override_font_sizes/font_size = 14
 text = "testestestest"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+z_index = 100
 texture_filter = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_spcer")
-theme_override_font_sizes/font_size = 41
+theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qdobq")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_njob4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ubgn0")

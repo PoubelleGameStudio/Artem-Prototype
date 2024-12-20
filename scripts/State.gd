@@ -190,7 +190,7 @@ func shop_handler() -> void:
 		,"seen":0
 		},
 	"journal_1":{
-		"text":str("These are your stats! Check your health, gold, and XP here.")
+		"text":str("These are your stats! Check your health, gold, level, and XP here.")
 		,"seen":0
 	},
 	"journal_2":{

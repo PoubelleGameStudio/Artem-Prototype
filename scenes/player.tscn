@@ -442,19 +442,39 @@ offset_top = -120.0
 offset_right = 104.0
 offset_bottom = 36.0
 
-[node name="Control" type="Control" parent="HUD"]
-z_index = 100
+[node name="tutorials" type="Control" parent="HUD"]
+z_index = 101
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="journal_1" parent="HUD/Control" instance=ExtResource("16_ekmb0")]
+[node name="journal_1" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
+visible = false
 layout_mode = 1
-offset_left = -8.0
-offset_top = -140.0
-offset_right = -16.0
-offset_bottom = -152.0
+offset_left = -116.0
+offset_top = -104.0
+offset_right = -124.0
+offset_bottom = -116.0
 title = "journal_1"
+next_title = "journal_2"
+
+[node name="journal_2" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
+visible = false
+layout_mode = 1
+offset_left = -20.0
+offset_top = -164.0
+offset_right = -28.0
+offset_bottom = -176.0
+title = "journal_2"
+next_title = "journal_3"
+
+[node name="journal_3" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
+layout_mode = 1
+offset_left = -272.0
+offset_top = -112.0
+offset_right = -280.0
+offset_bottom = -124.0
+title = "journal_3"
 
 [node name="Weather" type="GPUParticles2D" parent="."]
 z_index = 1

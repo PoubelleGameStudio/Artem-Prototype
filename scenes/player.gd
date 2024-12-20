@@ -25,6 +25,7 @@ extends CharacterBody2D
 @onready var sound: AudioStreamPlayer = $AudioStreamPlayer
 @onready var open_book: AudioStream = preload("res://sounds/UI/book_open_1.wav")
 @onready var close_book: AudioStream = preload("res://sounds/UI/book_close_1.wav")
+@onready var journal_tutorial: Control = $HUD/tutorials/journal_1
 
 var speed = 110.0
 var current_dir = "none"
@@ -114,6 +115,8 @@ func _physics_process(delta):
 				sound.set_stream(open_book)
 				sound.play()
 				await get_tree().create_timer(0.5).timeout
+				if State.tutorials["journal_1"]["seen"] == 0:
+					journal_tutorial.populate_tutorial()
 		
 		if Input.is_action_just_pressed("Talents"):
 			if talents.visible == true:
