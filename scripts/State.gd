@@ -51,7 +51,7 @@ var casts: int = 1
 var shield
 var cur_xp: int = 0
 var xp_to_next: int = 10
-var level: int = 20
+var level: int = 1
 var armor: int = 0 # physical resist
 var mana: int = 1  # still not sure about mana usage
 # var speed = 5
@@ -188,7 +188,26 @@ func shop_handler() -> void:
 					" time exploring and reveal the true evil closing in on Artem. Enjoy :)"
 				)
 		,"seen":0
-		}
+		},
+	"journal_1":{
+		"text":str("These are your stats! Check your health, gold, and XP here.")
+		,"seen":0
+	},
+	"journal_2":{
+		"text":str("These are your quick slots! You can assign items from your inventory to",
+					" each slot by hovering over an item and pressing the corresponding slot",
+					" number. Controller players will need to press the corresponding d-pad direction.")
+		,"seen":0
+	},
+	"journal_3":{
+		"text":str("This is your quest log! Check how you're progressing!")
+		,"seen":0
+	},
+	"talents_1":{
+		"text":str("Welcome to the skills and traits page! Click a skill or trait to see what it does ",
+					"and when you will unlock it.")
+		,"seen":0
+	}
 }
 
 # spell book and functions

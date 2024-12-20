@@ -28,8 +28,8 @@ script = ExtResource("1_tlwe8")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 371.0
-offset_bottom = 242.0
+offset_right = 160.0
+offset_bottom = 232.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_imhmk")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]

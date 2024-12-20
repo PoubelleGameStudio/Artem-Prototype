@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=29 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="SpriteFrames" uid="uid://c8pc0cx3ymlfk" path="res://scenes/player_anims.tres" id="2_ed8oj"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://5v2qsot5igdu" path="res://Game Components/UI_Elements/quest log components/quest_log.tscn" id="14_xc3j5"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="15_oq2cw"]
 [ext_resource type="PackedScene" uid="uid://br5mlw81bvnnl" path="res://Game Components/UI_Elements/combat/quick_slots.tscn" id="15_ps5bq"]
+[ext_resource type="PackedScene" uid="uid://cwolc4dutryab" path="res://Game Components/tutorials/tutorials pop up.tscn" id="16_ekmb0"]
 [ext_resource type="PackedScene" uid="uid://c8skkvcn0ci81" path="res://Game Components/UI_Elements/Talent Tree/talentTree.tscn" id="16_unwu1"]
 [ext_resource type="PackedScene" uid="uid://d010sb0bdrwv5" path="res://Game Components/Shop/shop.tscn" id="17_3neu2"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="18_jm848"]
@@ -344,6 +345,60 @@ text = "Item Slots"
 label_settings = ExtResource("15_oq2cw")
 horizontal_alignment = 1
 
+[node name="keyboard_slot_labels" type="Control" parent="HUD/character_info/Quick Slots"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 171.96
+offset_top = -274.249
+offset_right = 211.96
+offset_bottom = -234.249
+
+[node name="quick_slots1_label" type="Label" parent="HUD/character_info/Quick Slots/keyboard_slot_labels"]
+texture_filter = 4
+layout_mode = 0
+offset_left = -183.96
+offset_top = 307.249
+offset_right = -125.96
+offset_bottom = 331.249
+text = "1"
+label_settings = ExtResource("15_oq2cw")
+horizontal_alignment = 1
+
+[node name="quick_slots1_label2" type="Label" parent="HUD/character_info/Quick Slots/keyboard_slot_labels"]
+texture_filter = 4
+layout_mode = 0
+offset_left = -144.0
+offset_top = 307.249
+offset_right = -86.0
+offset_bottom = 331.249
+text = "2"
+label_settings = ExtResource("15_oq2cw")
+horizontal_alignment = 1
+
+[node name="quick_slots1_label3" type="Label" parent="HUD/character_info/Quick Slots/keyboard_slot_labels"]
+texture_filter = 4
+layout_mode = 0
+offset_left = -105.0
+offset_top = 307.249
+offset_right = -47.0
+offset_bottom = 331.249
+text = "3"
+label_settings = ExtResource("15_oq2cw")
+horizontal_alignment = 1
+
+[node name="quick_slots1_label4" type="Label" parent="HUD/character_info/Quick Slots/keyboard_slot_labels"]
+texture_filter = 4
+layout_mode = 0
+offset_left = -64.0
+offset_top = 307.249
+offset_right = -6.0
+offset_bottom = 331.249
+text = "4"
+label_settings = ExtResource("15_oq2cw")
+horizontal_alignment = 1
+
+[node name="Node" type="Node" parent="HUD/character_info/Quick Slots"]
+
 [node name="Inventory" parent="HUD/character_info" instance=ExtResource("13_cjqps")]
 z_index = 99
 offset_left = -215.0
@@ -386,6 +441,20 @@ offset_left = -80.0
 offset_top = -120.0
 offset_right = 104.0
 offset_bottom = 36.0
+
+[node name="Control" type="Control" parent="HUD"]
+z_index = 100
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="journal_1" parent="HUD/Control" instance=ExtResource("16_ekmb0")]
+layout_mode = 1
+offset_left = -8.0
+offset_top = -140.0
+offset_right = -16.0
+offset_bottom = -152.0
+title = "journal_1"
 
 [node name="Weather" type="GPUParticles2D" parent="."]
 z_index = 1
