@@ -79,7 +79,7 @@ var mute_sound: bool = false
 var hide_control_hints: bool = false
 var combat_music_slider_value: int = 0
 var world_music_slider_value: int = 0
-var control_schema: String = ""
+var control_schema: String = "mkb"
 
 
 func _ready():

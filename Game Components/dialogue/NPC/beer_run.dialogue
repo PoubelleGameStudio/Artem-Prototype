@@ -9,8 +9,8 @@ elif quest_db["beer_run"]["Status"] == 2:
 	=> lore
 
 ~ welcome
-[wave amp=25 freq=5]Hedo[/wave]: Everyone writes. Never had the talent though. Maybe I need a muse.
-Artem: I'm not really current with the art world.
+[wave amp=25 freq=5]Hedo[/wave]: Everyone writes. Never had the talent though. Might could use a muse.
+Artem: I'm really not current with the art world.
 [wave amp=25 freq=5]Hedo[/wave]: I had a full flask. and now the damn thing's gone dry. Creature of Habit.
 Artem: My condolences for your loss. Could you point me towards the nearest town?
 [wave amp=25 freq=5]Hedo[/wave]: fill my flask would you? never know how a deed shines. could be of some value.

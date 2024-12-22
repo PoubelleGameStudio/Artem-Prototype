@@ -383,14 +383,20 @@ func enemyTurn():
 		if confused:
 			if rng.randf_range(1,100) < confused_pity:
 				print("attacked through confusion")
-				State.health -= int(damageTaken)
+				if (State.health - int(damageTaken)) < 0:
+					State.health = 0
+				else:
+					State.health -= int(damageTaken)
 				confused_pity -= 20
 			else:
 				print("Confused and didn't attack")
 				confused = false
 				confused_pity = 80
 		else:
-			State.health -= int(damageTaken)
+			if (State.health - int(damageTaken)) < 0:
+				State.health = 0
+			else:
+				State.health -= int(damageTaken)
 
 		pHealth.value = State.health
 		combatTextUpdate(str(enemy.enemy_type," attacked for ",int(damageTaken)))

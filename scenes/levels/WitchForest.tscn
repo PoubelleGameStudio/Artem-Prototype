@@ -37,7 +37,7 @@
 [ext_resource type="Shader" path="res://shaders/fog.gdshader" id="29_q7g8q"]
 [ext_resource type="AudioStream" uid="uid://dk4rbq3qappgy" path="res://sounds/ambient/Rain.mp3" id="30_arh7t"]
 [ext_resource type="Script" path="res://scripts/autoplay_sound.gd" id="31_ij33q"]
-[ext_resource type="AudioStream" uid="uid://nnfmrsjyjx30" path="res://sounds/levelMusic/the stars want you dead_v2.wav" id="32_b22h3"]
+[ext_resource type="AudioStream" uid="uid://exx22ympnt6p" path="res://sounds/levelMusic/the stars want you dead_v3.mp3" id="33_84lqt"]
 [ext_resource type="TileSet" uid="uid://cib8xlrw1dmg5" path="res://themes/bug_tiles.tres" id="34_oy3gm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pqx84"]
@@ -415,7 +415,7 @@ position = Vector2(324.614, 167.699)
 
 [node name="InteractArea" parent="Gateways" instance=ExtResource("6_d8wmu")]
 position = Vector2(479.386, -897.699)
-interact_label = "forest_cave.tscn"
+interact_label = "forest_cave"
 interact_type = "gateway"
 interact_value = "in"
 
@@ -573,8 +573,8 @@ interact_type = "respawn"
 interact_value = "1"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("32_b22h3")
-volume_db = -25.0
+stream = ExtResource("33_84lqt")
+volume_db = -40.0
 autoplay = true
 bus = &"Music"
 

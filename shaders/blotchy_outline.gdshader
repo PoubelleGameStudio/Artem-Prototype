@@ -17,7 +17,7 @@ uniform float spread : hint_range(0.0, 1.0) = 0.5;
 void fragment()
 {
 	
-	float noise_value = texture(noise_tex, UV + vec2(0.0,TIME*.09)).x;
+	float noise_value = texture(noise_tex, UV + vec2(0.0,TIME*.03)).x;
 	// The .yx swizzle is when using the built in horizontal gradient texture. If you have a vertical gradient texture remove .yx
 	float gradient_value = texture(gradient_tex, UV.yx).x;
 	

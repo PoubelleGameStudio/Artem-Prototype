@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=30 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="SpriteFrames" uid="uid://c8pc0cx3ymlfk" path="res://scenes/player_anims.tres" id="2_ed8oj"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c8skkvcn0ci81" path="res://Game Components/UI_Elements/Talent Tree/talentTree.tscn" id="16_unwu1"]
 [ext_resource type="PackedScene" uid="uid://d010sb0bdrwv5" path="res://Game Components/Shop/shop.tscn" id="17_3neu2"]
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="18_jm848"]
+[ext_resource type="AudioStream" uid="uid://e8x353y138k5" path="res://sounds/effects/player sounds/GRASS - Walk short 4 - TRIMMED.wav" id="19_s0k35"]
 [ext_resource type="AudioStream" uid="uid://dmvxux2ekuqrs" path="res://sounds/UI/book_open_1.wav" id="20_53s8o"]
 [ext_resource type="PackedScene" uid="uid://duw1coq7pkfci" path="res://Game Components/UI_Elements/settings/SettingsMenu.tscn" id="21_mnbx0"]
 
@@ -274,6 +275,7 @@ color = Color(0.0352941, 0.145098, 0.501961, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="gold" type="Label" parent="HUD/character_info"]
+texture_filter = 2
 offset_left = -162.0
 offset_top = -122.0
 offset_right = -69.0
@@ -283,6 +285,7 @@ horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="current level" type="Label" parent="HUD/character_info"]
+texture_filter = 2
 offset_left = -236.0
 offset_top = -80.0
 offset_right = -143.0
@@ -504,6 +507,11 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_53s8o")
 volume_db = -10.0
+bus = &"Effects"
+
+[node name="Walking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_s0k35")
+volume_db = -15.0
 bus = &"Effects"
 
 [connection signal="area_entered" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_entered"]

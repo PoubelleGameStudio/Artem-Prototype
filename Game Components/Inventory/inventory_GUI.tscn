@@ -148,11 +148,13 @@ visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/use_container"]
+texture_filter = 3
 layout_mode = 2
 texture = ExtResource("3_rc6tg")
 stretch_mode = 2
 
 [node name="use_instruct" type="Label" parent="VBoxContainer/use_container"]
+texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_k1v68")
 theme_override_font_sizes/font_size = 19

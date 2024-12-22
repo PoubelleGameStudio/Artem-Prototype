@@ -173,7 +173,7 @@ func hover_check():
 								inv[item_name]-=1
 								item_used.emit()
 							else:
-								State.health += State.items[item_name]["effect"]['HP']
+								State.health += State.items[item_name]["effect"]
 								inv[item_name]-=1
 								item_used.emit()
 							

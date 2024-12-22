@@ -25,6 +25,7 @@ extends CharacterBody2D
 @onready var sound: AudioStreamPlayer = $AudioStreamPlayer
 @onready var open_book: AudioStream = preload("res://sounds/UI/book_open_1.wav")
 @onready var close_book: AudioStream = preload("res://sounds/UI/book_close_1.wav")
+@onready var walking_sound: AudioStreamPlayer = $Walking
 @onready var journal_tutorial: Control = $HUD/tutorials/journal_1
 
 var speed = 110.0
@@ -150,7 +151,9 @@ func player_movement(_delta):
 		if velocity == Vector2.ZERO: moving = false
 		else : moving = true
 
-		play_anim(direction)	
+		play_anim(direction)
+		if !walking_sound.playing and moving:
+			walking_sound.play()
 		move_and_slide()
 		
 
