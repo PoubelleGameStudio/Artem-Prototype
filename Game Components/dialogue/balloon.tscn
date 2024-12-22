@@ -1,8 +1,10 @@
-[gd_scene load_steps=59 format=3 uid="uid://73jm5qjy52vq"]
+[gd_scene load_steps=64 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" path="res://Game Components/dialogue/balloon.gd" id="1_4u26j"]
+[ext_resource type="Shader" path="res://shaders/blotchy_outline.gdshader" id="2_44ujd"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Texture2D" uid="uid://cxe3nogps8dc7" path="res://Sprites/vendor - GrimsBriar - sprite sheet.png" id="2_tfy3o"]
+[ext_resource type="Texture2D" uid="uid://b2hkcwwq10cut" path="res://icon.png" id="3_jhpj2"]
 [ext_resource type="Texture2D" uid="uid://jn0psaihgi7i" path="res://Sprites/beggar.png" id="3_qvd8c"]
 [ext_resource type="Texture2D" uid="uid://bf77qsbmfnqrt" path="res://Sprites/quest givers/mayor_barkeep - sprite sheet.png" id="4_jvr3m"]
 [ext_resource type="AudioStream" uid="uid://wj3ul17xyl14" path="res://sounds/talk_sounds/Cymatics - Raptor Bass One Shot 12 - D#.wav" id="4_tfwi0"]
@@ -16,6 +18,23 @@
 [ext_resource type="Texture2D" uid="uid://ck6lvxkbgrqml" path="res://Game Components/dialogue/art/UI_MysticWood_Banner_02a.png" id="13_jwmx6"]
 [ext_resource type="Texture2D" uid="uid://yfl18841n3fc" path="res://Game Components/UI_Elements/prompts/tile_0308.png" id="13_k2dok"]
 [ext_resource type="Texture2D" uid="uid://bbc2gqex5wwfi" path="res://Game Components/UI_Elements/prompts/spacebar.png" id="13_skwbx"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nj2tx"]
+frequency = 0.001
+fractal_octaves = 10
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ygdlu"]
+invert = true
+seamless = true
+noise = SubResource("FastNoiseLite_nj2tx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5ai6"]
+shader = ExtResource("2_44ujd")
+shader_parameter/brighter_color = Color(0.0413788, 0.0257121, 0.118047, 1)
+shader_parameter/middle_color = Color(0.0197337, 0.00523571, 0.329555, 1)
+shader_parameter/darker_color = Color(0.026528, 0.00238613, 0.000280968, 1)
+shader_parameter/spread = 0.454
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_ygdlu")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8y7lh"]
 atlas = ExtResource("2_tfy3o")
@@ -350,7 +369,17 @@ texture_filter = 3
 custom_minimum_size = Vector2(10, 10)
 offset_right = 10.0
 offset_bottom = 10.0
-color = Color(6.76839e-09, 0, 0.0585003, 1)
+color = Color(0, 0, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Balloon"]
+z_index = -1
+material = SubResource("ShaderMaterial_k5ai6")
+layout_mode = 0
+offset_left = -2674.0
+offset_top = -346.0
+offset_right = 3883.0
+offset_bottom = 554.0
+texture = ExtResource("3_jhpj2")
 
 [node name="scroll" type="NinePatchRect" parent="Balloon"]
 visible = false
@@ -408,7 +437,7 @@ texture_filter = 4
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_k6f5p")
-theme_override_colors/default_color = Color(0.833205, 0.834933, 1, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_outline_size = -1

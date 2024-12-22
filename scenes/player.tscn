@@ -400,7 +400,7 @@ horizontal_alignment = 1
 [node name="Node" type="Node" parent="HUD/character_info/Quick Slots"]
 
 [node name="Inventory" parent="HUD/character_info" instance=ExtResource("13_cjqps")]
-z_index = 99
+z_index = 10
 offset_left = -215.0
 offset_top = 32.0
 offset_right = -59.0
@@ -450,30 +450,31 @@ offset_bottom = 40.0
 
 [node name="journal_1" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
 visible = false
+z_index = 101
 layout_mode = 1
-offset_left = -116.0
-offset_top = -104.0
-offset_right = -124.0
-offset_bottom = -116.0
+offset_left = -204.0
+offset_top = -84.0
+offset_right = -212.0
+offset_bottom = -96.0
 title = "journal_1"
 next_title = "journal_2"
 
 [node name="journal_2" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
 visible = false
 layout_mode = 1
-offset_left = -20.0
-offset_top = -164.0
-offset_right = -28.0
-offset_bottom = -176.0
+offset_left = -32.0
+offset_top = -84.0
+offset_right = -40.0
+offset_bottom = -96.0
 title = "journal_2"
 next_title = "journal_3"
 
 [node name="journal_3" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
 layout_mode = 1
-offset_left = -272.0
-offset_top = -112.0
-offset_right = -280.0
-offset_bottom = -124.0
+offset_left = -8.0
+offset_top = -56.0
+offset_right = -16.0
+offset_bottom = -68.0
 title = "journal_3"
 
 [node name="Weather" type="GPUParticles2D" parent="."]
