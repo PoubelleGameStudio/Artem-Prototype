@@ -1,12 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://kwj5oy4mtbpt"]
+[gd_scene load_steps=10 format=3 uid="uid://kwj5oy4mtbpt"]
 
 [ext_resource type="Texture2D" uid="uid://cuvsjlbkrxrkj" path="res://Art/ground/backgrounds/Purple_Nebula_04-1024x1024.png" id="1_hk5p3"]
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_l6o2q"]
 [ext_resource type="PackedScene" uid="uid://cxwgljlj2pfk1" path="res://scenes/beggar.tscn" id="2_4xq2b"]
 [ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="3_3le5n"]
 [ext_resource type="TileSet" uid="uid://c1t4kl645ilpj" path="res://scenes/levels/GB_sewers.tres" id="3_dkbme"]
+[ext_resource type="Shader" path="res://shaders/galaxy.gdshader" id="3_t26jc"]
 [ext_resource type="PackedScene" uid="uid://b5vowrw45hndi" path="res://scenes/player.tscn" id="5_lcr0j"]
 [ext_resource type="AudioStream" uid="uid://x732p2bj2245" path="res://sounds/levelMusic/warehouse lounge.wav" id="11_17j8u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_khw3d"]
+shader = ExtResource("3_t26jc")
+shader_parameter/anim_speed = 0.00500071
+shader_parameter/star_brightness = 0.018
+shader_parameter/dust = 0.091
+shader_parameter/dist_fade = 0.491
+shader_parameter/pixelation = 1000.0
+shader_parameter/quantization_levels = 256
+shader_parameter/dust_color = Color(0.0117647, 0.243137, 1, 1)
+shader_parameter/saturation = 1.0
+shader_parameter/layers = 3.669
+shader_parameter/iterations = 12
 
 [node name="root" type="Node2D"]
 script = ExtResource("1_l6o2q")
@@ -14,19 +28,11 @@ level_name = "GB_inn"
 
 [node name="backgrounds" type="Node2D" parent="."]
 
-[node name="space" type="Sprite2D" parent="backgrounds"]
-z_index = -1
-position = Vector2(-976, 56)
-texture = ExtResource("1_hk5p3")
-
 [node name="space2" type="Sprite2D" parent="backgrounds"]
 z_index = -1
-position = Vector2(48, 54.15)
-texture = ExtResource("1_hk5p3")
-
-[node name="space3" type="Sprite2D" parent="backgrounds"]
-z_index = -1
-position = Vector2(1072, 56)
+material = SubResource("ShaderMaterial_khw3d")
+position = Vector2(104, 54.15)
+scale = Vector2(2.79688, 1)
 texture = ExtResource("1_hk5p3")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -71,7 +77,7 @@ animation = &""
 [node name="InteractArea" parent="Gateways/Door" instance=ExtResource("3_3le5n")]
 z_index = 1
 position = Vector2(-56, 48)
-interact_label = "grimsBriar.tscn"
+interact_label = "grimsBriar"
 interact_type = "gateway"
 interact_value = "out"
 

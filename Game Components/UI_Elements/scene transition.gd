@@ -6,6 +6,8 @@ extends CanvasLayer
 
 #pack scenes
 @onready var grimsBriar = load("res://scenes/levels/grimsBriar.tscn")
+@onready var GB_tavern = load("res://scenes/levels/GB_tavern.tscn")
+@onready var GB_inn = load("res://scenes/levels/GB_inn.tscn")
 @onready var GB_sewers = load("res://scenes/levels/GB_sewers.tscn")
 @onready var WitchForest = load("res://scenes/levels/WitchForest.tscn")
 @onready var forest_cave = load("res://scenes/levels/forest_cave.tscn")
@@ -18,6 +20,8 @@ func change_scene(target: String) -> void:
 	
 	match target :
 		"grimsBriar": get_tree().change_scene_to_packed(grimsBriar)
+		"GB_inn": get_tree().change_scene_to_packed(GB_inn)
+		"GB_tavern": get_tree().change_scene_to_packed(GB_tavern)
 		"GB_sewers": get_tree().change_scene_to_packed(GB_sewers)
 		"WitchForest": get_tree().change_scene_to_packed(WitchForest)
 		"forest_cave": get_tree().change_scene_to_packed(forest_cave)

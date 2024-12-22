@@ -37,7 +37,7 @@ var quick_slot_4 : String = ''
 
 
 # stats
-var maxHealth: int = 200
+var maxHealth: int = 100
 var bonusMaxHealth: float = 1.0:
 	set(value):
 		bonusMaxHealth = value
@@ -46,7 +46,7 @@ var baseMaxHealth: int = 100:
 	set(value):
 		baseMaxHealth = value
 		maxHealth = (bonusMaxHealth) * baseMaxHealth
-var health: int = 100
+var health: int = maxHealth
 var casts: int = 1
 var shield
 var cur_xp: int = 0

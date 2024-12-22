@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6vnm7hxj624i"]
+[gd_scene load_steps=13 format=3 uid="uid://c6vnm7hxj624i"]
 
 [ext_resource type="Script" path="res://scripts/level_load.gd" id="1_1deim"]
+[ext_resource type="Shader" path="res://shaders/galaxy.gdshader" id="2_8l2f5"]
 [ext_resource type="PackedScene" uid="uid://b5vowrw45hndi" path="res://scenes/player.tscn" id="2_n50p3"]
 [ext_resource type="PackedScene" uid="uid://cxwgljlj2pfk1" path="res://scenes/beggar.tscn" id="3_hyint"]
 [ext_resource type="TileSet" uid="uid://c1t4kl645ilpj" path="res://scenes/levels/GB_sewers.tres" id="3_mq5uf"]
@@ -9,6 +10,19 @@
 [ext_resource type="AudioStream" uid="uid://x732p2bj2245" path="res://sounds/levelMusic/warehouse lounge.wav" id="9_o3fyh"]
 [ext_resource type="Texture2D" uid="uid://dtdoyj0egobim" path="res://Sprites/world objects/trashcans/trashcan.png" id="12_6o6e8"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="13_2h1p4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lmh4s"]
+shader = ExtResource("2_8l2f5")
+shader_parameter/anim_speed = 0.00500071
+shader_parameter/star_brightness = 0.018
+shader_parameter/dust = 0.091
+shader_parameter/dist_fade = 0.491
+shader_parameter/pixelation = 1000.0
+shader_parameter/quantization_levels = 256
+shader_parameter/dust_color = Color(0.0117647, 0.243137, 1, 1)
+shader_parameter/saturation = 1.0
+shader_parameter/layers = 3.669
+shader_parameter/iterations = 12
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2yhc5"]
 animations = [{
@@ -28,19 +42,11 @@ level_name = "GB_tavern"
 
 [node name="backgrounds" type="Node2D" parent="."]
 
-[node name="space" type="Sprite2D" parent="backgrounds"]
-z_index = -1
-position = Vector2(5.84656, 0.215881)
-texture = ExtResource("8_i51fb")
-
 [node name="space2" type="Sprite2D" parent="backgrounds"]
 z_index = -1
-position = Vector2(1029.5, 0.721283)
-texture = ExtResource("8_i51fb")
-
-[node name="space3" type="Sprite2D" parent="backgrounds"]
-z_index = -1
-position = Vector2(-1017.93, 1.00879)
+material = SubResource("ShaderMaterial_lmh4s")
+position = Vector2(104, -4.71273)
+scale = Vector2(2.79688, 1.11497)
 texture = ExtResource("8_i51fb")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -81,7 +87,7 @@ position = Vector2(16.9545, 106.138)
 [node name="InteractArea" parent="Gateways" instance=ExtResource("4_7241g")]
 z_index = 1
 position = Vector2(14.2053, 132.411)
-interact_label = "grimsBriar.tscn"
+interact_label = "grimsBriar"
 interact_type = "gateway"
 interact_value = "out"
 

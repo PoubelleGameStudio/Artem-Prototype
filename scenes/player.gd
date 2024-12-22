@@ -345,6 +345,8 @@ func _on_interaction_area_area_entered(area):
 		if State.health < State.maxHealth:
 			State.health = State.maxHealth
 			itemLabel.text = "Fully Healed!!"
+			await get_tree().create_timer(.5).timeout
+			itemLabel.text = ""
 	
 	if (cur_interact.interact_type != "secret" and cur_interact.interact_type != "ach" and cur_interact.interact_type != "heal") and !State.hide_control_hints:
 		prompt.show()
