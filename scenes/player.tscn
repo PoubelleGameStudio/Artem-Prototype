@@ -451,34 +451,35 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="journal_1" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
+[node name="Stats" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
 visible = false
 z_index = 101
 layout_mode = 1
-offset_left = -204.0
-offset_top = -84.0
-offset_right = -212.0
-offset_bottom = -96.0
-title = "journal_1"
-next_title = "journal_2"
+offset_left = -244.0
+offset_top = -80.0
+offset_right = -252.0
+offset_bottom = -92.0
+title = "Stats"
+next_title = "Quick Slots"
 
-[node name="journal_2" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
+[node name="Quick Slots" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
 visible = false
 layout_mode = 1
 offset_left = -32.0
 offset_top = -84.0
 offset_right = -40.0
 offset_bottom = -96.0
-title = "journal_2"
-next_title = "journal_3"
+title = "Quick Slots"
+next_title = "Quest Log"
 
-[node name="journal_3" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
+[node name="Quest Log" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
+visible = false
 layout_mode = 1
 offset_left = -8.0
 offset_top = -56.0
 offset_right = -16.0
 offset_bottom = -68.0
-title = "journal_3"
+title = "Quest Log"
 
 [node name="Weather" type="GPUParticles2D" parent="."]
 z_index = 1

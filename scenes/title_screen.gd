@@ -6,6 +6,7 @@ class_name title_screen
 @onready var confirm: AudioStream = preload("res://sounds/UI/movement_1.wav")
 @onready var focus_sound: AudioStream = preload("res://sounds/UI/block_1.wav")
 @onready var sound: AudioStreamPlayer = $AudioStreamPlayer
+@onready var music: AudioStreamPlayer = $AudioStreamPlayer2
 
 @onready var newgame: Button = $"CanvasLayer/Control/HBoxContainer2/New Game"
 @onready var loadgame: Button = $CanvasLayer/Control/HBoxContainer2/Load
@@ -25,11 +26,19 @@ var playerData = PlayerData.new()
 func _ready():
 	SceneTransition.animation_finished.connect(_on_scene_transition_animation_finished)
 	SceneTransition.fade_in()
-	$"CanvasLayer/Control/HBoxContainer2/New Game".grab_focus()
+	sound.play
+	if State.control_schema != 'mkb':
+		$"CanvasLayer/Control/HBoxContainer2/New Game".grab_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	check_music()
+
+
+func check_music():
+	if !music.playing:
+		music.play()
+
 
 func _on_scene_transition_animation_finished() -> void:
 	print("animation finished")

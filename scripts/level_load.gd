@@ -93,11 +93,11 @@ func _on_combat_screen_combat_end():
 	var enemy_list = State.area_enemies[level_name]
 	enemy_list[State.engaging] = 1
 	var hide_node = NodePath(str("enemies/",State.engaging[0]))
-	SceneTransition.victory()
 	stop_combat()
 	State.talking = 0
 	combat.endgame()
 	player.camera_current()
+	SceneTransition.victory()
 	State.combat = false
 	State.level_up()
 	music.playing = true

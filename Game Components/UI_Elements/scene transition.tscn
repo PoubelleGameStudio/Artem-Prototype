@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr2mlpblrdgme"]
+[gd_scene load_steps=12 format=3 uid="uid://cr2mlpblrdgme"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/scene transition.gd" id="1_578nf"]
 [ext_resource type="Texture2D" uid="uid://d1hl4vlwwk6pf" path="res://Art/TEXT/victory.png" id="2_n53mb"]
+[ext_resource type="Texture2D" uid="uid://b2hkcwwq10cut" path="res://icon.png" id="3_ebery"]
+[ext_resource type="Material" uid="uid://ctqmcnd5unb5e" path="res://shaders/Victory_Splash.tres" id="3_pr8k2"]
+[ext_resource type="FontFile" uid="uid://bwuruoih52j0f" path="res://Game Components/fonts/Caroni-Regular.otf" id="5_osdri"]
+[ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="5_qon5n"]
 
 [sub_resource type="Animation" id="Animation_he75x"]
 resource_name = "RESET"
@@ -41,6 +45,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Win Screen:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Win Screen:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_cvb67"]
@@ -100,41 +128,30 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_j8vsr"]
 resource_name = "victory"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/HBoxContainer/ScreenText:position")
+tracks/0/path = NodePath("Control/Win Screen:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(892, 1436), Vector2(328, 4)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/HBoxContainer/ScreenText:scale")
+tracks/1/path = NodePath("Control/Win Screen:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(0.5, 0.5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x0c5c"]
@@ -155,6 +172,7 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 light_mask = 0
 z_index = 99
 anchors_preset = -1
@@ -176,11 +194,78 @@ layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -964.0
-offset_right = 2476.0
-offset_bottom = 1440.0
+offset_left = -992.0
+offset_top = -244.0
+offset_right = 2448.0
+offset_bottom = 1196.0
 grow_horizontal = 2
 mouse_filter = 1
+
+[node name="Win Screen" type="TextureRect" parent="Control"]
+visible = false
+material = ExtResource("3_pr8k2")
+offset_left = 404.0
+offset_top = 256.0
+offset_right = 1608.0
+offset_bottom = 1476.0
+texture = ExtResource("3_ebery")
+
+[node name="Victory" type="Label" parent="Control/Win Screen"]
+z_index = 99
+texture_filter = 2
+layout_mode = 0
+offset_left = -376.0
+offset_top = 324.0
+offset_right = 1544.0
+offset_bottom = 398.0
+theme_override_colors/font_color = Color(0.877616, 0.877616, 0.877616, 1)
+theme_override_fonts/font = ExtResource("5_qon5n")
+theme_override_font_sizes/font_size = 85
+text = "Victory!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy_name" type="Label" parent="Control/Win Screen"]
+z_index = 99
+texture_filter = 2
+layout_mode = 0
+offset_left = -372.0
+offset_top = 436.0
+offset_right = 1548.0
+offset_bottom = 587.0
+theme_override_colors/font_color = Color(0.877616, 0.877616, 0.877616, 1)
+theme_override_fonts/font = ExtResource("5_osdri")
+theme_override_font_sizes/font_size = 65
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loot" type="Label" parent="Control/Win Screen"]
+z_index = 99
+texture_filter = 2
+layout_mode = 0
+offset_left = -376.0
+offset_top = 552.0
+offset_right = 1544.0
+offset_bottom = 704.0
+theme_override_colors/font_color = Color(0.877616, 0.877616, 0.877616, 1)
+theme_override_fonts/font = ExtResource("5_osdri")
+theme_override_font_sizes/font_size = 65
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="xp" type="Label" parent="Control/Win Screen"]
+z_index = 99
+texture_filter = 2
+layout_mode = 0
+offset_left = -384.0
+offset_top = 792.0
+offset_right = 1536.0
+offset_bottom = 943.0
+theme_override_colors/font_color = Color(0.877616, 0.877616, 0.877616, 1)
+theme_override_fonts/font = ExtResource("5_osdri")
+theme_override_font_sizes/font_size = 65
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1

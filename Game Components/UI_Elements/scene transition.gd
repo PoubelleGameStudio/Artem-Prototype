@@ -4,6 +4,11 @@ extends CanvasLayer
 @onready var Splash: Sprite2D = $Control/HBoxContainer/ScreenText
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
+#scoreboard fields
+@onready var defeated: Label = $"Control/Win Screen/Enemy_name"
+@onready var loot: Label = $"Control/Win Screen/Loot"
+@onready var xp: Label = $"Control/Win Screen/xp"
+
 #pack scenes
 @onready var grimsBriar = load("res://scenes/levels/grimsBriar.tscn")
 @onready var GB_tavern = load("res://scenes/levels/GB_tavern.tscn")
@@ -46,10 +51,14 @@ func play_audio(track) -> void:
 func victory() -> void:
 	State.can_walk = false
 	Splash.texture = load("res://Art/TEXT/victory.png")
+	load_scoreboard()
 	player.play("victory")
-	await get_tree().create_timer(2).timeout
-	player.play_backwards("victory")
 	State.can_walk = true
+
+func load_scoreboard() -> void:
+	defeated.text = State.last_enemy_defeated["name"]
+	loot.text = State.last_enemy_defeated["loot"]
+	xp.text = State.last_enemy_defeated["xp_gained"]
 
 func death() -> void:
 	State.can_walk = false

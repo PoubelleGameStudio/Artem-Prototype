@@ -476,11 +476,19 @@ func showAttacks():
 
 # called when enemy or you dies
 func endgame():
+	
 	var drops = State.enemies[enemy.enemy_type]["drops"].keys()
 	print("getting drops")
+	var drop_string: String
 	for drop in drops:
+		drop_string += str(drop," x",State.enemies[enemy.enemy_type]["drops"][drop],"\n")
 		State.update_inventory(drop,State.enemies[enemy.enemy_type]["drops"][drop])
 		print(drop," added to inventory")
+	State.populate_last_enemy_defeated(
+		enemy.enemy_type
+		,drop_string
+		,str(round(pow(State.level,1.5)+State.level*2.6))
+	)
 	State.cur_xp += round(pow(State.level,1.5)+State.level*2.6)
 	yourTurn = true
 

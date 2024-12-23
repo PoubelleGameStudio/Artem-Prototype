@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://clmgxynbvhxme"]
+
+[ext_resource type="Shader" path="res://shaders/victory_splash.gdshader" id="1_4rst8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8ghd8"]
+frequency = 0.0026
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n663j"]
+seamless = true
+noise = SubResource("FastNoiseLite_8ghd8")
+
+[resource]
+shader = ExtResource("1_4rst8")
+shader_parameter/brighter_color = Color(0.0431373, 0.027451, 0.117647, 1)
+shader_parameter/middle_color = Color(1, 0.56, 0, 1)
+shader_parameter/darker_color = Color(0.027451, 0.00392157, 0, 1)
+shader_parameter/spread = 0.36
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_n663j")

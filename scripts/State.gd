@@ -181,7 +181,7 @@ func shop_handler() -> void:
 			spell_book["Blood Moon"]["learned"] = 1
 
 @onready var tutorials: Dictionary = {
-	"Basics":{
+	"Welcome!":{
 		"text":str("Welcome to The Watcher's Curse demo! Pres ESC on your keyboard",
 					" or START on your gamepad to see controls. In this demo you'll play through",
 					" one of the many quest narratives from the full version of the game. Take your",
@@ -189,17 +189,17 @@ func shop_handler() -> void:
 				)
 		,"seen":0
 		},
-	"journal_1":{
+	"Stats":{
 		"text":str("These are your stats! Check your health, gold, level, and XP here.")
 		,"seen":0
 	},
-	"journal_2":{
+	"Quick Slots":{
 		"text":str("These are your quick slots! You can assign items from your inventory to",
 					" each slot by hovering over an item and pressing the corresponding slot",
 					" number. Controller players will need to press the corresponding d-pad direction.")
 		,"seen":0
 	},
-	"journal_3":{
+	"Quest Log":{
 		"text":str("This is your quest log! Check how you're progressing!")
 		,"seen":0
 	},
@@ -363,8 +363,7 @@ func learn_spell(spell,cost,damage,stat_mod,stat_mod_amt,stat_req,stat_req_amt):
 
 # personal inventory and functions
 @onready var inventory = {
-	"health restore":2,
-	"RIP'd CD":1
+	"health restore":2
 }
 
 func update_inventory(item,amount):
@@ -380,8 +379,19 @@ func check_inv(item) -> int :
 		if inventory[item] :
 			return inventory[item]
 	return 0
+	
 
-
+func populate_last_enemy_defeated(name: String, loot: String, xp_gained: String) -> void:
+	last_enemy_defeated["name"] = str("Defeated: ",name)
+	last_enemy_defeated["loot"] = str("Looted:\n",loot)
+	last_enemy_defeated["xp_gained"] = str("XP: ",xp_gained)
+	
+	
+var last_enemy_defeated = {
+	"name":""
+	,"loot":""
+	,"xp_gained":""
+}
 
 # quest status -1:unavailable 0:inactive 1:active 2:completed
 # array of quests
@@ -570,7 +580,7 @@ var area_enemies = {
 var enemies = {
 	# dude got executed one day and has been hella salty and j haunts shit now
 	"executioner":{
-		"health":95,
+		"health":250,
 		"faction":"Void",
 		"speed":10,
 		"defeated":0,
@@ -605,7 +615,7 @@ var enemies = {
 		"lore":"A small critter that at some point came into contact with a source of void energy. They're still just a rodent, but now occasionally they lash out dealing near fatal damage."
 	},
 	"ghost":{
-		"health":45,
+		"health":55,
 		"faction":"Spirit",
 		"speed":5,
 		"defeated":0,
@@ -639,7 +649,7 @@ var enemies = {
 		"lore":"A radicalized citizen of the Needle now warped by technotheological propaganda. Their quest for purity in the eye of their god has lead them to commit attrocities against their own."
 	},
 	"Ascended Technotheist":{
-		"health":200,
+		"health":400,
 		"faction":"Technotheist",
 		"speed":5,
 		"defeated":0,
@@ -656,7 +666,7 @@ var enemies = {
 		"lore":"A high ranking member of the technotheist theocratic structure. Having reached a form of pure technology the ascended no longer resemble any form of human."
 	},
 	"Sorrow Shade":{
-		"health":40,
+		"health":45,
 		"faction":"Spirit",
 		"speed":5,
 		"defeated":0,

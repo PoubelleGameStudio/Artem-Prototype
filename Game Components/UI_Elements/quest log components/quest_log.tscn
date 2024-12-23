@@ -26,6 +26,7 @@ layout_mode = 2
 theme_override_constants/v_separation = 70
 
 [node name="Panel" parent="ScrollContainer/quests" instance=ExtResource("1_3n006")]
+visible = false
 layout_mode = 2
 
 [node name="Panel2" parent="ScrollContainer/quests" instance=ExtResource("1_3n006")]

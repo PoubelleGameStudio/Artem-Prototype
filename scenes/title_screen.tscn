@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c1jcq7rvu0h6m"]
+[gd_scene load_steps=23 format=3 uid="uid://c1jcq7rvu0h6m"]
 
 [ext_resource type="PackedScene" uid="uid://b8uoijdcmqgg6" path="res://Game Components/UI_Elements/main menu/main_menu.tscn" id="1_2dcj5"]
 [ext_resource type="PackedScene" uid="uid://dch063dhlbkj5" path="res://scenes/groundFlies.tscn" id="1_irif3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shader" path="res://shaders/fog.gdshader" id="9_pdgth"]
 [ext_resource type="AudioStream" uid="uid://dk4rbq3qappgy" path="res://sounds/ambient/Rain.mp3" id="10_otf0g"]
 [ext_resource type="Script" path="res://scripts/autoplay_sound.gd" id="11_u6mv1"]
+[ext_resource type="AudioStream" uid="uid://d3vh5r05vcjrw" path="res://sounds/levelMusic/it begins.wav" id="12_m8xwd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ma6fg"]
 shader = ExtResource("9_pdgth")
@@ -348,12 +349,18 @@ grow_vertical = 2
 
 [node name="rain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_otf0g")
-volume_db = -22.962
+volume_db = -30.0
 autoplay = true
 bus = &"Effects"
 script = ExtResource("11_u6mv1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+bus = &"Effects"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_m8xwd")
+volume_db = -10.0
 bus = &"Music"
 
 [connection signal="focus_entered" from="CanvasLayer/Control/HBoxContainer2/New Game" to="." method="_on_new_game_focus_entered"]

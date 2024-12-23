@@ -377,10 +377,10 @@ z_index = -1
 texture_filter = 2
 material = SubResource("ShaderMaterial_k5ai6")
 layout_mode = 0
-offset_left = -2674.0
-offset_top = -302.0
-offset_right = 3883.0
-offset_bottom = 554.0
+offset_left = -1549.0
+offset_top = -281.0
+offset_right = 3098.0
+offset_bottom = 461.0
 texture = ExtResource("3_jhpj2")
 
 [node name="scroll" type="NinePatchRect" parent="Balloon"]

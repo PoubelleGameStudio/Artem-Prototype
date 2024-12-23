@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwolc4dutryab"]
+[gd_scene load_steps=12 format=3 uid="uid://cwolc4dutryab"]
 
 [ext_resource type="Script" path="res://tutorial_screen.gd" id="1_tlwe8"]
 [ext_resource type="Texture2D" uid="uid://bnei5qwvolm54" path="res://Game Components/tutorials/UI_Paper_Frame_02_Standard.png" id="2_oobxb"]
+[ext_resource type="Material" uid="uid://clmgxynbvhxme" path="res://shaders/tutorial_pop_ups.tres" id="2_y7jpf"]
 [ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="3_spcer"]
+[ext_resource type="FontFile" uid="uid://bwuruoih52j0f" path="res://Game Components/fonts/Caroni-Regular.otf" id="4_ka1f3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_imhmk"]
 
@@ -28,13 +30,14 @@ script = ExtResource("1_tlwe8")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 250.0
-offset_bottom = 232.0
+offset_right = 160.0
+offset_bottom = 121.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_imhmk")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
 texture_filter = 3
+material = ExtResource("2_y7jpf")
 layout_mode = 2
 mouse_filter = 1
 texture = ExtResource("2_oobxb")
@@ -45,9 +48,10 @@ patch_margin_bottom = 16
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 13
-theme_override_constants/margin_right = 5
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -55,7 +59,7 @@ layout_mode = 2
 [node name="title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 texture_filter = 4
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_spcer")
 theme_override_font_sizes/font_size = 30
 text = "test"
@@ -71,8 +75,8 @@ fit_content = true
 texture_filter = 4
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_spcer")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ka1f3")
 theme_override_font_sizes/font_size = 14
 text = "testestestest"
 horizontal_alignment = 1
@@ -85,7 +89,7 @@ texture_filter = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_spcer")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qdobq")

@@ -11,8 +11,8 @@ extends Control
 func _ready():
 	hide()
 	
-	#if State.tutorials[title]["seen"] == 0:
-		#populate_tutorial()
+	if title == "Welcome!" and State.tutorials[title]["seen"] == 0:
+		populate_tutorial()
 
 func populate_tutorial() -> void:
 	title_label.text = title
