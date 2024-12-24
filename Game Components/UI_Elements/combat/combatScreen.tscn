@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=41 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="3_6j6h7"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bcranc40bjctv" path="res://Sprites/combat/spell icons/Blood Moon - talent.png" id="19_v8xaj"]
 [ext_resource type="AudioStream" uid="uid://4kj77c85j117" path="res://sounds/UI/pluck_REVERB.wav" id="21_xvpy8"]
 [ext_resource type="PackedScene" uid="uid://br5mlw81bvnnl" path="res://Game Components/UI_Elements/combat/quick_slots.tscn" id="25_2kcmw"]
+[ext_resource type="FontFile" uid="uid://bwuruoih52j0f" path="res://Game Components/fonts/Caroni-Regular.otf" id="26_pi8n1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
 atlas = ExtResource("4_43trn")
@@ -228,7 +229,7 @@ offset_top = 728.0
 offset_right = 538.0
 offset_bottom = 790.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_0cyua")
+theme_override_fonts/font = ExtResource("26_pi8n1")
 theme_override_font_sizes/font_size = 50
 text = "test"
 
@@ -265,8 +266,8 @@ offset_left = 115.0
 offset_top = 702.0
 offset_right = 384.0
 offset_bottom = 791.0
-focus_neighbor_bottom = NodePath("../../spellSelect/Control/VBoxContainer/Invoke/Curse")
-focus_next = NodePath("../../spellSelect/Control/VBoxContainer/Invoke/Fireball")
+focus_neighbor_bottom = NodePath("../../spellSelect/Control/VBoxContainer/row1/Spell2")
+focus_next = NodePath("../../spellSelect/Control/VBoxContainer/row1/Spell1")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_0cyua")
@@ -440,75 +441,70 @@ offset_top = 789.0
 offset_right = 497.0
 offset_bottom = 1064.0
 
-[node name="Invoke" type="HBoxContainer" parent="combatUI/spellSelect/Control/VBoxContainer"]
+[node name="row1" type="HBoxContainer" parent="combatUI/spellSelect/Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="Fireball" parent="combatUI/spellSelect/Control/VBoxContainer/Invoke" instance=ExtResource("8_16ejo")]
+[node name="Spell1" parent="combatUI/spellSelect/Control/VBoxContainer/row1" instance=ExtResource("8_16ejo")]
 custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
 focus_neighbor_top = NodePath("../../../../../combat/cast")
-focus_neighbor_right = NodePath("../Curse")
-spell_icon = "fireball"
+focus_neighbor_right = NodePath("../Spell2")
 metadata/_edit_use_anchors_ = true
 
-[node name="Curse" parent="combatUI/spellSelect/Control/VBoxContainer/Invoke" instance=ExtResource("8_16ejo")]
+[node name="Spell2" parent="combatUI/spellSelect/Control/VBoxContainer/row1" instance=ExtResource("8_16ejo")]
 custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
-focus_neighbor_left = NodePath("../Fireball")
+focus_neighbor_left = NodePath("../Spell1")
 focus_neighbor_top = NodePath("../../../../../combat/cast")
-focus_neighbor_right = NodePath("../Poison Swamp")
-spell_icon = "Curse"
+focus_neighbor_right = NodePath("../Spell3")
 metadata/_edit_use_anchors_ = true
 
-[node name="Poison Swamp" parent="combatUI/spellSelect/Control/VBoxContainer/Invoke" instance=ExtResource("8_16ejo")]
+[node name="Spell3" parent="combatUI/spellSelect/Control/VBoxContainer/row1" instance=ExtResource("8_16ejo")]
 custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
-focus_neighbor_left = NodePath("../Curse")
+focus_neighbor_left = NodePath("../Spell2")
 focus_neighbor_top = NodePath("../../../../../combat/cast")
 focus_neighbor_right = NodePath("../../../../../../Quick Slots")
-focus_neighbor_bottom = NodePath("../../Void/Vapid Affliction")
-spell_icon = "Poison Swamp"
+focus_neighbor_bottom = NodePath("../../row2/Spell6")
 metadata/_edit_use_anchors_ = true
 
-[node name="Void" type="HBoxContainer" parent="combatUI/spellSelect/Control/VBoxContainer"]
+[node name="row2" type="HBoxContainer" parent="combatUI/spellSelect/Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="Hollowed Threats" parent="combatUI/spellSelect/Control/VBoxContainer/Void" instance=ExtResource("8_16ejo")]
+[node name="Spell4" parent="combatUI/spellSelect/Control/VBoxContainer/row2" instance=ExtResource("8_16ejo")]
 custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
-focus_neighbor_top = NodePath("../../Invoke/Fireball")
-focus_neighbor_right = NodePath("../Void Sight")
+focus_neighbor_top = NodePath("../../row1/Spell1")
+focus_neighbor_right = NodePath("../Spell5")
 focus_neighbor_bottom = NodePath("../../Blood/Sanguinated Shell")
-spell_icon = "Hollowed Threats"
 metadata/_edit_use_anchors_ = true
 
-[node name="Void Sight" parent="combatUI/spellSelect/Control/VBoxContainer/Void" instance=ExtResource("8_16ejo")]
+[node name="Spell5" parent="combatUI/spellSelect/Control/VBoxContainer/row2" instance=ExtResource("8_16ejo")]
 custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
-focus_neighbor_left = NodePath("../Hollowed Threats")
-focus_neighbor_top = NodePath("../../Invoke/Curse")
-focus_neighbor_right = NodePath("../Vapid Affliction")
+focus_neighbor_left = NodePath("../Spell4")
+focus_neighbor_top = NodePath("../../row1/Spell2")
+focus_neighbor_right = NodePath("../Spell6")
 focus_neighbor_bottom = NodePath("../../Blood/Blood Clot Homunculus")
-spell_icon = "Void Sight"
 metadata/_edit_use_anchors_ = true
 
-[node name="Vapid Affliction" parent="combatUI/spellSelect/Control/VBoxContainer/Void" instance=ExtResource("8_16ejo")]
+[node name="Spell6" parent="combatUI/spellSelect/Control/VBoxContainer/row2" instance=ExtResource("8_16ejo")]
 custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
-focus_neighbor_left = NodePath("../Void Sight")
-focus_neighbor_top = NodePath("../../Invoke/Poison Swamp")
+focus_neighbor_left = NodePath("../Spell5")
+focus_neighbor_top = NodePath("../../row1/Spell3")
 focus_neighbor_right = NodePath("../../../../../../Quick Slots")
 focus_neighbor_bottom = NodePath("../../Blood/Blood Moon")
-spell_icon = "Vapid Affliction"
 metadata/_edit_use_anchors_ = true
 
 [node name="Blood" type="HBoxContainer" parent="combatUI/spellSelect/Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Sanguinated Shell" parent="combatUI/spellSelect/Control/VBoxContainer/Blood" instance=ExtResource("8_16ejo")]
 custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
-focus_neighbor_top = NodePath("../../Void/Hollowed Threats")
+focus_neighbor_top = NodePath("../../row2/Spell4")
 focus_neighbor_right = NodePath("../Blood Clot Homunculus")
 spell_icon = "Sanguinated Shell"
 metadata/_edit_use_anchors_ = true
@@ -517,7 +513,7 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
 focus_neighbor_left = NodePath("../Sanguinated Shell")
-focus_neighbor_top = NodePath("../../Void/Void Sight")
+focus_neighbor_top = NodePath("../../row2/Spell5")
 focus_neighbor_right = NodePath("../Blood Moon")
 spell_icon = "Blood Clot Homunculus"
 metadata/_edit_use_anchors_ = true
@@ -527,7 +523,7 @@ texture_filter = 3
 custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
 focus_neighbor_left = NodePath("../Blood Clot Homunculus")
-focus_neighbor_top = NodePath("../../Void/Vapid Affliction")
+focus_neighbor_top = NodePath("../../row2/Spell6")
 focus_neighbor_right = NodePath("../../../../../../Quick Slots")
 spell_icon = "Blood Moon"
 metadata/_edit_use_anchors_ = true
@@ -579,7 +575,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_0cyua")
 theme_override_font_sizes/font_size = 40
-text = "Casts Left:"
+text = "Focus Remaining:"
 
 [node name="instruct" type="Label" parent="."]
 texture_filter = 4
@@ -695,7 +691,7 @@ size_flags_vertical = 8
 texture_filter = 4
 layout_direction = 1
 layout_mode = 0
-offset_left = -843.0
+offset_left = -709.0
 offset_top = -305.0
 offset_right = 1075.0
 offset_bottom = 179.0
@@ -785,6 +781,7 @@ theme_override_constants/margin_bottom = 0
 texture_filter = 4
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("26_pi8n1")
 text = "Observations: "
 label_settings = ExtResource("5_be3fw")
 vertical_alignment = 2
@@ -798,7 +795,7 @@ offset_top = 397.0
 offset_right = 297.0
 offset_bottom = 459.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_0cyua")
+theme_override_fonts/font = ExtResource("26_pi8n1")
 theme_override_font_sizes/font_size = 50
 text = "Items"
 

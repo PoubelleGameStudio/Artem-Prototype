@@ -204,6 +204,7 @@ mouse_filter = 1
 [node name="Win Screen" type="TextureRect" parent="Control"]
 visible = false
 material = ExtResource("3_pr8k2")
+layout_mode = 0
 offset_left = 404.0
 offset_top = 256.0
 offset_right = 1608.0

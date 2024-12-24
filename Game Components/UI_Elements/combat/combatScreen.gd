@@ -121,6 +121,13 @@ extends Node2D
 @onready var enemy_info_observations: Label = $Control/VBoxContainer2/observationContainer/observations
 @onready var enemy_info_animation: AnimatedSprite2D = $Control/VBoxContainer2/HBoxContainer/Control/AnimatedSprite2D
 
+@onready var spell1: spell_button = $combatUI/spellSelect/Control/VBoxContainer/row1/Spell1
+@onready var spell2: spell_button = $combatUI/spellSelect/Control/VBoxContainer/row1/Spell2
+@onready var spell3: spell_button = $combatUI/spellSelect/Control/VBoxContainer/row1/Spell3
+@onready var spell4: spell_button = $combatUI/spellSelect/Control/VBoxContainer/row2/Spell4
+@onready var spell5: spell_button = $combatUI/spellSelect/Control/VBoxContainer/row2/Spell5
+@onready var spell6: spell_button = $combatUI/spellSelect/Control/VBoxContainer/row2/Spell6
+
 @onready var sound: AudioStreamPlayer = $AudioStreamPlayer
 @onready var enemy_sounds: AudioStreamPlayer = $enemySounds
 @onready var player_damage_sound: AudioStream = preload("res://sounds/UI/combat_1.wav")
@@ -160,6 +167,7 @@ func _ready():
 	
 	statusEffect.text = burningText + poisonedText
 	
+	set_spells()
 	chosen_spell_desc.visible_characters = -1
 
 
@@ -170,6 +178,14 @@ func _process(delta):
 	if chosen_spell_desc.visible_characters > -1:
 		chosen_spell_desc.visible_characters = -1
 	
+
+func set_spells() -> void:
+	spell1.spell_icon = State.spell1
+	spell2.spell_icon = State.spell2
+	spell3.spell_icon = State.spell3
+	spell4.spell_icon = State.spell4
+	spell5.spell_icon = State.spell5
+	spell6.spell_icon = State.spell6
 
 func start_turn():
 	statusEffect.text = burningText + poisonedText
@@ -195,7 +211,7 @@ func combat_data():
 	
 	#inv_ui.populate_grid()
 	quick_slots.setup()
-	$combatUI/spellSelect/Control/VBoxContainer/Invoke/Fireball.grab_focus()
+	spell1.grab_focus()
 	
 	enemy_info_enemy_type.text = str("Enemy Type: ",enemy.enemy_type)
 	enemy_info_enemy_resist.text = str("Enemy Weakness: ",enemyBook[enemy.enemy_type]["resists"])

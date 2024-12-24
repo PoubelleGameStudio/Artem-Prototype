@@ -18,6 +18,11 @@ var is_raining = 0
 
 # spell slots
 var spell1: String = 'fireball'
+var spell2: String = 'Hollowed Threats'
+var spell3: String = 'Sanguinated Shell'
+var spell4: String = 'Curse'
+var spell5: String = 'Void Sight'
+var spell6: String = 'Blood Clot Homunculus'
 
 
 # player slots
@@ -51,7 +56,7 @@ var casts: int = 1
 var shield
 var cur_xp: int = 0
 var xp_to_next: int = 10
-var level: int = 1
+var level: int = 20
 var armor: int = 0 # physical resist
 var mana: int = 1  # still not sure about mana usage
 # var speed = 5
@@ -495,7 +500,7 @@ func update_quest_status(quest,status) -> void:
 	if status == 2:
 		for item in items:
 			inventory[item]-=int(quest_db[quest]["Items"][str(item)])
-		cur_xp += round(pow(State.level,2.5)+State.level*3.3)
+		cur_xp += round(pow(State.level,2.5)+State.level*2)
 		level_up()
 
 

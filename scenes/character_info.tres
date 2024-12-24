@@ -1,10 +1,10 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b8gkxf5wk0pdu"]
 
-[ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="1_nrj05"]
+[ext_resource type="FontFile" uid="uid://bwuruoih52j0f" path="res://Game Components/fonts/Caroni-Regular.otf" id="1_c2ur7"]
 
 [resource]
 line_spacing = 0.0
-font = ExtResource("1_nrj05")
+font = ExtResource("1_c2ur7")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)

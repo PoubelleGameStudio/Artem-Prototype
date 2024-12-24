@@ -1,10 +1,12 @@
-[gd_scene load_steps=51 format=3 uid="uid://c8skkvcn0ci81"]
+[gd_scene load_steps=52 format=3 uid="uid://c8skkvcn0ci81"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/Talent Tree/talentTree.gd" id="1_jmed0"]
 [ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="2_t0owy"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="2_w43jx"]
 [ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="3_ngrua"]
+[ext_resource type="PackedScene" uid="uid://dpv6cisbc7uye" path="res://Game Components/UI_Elements/combat/spell_button.tscn" id="5_a3xnw"]
+[ext_resource type="FontFile" uid="uid://bwuruoih52j0f" path="res://Game Components/fonts/Caroni-Regular.otf" id="6_brv2m"]
 [ext_resource type="Texture2D" uid="uid://d11wrjcwmffb5" path="res://Sprites/combat/spell icons/Sacred Kindling.png" id="6_e6b38"]
 [ext_resource type="Texture2D" uid="uid://c1qyxdxyd0j4h" path="res://Sprites/combat/spell icons/Extra Action.png" id="7_dsysm"]
 [ext_resource type="Texture2D" uid="uid://bo1o03unrmgk3" path="res://Sprites/combat/spell icons/Shield+.png" id="8_6sv8i"]
@@ -51,8 +53,6 @@ outline_color = Color(0, 0, 0.537255, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvg1d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0tb0"]
-
-[sub_resource type="Theme" id="Theme_22j28"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4m4g"]
 
@@ -101,7 +101,7 @@ script = ExtResource("1_jmed0")
 layout_mode = 2
 offset_left = -95.0
 offset_right = 260.0
-offset_bottom = 272.0
+offset_bottom = 252.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_cflig")
 
 [node name="Panel" type="Panel" parent="PanelContainer"]
@@ -124,6 +124,7 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="info_margin" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -154,27 +155,142 @@ label_settings = ExtResource("2_t0owy")
 
 [node name="TalentDescription" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
 texture_filter = 3
-custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Welcome to the Field Training section of your Watcher's Journal! Select a trait or spell to learn more."
 label_settings = ExtResource("2_t0owy")
 autowrap_mode = 2
 
 [node name="TalentType" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
+visible = false
 layout_mode = 2
 text = "Type"
 label_settings = ExtResource("2_t0owy")
 
 [node name="lvl req" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
 layout_mode = 2
+size_flags_vertical = 2
 text = "Unlocks at Level: 5"
 label_settings = ExtResource("2_t0owy")
 
 [node name="point_cost" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
-visible = false
+texture_filter = 2
 layout_mode = 2
-text = "Costs:"
+text = "Spell Slots
+"
 label_settings = ExtResource("2_t0owy")
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/v_separation = 12
+columns = 3
+
+[node name="Spell1" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 1
+spell_slot = 1
+page_name = "talents"
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell1"]
+visible = false
+texture_filter = 2
+layout_mode = 0
+offset_top = -15.0
+offset_right = 32.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_brv2m")
+text = "Spell 2"
+
+[node name="Spell2" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+spell_slot = 2
+page_name = "talents"
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell2"]
+visible = false
+texture_filter = 2
+layout_mode = 0
+offset_top = -15.0
+offset_right = 32.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_brv2m")
+text = "Spell 2"
+
+[node name="Spell3" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+spell_slot = 3
+page_name = "talents"
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell3"]
+visible = false
+texture_filter = 2
+layout_mode = 0
+offset_top = -15.0
+offset_right = 32.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_brv2m")
+text = "Spell 2"
+
+[node name="Spell4" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+spell_slot = 4
+page_name = "talents"
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell4"]
+visible = false
+texture_filter = 2
+layout_mode = 0
+offset_top = -15.0
+offset_right = 32.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_brv2m")
+text = "Spell 2"
+
+[node name="Spell5" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+spell_slot = 5
+page_name = "talents"
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell5"]
+visible = false
+texture_filter = 2
+layout_mode = 0
+offset_top = -15.0
+offset_right = 32.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_brv2m")
+text = "Spell 2"
+
+[node name="Spell6" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+spell_slot = 6
+page_name = "talents"
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell6"]
+visible = false
+texture_filter = 2
+layout_mode = 0
+offset_top = -15.0
+offset_right = 32.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_brv2m")
+text = "Spell 2"
 
 [node name="border2" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 visible = false
@@ -209,6 +325,7 @@ focus_neighbor_bottom = NodePath("../HP+1")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jybwg")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_c6q6j")
 icon = ExtResource("7_dsysm")
+is_trait = true
 talentName = "Extra Action"
 description = "Perform a second cast each turn"
 required_level = 5
@@ -218,9 +335,10 @@ cost = 3
 [node name="HP+1" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Extra Action")
-focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Sacred Kindling")
+focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Sacred Kindling")
 focus_neighbor_bottom = NodePath("../Shield+")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vq4ym")
+is_trait = true
 talentName = "HP+"
 description = "Increase your total health by 10"
 required_level = 10
@@ -230,11 +348,12 @@ cost = 3
 [node name="Shield+" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../HP+1")
-focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Curse")
+focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Curse")
 focus_neighbor_bottom = NodePath("../Attack+")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7txmj")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_srxep")
 icon = ExtResource("8_6sv8i")
+is_trait = true
 talentName = "Shield+"
 description = "Decrease damange taken by 15%"
 required_level = 15
@@ -244,10 +363,11 @@ cost = 3
 [node name="Attack+" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer" groups=["HP+"] instance=ExtResource("1_np83o")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Shield+")
-focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Poison Swamp")
+focus_neighbor_right = NodePath("../../../MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Poison Swamp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q1c8s")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kobio")
 icon = ExtResource("9_k7y6d")
+is_trait = true
 talentName = "Attack+"
 description = "Increase damage by 20%"
 required_level = 20
@@ -283,38 +403,35 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
+[node name="invoke_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells"]
 layout_mode = 2
 text = "Invoke"
 label_settings = ExtResource("2_t0owy")
 horizontal_alignment = 1
 
-[node name="invoke_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+[node name="Sacred Kindling" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="Sacred Kindling" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
-layout_mode = 2
-focus_neighbor_left = NodePath("../../../../../../char_talents/VBoxContainer/HP+1")
-focus_neighbor_right = NodePath("../../../Arcane_spells/Hollowed Threats")
+focus_neighbor_left = NodePath("../../../../../char_talents/VBoxContainer/HP+1")
+focus_neighbor_right = NodePath("../../Arcane_spells/Hollowed Threats")
 focus_neighbor_bottom = NodePath("../Curse")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mljab")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_dsmqw")
 icon = ExtResource("6_e6b38")
-talentName = "Sacred Kindling"
-description = "The first kindling ignited by the wielders of flame increases the damage over time damage of your fire spells"
+talentName = "fireball"
+description = "The first kindling ignited by the wielders of flame increases the damage over time effect of your fire spells"
 required_level = 1
 talentType = "Passive Buff"
 cost = 2
 
-[node name="Curse" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
+[node name="Curse" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../../../../../char_talents/VBoxContainer/Shield+")
+focus_neighbor_left = NodePath("../../../../../char_talents/VBoxContainer/Shield+")
 focus_neighbor_top = NodePath("../Sacred Kindling")
-focus_neighbor_right = NodePath("../../../Arcane_spells/Void Sight")
+focus_neighbor_right = NodePath("../../Arcane_spells/Void Sight")
 focus_neighbor_bottom = NodePath("../Poison Swamp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_va31v")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_nx10a")
@@ -324,11 +441,11 @@ description = "Chaos entangled matter attacks the soul directly."
 required_level = 5
 cost = 3
 
-[node name="Poison Swamp" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
+[node name="Poison Swamp" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../../../../../char_talents/VBoxContainer/Attack+")
+focus_neighbor_left = NodePath("../../../../../char_talents/VBoxContainer/Attack+")
 focus_neighbor_top = NodePath("../Curse")
-focus_neighbor_right = NodePath("../../../Arcane_spells/Vapid Affliction")
+focus_neighbor_right = NodePath("../../Arcane_spells/Vapid Affliction")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uvg1d")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_y0tb0")
 icon = ExtResource("12_86fet")
@@ -338,18 +455,9 @@ required_level = 10
 talentType = "Spell"
 cost = 4
 
-[node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
+[node name="Button4" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells" instance=ExtResource("1_np83o")]
 visible = false
 layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(32, 105)
-layout_mode = 2
-theme = SubResource("Theme_22j28")
-follow_focus = true
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
 
 [node name="Arcane_spells" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
@@ -363,7 +471,7 @@ horizontal_alignment = 1
 
 [node name="Hollowed Threats" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../VBoxContainer/invoke_spells/Sacred Kindling")
+focus_neighbor_left = NodePath("../../invoke_spells/Sacred Kindling")
 focus_neighbor_right = NodePath("../../blood_spells/Sanguinated Shell")
 focus_neighbor_bottom = NodePath("../Void Sight")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r4m4g")
@@ -377,7 +485,7 @@ cost = 2
 
 [node name="Void Sight" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../VBoxContainer/invoke_spells/Curse")
+focus_neighbor_left = NodePath("../../invoke_spells/Curse")
 focus_neighbor_top = NodePath("../Hollowed Threats")
 focus_neighbor_right = NodePath("../../blood_spells/Blood Clot Homunculus")
 focus_neighbor_bottom = NodePath("../Vapid Affliction")
@@ -391,7 +499,7 @@ cost = 3
 
 [node name="Vapid Affliction" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells" instance=ExtResource("1_np83o")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../VBoxContainer/invoke_spells/Poison Swamp")
+focus_neighbor_left = NodePath("../../invoke_spells/Poison Swamp")
 focus_neighbor_top = NodePath("../Void Sight")
 focus_neighbor_right = NodePath("../../blood_spells/Blood Moon")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_37wyq")
@@ -424,7 +532,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_vr8le")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ud3x2")
 icon = ExtResource("16_nfr74")
 talentName = "Sanguinated Shell"
-description = "Coalesce your blood into a hardened shell absorbing 50% damage for 3 turns. When the shell expires you heal for half the amount absorbed."
+description = "Coalesce your blood into a shell absorbing 50% damage for 3 turns. On expiration heal for half of absorbed damage."
 required_level = 1
 talentType = "Spell"
 cost = 2
@@ -497,9 +605,9 @@ layout_mode = 2
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/HP+1" to="." method="_on_hp_1_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Shield+" to="." method="_on_shield_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Attack+" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Sacred Kindling" to="." method="_on_sacred_kindling_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Curse" to="." method="_on_curse_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Poison Swamp" to="." method="_on_poison_swamp_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Sacred Kindling" to="." method="_on_sacred_kindling_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Curse" to="." method="_on_curse_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Poison Swamp" to="." method="_on_poison_swamp_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Hollowed Threats" to="." method="_on_hollowed_threats_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Void Sight" to="." method="_on_void_sight_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Vapid Affliction" to="." method="_on_vapid_affliction_pressed"]

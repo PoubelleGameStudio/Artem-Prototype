@@ -31,13 +31,13 @@ class_name TalentTree
 
 # character spell unlocks
 # Fire
-@onready var kindling: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Sacred Kindling"
+@onready var kindling: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Sacred Kindling"
 @onready var kindling_pressed: bool = false
 
-@onready var curse: Button = $PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Curse
+@onready var curse: Button = $PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Curse
 @onready var curse_pressed: bool = false
 
-@onready var poison_swamp: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/invoke_spells/Poison Swamp"
+@onready var poison_swamp: Button = $"PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Poison Swamp"
 @onready var poison_swamp_pressed: bool = false
 
 # Void
@@ -177,7 +177,6 @@ func _on_shield_pressed():
 	TalentDesc.text = shield.description
 	TalentType.text = str("Type: ",shield.talentType)
 	lvl_req.text = str("Unlock at level: ",shield.required_level)
-
 
 
 func _on_extra_action_pressed():

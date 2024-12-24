@@ -20,6 +20,7 @@
 
 [node name="tutorials" type="Control"]
 z_index = 99
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +30,7 @@ grow_vertical = 2
 script = ExtResource("1_tlwe8")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+texture_filter = 2
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 121.0
@@ -36,7 +38,7 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_imhmk")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
-texture_filter = 3
+texture_filter = 2
 material = ExtResource("2_y7jpf")
 layout_mode = 2
 mouse_filter = 1
