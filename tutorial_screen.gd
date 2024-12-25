@@ -4,6 +4,7 @@ extends Control
 @export var next_title: String
 @onready var title_label: Label = $PanelContainer/MarginContainer/VBoxContainer/title
 @onready var text_label: Label = $PanelContainer/MarginContainer/VBoxContainer/text
+@onready var close_button: Button = $PanelContainer/MarginContainer/VBoxContainer/close_button
 
 
 
@@ -13,15 +14,23 @@ func _ready():
 	
 	if title == "Welcome!" and State.tutorials[title]["seen"] == 0:
 		populate_tutorial()
+		close_button.grab_focus()
+
+func _process(delta):
+	pass
+	#close_button.grab_focus()
+	#print(get_viewport().gui_get_focus_owner().name)
+	
 
 func populate_tutorial() -> void:
 	title_label.text = title
 	text_label.text = State.tutorials[title]["text"]
 	State.tutorials[title]["seen"] = 1
-	$PanelContainer/MarginContainer/VBoxContainer/Button.grab_focus()
+	close_button.grab_focus()
 	show()
 	
 func _on_button_pressed():
+	print("clicked the close button")
 	if next_title:
 		print(next_title)
 		print(get_node(str("../",next_title)).title)

@@ -1,11 +1,5 @@
 ~ start
-
-The Witch told me to place the device here and let it do the rest. By the time techies send backup the temple should be in ruins. I shouldn't place this until I'm sure I don't want to come back.
-- Place the item and grab nearby temple schematics.
-	do update_inventory("temple schematics",1)
-	=> END
-- Not Yet
-	=> END
-	
-
+Artem: Blood and who knows what else stains the contraption. There's a tension to the air here. In an endless search for knowledge, why does it so often deliver misery.
+Artem: I've seen enough. What other secrets the Witch holds, I can only wonder.
+do update_inventory("Burden of Knowledge",1)
 => END

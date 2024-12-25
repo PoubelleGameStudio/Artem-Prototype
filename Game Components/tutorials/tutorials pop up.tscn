@@ -27,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_tlwe8")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -85,12 +86,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="close_button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 z_index = 104
 texture_filter = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_focus_color = Color(0, 0.898039, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_spcer")
 theme_override_font_sizes/font_size = 20
@@ -102,4 +105,4 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_xtfsr")
 text = "Close"
 text_direction = 3
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/close_button" to="." method="_on_button_pressed"]

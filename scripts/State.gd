@@ -84,7 +84,7 @@ var mute_sound: bool = false
 var hide_control_hints: bool = false
 var combat_music_slider_value: int = 0
 var world_music_slider_value: int = 0
-var control_schema: String = "mkb"
+var control_schema: String = "gamepad"
 
 
 func _ready():
@@ -434,10 +434,9 @@ var quest_db ={
 		"quest_name":"Violent Delights",
 		"Status":0,
 		"Items":{
-			"Tim's Lament":1,
-			"Evidence":1
+			"Tim's Lament":1
 			},
-		"description":"An artist's intent"
+		"description":"Find where Tim has been hiding."
 	},
 	"homebrewed":{
 		"Giver":"front_desk",
@@ -464,9 +463,9 @@ var quest_db ={
 		"quest_name":"Witch's Crew",
 		"Status":0,
 		"Items":{
-			"temple schematics":1
+			"Burden of Knowledge":1
 		},
-		"description":"The techies are giving The Witch some trouble."
+		"description":"Investigate the Technotheists' temple."
 	}
 	
 }

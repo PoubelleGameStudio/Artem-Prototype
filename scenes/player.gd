@@ -251,7 +251,9 @@ func execute_interaction():
 								cur_interaction.interact_label,".dialogue"))
 			"quest_giver":
 				if State.talking == 0:
+					print(State.talking)
 					State.talking = 1
+					print(State.talking)
 					prompt.hide()
 					cur_interaction.set_value("yes")
 					cur_interaction.talk(str("res://Game Components/dialogue/NPC/",

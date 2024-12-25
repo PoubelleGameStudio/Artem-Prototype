@@ -31,14 +31,12 @@ Artem: My condolences for your loss. Could you point me towards the nearest town
 if quest_db["beer_run"]["Status"] == 1
 	if quest_complete("beer_run") == false
 		[wave amp=25 freq=5]Hedo[/wave]: *The drunken pile of clothes stares off into the void*
-		set State.talking = 0
 	=> END
 	elif quest_complete("beer_run") == true:
 		set gold += 10
 		do update_quest_status("beer_run",2)
 		do SteamFeatures.setAchievement("ACH_Hedo")
 		[wave amp=25 freq=5]Hedo[/wave]: filled my flask you did. The creative juices flow. Follow the path south.
-		set State.talking = 0
 	=> END
 
 ~ lore

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpv6cisbc7uye"]
+[gd_scene load_steps=11 format=3 uid="uid://dpv6cisbc7uye"]
 
 [ext_resource type="Script" path="res://spell_button.gd" id="1_6wj0f"]
 [ext_resource type="Texture2D" uid="uid://bc8i1kp7icmg8" path="res://Game Components/UI_Elements/inv_components/selected_spell_frame.png" id="2_a4len"]
@@ -6,9 +6,49 @@
 [ext_resource type="FontFile" uid="uid://bwuruoih52j0f" path="res://Game Components/fonts/Caroni-Regular.otf" id="4_gie4c"]
 [ext_resource type="AudioStream" uid="uid://fgyevrk0kddx" path="res://sounds/UI/block_1.wav" id="5_sa8xo"]
 
+[sub_resource type="Shader" id="Shader_ynbqc"]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_tex:repeat_enable;
+uniform sampler2D gradient_tex;
+
+uniform float spread : hint_range(0.0, 1.0) = 0.5;
+
+void fragment()
+{
+    // Retrieve noise and gradient values
+    float noise_value = texture(noise_tex, UV + vec2(0.0, TIME * 0.03)).x;
+    float gradient_value = texture(gradient_tex, UV.yx).x;
+
+    // Modify gradient value to control the shape
+    gradient_value -= smoothstep(spread, spread + 0.5, length(UV + vec2(-0.5, -0.5)) / spread * 0.5);
+
+    // Shape masking using noise and gradient values
+    float mask = step(noise_value, gradient_value);
+
+    // Preserve the original color and only modify the alpha
+    COLOR.rgb = texture(TEXTURE, UV).rgb; // Keep original sprite color
+    COLOR.a = mask;                      // Apply shape mask to alpha
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8ghd8"]
+frequency = 0.0031
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n663j"]
+generate_mipmaps = false
+seamless = true
+normalize = false
+noise = SubResource("FastNoiseLite_8ghd8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_784au"]
+shader = SubResource("Shader_ynbqc")
+shader_parameter/spread = 0.405
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_n663j")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_833re"]
 
 [node name="Button" type="Button"]
+material = SubResource("ShaderMaterial_784au")
 custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0

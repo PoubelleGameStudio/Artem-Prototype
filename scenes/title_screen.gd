@@ -27,8 +27,8 @@ func _ready():
 	SceneTransition.animation_finished.connect(_on_scene_transition_animation_finished)
 	SceneTransition.fade_in()
 	sound.play
-	if State.control_schema != 'mkb':
-		$"CanvasLayer/Control/HBoxContainer2/New Game".grab_focus()
+
+	$"CanvasLayer/Control/HBoxContainer2/New Game".grab_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
