@@ -555,6 +555,7 @@ model = "Lamp Post - Spooky"
 position = Vector2(-1107.99, -786.007)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
+visible = false
 offset_left = -97.51
 offset_top = -142.858
 offset_right = -97.51

@@ -12,14 +12,15 @@ extends Control
 func _ready():
 	hide()
 	
-	if title == "Welcome!" and State.tutorials[title]["seen"] == 0:
-		populate_tutorial()
-		close_button.grab_focus()
+	#if title == "Welcome!" and State.tutorials[title]["seen"] == 0:
+		#populate_tutorial()
+		#close_button.grab_focus()
 
 func _process(delta):
-	pass
-	#close_button.grab_focus()
-	#print(get_viewport().gui_get_focus_owner().name)
+	if get_viewport().gui_get_focus_owner():
+		if get_viewport().gui_get_focus_owner().name != "close_button" and self.visible:
+			close_button.grab_focus()
+			print(get_viewport().gui_get_focus_owner().name)
 	
 
 func populate_tutorial() -> void:
@@ -32,8 +33,6 @@ func populate_tutorial() -> void:
 func _on_button_pressed():
 	print("clicked the close button")
 	if next_title:
-		print(next_title)
-		print(get_node(str("../",next_title)).title)
 		get_node(str("../",next_title)).populate_tutorial()
 		queue_free()
 	else:

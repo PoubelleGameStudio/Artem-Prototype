@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b5vowrw45hndi"]
+[gd_scene load_steps=35 format=3 uid="uid://b5vowrw45hndi"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_6vypi"]
 [ext_resource type="SpriteFrames" uid="uid://c8pc0cx3ymlfk" path="res://scenes/player_anims.tres" id="2_ed8oj"]
@@ -7,11 +7,16 @@
 [ext_resource type="Script" path="res://Game Components/UI_Elements/character screen/character_info.gd" id="5_2ad3x"]
 [ext_resource type="Texture2D" uid="uid://b0kmobajmfp4n" path="res://Sprites/textures/rainfall.png" id="8_v2vqm"]
 [ext_resource type="FontFile" uid="uid://cn8h0j1rg426y" path="res://Game Components/fonts/GhoulFriAOE.ttf" id="9_wbp7e"]
+[ext_resource type="Script" path="res://scripts/quick_slot_prompt_display_switch.gd" id="12_2xj0b"]
 [ext_resource type="Texture2D" uid="uid://dv34tx3iqtg2a" path="res://Game Components/UI_Elements/character screen/base_book.png" id="12_4q3lk"]
 [ext_resource type="PackedScene" uid="uid://2of3o36sd6rq" path="res://Game Components/Inventory/inventory_GUI.tscn" id="13_cjqps"]
+[ext_resource type="Texture2D" uid="uid://yfl18841n3fc" path="res://Game Components/UI_Elements/prompts/tile_0308.png" id="13_g6mmv"]
+[ext_resource type="Texture2D" uid="uid://jnlhyt78d7be" path="res://Game Components/UI_Elements/prompts/tile_0309.png" id="14_pnvyd"]
 [ext_resource type="PackedScene" uid="uid://5v2qsot5igdu" path="res://Game Components/UI_Elements/quest log components/quest_log.tscn" id="14_xc3j5"]
 [ext_resource type="LabelSettings" uid="uid://rpr4y5q5ktko" path="res://char_info.tres" id="15_oq2cw"]
 [ext_resource type="PackedScene" uid="uid://br5mlw81bvnnl" path="res://Game Components/UI_Elements/combat/quick_slots.tscn" id="15_ps5bq"]
+[ext_resource type="Texture2D" uid="uid://d1t4je0end326" path="res://Game Components/UI_Elements/prompts/tile_0306.png" id="15_rwxv8"]
+[ext_resource type="Texture2D" uid="uid://c8oyx3v0etlc8" path="res://Game Components/UI_Elements/prompts/tile_0307.png" id="16_4ql2k"]
 [ext_resource type="PackedScene" uid="uid://cwolc4dutryab" path="res://Game Components/tutorials/tutorials pop up.tscn" id="16_ekmb0"]
 [ext_resource type="PackedScene" uid="uid://c8skkvcn0ci81" path="res://Game Components/UI_Elements/Talent Tree/talentTree.tscn" id="16_unwu1"]
 [ext_resource type="PackedScene" uid="uid://d010sb0bdrwv5" path="res://Game Components/Shop/shop.tscn" id="17_3neu2"]
@@ -249,6 +254,7 @@ offset_right = -192.0
 offset_bottom = -128.0
 
 [node name="character_info" type="Node2D" parent="HUD"]
+visible = false
 z_index = 2
 y_sort_enabled = true
 position = Vector2(43.0405, -15.7506)
@@ -348,7 +354,13 @@ text = "Item Slots"
 label_settings = ExtResource("15_oq2cw")
 horizontal_alignment = 1
 
-[node name="keyboard_slot_labels" type="Control" parent="HUD/character_info/Quick Slots"]
+[node name="quick_slot_prompt_display_switch" type="Control" parent="HUD/character_info/Quick Slots"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_2xj0b")
+
+[node name="keyboard_slot_labels" type="Control" parent="HUD/character_info/Quick Slots/quick_slot_prompt_display_switch"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 171.96
@@ -356,7 +368,7 @@ offset_top = -274.249
 offset_right = 211.96
 offset_bottom = -234.249
 
-[node name="quick_slots1_label" type="Label" parent="HUD/character_info/Quick Slots/keyboard_slot_labels"]
+[node name="quick_slots1_label" type="Label" parent="HUD/character_info/Quick Slots/quick_slot_prompt_display_switch/keyboard_slot_labels"]
 texture_filter = 4
 layout_mode = 0
 offset_left = -183.96
@@ -367,7 +379,7 @@ text = "1"
 label_settings = ExtResource("15_oq2cw")
 horizontal_alignment = 1
 
-[node name="quick_slots1_label2" type="Label" parent="HUD/character_info/Quick Slots/keyboard_slot_labels"]
+[node name="quick_slots1_label2" type="Label" parent="HUD/character_info/Quick Slots/quick_slot_prompt_display_switch/keyboard_slot_labels"]
 texture_filter = 4
 layout_mode = 0
 offset_left = -144.0
@@ -378,7 +390,7 @@ text = "2"
 label_settings = ExtResource("15_oq2cw")
 horizontal_alignment = 1
 
-[node name="quick_slots1_label3" type="Label" parent="HUD/character_info/Quick Slots/keyboard_slot_labels"]
+[node name="quick_slots1_label3" type="Label" parent="HUD/character_info/Quick Slots/quick_slot_prompt_display_switch/keyboard_slot_labels"]
 texture_filter = 4
 layout_mode = 0
 offset_left = -105.0
@@ -389,7 +401,7 @@ text = "3"
 label_settings = ExtResource("15_oq2cw")
 horizontal_alignment = 1
 
-[node name="quick_slots1_label4" type="Label" parent="HUD/character_info/Quick Slots/keyboard_slot_labels"]
+[node name="quick_slots1_label4" type="Label" parent="HUD/character_info/Quick Slots/quick_slot_prompt_display_switch/keyboard_slot_labels"]
 texture_filter = 4
 layout_mode = 0
 offset_left = -64.0
@@ -399,6 +411,48 @@ offset_bottom = 331.249
 text = "4"
 label_settings = ExtResource("15_oq2cw")
 horizontal_alignment = 1
+
+[node name="gamepad_slot_labels" type="Control" parent="HUD/character_info/Quick Slots/quick_slot_prompt_display_switch"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 171.96
+offset_top = -274.249
+offset_right = 211.96
+offset_bottom = -234.249
+
+[node name="TextureRect" type="TextureRect" parent="HUD/character_info/Quick Slots/quick_slot_prompt_display_switch/gamepad_slot_labels"]
+layout_mode = 0
+offset_left = -163.0
+offset_top = 307.0
+offset_right = -147.0
+offset_bottom = 323.0
+texture = ExtResource("13_g6mmv")
+
+[node name="TextureRect2" type="TextureRect" parent="HUD/character_info/Quick Slots/quick_slot_prompt_display_switch/gamepad_slot_labels"]
+layout_mode = 0
+offset_left = -123.001
+offset_top = 307.0
+offset_right = -107.001
+offset_bottom = 323.0
+texture = ExtResource("14_pnvyd")
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/character_info/Quick Slots/quick_slot_prompt_display_switch/gamepad_slot_labels"]
+layout_mode = 0
+offset_left = -82.9557
+offset_top = 307.08
+offset_right = -66.9557
+offset_bottom = 323.08
+texture = ExtResource("15_rwxv8")
+
+[node name="TextureRect4" type="TextureRect" parent="HUD/character_info/Quick Slots/quick_slot_prompt_display_switch/gamepad_slot_labels"]
+layout_mode = 0
+offset_left = -43.1107
+offset_top = 307.056
+offset_right = -27.1107
+offset_bottom = 323.056
+texture = ExtResource("16_4ql2k")
 
 [node name="Node" type="Node" parent="HUD/character_info/Quick Slots"]
 
@@ -439,7 +493,6 @@ offset_bottom = -100.0
 visible = false
 
 [node name="TalentTree" parent="HUD" instance=ExtResource("16_unwu1")]
-visible = false
 offset_left = -80.0
 offset_top = -120.0
 offset_right = 104.0
@@ -480,6 +533,25 @@ offset_top = -56.0
 offset_right = -16.0
 offset_bottom = -68.0
 title = "Quest Log"
+
+[node name="Skills & Traits" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
+visible = false
+layout_mode = 1
+offset_left = -40.0
+offset_top = -64.0
+offset_right = -48.0
+offset_bottom = -76.0
+title = "Skills & Traits"
+next_title = "Skill Slots"
+
+[node name="Skill Slots" parent="HUD/tutorials" instance=ExtResource("16_ekmb0")]
+visible = false
+layout_mode = 1
+offset_left = -188.0
+offset_top = -96.0
+offset_right = -196.0
+offset_bottom = -108.0
+title = "Skill Slots"
 
 [node name="Weather" type="GPUParticles2D" parent="."]
 z_index = 1

@@ -25,6 +25,7 @@ extends Node2D
 @onready var chosen_spell_dmg: Label = $combatUI/combat/chosen_spell_dmg
 @onready var chosen_spell: Label = $combatUI/combat/chosen_spell_label
 @onready var chosen_spell_text: String = chosen_spell.text
+@onready var current_spell: String = State.spell1
 @onready var instruct: Label = $instruct
 @onready var turn_sign: Label = $turn_sign
 @onready var casts_left: int = State.casts:
@@ -172,9 +173,10 @@ func _ready():
 
 
 func _process(delta):	
-	chosen_spell.text = State.spell1
-	chosen_spell_desc.text = State["spell_book"][State.spell1]["description"]
-	chosen_spell_dmg.text = str("Damage: ",State["spell_book"][State.spell1]["damage"])
+	chosen_spell.text = State.current_spell
+	print(State["spell_book"][State.current_spell]["description"])
+	chosen_spell_desc.text = State["spell_book"][State.current_spell]["description"]
+	chosen_spell_dmg.text = str("Damage: ",State["spell_book"][State.current_spell]["damage"])
 	if chosen_spell_desc.visible_characters > -1:
 		chosen_spell_desc.visible_characters = -1
 	
@@ -226,23 +228,23 @@ func castSpell() -> int:
 	var damage: int
 	var crit_chance = State.crit_chance
 	var life_drain: float = 0.0
-	var type: String = spells[State.spell1]["type"]
+	var type: String = spells[State.current_spell]["type"]
 	var preResists = 0
 	
 	#check for attacks
-	if spells[State.spell1]["class"]=="attack":
-		damage += spells[State.spell1]["damage"]
+	if spells[State.current_spell]["class"]=="attack":
+		damage += spells[State.current_spell]["damage"]
 		combatTextUpdate(str("You cast ", State.spell1))
 		
 	# check for summon spells
-	elif spells[State.spell1]["class"] == "summon":
+	elif spells[State.current_spell]["class"] == "summon":
 		pet.summoned = true
-		pet.play(State.spell1)
+		pet.play(State.current_spell)
 		combatTextUpdate(str("You summoned ",State.spell1))
 		
 	# check for defensive spells
-	elif spells[State.spell1]["class"]=="defend":
-		match spells[State.spell1]["name"]:
+	elif spells[State.current_spell]["class"]=="defend":
+		match spells[State.current_spell]["name"]:
 			"Sanguinated Shell":
 				shielded = true
 				shield_for = 3
@@ -250,8 +252,8 @@ func castSpell() -> int:
 				defend.show()
 
 	# check for field spells
-	elif spells[State.spell1]["class"]=="field":
-		combatTextUpdate(str(State.spell1, " transforms the battlefield"))
+	elif spells[State.current_spell]["class"]=="field":
+		combatTextUpdate(str(State.current_spell, " transforms the battlefield"))
 		match type:
 			"blood": 
 				bloodMoon = true
@@ -268,15 +270,15 @@ func castSpell() -> int:
 			poisoned_for = 3 
 			combatTextUpdate(str(enemy.enemy_type," is poisoned"))
 		"Void":
-			if State.spell1 == "Hollowed Threats":
+			if State.current_spell == "Hollowed Threats":
 				attack_reduced_by = 0.2
 				attack_reduced_for = 3
 				combatTextUpdate(str(enemy.enemy_type,"'s strength reduced"))
-			elif State.spell1 == "Void Sight":
+			elif State.current_spell == "Void Sight":
 				enemy_hit_chance -= 0.2
 				hit_lowered_for = 3
 				combatTextUpdate(str(enemy.enemy_type,"'s accuracy reduced"))
-			elif State.spell1 == "Vapid Affliction":
+			elif State.current_spell == "Vapid Affliction":
 				confused = true
 				combatTextUpdate(str(enemy.enemy_type," may forget to attack"))
 
@@ -592,24 +594,24 @@ func _on_return_pressed():
 func _on_onepunch_pressed():
 	
 	if casts_left > 0 :
-		if yourTurn && State.spell1 != '' && is_casting == false:
+		if yourTurn && State.current_spell != '' && is_casting == false:
 			sound.set_stream(confirm)
 			sound.play()
 			Input.start_joy_vibration(0,0.9,0.5,0.1)
 			is_casting = true
-			if spells[State.spell1]["class"]  == "attack" and pet.summoned == true:
+			if spells[State.current_spell]["class"]  == "attack" and pet.summoned == true:
 				spellTexture.show()
 				pet_spells.show()
-				pet_spells.play(State.spell1)
-				spellTexture.play(State.spell1)
+				pet_spells.play(State.current_spell)
+				spellTexture.play(State.current_spell)
 				spellAnimation.play("spell cast")
 				await get_tree().create_timer(1).timeout
 				enemy_damage_sound_player() 
 				spellTexture.hide()
 				pet_spells.hide()
-			elif spells[State.spell1]["class"]  == "attack":
+			elif spells[State.current_spell]["class"]  == "attack":
 				spellTexture.show()
-				spellTexture.play(State.spell1)
+				spellTexture.play(State.current_spell)
 				spellAnimation.play("spell cast")
 				await get_tree().create_timer(1).timeout		
 				enemy_damage_sound_player() 

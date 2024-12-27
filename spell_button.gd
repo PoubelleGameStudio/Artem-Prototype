@@ -65,25 +65,26 @@ func _on_focus_entered():
 			sound.play()
 		selected.show()
 		Input.start_joy_vibration(0,0.9,0.5,0.1)
-
+	elif page_name == "talents" and State.control_schema == "mkb":
+		$spell_name.show()
 
 func _on_focus_exited():
 	selected.hide()
+	$spell_name.hide()
 
 
 func _on_pressed():
 	if page_name != "talents":
 		sound.set_stream(confirm)
 		sound.play()
-		State.spell1 = spell_icon
+		State.current_spell = spell_icon
 	
 
 
 func _on_mouse_entered():
-	if page_name == "talents":
+	if page_name == "talents" and State.control_schema == "mkb":
 		$spell_name.show()
 	print("mouse entered")
-	pass # grab_focus()
 
 
 func _on_mouse_exited():

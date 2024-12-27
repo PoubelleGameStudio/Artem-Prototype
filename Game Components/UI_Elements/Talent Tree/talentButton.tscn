@@ -38,6 +38,7 @@ width = 5.0
 default_color = Color(0.270588, 0.278431, 0.215686, 1)
 
 [node name="select" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 0.12549, 1, 1)
 position = Vector2(15.8298, 15.6338)
 texture = ExtResource("2_ltija")

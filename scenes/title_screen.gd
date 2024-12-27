@@ -137,12 +137,11 @@ func load_player() -> void:
 	State.prev_scene = playerData.prev_scene
 	State.engaging = playerData.engaging
 	State.spell1 = playerData.spell1
-	#State.helm = playerData.helm
-	#State.chest = playerData.chest
-	#State.gloves = playerData.gloves
-	#State.pants = playerData.pants
-	#State.boots = playerData.boots
-	#State.weapon = playerData.weapon
+	State.spell2 = playerData.spell2
+	State.spell3 = playerData.spell3
+	State.spell4 = playerData.spell4
+	State.spell5 = playerData.spell5
+	State.spell6 = playerData.spell6
 	State.health = playerData.health
 	State.maxHealth = playerData.maxHealth
 	State.bonusMaxHealth = playerData.bonusMaxHealth

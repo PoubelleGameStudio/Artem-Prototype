@@ -31,10 +31,8 @@ func _ready():
 		if !self.icon:
 			self.icon = load(str(art_path,talentName,".png"))
 	
-	if State.level >= required_level:
-		selected_icon.show()
-
-	print(str(talentName,":",get_node("../../../../../../")))
+	#if State.level >= required_level:
+		#selected_icon.show()
 
 
 func _process(delta):
@@ -78,7 +76,7 @@ func spell_assign(slot: int) -> void:
 			4:
 				State.spell4 = talentName
 				$"../../../../../info_margin/info_vbox/GridContainer/Spell4".spell_icon = State.spell4
-				$"../../../../../info_margin/info_vbox/GridContainer/Spell4/Label".text = State.spell4
+				$"../../../../../info_margin/info_vbox/GridContainer/Spell4//Label".text = State.spell4
 			5:
 				State.spell5 = talentName
 				$"../../../../../info_margin/info_vbox/GridContainer/Spell5".spell_icon = State.spell5
@@ -90,8 +88,12 @@ func spell_assign(slot: int) -> void:
 	
 	
 func _on_focus_entered():
-	pass#$Panel.show()
+	$select.show()
 
 
 func _on_focus_exited():
-	pass#$Panel.hide()
+	$select.hide()
+
+
+func _on_mouse_entered():
+	grab_focus()

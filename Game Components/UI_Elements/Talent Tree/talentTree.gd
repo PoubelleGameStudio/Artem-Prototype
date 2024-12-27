@@ -172,6 +172,14 @@ func _on_hp_1_pressed():
 
 
 
+func _on_hp_1_focus_entered():
+	TalentName.text = hp.talentName
+	TalentDesc.text = hp.description
+	TalentType.text = str("Type: ",hp.talentType)
+	lvl_req.text = str("Unlock at level: ",hp.required_level)
+
+
+
 func _on_shield_pressed():
 	TalentName.text = shield.talentName
 	TalentDesc.text = shield.description
@@ -179,7 +187,22 @@ func _on_shield_pressed():
 	lvl_req.text = str("Unlock at level: ",shield.required_level)
 
 
+
+func _on_shield_focus_entered():
+	TalentName.text = shield.talentName
+	TalentDesc.text = shield.description
+	TalentType.text = str("Type: ",shield.talentType)
+	lvl_req.text = str("Unlock at level: ",shield.required_level)
+
+
+
 func _on_extra_action_pressed():
+	TalentName.text = extra_cast.talentName
+	TalentDesc.text = extra_cast.description
+	TalentType.text = str("Type: ",extra_cast.talentType)
+	lvl_req.text = str("Unlock at level: ",extra_cast.required_level)
+	
+func _on_extra_action_focus_entered():
 	TalentName.text = extra_cast.talentName
 	TalentDesc.text = extra_cast.description
 	TalentType.text = str("Type: ",extra_cast.talentType)
@@ -187,7 +210,16 @@ func _on_extra_action_pressed():
 
 
 
+
 func _on_attack_pressed():
+	TalentName.text = attack.talentName
+	TalentDesc.text = attack.description
+	TalentType.text = str("Type: ",attack.talentType)
+	lvl_req.text = str("Unlock at level: ",attack.required_level)
+
+
+
+func _on_attack_focus_entered():
 	TalentName.text = attack.talentName
 	TalentDesc.text = attack.description
 	TalentType.text = str("Type: ",attack.talentType)
@@ -203,7 +235,23 @@ func _on_sacred_kindling_pressed():
 
 
 
+func _on_sacred_kindling_focus_entered():
+	TalentName.text = kindling.talentName
+	TalentDesc.text = kindling.description
+	TalentType.text = str("Type: ",kindling.talentType)
+	lvl_req.text = str("Unlock at level: ",kindling.required_level)
+
+
+
 func _on_curse_pressed():
+	TalentName.text = curse.talentName
+	TalentDesc.text = curse.description
+	TalentType.text = str("Type: ",curse.talentType)
+	lvl_req.text = str("Unlock at level: ",curse.required_level)
+
+
+
+func _on_curse_focus_entered():
 	TalentName.text = curse.talentName
 	TalentDesc.text = curse.description
 	TalentType.text = str("Type: ",curse.talentType)
@@ -219,7 +267,23 @@ func _on_poison_swamp_pressed():
 
 
 
+func _on_poison_swamp_focus_entered():
+	TalentName.text = poison_swamp.talentName
+	TalentDesc.text = poison_swamp.description
+	TalentType.text = str("Type: ",poison_swamp.talentType)
+	lvl_req.text = str("Unlock at level: ",poison_swamp.required_level)
+
+
+
 func _on_hollowed_threats_pressed():
+	TalentName.text = hollowed_threats.talentName
+	TalentDesc.text = hollowed_threats.description
+	TalentType.text = str("Type: ",hollowed_threats.talentType)
+	lvl_req.text = str("Unlock at level: ",hollowed_threats.required_level)
+
+
+
+func _on_hollowed_threats_focus_entered():
 	TalentName.text = hollowed_threats.talentName
 	TalentDesc.text = hollowed_threats.description
 	TalentType.text = str("Type: ",hollowed_threats.talentType)
@@ -235,6 +299,14 @@ func _on_void_sight_pressed():
 	
 
 
+func _on_void_sight_focus_entered():
+	TalentName.text = void_sight.talentName
+	TalentDesc.text = void_sight.description
+	TalentType.text = str("Type: ",void_sight.talentType)
+	lvl_req.text = str("Unlock at level: ", void_sight.required_level)
+
+
+
 func _on_vapid_affliction_pressed():
 	TalentName.text = vapid_affliction.talentName
 	TalentDesc.text = vapid_affliction.description
@@ -243,13 +315,25 @@ func _on_vapid_affliction_pressed():
 		
 
 
+func _on_vapid_affliction_focus_entered():
+	TalentName.text = vapid_affliction.talentName
+	TalentDesc.text = vapid_affliction.description
+	TalentType.text = str("Type: ",vapid_affliction.talentType)
+	lvl_req.text = str("Unlock at level: ", vapid_affliction.required_level)
+
+
+
 func _on_sanguinated_shell_pressed():
 	TalentName.text = sanguinated_shell.talentName
 	TalentDesc.text = sanguinated_shell.description
 	TalentType.text = str("Type: ",sanguinated_shell.talentType)
 	lvl_req.text = str("Unlock at level: ",sanguinated_shell.required_level)
 			
-
+func _on_sanguinated_shell_focus_entered():
+	TalentName.text = sanguinated_shell.talentName
+	TalentDesc.text = sanguinated_shell.description
+	TalentType.text = str("Type: ",sanguinated_shell.talentType)
+	lvl_req.text = str("Unlock at level: ",sanguinated_shell.required_level)
 
 func _on_blood_clot_homunculus_pressed():
 	TalentName.text = blood_clot_homunculus.talentName
@@ -258,8 +342,21 @@ func _on_blood_clot_homunculus_pressed():
 	lvl_req.text = str("Unlock at level: ",blood_clot_homunculus.required_level)
 
 
+func _on_blood_clot_homunculus_focus_entered():
+	TalentName.text = blood_clot_homunculus.talentName
+	TalentDesc.text = blood_clot_homunculus.description
+	TalentType.text = str("Type: ",blood_clot_homunculus.talentType)
+	lvl_req.text = str("Unlock at level: ",blood_clot_homunculus.required_level)
+
 
 func _on_blood_moon_pressed():
+	TalentName.text = blood_moon.talentName
+	TalentDesc.text = blood_moon.description
+	TalentType.text = str("Type: ",blood_moon.talentType)
+	lvl_req.text = str("Unlock at level: ",blood_moon.required_level)
+
+
+func _on_blood_moon_focus_entered():
 	TalentName.text = blood_moon.talentName
 	TalentDesc.text = blood_moon.description
 	TalentType.text = str("Type: ",blood_moon.talentType)

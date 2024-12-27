@@ -564,7 +564,7 @@ sprite_frames = SubResource("SpriteFrames_5u345")
 script = ExtResource("3_7k25k")
 
 [node name="player" parent="." instance=ExtResource("3_x4lny")]
-position = Vector2(393.5, 156.5)
+position = Vector2(4755.83, 767.721)
 
 [node name="respawn" parent="." instance=ExtResource("6_d8wmu")]
 position = Vector2(329, 256)
@@ -680,7 +680,7 @@ id = "4"
 [node name="test_dummy" parent="enemies/Technotheist Grunt" instance=ExtResource("6_d8wmu")]
 position = Vector2(8, 41)
 scale = Vector2(3, 3)
-interact_label = "Void Squirrel"
+interact_label = "Technotheist Grunt"
 interact_type = "enemy"
 interact_value = "0"
 
@@ -694,7 +694,7 @@ id = "5"
 [node name="test_dummy" parent="enemies/Technotheist Grunt2" instance=ExtResource("6_d8wmu")]
 position = Vector2(8, 41)
 scale = Vector2(3, 3)
-interact_label = "Void Squirrel"
+interact_label = "Technotheist Grunt"
 interact_type = "enemy"
 interact_value = "0"
 
@@ -708,7 +708,7 @@ id = "7"
 [node name="test_dummy" parent="enemies/Technotheist Grunt3" instance=ExtResource("6_d8wmu")]
 position = Vector2(8, 41)
 scale = Vector2(3, 3)
-interact_label = "Void Squirrel"
+interact_label = "Technotheist Grunt"
 interact_type = "enemy"
 interact_value = "0"
 
@@ -718,7 +718,7 @@ scale = Vector2(1.25, 1.25)
 
 [node name="InteractArea" parent="gateways" instance=ExtResource("6_d8wmu")]
 position = Vector2(3472.8, 708)
-interact_label = "energy_temple.tscn"
+interact_label = "energy_temple"
 interact_type = "gateway"
 interact_value = "in"
 

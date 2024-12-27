@@ -23,6 +23,7 @@ var spell3: String = 'Sanguinated Shell'
 var spell4: String = 'Curse'
 var spell5: String = 'Void Sight'
 var spell6: String = 'Blood Clot Homunculus'
+var current_spell: String = spell1
 
 
 # player slots
@@ -56,7 +57,7 @@ var casts: int = 1
 var shield
 var cur_xp: int = 0
 var xp_to_next: int = 10
-var level: int = 20
+var level: int = 1
 var armor: int = 0 # physical resist
 var mana: int = 1  # still not sure about mana usage
 # var speed = 5
@@ -208,9 +209,13 @@ func shop_handler() -> void:
 		"text":str("This is your quest log! Check how you're progressing!")
 		,"seen":0
 	},
-	"talents_1":{
-		"text":str("Welcome to the skills and traits page! Click a skill or trait to see what it does ",
+	"Skills & Traits":{
+		"text":str("Welcome to the skills and traits page! Select a skill or trait to see what it does ",
 					"and when you will unlock it.")
+		,"seen":0
+	},
+	"Skill Slots":{
+		"text":str("Assign a skill to one of up to 6 skill slots.")
 		,"seen":0
 	}
 }
@@ -611,7 +616,7 @@ var enemies = {
 		"resists":"void",
 		"moves":{
 			"basic":10,
-			"special":75
+			"special":85
 		},
 		"drops":{
 			"Void Goop":1
@@ -633,7 +638,7 @@ var enemies = {
 		"drops":{
 			"health restore":1
 		},
-		"lore":"By all accounts ghosts are your run of the mill spirits. Often tied to the land or structure by some emotion. If they weren't so violent you could just leave them be."
+		"lore":"Your run of the mill spirit. Often tied to the land or structure by some emotion. Hit or miss on levels of violence."
 	},
 	"Technotheist Grunt":{
 		"health":55,
@@ -661,13 +666,13 @@ var enemies = {
 		"type": "void",
 		"resists":"void",
 		"moves":{
-			"basic":25,
-			"special":55
+			"basic":45,
+			"special":65
 		},
 		"drops":{
 			"health restore":5
 		},
-		"lore":"A high ranking member of the technotheist theocratic structure. Having reached a form of pure technology the ascended no longer resemble any form of human."
+		"lore":"A high ranking member of the technotheist theocratic structure. Having reached a form of pure technology, the ascended no longer encumber themselves with flesh."
 	},
 	"Sorrow Shade":{
 		"health":45,

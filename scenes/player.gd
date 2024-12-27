@@ -21,12 +21,13 @@ extends CharacterBody2D
 @onready var settings: Settings = $HUD/Settings
 @onready var pad_prompt: Resource = load("res://Game Components/UI_Elements/prompts/tile_0308.png")
 @onready var mkb_prompt: Resource = load("res://Game Components/UI_Elements/prompts/f.png")
-@onready var mkb_quick_slots_binding_label: Control = $"HUD/character_info/Quick Slots/keyboard_slot_labels"
+#@onready var mkb_quick_slots_binding_label: Control = $"HUD/character_info/Quick Slots/keyboard_slot_labels"
 @onready var sound: AudioStreamPlayer = $AudioStreamPlayer
 @onready var open_book: AudioStream = preload("res://sounds/UI/book_open_1.wav")
 @onready var close_book: AudioStream = preload("res://sounds/UI/book_close_1.wav")
 @onready var walking_sound: AudioStreamPlayer = $Walking
 @onready var journal_tutorial: Control = $HUD/tutorials/Stats
+@onready var skills_tutorial: Control = $"HUD/tutorials/Skills & Traits"
 
 var speed = 110.0
 var current_dir = "none"
@@ -50,12 +51,12 @@ func _unhandled_input(event):
 	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 		prompt.texture = pad_prompt
 		State.control_schema = "gamepad"
-		mkb_quick_slots_binding_label.hide()
+		#mkb_quick_slots_binding_label.hide()
 		
 	elif event is InputEventKey or event is InputEventMouseButton or event is InputEventMouseMotion:
 		prompt.texture = mkb_prompt
 		State.control_schema = "mkb"
-		mkb_quick_slots_binding_label.show()
+		#mkb_quick_slots_binding_label.show()
 		
 		
 		
@@ -132,6 +133,8 @@ func _physics_process(delta):
 				animation.play("hud_up")
 				sound.set_stream(open_book)
 				sound.play()
+				if State.tutorials["Skills & Traits"]["seen"] == 0:
+					skills_tutorial.populate_tutorial()
 				
 				character_screen.hide()
 				settings.hide()

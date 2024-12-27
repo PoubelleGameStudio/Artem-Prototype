@@ -25,7 +25,6 @@ y_sort_enabled = true
 position = Vector2(2, 25)
 sprite_frames = ExtResource("2_j37ek")
 animation = &"Fungalian_idle"
-frame_progress = 0.334451
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://c8skkvcn0ci81"]
+[gd_scene load_steps=58 format=3 uid="uid://c8skkvcn0ci81"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/Talent Tree/talentTree.gd" id="1_jmed0"]
 [ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
@@ -8,11 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://dpv6cisbc7uye" path="res://Game Components/UI_Elements/combat/spell_button.tscn" id="5_a3xnw"]
 [ext_resource type="FontFile" uid="uid://bwuruoih52j0f" path="res://Game Components/fonts/Caroni-Regular.otf" id="6_brv2m"]
 [ext_resource type="Texture2D" uid="uid://d11wrjcwmffb5" path="res://Sprites/combat/spell icons/Sacred Kindling.png" id="6_e6b38"]
+[ext_resource type="Texture2D" uid="uid://yfl18841n3fc" path="res://Game Components/UI_Elements/prompts/tile_0308.png" id="7_1uy56"]
 [ext_resource type="Texture2D" uid="uid://c1qyxdxyd0j4h" path="res://Sprites/combat/spell icons/Extra Action.png" id="7_dsysm"]
+[ext_resource type="Script" path="res://Game Components/UI_Elements/Talent Tree/show_gamepad_prompt.gd" id="7_uc4h1"]
 [ext_resource type="Texture2D" uid="uid://bo1o03unrmgk3" path="res://Sprites/combat/spell icons/Shield+.png" id="8_6sv8i"]
 [ext_resource type="Texture2D" uid="uid://bq5tnn7nw5kxi" path="res://Sprites/combat/spell icons/Curse - Talent.png" id="8_75706"]
 [ext_resource type="Texture2D" uid="uid://bngn30hbsucx3" path="res://Sprites/combat/spell icons/Attack+.png" id="9_k7y6d"]
+[ext_resource type="Texture2D" uid="uid://d1t4je0end326" path="res://Game Components/UI_Elements/prompts/tile_0306.png" id="9_ytov7"]
+[ext_resource type="Texture2D" uid="uid://c8oyx3v0etlc8" path="res://Game Components/UI_Elements/prompts/tile_0307.png" id="10_vwcm8"]
+[ext_resource type="Texture2D" uid="uid://djfj8ttnxgyva" path="res://Game Components/UI_Elements/prompts/tile_0585.png" id="11_lr6vo"]
 [ext_resource type="Texture2D" uid="uid://bf55ok55kpkja" path="res://Sprites/combat/spell icons/Poison Swamp - talent.png" id="12_86fet"]
+[ext_resource type="Texture2D" uid="uid://dfqsqrtatvd4d" path="res://Game Components/UI_Elements/prompts/tile_0586.png" id="12_apdl8"]
 [ext_resource type="Texture2D" uid="uid://f5ep3bwx48d4" path="res://Sprites/combat/spell icons/Hollowed Threats - talent.png" id="13_dfx5d"]
 [ext_resource type="Texture2D" uid="uid://b7txla0nj71dl" path="res://Sprites/combat/spell icons/Void Sight talent.png" id="14_roe8q"]
 [ext_resource type="Texture2D" uid="uid://dywubxvjdwo8p" path="res://Sprites/combat/spell icons/Vapid Affliction- talent.png" id="15_ado0h"]
@@ -192,17 +198,32 @@ columns = 3
 [node name="Spell1" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-mouse_filter = 1
 spell_slot = 1
 page_name = "talents"
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell1"]
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell1"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell1/Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 23.0
+offset_bottom = 45.0
+texture = ExtResource("7_1uy56")
+script = ExtResource("7_uc4h1")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell1/Control"]
 visible = false
 texture_filter = 2
 layout_mode = 0
-offset_top = -15.0
-offset_right = 32.0
-offset_bottom = 9.0
+offset_left = -1.0
+offset_top = 29.0
+offset_right = 34.0
+offset_bottom = 53.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_brv2m")
 text = "Spell 2"
@@ -210,6 +231,7 @@ text = "Spell 2"
 [node name="Spell2" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+focus_mode = 0
 spell_slot = 2
 page_name = "talents"
 
@@ -224,9 +246,20 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_brv2m")
 text = "Spell 2"
 
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 23.0
+offset_bottom = 45.0
+texture = ExtResource("7_1uy56")
+script = ExtResource("7_uc4h1")
+
 [node name="Spell3" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+focus_mode = 0
 spell_slot = 3
 page_name = "talents"
 
@@ -241,9 +274,20 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_brv2m")
 text = "Spell 2"
 
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell3"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 23.0
+offset_bottom = 45.0
+texture = ExtResource("9_ytov7")
+script = ExtResource("7_uc4h1")
+
 [node name="Spell4" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+focus_mode = 0
 spell_slot = 4
 page_name = "talents"
 
@@ -258,9 +302,20 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_brv2m")
 text = "Spell 2"
 
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell4"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 23.0
+offset_bottom = 45.0
+texture = ExtResource("10_vwcm8")
+script = ExtResource("7_uc4h1")
+
 [node name="Spell5" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+focus_mode = 0
 spell_slot = 5
 page_name = "talents"
 
@@ -275,9 +330,20 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_brv2m")
 text = "Spell 2"
 
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell5"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 23.0
+offset_bottom = 45.0
+texture = ExtResource("11_lr6vo")
+script = ExtResource("7_uc4h1")
+
 [node name="Spell6" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+focus_mode = 0
 spell_slot = 6
 page_name = "talents"
 
@@ -291,6 +357,16 @@ offset_bottom = 9.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_brv2m")
 text = "Spell 2"
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell6"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 23.0
+offset_bottom = 45.0
+texture = ExtResource("12_apdl8")
+script = ExtResource("7_uc4h1")
 
 [node name="border2" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 visible = false
@@ -601,17 +677,30 @@ horizontal_alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Extra Action" to="." method="_on_extra_action_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Extra Action" to="." method="_on_extra_action_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/HP+1" to="." method="_on_hp_1_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/HP+1" to="." method="_on_hp_1_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Shield+" to="." method="_on_shield_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Shield+" to="." method="_on_shield_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Attack+" to="." method="_on_attack_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer/Attack+" to="." method="_on_attack_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Sacred Kindling" to="." method="_on_sacred_kindling_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Sacred Kindling" to="." method="_on_sacred_kindling_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Curse" to="." method="_on_curse_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Curse" to="." method="_on_curse_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Poison Swamp" to="." method="_on_poison_swamp_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/invoke_spells/Poison Swamp" to="." method="_on_poison_swamp_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Hollowed Threats" to="." method="_on_hollowed_threats_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Hollowed Threats" to="." method="_on_hollowed_threats_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Void Sight" to="." method="_on_void_sight_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Void Sight" to="." method="_on_void_sight_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Vapid Affliction" to="." method="_on_vapid_affliction_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/Arcane_spells/Vapid Affliction" to="." method="_on_vapid_affliction_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Sanguinated Shell" to="." method="_on_sanguinated_shell_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Sanguinated Shell" to="." method="_on_sanguinated_shell_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Blood Clot Homunculus" to="." method="_on_blood_clot_homunculus_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Blood Clot Homunculus" to="." method="_on_blood_clot_homunculus_pressed"]
+[connection signal="focus_entered" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Blood Moon" to="." method="_on_blood_moon_focus_entered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/blood_spells/Blood Moon" to="." method="_on_blood_moon_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/Confirm" to="." method="_on_confirm_pressed"]

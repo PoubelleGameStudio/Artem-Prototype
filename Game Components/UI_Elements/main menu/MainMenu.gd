@@ -74,6 +74,11 @@ func save_player()-> void:
 	playerData.prev_scene = State.prev_scene
 	playerData.engaging = State.engaging
 	playerData.spell1 = State.spell1
+	playerData.spell2 = State.spell2
+	playerData.spell3 = State.spell3
+	playerData.spell4 = State.spell4
+	playerData.spell5 = State.spell5
+	playerData.spell6 = State.spell6
 	playerData.quick_slot_1 = State.quick_slot_1
 	playerData.quick_slot_2 = State.quick_slot_2
 	playerData.quick_slot_3 = State.quick_slot_3
@@ -126,6 +131,11 @@ func load_player() -> void:
 	State.prev_scene = playerData.prev_scene
 	State.engaging = playerData.engaging
 	State.spell1 = playerData.spell1
+	State.spell2 = playerData.spell2
+	State.spell3 = playerData.spell3
+	State.spell4 = playerData.spell4
+	State.spell5 = playerData.spell5
+	State.spell6 = playerData.spell6
 	State.quick_slot_1 = playerData.quick_slot_1
 	State.quick_slot_2 = playerData.quick_slot_2
 	State.quick_slot_3 = playerData.quick_slot_3

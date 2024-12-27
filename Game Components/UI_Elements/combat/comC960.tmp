@@ -440,7 +440,6 @@ offset_left = 113.0
 offset_top = 789.0
 offset_right = 497.0
 offset_bottom = 1064.0
-focus_mode = 2
 
 [node name="row1" type="HBoxContainer" parent="combatUI/spellSelect/Control/VBoxContainer"]
 layout_mode = 2
@@ -494,6 +493,7 @@ custom_minimum_size = Vector2(89.6, 89.6)
 layout_mode = 2
 focus_neighbor_left = NodePath("../Spell5")
 focus_neighbor_top = NodePath("../../row1/Spell3")
+focus_neighbor_right = NodePath("../../../../../../Quick Slots")
 focus_neighbor_bottom = NodePath("../../Blood/Blood Moon")
 metadata/_edit_use_anchors_ = true
 
@@ -693,8 +693,8 @@ layout_direction = 1
 layout_mode = 0
 offset_left = -709.0
 offset_top = -305.0
-offset_right = 1071.0
-offset_bottom = 72.0
+offset_right = 1075.0
+offset_bottom = 179.0
 
 [node name="Label4" type="Label" parent="Control/VBoxContainer"]
 visible = false
