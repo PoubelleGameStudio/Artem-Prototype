@@ -18,7 +18,7 @@ func _ready():
 	setup_button()
 
 func _process(_delta):
-	setup_button()
+	update_button()
 
 		
 
@@ -33,14 +33,41 @@ func setup_button() -> void:
 			else:
 				hide()
 	elif page_name == "talents":
+		if State.control_schema == "gamepad":
+			spell_label.hide()
+		else:
+			spell_label.show()
+		if spell_slot > 3 and State.level < 5:
+			hide()
+		else:
+			spell_label.show()
+			set_spell_from_state()
+			spell_label.text = str(spell_slot)
+			button.icon = load(str("res://Sprites/combat/spell icons/",spell_icon,".png"))
+
+
+func update_button() -> void:
+	if page_name != "talents":
+		if spell_icon:
+			if State["spell_book"][spell_icon]["learned"]==1:
+				show()
+				#spell_label.text = spell_icon
+				button.icon = load(str("res://Sprites/combat/spell icons/",spell_icon,".png"))
+			else:
+				hide()
+	elif page_name == "talents":
+		if State.control_schema == "gamepad":
+			spell_label.hide()
+		else:
+			spell_label.show()
+		
+		
 		if spell_slot > 3 and State.level < 5:
 			hide()
 		else:
 			set_spell_from_state()
-			spell_label.text = spell_icon
 			button.icon = load(str("res://Sprites/combat/spell icons/",spell_icon,".png"))
-
-
+			
 
 func set_spell_from_state():
 	match spell_slot:
@@ -51,12 +78,6 @@ func set_spell_from_state():
 		5:spell_icon = State.spell5
 		6:spell_icon = State.spell6
 
-#func _on_button_mouse_entered():
-	#selected.show()
-#
-#func _on_button_mouse_exited():
-	#selected.hide()
-
 
 func _on_focus_entered():
 	if page_name != "talents":	
@@ -66,11 +87,14 @@ func _on_focus_entered():
 		selected.show()
 		Input.start_joy_vibration(0,0.9,0.5,0.1)
 	elif page_name == "talents" and State.control_schema == "mkb":
-		$spell_name.show()
+		$spell_name.text = spell_icon
 
 func _on_focus_exited():
-	selected.hide()
-	$spell_name.hide()
+	if page_name == "talents":
+		$spell_name.text = str(spell_slot)
+	elif page_name != "talents":
+		selected.hide()
+
 
 
 func _on_pressed():
@@ -83,10 +107,13 @@ func _on_pressed():
 
 func _on_mouse_entered():
 	if page_name == "talents" and State.control_schema == "mkb":
-		$spell_name.show()
-	print("mouse entered")
+		pass
+	elif page_name != "talents":
+		selected.show()
 
 
 func _on_mouse_exited():
 	if page_name == "talents":
-		$spell_name.hide()
+		$spell_name.text = str(spell_slot)
+	elif page_name != "talents":
+		selected.hide()

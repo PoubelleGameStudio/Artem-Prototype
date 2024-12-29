@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://c8skkvcn0ci81"]
+[gd_scene load_steps=59 format=3 uid="uid://c8skkvcn0ci81"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/Talent Tree/talentTree.gd" id="1_jmed0"]
 [ext_resource type="PackedScene" uid="uid://cqpiys7r5mu" path="res://Game Components/UI_Elements/Talent Tree/talentButton.tscn" id="1_np83o"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Game Components/UI_Elements/Talent Tree/show_gamepad_prompt.gd" id="7_uc4h1"]
 [ext_resource type="Texture2D" uid="uid://bo1o03unrmgk3" path="res://Sprites/combat/spell icons/Shield+.png" id="8_6sv8i"]
 [ext_resource type="Texture2D" uid="uid://bq5tnn7nw5kxi" path="res://Sprites/combat/spell icons/Curse - Talent.png" id="8_75706"]
+[ext_resource type="Texture2D" uid="uid://jnlhyt78d7be" path="res://Game Components/UI_Elements/prompts/tile_0309.png" id="9_fkkkl"]
 [ext_resource type="Texture2D" uid="uid://bngn30hbsucx3" path="res://Sprites/combat/spell icons/Attack+.png" id="9_k7y6d"]
 [ext_resource type="Texture2D" uid="uid://d1t4je0end326" path="res://Game Components/UI_Elements/prompts/tile_0306.png" id="9_ytov7"]
 [ext_resource type="Texture2D" uid="uid://c8oyx3v0etlc8" path="res://Game Components/UI_Elements/prompts/tile_0307.png" id="10_vwcm8"]
@@ -201,12 +202,7 @@ layout_mode = 2
 spell_slot = 1
 page_name = "talents"
 
-[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell1"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell1/Control"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell1"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 7.0
@@ -216,7 +212,7 @@ offset_bottom = 45.0
 texture = ExtResource("7_1uy56")
 script = ExtResource("7_uc4h1")
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell1/Control"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell1"]
 visible = false
 texture_filter = 2
 layout_mode = 0
@@ -226,7 +222,7 @@ offset_right = 34.0
 offset_bottom = 53.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_brv2m")
-text = "Spell 2"
+text = "1"
 
 [node name="Spell2" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
 custom_minimum_size = Vector2(32, 32)
@@ -244,7 +240,7 @@ offset_right = 32.0
 offset_bottom = 9.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_brv2m")
-text = "Spell 2"
+text = "2"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell2"]
 modulate = Color(0, 0, 0, 1)
@@ -253,7 +249,7 @@ offset_left = 7.0
 offset_top = 29.0
 offset_right = 23.0
 offset_bottom = 45.0
-texture = ExtResource("7_1uy56")
+texture = ExtResource("9_fkkkl")
 script = ExtResource("7_uc4h1")
 
 [node name="Spell3" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer" instance=ExtResource("5_a3xnw")]
@@ -272,7 +268,7 @@ offset_right = 32.0
 offset_bottom = 9.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_brv2m")
-text = "Spell 2"
+text = "3"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell3"]
 modulate = Color(0, 0, 0, 1)
@@ -300,7 +296,7 @@ offset_right = 32.0
 offset_bottom = 9.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_brv2m")
-text = "Spell 2"
+text = "4"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell4"]
 modulate = Color(0, 0, 0, 1)
@@ -328,7 +324,7 @@ offset_right = 32.0
 offset_bottom = 9.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_brv2m")
-text = "Spell 2"
+text = "5"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell5"]
 modulate = Color(0, 0, 0, 1)
@@ -356,7 +352,7 @@ offset_right = 32.0
 offset_bottom = 9.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_brv2m")
-text = "Spell 2"
+text = "6"
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox/GridContainer/Spell6"]
 modulate = Color(0, 0, 0, 1)
