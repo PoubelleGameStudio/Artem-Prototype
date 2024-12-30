@@ -33,6 +33,7 @@ func _ready():
 	c_music.set_bus("Effects")
 	
 	player.camera_current()
+	State.save_player()
 	
 	if combat:
 		combat.process_mode = 4

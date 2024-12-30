@@ -7,6 +7,7 @@ extends Panel
 @onready var amountLabel = $amount
 @onready var itemArt = $itemArt
 @onready var opt_show = 0
+@onready var tooltip: TextureRect = $tooltip
 
 
 #signal
@@ -33,13 +34,15 @@ func _process(delta):
 		var artRes = load(str("res://Art/inv_Art/",item_name,".png"))
 		itemArt.show()
 		itemArt.set_texture(artRes)
-		$hoverName.text = item_name
+		$tooltip/hoverName.text = item_name
+		$tooltip/hoverDesc.text = State["items"][item_name]["description"]
 	else:
 		pass
 	
 	if amount == 0:
 		inv.erase(item_name)
-		$hoverName.text = ""
+		$tooltip/hoverName.text = ""
+		$tooltip/hoverDesc.text = ""
 		item_name = ""
 		amount -= 1
 		amountLabel.text = ""
@@ -182,12 +185,13 @@ func hover_check():
 func _on_button_mouse_entered():
 	self.has_focus()
 	$indicator.show()
-	$hoverName.show()
+	if item_name:	
+		tooltip.show()
 	
 	
 
 func _on_button_mouse_exited():
-	$hoverName.hide()
+	tooltip.hide()
 	$indicator.hide()
 
 			
@@ -195,9 +199,10 @@ func _on_button_mouse_exited():
 			
 func _on_focus_entered():
 	$indicator.show()
-	$hoverName.show()
+	if item_name:	
+		tooltip.show()
 
 
 func _on_focus_exited():
 	$indicator.hide()
-	$hoverName.hide()
+	tooltip.hide()

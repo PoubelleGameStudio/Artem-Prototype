@@ -294,7 +294,7 @@ interact_type = "enemy"
 interact_value = "0"
 
 [node name="Sorrow Shade7" parent="enemies" groups=["enemies"] instance=ExtResource("11_xhgop")]
-position = Vector2(-3648, -596)
+position = Vector2(-3736, -592)
 scale = Vector2(1.5, 1.5)
 enemy_type = "Sorrow Shade"
 emitter = 1

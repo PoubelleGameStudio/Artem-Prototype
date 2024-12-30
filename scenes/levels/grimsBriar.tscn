@@ -502,6 +502,7 @@ layer_4/name = "fence_bot"
 layer_4/y_sort_enabled = true
 
 [node name="TileMap2" type="TileMap" parent="."]
+texture_filter = 3
 tile_set = ExtResource("52_c7x4g")
 format = 2
 layer_0/name = "bugs"
@@ -552,7 +553,7 @@ position = Vector2(2146, 78)
 model = "Lamp Post - Spooky"
 
 [node name="player" parent="." instance=ExtResource("15_bf3il")]
-position = Vector2(-1107.99, -786.007)
+position = Vector2(2792.74, -449.325)
 
 [node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
 visible = false
@@ -580,12 +581,13 @@ vendor = 1
 
 [node name="InteractArea" parent="Vendors/Vendor" instance=ExtResource("18_a2bs0")]
 z_index = 1
-position = Vector2(-0.399902, 41.6)
+position = Vector2(-9.73344e-05, 18.4)
 interact_type = "vendor"
 interact_value = "0"
 
 [node name="enemies" type="Node2D" parent="."]
 y_sort_enabled = true
+texture_filter = 3
 
 [node name="executioner" parent="enemies" groups=["enemies"] instance=ExtResource("17_dt21t")]
 position = Vector2(3451, -133)

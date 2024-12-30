@@ -87,6 +87,10 @@ var combat_music_slider_value: int = 0
 var world_music_slider_value: int = 0
 var control_schema: String = "gamepad"
 
+var playerData = PlayerData.new()
+const save_dir = "user://saves/"
+var save_file = "PlayerSave.tres"
+
 
 func _ready():
 	maxHealth = baseMaxHealth + bonusMaxHealth
@@ -96,6 +100,7 @@ func _ready():
 
 func shop_handler() -> void:
 	get_node("/root/root/player").shop_handler()
+	shopping = true
 
 # talents
 @onready var t_HP: bool = false: #increase HP by 10%
@@ -506,6 +511,9 @@ func update_quest_status(quest,status) -> void:
 			inventory[item]-=int(quest_db[quest]["Items"][str(item)])
 		cur_xp += round(pow(State.level,2.5)+State.level*2)
 		level_up()
+	save_player()
+	print('autosaved game')
+
 
 
 
@@ -529,7 +537,67 @@ func check_for_new_spells() -> void:
 			spell_book[spell]["learned"] = 1
 			print("learned ",spell_book[spell])
 
-	
+
+
+# Global save hack
+func save_player()-> void:
+	playerData.welcomed = State.welcomed
+	playerData.prev_scene = State.prev_scene
+	playerData.engaging = State.engaging
+	playerData.spell1 = State.spell1
+	playerData.spell2 = State.spell2
+	playerData.spell3 = State.spell3
+	playerData.spell4 = State.spell4
+	playerData.spell5 = State.spell5
+	playerData.spell6 = State.spell6
+	playerData.quick_slot_1 = State.quick_slot_1
+	playerData.quick_slot_2 = State.quick_slot_2
+	playerData.quick_slot_3 = State.quick_slot_3
+	playerData.quick_slot_4 = State.quick_slot_4
+	#playerData.helm = State.helm
+	#playerData.chest = State.chest
+	#playerData.gloves = State.gloves
+	#playerData.pants = State.pants
+	#playerData.boots = State.boots
+	#playerData.weapon = State.weapon
+	playerData.health = State.health
+	playerData.maxHealth = State.maxHealth
+	playerData.bonusMaxHealth = State.bonusMaxHealth
+	playerData.baseMaxHealth = State.baseMaxHealth
+	playerData.cur_xp = State.cur_xp
+	playerData.xp_to_next = State.xp_to_next
+	playerData.level = State.level
+	playerData.armor = State.armor
+	playerData.crit_chance = State.crit_chance
+	playerData.rFire = State.rFire
+	playerData.rFrost = State.rFrost
+	playerData.rArcane = State.rArcane
+	playerData.rBlood = State.rBlood
+	playerData.rVoid = State.rVoid
+	playerData.gold = State.gold
+	playerData.player_inv = State.inventory
+	playerData.quest_db = State.quest_db 
+	playerData.area_enemies = State.area_enemies
+	playerData.Vendor_wares = State.Vendor_wares
+	playerData.tutorials = State.tutorials
+	playerData.t_HP = State.t_HP
+	playerData.t_attack_up = State.t_attack_up
+	playerData.t_extra_cast = State.t_extra_cast
+	playerData.t_shield = State.t_shield
+	playerData.t_kindling = State.t_kindling
+	playerData.t_curse = State.t_curse
+	playerData.t_poison_swamp = State.t_poison_swamp
+	playerData.t_hollowed_threats = State.t_hollowed_threats
+	playerData.t_void_sight = State.t_void_sight
+	playerData.t_vapid_affliction = State.t_vapid_affliction
+	playerData.t_sanguinated_shell = State.t_sanguinated_shell
+	playerData.t_blood_clot_homunculus = State.t_blood_clot_homunculus
+	playerData.t_blood_moon = State.t_blood_moon
+	playerData.world = world
+	playerData.met_stw = State.met_stw
+	ResourceSaver.save(playerData, save_dir + save_file)
+
+
 
 #control what enemies in what zone have been defeated
 var area_enemies = {
@@ -706,29 +774,53 @@ var Vendor_wares = {
 var items = {
 	"health restore":{
 		"type":"Potion",
-		"effect":60
+		"effect":60,
+		"description":"Heal yourself for 60 damage"
 	},
 	"beer":{
 		"type":"Potion",
-		"effect":20
+		"effect":20,
+		"description":"Probably shouldn't drink on the job"
 	},
-	"rip'd cd":{
+	"RIP'd CD":{
+		"description":"Definitely not a virucs lethal to techies",
 		"type":"Throwable",
 		"effect":{
 			"damage": 55
 		}
+	},
+	"Void Goop":{
+		"description":"Void squirrel droppings.",
+		"type":"quest_item"
+
+	},
+	"berries":{
+		"description":"Void squirrel droppings.",
+		"type":"quest_item"
+	},
+	"Bone Dust":{
+		"description":"Gathered from a reaper.",
+		"type":"quest_item"
+	},
+	"trash food":{
+		"description":"A grandiose critter may enjoy this.",
+		"type":"quest_item"
+	},
+	"bottle":{
+		"description":"A certain man in the woods may enjoy this.",
+		"type":"quest_item"
 	}
 }
 
 # gear rolodex
-var gear = {
-	"dagger_of_belonging":{
-		"name": "Dagger of Belonging",
-		"Description": "Once held, you can not discard the dagger until it takes a life.
-							The blade cannot be sharpened and it wears duller with every kill.
-							If you attempt to use any other weapon, you will find the dagger of 
-							belonging suddenly plunged deep in the center of your heart.",
-		"Damage": 1,
-		"type": "dagger"
-	}
-}
+#var gear = {
+	#"dagger_of_belonging":{
+		#"name": "Dagger of Belonging",
+		#"Description": "Once held, you can not discard the dagger until it takes a life.
+							#The blade cannot be sharpened and it wears duller with every kill.
+							#If you attempt to use any other weapon, you will find the dagger of 
+							#belonging suddenly plunged deep in the center of your heart.",
+		#"Damage": 1,
+		#"type": "dagger"
+	#}
+#}

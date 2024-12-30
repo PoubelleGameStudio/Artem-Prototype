@@ -78,14 +78,14 @@ func _physics_process(delta):
 	
 	if !State.combat:
 		if Input.is_action_just_pressed("pause"):
-			if settings.visible == true:
+			if settings.visible == true and !State.shopping:
 				animation.play("hud_down")
 				sound.set_stream(close_book)
 				sound.play()
 				await get_tree().create_timer(0.5).timeout
 				settings.hide()
 				State.can_walk = true
-			else:
+			elif !State.shopping:
 				State.can_walk = false
 				talents.hide()
 				character_screen.hide()
@@ -97,14 +97,14 @@ func _physics_process(delta):
 				await get_tree().create_timer(0.5).timeout	
 
 		if Input.is_action_just_pressed("character_screen"):
-			if character_screen.visible == true:
+			if character_screen.visible == true and !State.shopping:
 				animation.play("hud_down")
 				sound.set_stream(close_book)
 				sound.play()
 				await get_tree().create_timer(0.5).timeout
 				character_screen.visible = false
 				State.can_walk = true
-			else:
+			elif !State.shopping:
 				State.can_walk = false
 				talents.hide()
 				settings.hide()
@@ -121,14 +121,14 @@ func _physics_process(delta):
 					journal_tutorial.populate_tutorial()
 		
 		if Input.is_action_just_pressed("Talents"):
-			if talents.visible == true:
+			if talents.visible == true and !State.shopping:
 				animation.play("hud_down")
 				sound.set_stream(close_book)
 				sound.play()
 				await get_tree().create_timer(0.5).timeout
 				talents.visible = false
 				State.can_walk = true
-			else:
+			elif !State.shopping:
 				State.can_walk = false
 				animation.play("hud_up")
 				sound.set_stream(open_book)
@@ -243,7 +243,6 @@ func execute_interaction():
 			"vendor":
 				if State.talking == 0:
 					State.talking = 1
-					State.shopping = true
 					cur_interaction.talk(str("res://Game Components/dialogue/NPC/",
 					cur_interaction.get_parent().sprite,".dialogue"))
 			"dialogue":
