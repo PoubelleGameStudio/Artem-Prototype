@@ -77,3 +77,9 @@ func _on_ripd_cd_mouse_entered():
 func _on_button_pressed():
 	exit.emit()
 	print("leave shop")
+
+
+func _on_coffin_nails_mouse_entered():
+	$Sprite2D/buy/VBoxContainer/GridContainer/coffin_nails.grab_focus()
+	item_name.text = str($Sprite2D/buy/VBoxContainer/GridContainer/coffin_nails.item_name)
+	item_desc.text = str("Use: ",$Sprite2D/buy/VBoxContainer/GridContainer/coffin_nails.item_desc)

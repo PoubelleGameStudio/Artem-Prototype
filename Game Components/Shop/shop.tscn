@@ -80,12 +80,12 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 32
-columns = 4
+columns = 5
 
 [node name="Health restore" parent="Sprite2D/buy/VBoxContainer/GridContainer" instance=ExtResource("3_2mlms")]
 layout_mode = 2
 focus_neighbor_right = NodePath("../Health restore2")
-focus_neighbor_bottom = NodePath("../../Button")
+focus_neighbor_bottom = NodePath("../coffin_nails")
 item_name = "health restore"
 item_cost = 10
 item_desc = "Heals for a large amount of health"
@@ -115,6 +115,13 @@ focus_neighbor_bottom = NodePath("../../Button")
 item_name = "RIP'd CD"
 item_cost = 20
 item_desc = "Absolutley not malicious software that would reduce Technotheist health by 45 points"
+
+[node name="coffin_nails" parent="Sprite2D/buy/VBoxContainer/GridContainer" instance=ExtResource("3_2mlms")]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../Button")
+item_name = "Coffin Nails"
+item_cost = 5
+item_desc = "Ethically sourced coffin nails. Throw at spirits to inflict high damage."
 
 [node name="Button" type="Button" parent="Sprite2D/buy/VBoxContainer"]
 layout_mode = 2
@@ -180,4 +187,6 @@ stream = ExtResource("7_kkgox")
 [connection signal="mouse_entered" from="Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd" to="." method="_on_ripd_cd_mouse_entered"]
 [connection signal="pressed" from="Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd" to="." method="_on_ripd_cd_pressed"]
 [connection signal="updateGold" from="Sprite2D/buy/VBoxContainer/GridContainer/ripd_cd" to="." method="_on_ripd_cd_update_gold"]
+[connection signal="mouse_entered" from="Sprite2D/buy/VBoxContainer/GridContainer/coffin_nails" to="." method="_on_coffin_nails_mouse_entered"]
+[connection signal="updateGold" from="Sprite2D/buy/VBoxContainer/GridContainer/coffin_nails" to="." method="_on_ripd_cd_update_gold"]
 [connection signal="pressed" from="Sprite2D/buy/VBoxContainer/Button" to="." method="_on_button_pressed"]

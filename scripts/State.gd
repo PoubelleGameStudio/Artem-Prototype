@@ -783,10 +783,24 @@ var items = {
 		"description":"Probably shouldn't drink on the job"
 	},
 	"RIP'd CD":{
-		"description":"Definitely not a virucs lethal to techies",
+		"description":"Definitely not a virus lethal to techies",
 		"type":"Throwable",
 		"effect":{
 			"damage": 55
+		}
+	},
+	"Coffin Nails":{
+		"description":"Ethically sourced coffin nails. Throw at spirits to inflict high damage.",
+		"type":"Throwable",
+		"effect":{
+			"damage": 55
+		}
+	},
+	"Void Nut":{
+		"description":"Just what a void squirrel wants. Toss it and watch them run away after it.",
+		"type":"Throwable",
+		"effect":{
+			"damage": 25
 		}
 	},
 	"Void Goop":{

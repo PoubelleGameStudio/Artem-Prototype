@@ -564,9 +564,22 @@ func item_use(item) -> void :
 						quick_slots.setup()
 					casts_left -= 1
 					combatTextUpdate("You healed for 45 HP")
-
-
-				
+			"Coffin Nails" :
+				if enemy.faction == "Spirit" :
+					enemy.updateHealth(55)
+					eHealth.value = enemy.health
+					eHealth_label.text = str("HP: ",enemy.health)
+					casts_left -= 1
+					State.inventory[item] -= 1
+					combatTextUpdate(str("Coffin Nails damaged ",enemy.enemy_type," for 55"))
+			"Void Nut" :
+				if enemy.enemy_type == "Void Squirrel" :
+					enemy.updateHealth(55)
+					eHealth.value = enemy.health
+					eHealth_label.text = str("HP: ",enemy.health)
+					casts_left -= 1
+					State.inventory[item] -= 1
+					combatTextUpdate(str("The Void Squirrel chased after the nut!"))
 			"RIP'd CD" :
 				if enemy.faction == "Technotheist" :
 					enemy.updateHealth(45)
@@ -645,7 +658,6 @@ func _on_quick_slots_slot_1_used():
 func _on_quick_slots_slot_2_used():
 	if yourTurn:
 		item_use(State.quick_slot_2)
-
 
 
 func _on_quick_slots_slot_3_used():
