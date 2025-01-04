@@ -825,6 +825,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Actions Per Turn" parent="tutorials" node_paths=PackedStringArray("node_to_focus") instance=ExtResource("29_8iuv1")]
+visible = false
 layout_mode = 1
 offset_left = 497.0
 offset_top = 153.0

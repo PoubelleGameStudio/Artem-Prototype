@@ -57,7 +57,7 @@ var casts: int = 1
 var shield
 var cur_xp: int = 0
 var xp_to_next: int = 10
-var level: int = 1
+var level: int = 20
 var armor: int = 0 # physical resist
 var mana: int = 1  # still not sure about mana usage
 # var speed = 5
@@ -192,14 +192,14 @@ func shop_handler() -> void:
 			spell_book["Blood Moon"]["learned"] = 1
 
 @onready var tutorials: Dictionary = {
-	"Welcome!":{
-		"text":str("Welcome to The Watcher's Curse demo! Pres ESC on your keyboard",
-					" or START on your gamepad to see controls. In this demo you'll play through",
-					" one of the many quest narratives from the full version of the game. Take your",
-					" time exploring and reveal the true evil closing in on Artem. Enjoy :)"
-				)
-		,"seen":0
-		},
+	#"Welcome!":{
+		#"text":str("Welcome to The Watcher's Curse demo! Pres ESC on your keyboard",
+					#" or START on your gamepad to see controls. In this demo you'll play through",
+					#" one of the many quest narratives from the full version of the game. Take your",
+					#" time exploring and reveal the true evil closing in on Artem. Enjoy :)"
+				#)
+		#,"seen":0
+		#},
 	"Stats":{
 		"text":str("These are your stats! Check your health, gold, level, and XP here.")
 		,"seen":0

@@ -17,7 +17,11 @@ func _ready():
 func _process(delta):
 	if get_viewport().gui_get_focus_owner():
 		if get_viewport().gui_get_focus_owner().name != "close_button" and self.visible:
+			print(get_viewport().gui_get_focus_owner().get_parent().name)
 			close_button.grab_focus()
+			print("grabbing")
+	
+
 	
 
 func populate_tutorial() -> void:

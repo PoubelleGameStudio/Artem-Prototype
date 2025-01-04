@@ -56,8 +56,10 @@ extends Node2D
 			poisoned_for = value
 			if value > 0:
 				poisonedText = str("Poisoned x",poisoned_for," ")
+				statusEffect.text = burningText + poisonedText
 			else:
 				poisonedText = ""
+				statusEffect.text = burningText + poisonedText
 @onready var poisonedText: String
 @onready var spellAnimation: AnimationPlayer = $spellEffects
 @onready var spellTexture: AnimatedSprite2D = $"spell effect"
@@ -153,7 +155,8 @@ var rng = RandomNumberGenerator.new()
 
 
 func _ready():
-	tut1.populate_tutorial()
+	if tut1:
+		tut1.populate_tutorial()
 	
 	player.play("idle")
 	buff_label.text = ''
@@ -171,6 +174,7 @@ func _ready():
 	statusEffect.text = burningText + poisonedText
 	
 	set_spells()
+	State.current_spell = State.spell1
 	chosen_spell_desc.visible_characters = -1
 
 

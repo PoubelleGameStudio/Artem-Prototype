@@ -61,6 +61,9 @@ func _unhandled_input(event):
 		
 		
 func _physics_process(delta):
+	#if get_viewport().gui_get_focus_owner():
+		#if get_viewport().gui_get_focus_owner().get_parent():
+			#print(get_viewport().gui_get_focus_owner().get_parent())
 	if State.is_raining == 0:
 		rain.hide()
 	else:

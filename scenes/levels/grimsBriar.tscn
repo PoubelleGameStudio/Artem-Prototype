@@ -461,6 +461,17 @@ script = ExtResource("1_a3bhj")
 is_raining = 1
 level_name = "grimsBriar"
 
+[node name="player" parent="." instance=ExtResource("15_bf3il")]
+position = Vector2(3238.83, 54.1052)
+
+[node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
+visible = false
+offset_left = -97.51
+offset_top = -142.858
+offset_right = -97.51
+offset_bottom = -142.858
+title = "Welcome!"
+
 [node name="Fog" type="TextureRect" parent="."]
 z_index = 1
 texture_filter = 4
@@ -569,17 +580,6 @@ model = "Lamp Post - Spooky"
 visible = false
 position = Vector2(2146, 78)
 model = "Lamp Post - Spooky"
-
-[node name="player" parent="." instance=ExtResource("15_bf3il")]
-position = Vector2(-1136.28, -775)
-
-[node name="tutorials" parent="player" instance=ExtResource("35_mit16")]
-visible = false
-offset_left = -97.51
-offset_top = -142.858
-offset_right = -97.51
-offset_bottom = -142.858
-title = "Welcome!"
 
 [node name="combatScreen" parent="." instance=ExtResource("36_v2jdf")]
 process_mode = 4
