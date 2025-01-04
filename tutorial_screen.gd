@@ -2,25 +2,22 @@ extends Control
 
 @export var title: String
 @export var next_title: String
+@export var node_to_focus: Button
+
 @onready var title_label: Label = $PanelContainer/MarginContainer/VBoxContainer/title
 @onready var text_label: Label = $PanelContainer/MarginContainer/VBoxContainer/text
 @onready var close_button: Button = $PanelContainer/MarginContainer/VBoxContainer/close_button
 
-
+signal return_focus
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
-	
-	#if title == "Welcome!" and State.tutorials[title]["seen"] == 0:
-		#populate_tutorial()
-		#close_button.grab_focus()
 
 func _process(delta):
 	if get_viewport().gui_get_focus_owner():
 		if get_viewport().gui_get_focus_owner().name != "close_button" and self.visible:
 			close_button.grab_focus()
-			print(get_viewport().gui_get_focus_owner().name)
 	
 
 func populate_tutorial() -> void:
@@ -36,4 +33,9 @@ func _on_button_pressed():
 		get_node(str("../",next_title)).populate_tutorial()
 		queue_free()
 	else:
-		queue_free() # Replace with function body.
+		if node_to_focus:
+			node_to_focus.grab_focus()
+		else:
+			return_focus.emit()
+			print(str(title," return focus emit"))
+		queue_free()

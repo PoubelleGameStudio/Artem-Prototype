@@ -26,7 +26,7 @@ extends Node2D
 @onready var chosen_spell: Label = $combatUI/combat/chosen_spell_label
 @onready var chosen_spell_text: String = chosen_spell.text
 @onready var current_spell: String = State.spell1
-@onready var instruct: Label = $instruct
+#@onready var instruct: Label = $instruct
 @onready var turn_sign: Label = $turn_sign
 @onready var casts_left: int = State.casts:
 	set(value):
@@ -137,7 +137,7 @@ extends Node2D
 @onready var techno_pain: AudioStream = preload("res://sounds/effects/enemy sounds/techno_pain.wav")
 @onready var burning_sound: AudioStream = preload("res://sounds/effects/enemy sounds/fire-sound-effect-designed-fire-short-swoosh-120589.mp3")
 
-
+@onready var tut1: Control = $"tutorials/Actions Per Turn"
 
 
 
@@ -153,6 +153,8 @@ var rng = RandomNumberGenerator.new()
 
 
 func _ready():
+	tut1.populate_tutorial()
+	
 	player.play("idle")
 	buff_label.text = ''
 	
@@ -174,7 +176,6 @@ func _ready():
 
 func _process(delta):	
 	chosen_spell.text = State.current_spell
-	print(State["spell_book"][State.current_spell]["description"])
 	chosen_spell_desc.text = State["spell_book"][State.current_spell]["description"]
 	chosen_spell_dmg.text = str("Damage: ",State["spell_book"][State.current_spell]["damage"])
 	if chosen_spell_desc.visible_characters > -1:
@@ -373,16 +374,14 @@ func enemyTurn():
 		
 		# handles damage reduction trait
 		if State.t_shield:
-			print("dmg reduced")
 			damageTaken *= 0.75
 
 		# handles sanguine shell
 		if shielded:
-			print(str("pre shield damage taken: ",damageTaken))
 			shield_absorbed += (damageTaken/2)
 			shield_for -= 1
 			damageTaken *= 0.7
-			print(str("adjusted damage taken: ",damageTaken))
+
 		
 		# handles hollowed threats
 		if attack_reduced_for > 0:
@@ -418,7 +417,6 @@ func enemyTurn():
 
 		pHealth.value = State.health
 		combatTextUpdate(str(enemy.enemy_type," attacked for ",int(damageTaken)))
-		print("combat log printed")
 		pHealth_label.text = str("HP ",State.health)
 		await get_tree().create_timer(1.0).timeout
 
@@ -552,7 +550,6 @@ func item_use(item) -> void :
 		match item :
 			"health restore" :
 				if State.health < State.maxHealth:
-					print("healed slightly")
 					if State.health + 45 > State.maxHealth:
 						State.health = State.maxHealth
 					else:
@@ -630,7 +627,7 @@ func _on_onepunch_pressed():
 				enemy_damage_sound_player() 
 				spellTexture.hide()
 			is_casting = false
-			instruct.hide()
+			#instruct.hide()
 			if casts_left > 0:
 				enemy.updateHealth(castSpell())
 				eHealth.value = enemy.health
@@ -643,16 +640,13 @@ func _on_enemy_combat_dead():
 	reset()
 	
 
-
 func _on_inventory_ui_item_used():
 	casts_left -= 1
 
 
 func _on_quick_slots_slot_1_used():
 	if yourTurn:
-		print(State.quick_slot_1)
 		item_use(State.quick_slot_1)
-
 
 
 func _on_quick_slots_slot_2_used():

@@ -111,14 +111,15 @@ func _physics_process(delta):
 				character_screen.visible = true
 				update_HUD()
 				$HUD/character_info/Inventory.update_input_prompt()
-				if State.control_schema == 'gamepad':
-					$HUD/character_info/Inventory.set_focus()
 				animation.play("hud_up")
 				sound.set_stream(open_book)
 				sound.play()
 				await get_tree().create_timer(0.5).timeout
+				
 				if State.tutorials["Stats"]["seen"] == 0:
 					journal_tutorial.populate_tutorial()
+				else:
+					$HUD/character_info/Inventory.set_focus()
 		
 		if Input.is_action_just_pressed("Talents"):
 			if talents.visible == true and !State.shopping:
@@ -126,19 +127,23 @@ func _physics_process(delta):
 				sound.set_stream(close_book)
 				sound.play()
 				await get_tree().create_timer(0.5).timeout
+				
 				talents.visible = false
 				State.can_walk = true
+			
 			elif !State.shopping:
 				State.can_walk = false
 				animation.play("hud_up")
 				sound.set_stream(open_book)
 				sound.play()
+				
 				if State.tutorials["Skills & Traits"]["seen"] == 0:
 					skills_tutorial.populate_tutorial()
+				else:
+					talents.set_focus()
 				
 				character_screen.hide()
 				settings.hide()
-				talents.set_focus()
 				talents.show()
 
 
@@ -398,3 +403,11 @@ func _on_shop_exit():
 	if shop.visible:
 		animation.play("hud_down")
 		State.shopping = false
+
+
+func _on_quest_log_return_focus():
+	$HUD/character_info/Inventory.set_focus()
+	print("tutorial closed. focused sent to inv 1")
+
+func _on_skill_slots_return_focus():
+	talents.set_focus()

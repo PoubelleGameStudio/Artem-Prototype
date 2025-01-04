@@ -590,3 +590,5 @@ bus = &"Effects"
 [connection signal="area_entered" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="interactionComponents/interactionArea" to="." method="_on_interaction_area_area_exited"]
 [connection signal="exit" from="HUD/shop" to="." method="_on_shop_exit"]
+[connection signal="return_focus" from="HUD/tutorials/Quest Log" to="." method="_on_quest_log_return_focus"]
+[connection signal="return_focus" from="HUD/tutorials/Skill Slots" to="." method="_on_skill_slots_return_focus"]

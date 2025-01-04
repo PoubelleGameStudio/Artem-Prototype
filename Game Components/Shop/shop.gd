@@ -83,3 +83,14 @@ func _on_coffin_nails_mouse_entered():
 	$Sprite2D/buy/VBoxContainer/GridContainer/coffin_nails.grab_focus()
 	item_name.text = str($Sprite2D/buy/VBoxContainer/GridContainer/coffin_nails.item_name)
 	item_desc.text = str("Use: ",$Sprite2D/buy/VBoxContainer/GridContainer/coffin_nails.item_desc)
+
+
+func _on_void_nut_mouse_entered():
+	$"Sprite2D/buy/VBoxContainer/GridContainer/void_nut".grab_focus()
+	item_name.text = str($"Sprite2D/buy/VBoxContainer/GridContainer/void_nut".item_name)
+	item_desc.text = str("Use: ",$"Sprite2D/buy/VBoxContainer/GridContainer/void_nut".item_desc)
+
+
+func _on_void_nut_focus_entered():
+	item_name.text = str($"Sprite2D/buy/VBoxContainer/GridContainer/void_nut".item_name)
+	item_desc.text = str("Use: ",$"Sprite2D/buy/VBoxContainer/GridContainer/void_nut".item_desc)

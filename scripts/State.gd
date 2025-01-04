@@ -207,7 +207,7 @@ func shop_handler() -> void:
 	"Quick Slots":{
 		"text":str("These are your quick slots! You can assign items from your inventory to",
 					" each slot by hovering over an item and pressing the corresponding slot",
-					" number. Controller players will need to press the corresponding d-pad direction.")
+					" number. Controller players will need to press the corresponding button.")
 		,"seen":0
 	},
 	"Quest Log":{
@@ -221,6 +221,20 @@ func shop_handler() -> void:
 	},
 	"Skill Slots":{
 		"text":str("Assign a skill to one of up to 6 skill slots.")
+		,"seen":0
+	},
+	"Casting":{
+		"text":str("Welcome to combat! Select a spell then select cast to cast that spell.")
+		,"seen":0
+	},
+	"Actions Per Turn":{
+		"text":str("Each spell costs 1 focus. For now you only get 1 focus per turn",
+					", but once you reach level 5 that increases to 2 per turn!")
+		,"seen":0
+	},
+	"Combat Items":{
+		"text":str("Throughout the game, you may pick up items that can be used during combat.",
+					" You can assign those items to your quick slots from the inventory menu and then use them here!")
 		,"seen":0
 	}
 }

@@ -14,8 +14,3 @@ func _ready():
 	light.energy = energy
 	$Sprite2D.set_texture(load(str("res://Sprites/world objects/lights/",model,".png")))
 	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-
-	pass

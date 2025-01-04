@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dc6twae4gpv87"]
+[gd_scene load_steps=42 format=3 uid="uid://dc6twae4gpv87"]
 
 [ext_resource type="Script" path="res://Game Components/UI_Elements/combat/combatScreen.gd" id="1_mxv4w"]
 [ext_resource type="PackedScene" uid="uid://c5v3gl8bbth1g" path="res://scenes/enemy.tscn" id="3_6j6h7"]
@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://4kj77c85j117" path="res://sounds/UI/pluck_REVERB.wav" id="21_xvpy8"]
 [ext_resource type="PackedScene" uid="uid://br5mlw81bvnnl" path="res://Game Components/UI_Elements/combat/quick_slots.tscn" id="25_2kcmw"]
 [ext_resource type="FontFile" uid="uid://bwuruoih52j0f" path="res://Game Components/fonts/Caroni-Regular.otf" id="26_pi8n1"]
+[ext_resource type="PackedScene" uid="uid://cwolc4dutryab" path="res://Game Components/tutorials/tutorials pop up.tscn" id="29_8iuv1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ife6u"]
 atlas = ExtResource("4_43trn")
@@ -578,6 +579,7 @@ theme_override_font_sizes/font_size = 40
 text = "Focus Remaining:"
 
 [node name="instruct" type="Label" parent="."]
+visible = false
 texture_filter = 4
 offset_left = 469.0
 offset_top = 454.0
@@ -789,6 +791,7 @@ autowrap_mode = 2
 
 [node name="Label" type="Label" parent="Control"]
 z_index = 99
+texture_filter = 2
 layout_mode = 0
 offset_left = 199.0
 offset_top = 397.0
@@ -814,6 +817,22 @@ bus = &"Effects"
 
 [node name="enemySounds" type="AudioStreamPlayer" parent="."]
 bus = &"Effects"
+
+[node name="tutorials" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Actions Per Turn" parent="tutorials" node_paths=PackedStringArray("node_to_focus") instance=ExtResource("29_8iuv1")]
+layout_mode = 1
+offset_left = 497.0
+offset_top = 153.0
+offset_right = 678.0
+offset_bottom = 267.0
+scale = Vector2(4, 4)
+title = "Actions Per Turn"
+node_to_focus = NodePath("../../combatUI/spellSelect/Control/VBoxContainer/row1/Spell1")
 
 [connection signal="pressed" from="combatUI/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="combatUI/return" to="." method="_on_return_pressed"]
