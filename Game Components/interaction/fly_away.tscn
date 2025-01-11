@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn6rj53hrw5gn"]
+
+[ext_resource type="SpriteFrames" uid="uid://6qj5grt6fv4i" path="res://scenes/enemy sprites.tres" id="1_8p8kc"]
+[ext_resource type="Script" path="res://scripts/fly_away.gd" id="2_vnfr2"]
+[ext_resource type="PackedScene" uid="uid://dito8y74tamfv" path="res://Game Components/interaction/interact.tscn" id="3_ikd0m"]
+
+[sub_resource type="Animation" id="Animation_nj62q"]
+resource_name = "fly"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1102.77, -637.803)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_yxi2l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujy0d"]
+_data = {
+"RESET": SubResource("Animation_yxi2l"),
+"fly": SubResource("Animation_nj62q")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("2_vnfr2")
+
+[node name="FlyAway" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_8p8kc")
+animation = &"crow_fly"
+frame_progress = 0.0315132
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FlyAway"]
+libraries = {
+"": SubResource("AnimationLibrary_ujy0d")
+}
+
+[node name="InteractArea" parent="FlyAway" instance=ExtResource("3_ikd0m")]
+scale = Vector2(6, 6)
+interact_type = "flyaway"

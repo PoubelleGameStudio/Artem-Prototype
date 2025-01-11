@@ -353,6 +353,9 @@ func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0,area)
 	var cur_interact = all_interactions[0]
 	
+	if cur_interact.interact_type == "flyaway":
+		area.get_parent().get_parent().fly()
+	
 	if cur_interact.interact_type == "ach":
 		SteamFeatures.setAchievement(cur_interact.interact_label)
 	
@@ -363,7 +366,10 @@ func _on_interaction_area_area_entered(area):
 			await get_tree().create_timer(.5).timeout
 			itemLabel.text = ""
 	
-	if (cur_interact.interact_type != "secret" and cur_interact.interact_type != "ach" and cur_interact.interact_type != "heal") and !State.hide_control_hints:
+	if (cur_interact.interact_type != "secret" 
+		and cur_interact.interact_type != "ach" 
+		and cur_interact.interact_type != "heal"
+		and cur_interact.interact_type != "flyaway") and !State.hide_control_hints:
 		prompt.show()
 	else:
 		prompt.hide()

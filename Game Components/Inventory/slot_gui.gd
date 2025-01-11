@@ -160,11 +160,12 @@ func hover_check():
 			
 		
 		if Input.is_action_pressed("drop_inv_item"):
-			inv.erase(item_name)
-			item_name = ""
-			amount -= 1
-			amountLabel.text = ""
-			itemArt.set_texture(null)
+			pass
+			#inv.erase(item_name)
+			#item_name = ""
+			#amount -= 1
+			#amountLabel.text = ""
+			#itemArt.set_texture(null)
 	
 		if Input.is_action_just_released("use_inv_item"):
 			if State.items.has(item_name):

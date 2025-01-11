@@ -565,6 +565,7 @@ func item_use(item) -> void :
 						quick_slots.setup()
 					casts_left -= 1
 					combatTextUpdate("You healed for 45 HP")
+
 			"Coffin Nails" :
 				if enemy.faction == "Spirit" :
 					enemy.updateHealth(55)
@@ -573,6 +574,7 @@ func item_use(item) -> void :
 					casts_left -= 1
 					State.inventory[item] -= 1
 					combatTextUpdate(str("Coffin Nails damaged ",enemy.enemy_type," for 55"))
+
 			"Void Nut" :
 				if enemy.enemy_type == "Void Squirrel" :
 					enemy.updateHealth(55)
@@ -581,6 +583,7 @@ func item_use(item) -> void :
 					casts_left -= 1
 					State.inventory[item] -= 1
 					combatTextUpdate(str("The Void Squirrel chased after the nut!"))
+
 			"RIP'd CD" :
 				if enemy.faction == "Technotheist" :
 					enemy.updateHealth(45)

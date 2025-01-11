@@ -31,10 +31,10 @@ func _ready():
 	c_music.stream = load("res://sounds/levelMusic/to battle so that we may die.wav")
 	c_music.volume_db = 0
 	c_music.set_bus("Effects")
-	
+
 	player.camera_current()
 	State.save_player()
-	
+
 	if combat:
 		combat.process_mode = 4
 		player.world = level_name
