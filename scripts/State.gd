@@ -539,6 +539,7 @@ func level_up():
 		ability_points += 1
 		xp_to_next = round(pow(level,1.8) + level*4+2)
 		baseMaxHealth += 10
+		SceneTransition.play_audio("res://sounds/effects/level_up.mp3")
 		if level % 5 == 0:
 			check_for_new_spells()
 			check_for_new_traits()

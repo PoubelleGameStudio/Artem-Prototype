@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var Splash: Sprite2D = $Control/HBoxContainer/ScreenText
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
+@onready var cursor = load("res://Game Components/UI_Elements/pen_quill.png")
+
 #scoreboard fields
 @onready var defeated: Label = $"Control/Win Screen/Enemy_name"
 @onready var loot: Label = $"Control/Win Screen/Loot"
@@ -20,6 +22,10 @@ extends CanvasLayer
 @onready var mourningFields = load("res://scenes/levels/mourningFields.tscn")
 
 signal animation_finished
+
+func _ready():
+	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, Vector2(0,50))
+	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_POINTING_HAND, Vector2(0,50))
 
 func change_scene(target: String) -> void:
 	
@@ -44,8 +50,8 @@ func fade_out() -> void:
 	print("fading out")
 	player.play_backwards('fade in')
 	
-func play_audio(track) -> void:
-	audio.set_stream(track)
+func play_audio(track: String) -> void:
+	audio.set_stream(load(track))
 	audio.play()
 
 func victory() -> void:
@@ -53,6 +59,7 @@ func victory() -> void:
 	Splash.texture = load("res://Art/TEXT/victory.png")
 	load_scoreboard()
 	player.play("victory")
+	play_audio("res://sounds/effects/Quest_Complete.mp3")
 	State.can_walk = true
 
 func load_scoreboard() -> void:

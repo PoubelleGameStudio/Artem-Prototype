@@ -10,9 +10,24 @@ Thorne: Don't piss on the walls. What can I get ya?
 	Artem: Have you considered security of some kind?
 	Thorne: Tried that. Everyone just got them shit housed. Ever tried convincing a blackout half-giant to stop railing feral pixie dust?
 	Artem: Can't say I've experienced such conditions.
-	=> greeting
+	Thorne: Best have a drink then.
+	do update_inventory("beer",1)
+	=> END
 - A drink, please.
 	Thorne: Mind you it's stronger than your common swill.
 	do update_inventory("beer",1)
 
+
+~ lore
+Artem: Why are there so many skeletons here?
+Thorne: There's only two.
+Artem: That still seems like a lot
+Thorne: Hard to tell with the mass kidnappings, but otherwise you'd notice it's hard to come by folks wanting to stand on this side of the bar. Once it's your time to go, you get a few years in the dirt. Then, it's apron on orders up. It's like paying your check in undead community service.
+Artem: How did a necromancer become a bartender?
+Thorne: Hubris of youth really. This was centuries ago now, but I went on a bit of a forsaken crusade when I turned 200. Felt like a reasonable celebration, but the hangover did come. An ambitious priest with a shiny rock and a binding blessing got the best of me.
+Artem: A crusade?
+Thorne: Yep, and the little scamp managed to get it some 200 miles into the earth. He only kinda knew what he was doing, so the binding has been degrading over time. Mayor let me fix the place up a while back. I'm able to project myself here and run the tavern, but it's going to be another thousand or so before the rest of me is out.
+Artem: So, today, you're not interested in leading another campaign?
+Thorne: Only crusade I'm interested in is getting my ass to a beach. Assuming those still exist then. In the meantime, it's kind of nice sheparding idiots around with their dead friends.
+Artem: 
 => END

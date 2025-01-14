@@ -161,7 +161,7 @@ text = "Name:"
 label_settings = ExtResource("2_t0owy")
 
 [node name="TalentDescription" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
-texture_filter = 3
+texture_filter = 2
 layout_mode = 2
 text = "Welcome to the Field Training section of your Watcher's Journal! Select a trait or spell to learn more."
 label_settings = ExtResource("2_t0owy")
@@ -174,6 +174,7 @@ text = "Type"
 label_settings = ExtResource("2_t0owy")
 
 [node name="lvl req" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/info_margin/info_vbox"]
+texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 2
 text = "Unlocks at Level: 5"
@@ -386,6 +387,7 @@ layout_mode = 2
 theme_override_constants/separation = 4
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/char_talents/VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
 text = "Traits"
 label_settings = ExtResource("2_t0owy")
@@ -465,6 +467,7 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 
 [node name="Skills" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
+texture_filter = 2
 layout_mode = 2
 text = "Spells
 
